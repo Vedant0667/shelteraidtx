@@ -14,18 +14,21 @@ export default function GetInvolvedPage() {
       <NavBar />
       <main className="pt-24">
         {/* Page Header */}
-        <section className="relative w-full py-16 sm:py-20">
+        <section className="relative w-full py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-5">
-            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+            <div className="grid lg:grid-cols-2 gap-16 items-stretch">
               <div className="flex flex-col justify-center">
+                <div className="inline-block px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-6 w-fit">
+                  <span className="text-sm font-semibold text-[var(--color-primary)]">Join Us</span>
+                </div>
                 <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-                  Get Involved
+                  Make a Difference Today
                 </h1>
-                <p className="text-xl text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed">
                   There are many ways you can help make a difference in the lives of those experiencing homelessness in Dallas-Fort Worth
                 </p>
               </div>
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[400px]">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl min-h-[500px]">
                 <Image
                   src="/images/stock-5513.jpg"
                   alt="Get involved"
@@ -38,68 +41,13 @@ export default function GetInvolvedPage() {
           </div>
         </section>
 
-        {/* Ways to Help */}
-        <section className="relative w-full py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-5">
-            <div className="space-y-6 mb-16 max-w-3xl mx-auto">
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Donate Shoes</h3>
-                <p className="text-slate-600 mb-3">Contribute new or gently used shoes that provide warmth and dignity to those in need.</p>
-                <a href="https://shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Start Donating →
-                </a>
-              </div>
-
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Give Monthly</h3>
-                <p className="text-slate-600 mb-3">Provide sustainable support through recurring monthly donations to help shelters year-round.</p>
-                <a href="https://shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Set Up Monthly Giving →
-                </a>
-              </div>
-
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Volunteer</h3>
-                <p className="text-slate-600 mb-3">Help sort donations, coordinate drives, or assist with distribution events.</p>
-                <a href="mailto:contact@shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Join Our Team →
-                </a>
-              </div>
-
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Start a Shoe Drive</h3>
-                <p className="text-slate-600 mb-3">Organize a collection drive at your school, workplace, or community organization.</p>
-                <a href="mailto:contact@shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Learn How →
-                </a>
-              </div>
-
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Corporate Partnership</h3>
-                <p className="text-slate-600 mb-3">Partner your business with us for employee engagement and community impact.</p>
-                <a href="mailto:contact@shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Become a Partner →
-                </a>
-              </div>
-
-              <div className="border-l-4 border-[var(--color-primary)] pl-6 py-4">
-                <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Shelter Partnership</h3>
-                <p className="text-slate-600 mb-3">If you run a shelter and need support, join our network of partner organizations.</p>
-                <a href="mailto:contact@shelteraidtx.org" className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:underline">
-                  Apply to Partner →
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
-        <section className="relative w-full py-16 sm:py-20 bg-[var(--color-primary)] bg-opacity-5">
+        <section className="relative w-full py-20 sm:py-28">
           <div className="mx-auto max-w-4xl px-5 text-center">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
               Ready to Make a Difference?
             </h2>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
               Every contribution, whether it&apos;s shoes, time, or funds, helps provide warmth and dignity to those experiencing homelessness.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

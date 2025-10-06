@@ -45,16 +45,14 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <MotionDiv whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
               <a
-                href="https://shelteraidtx.org"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
                 className="inline-flex items-center rounded-full px-8 py-4 text-lg font-semibold text-white shadow-xl hover:shadow-2xl transition-all"
                 style={{
                   background:
                     "linear-gradient(135deg, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
                 }}
               >
-                Donate Shoes Now
+                Get Involved
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>

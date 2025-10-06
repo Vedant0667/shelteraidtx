@@ -44,33 +44,45 @@ const donationOptions = [
 
 export default function Donate() {
   return (
-    <section id="donate" className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
+    <section id="contact" className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
       <div className="mx-auto max-w-7xl px-5">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Content */}
           <MotionDiv {...fadeInUp}>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              Ready to Make a Difference?
+              Get in Touch
             </h2>
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Your donation helps provide shoes and essential items to homeless shelters across DFW. Every contribution brings warmth and dignity to those in need.
+              Ready to donate, volunteer, or partner with us? Reach out and let's make a difference together.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
               <MotionDiv whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
                 <a
-                  href="https://shelteraidtx.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:contact@shelteraidtx.org"
                   className="inline-flex items-center rounded-full px-8 py-4 text-lg font-semibold text-white shadow-xl hover:shadow-2xl transition-all"
                   style={{
                     background: "linear-gradient(135deg, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
                   }}
                 >
-                  Donate Shoes Now
+                  Contact Us
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
+                </a>
+              </MotionDiv>
+              <MotionDiv whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                <a
+                  href="https://shelteraidtx.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full border-2 px-8 py-4 text-lg font-semibold transition-all hover:bg-[var(--color-primary)] hover:text-white hover:border-[var(--color-primary)]"
+                  style={{
+                    borderColor: "var(--color-primary)",
+                    color: "var(--color-primary)",
+                  }}
+                >
+                  Donate Now
                 </a>
               </MotionDiv>
             </div>

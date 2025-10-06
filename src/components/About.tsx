@@ -22,8 +22,8 @@ export default function About() {
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6">
               <div className="flex items-center gap-4">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center text-white text-lg font-bold">
-                  01(c)3
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center text-white text-sm font-bold leading-tight">
+                  501(c)3
                 </div>
                 <div>
                   <div className="text-xs text-slate-600">Registered</div>
@@ -35,7 +35,7 @@ export default function About() {
 
           {/* Right: Content */}
           <div className="flex flex-col justify-center">
-            <div className="inline-block px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-6">
+            <div className="inline-block px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-6 w-fit">
               <span className="text-sm font-semibold text-[var(--color-primary)]">Our Mission</span>
             </div>
 
