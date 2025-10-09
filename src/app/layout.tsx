@@ -38,6 +38,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Shelter Aid TX" }],
   creator: "Shelter Aid TX",
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  alternates: {
+    canonical: "https://shelteraidtx.org",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -45,20 +52,11 @@ export const metadata: Metadata = {
     title: "Shelter Aid TX - Donate Shoes to Shelters Across DFW",
     description: "We are a nonprofit that donates shoes to shelters across DFW. Join us in helping homeless individuals through shoe donations and support.",
     siteName: "Shelter Aid TX",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Shelter Aid TX - Donating shoes to homeless shelters in Dallas-Fort Worth area",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Shelter Aid TX - Donate Shoes to Help Homeless Shelters",
     description: "Join our nonprofit mission to donate shoes to shelters across DFW. Every pair makes a difference.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

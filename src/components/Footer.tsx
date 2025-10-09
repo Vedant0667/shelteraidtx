@@ -23,16 +23,11 @@ export default function Footer() {
                 href="https://instagram.com/shelteraidtx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-all hover:scale-110"
-                style={{
-                  backgroundColor: "var(--color-primary)",
-                  opacity: 0.15,
-                }}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-secondary)] hover:bg-[var(--color-primary)] transition-all hover:scale-110 group"
                 aria-label="Follow us on Instagram"
               >
                 <svg
-                  className="w-5 h-5"
-                  style={{ color: "var(--color-primary)" }}
+                  className="w-5 h-5 text-[var(--color-primary)] group-hover:text-white transition-colors"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
