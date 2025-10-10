@@ -56,7 +56,7 @@ export default function GetInvolvedPage() {
                 Ways to Help
               </h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Choose how you'd like to support our mission
+                Choose how you&apos;d like to support our mission
               </p>
             </MotionDiv>
 
@@ -81,7 +81,7 @@ export default function GetInvolvedPage() {
                       <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-slate-700">All sizes accepted - men's, women's, and children's</span>
+                      <span className="text-slate-700">All sizes accepted - men&apos;s, women&apos;s, and children&apos;s</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@ export default function GetInvolvedPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://shelteraidtx.org"
+                  href="/donate"
                   className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium text-white shadow-xl hover:shadow-2xl transition-shadow"
                   style={{
                     background: "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
@@ -217,10 +217,10 @@ export default function GetInvolvedPage() {
                   Donate Now
                 </a>
                 <a
-                  href="shelteraidtx@gmail.com"
+                  href="/donate#contact-form"
                   className="inline-flex items-center justify-center rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 text-base font-medium transition-all hover:bg-[var(--color-primary)] hover:text-white"
                 >
-                  Contact Us
+                  Ask a Question
                 </a>
               </div>
             </MotionDiv>

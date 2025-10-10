@@ -63,10 +63,8 @@ export default function NavBar() {
             >
               Partners
             </Link>
-            <a
-              href="https://shelteraidtx.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/donate"
               className="inline-flex items-center rounded-full px-6 py-2.5 text-sm font-medium text-white shadow-lg hover:shadow-xl transition-all"
               style={{
                 background:
@@ -74,7 +72,7 @@ export default function NavBar() {
               }}
             >
               Donate Now
-            </a>
+            </Link>
           </div>
 
           <button
@@ -128,10 +126,8 @@ export default function NavBar() {
           >
             Partners
           </a>
-          <a
-            href="https://shelteraidtx.org"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/donate"
             className="block mt-4 text-center rounded-full px-6 py-2.5 text-sm font-medium text-white shadow-lg"
             style={{
               background:
@@ -139,7 +135,7 @@ export default function NavBar() {
             }}
           >
             Donate Now
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

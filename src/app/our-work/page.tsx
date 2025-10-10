@@ -132,7 +132,7 @@ export default function OurWorkPage() {
                 Our Impact
               </h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Real numbers showing the difference we're making
+                Real numbers showing the difference we&apos;re making
               </p>
             </MotionDiv>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

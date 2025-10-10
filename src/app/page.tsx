@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Impact from "@/components/Impact";
+import QuickDonate from "@/components/QuickDonate";
 import HowItWorks from "@/components/HowItWorks";
 import Testimonials from "@/components/Testimonials";
 import Donate from "@/components/Donate";
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <About />
         <Impact />
+        <QuickDonate />
         <HowItWorks />
         <Testimonials />
         <Donate />

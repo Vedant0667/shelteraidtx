@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer
@@ -82,17 +84,15 @@ export default function Footer() {
               Get in Touch
             </h4>
             <p className="text-sm text-slate-600 mb-4">
-              Have questions about donating shoes or partnering with us? We&apos;d
-              love to hear from you.
+              Have questions about donating shoes or partnering with us? Share a message through our
+              contact form and we&apos;ll respond within two business days.
             </p>
-            <a
-              href="https://shelteraidtx.org"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/donate#contact-form"
               className="inline-flex items-center text-sm font-medium transition-colors hover:underline"
               style={{ color: "var(--color-primary)" }}
             >
-              Visit Our Website
+              Open Contact Form
               <svg
                 className="w-4 h-4 ml-1"
                 fill="none"
@@ -103,10 +103,10 @@ export default function Footer() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M9 5l7 7-7 7"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 

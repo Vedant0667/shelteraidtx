@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import Image from "next/image";
 import { MotionDiv, fadeInUp } from "@/components/Motion";
 
@@ -75,7 +76,7 @@ export default function PartnersPage() {
                   />
                 </div>
                 <p className="font-display text-xl font-bold text-slate-900 mb-2">Greenhill School</p>
-                <p className="text-slate-600 text-sm leading-relaxed">Shoe donation drive partner with Genesis Women's Shelter</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Shoe donation drive partner with Genesis Women&apos;s Shelter</p>
               </MotionDiv>
 
               <MotionDiv
@@ -111,7 +112,7 @@ export default function PartnersPage() {
                   />
                 </div>
                 <p className="font-display text-xl font-bold text-slate-900 mb-2">CISV Dallas Chapter</p>
-                <p className="text-slate-600 text-sm leading-relaxed">Children's International Summer Villages promoting community service</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Children&apos;s International Summer Villages promoting community service</p>
               </MotionDiv>
             </div>
           </div>
@@ -136,7 +137,7 @@ export default function PartnersPage() {
                 { name: "AITF Services", desc: "Supporting individuals and families in crisis throughout DFW", logo: "/images/shelters/aitf.png" },
                 { name: "Our Daily Bread", desc: "Monsignor King Outreach Center providing meals and essential services", logo: "/images/shelters/our-daily-bread.png" },
                 { name: "Journey to Dream", desc: "Empowering individuals to achieve self-sufficiency and stability", logo: "/images/shelters/journey-to-dream.png" },
-                { name: "Genesis Women's Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
+                { name: "Genesis Women&apos;s Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
               ].map((partner, i) => (
                 <MotionDiv
                   key={i}
@@ -163,34 +164,69 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="relative w-full py-20 sm:py-28">
-          <div className="mx-auto max-w-4xl px-5 text-center">
-            <MotionDiv {...fadeInUp}>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+        <section id="partner-contact" className="relative w-full py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-5">
+            <MotionDiv {...fadeInUp} className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
                 Become a Partner
               </h2>
-              <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-                Whether you're a shelter in need of support or an organization wanting to help, we'd love to partner with you
+              <p className="text-lg text-slate-600">
+                Whether you serve unhoused neighbors or want to fund local drives, we&rsquo;re excited
+                to collaborate. Let us know how you&rsquo;d like to team up and we&rsquo;ll follow up with next steps.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="mailto:contact@shelteraidtx.org?subject=Shelter Partnership Inquiry"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium text-white shadow-xl hover:shadow-2xl transition-shadow"
+            </MotionDiv>
+            <div className="grid gap-8 md:grid-cols-2">
+              <MotionDiv
+                {...fadeInUp}
+                transition={{ delay: 0.1 }}
+                className="rounded-3xl border border-white/70 bg-white/85 backdrop-blur p-8 shadow-lg text-left"
+              >
+                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">For Shelters</h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+                  Tell us the sizes you need, preferred delivery windows, and how we can best support the guests you serve.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-600 mb-6">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Scheduled deliveries or pickups within the DFW metroplex.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Sorting support for mixed-size donations.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Monthly inventory check-ins for recurring needs.</span></li>
+                </ul>
+                <Link
+                  href="/donate#contact-form"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl"
                   style={{
-                    background: "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
+                    background:
+                      "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
                   }}
                 >
-                  Partner as a Shelter
-                </a>
-                <a
-                  href="mailto:contact@shelteraidtx.org?subject=Community Partnership Inquiry"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 text-base font-medium transition-all hover:bg-[var(--color-primary)] hover:text-white"
+                  Message Us
+                </Link>
+              </MotionDiv>
+              <MotionDiv
+                {...fadeInUp}
+                transition={{ delay: 0.2 }}
+                className="rounded-3xl border border-white/70 bg-white/85 backdrop-blur p-8 shadow-lg text-left"
+              >
+                <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">For Community Organizations</h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+                  Partner with us on drives, sponsorships, or volunteer events that keep shoes moving to local shelters.
+                </p>
+                <ul className="space-y-3 text-sm text-slate-600 mb-6">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Custom marketing assets and drive playbooks.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Volunteer coordination for sorting and delivery.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-[var(--color-primary)]">•</span><span>Impact recaps you can share with your community.</span></li>
+                </ul>
+                <Link
+                  href="/donate#contact-form"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+                  style={{
+                    background:
+                      "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
+                  }}
                 >
-                  Partner as an Organization
-                </a>
-              </div>
-            </MotionDiv>
+                  Start a Conversation
+                </Link>
+              </MotionDiv>
+            </div>
           </div>
         </section>
       </main>
@@ -198,3 +234,5 @@ export default function PartnersPage() {
     </>
   );
 }
+
+

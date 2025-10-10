@@ -16,100 +16,28 @@ const stripePromise = loadStripe(
 
 const presetAmounts = [10, 25, 50, 100];
 
-const shoeSteps = [
+const shoeSupport = [
   {
     title: "Schedule a Drop-Off",
     description:
       "Clean, gently used sneakers and casual shoes of all sizes keep shelters stocked year-round.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M3 7l9-4 9 4-9 4-9-4zm0 7l9 4 9-4"
-      />
-    ),
-    tint: "from-[var(--color-primary)] to-[var(--color-primary-hover)]",
   },
   {
     title: "Host a Shoe Drive",
     description:
-      "Schools, teams, and workplaces can collect pairs together. We provide promo kits and pickup support.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 6h16M4 12h10m-6 6h6"
-      />
-    ),
-    tint: "from-[var(--color-accent)] to-amber-600",
+      "Schools, teams, and workplaces can collect pairs together. We’ll share promo kits and pickup logistics.",
   },
   {
-    title: "Request a Pickup",
+    title: "Request Pickup",
     description:
-      "Have 30 or more pairs ready to go? Volunteers can coordinate sorting and delivery to partner shelters.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-      />
-    ),
-    tint: "from-indigo-500 to-purple-600",
+      "Have 30+ pairs ready to go? Our volunteers will coordinate sorting and delivery to partner shelters.",
   },
 ];
 
-const heroStats = [
-  {
-    label: "Pairs Delivered",
-    value: "1,003+",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
-    ),
-    tint: "from-[var(--color-primary)] to-[var(--color-primary-hover)]",
-  },
-  {
-    label: "Shelter Partners",
-    value: "6",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-      />
-    ),
-    tint: "from-[var(--color-accent)] to-amber-600",
-  },
-  {
-    label: "Community Partners",
-    value: "3",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M5 13l4 4L19 7"
-      />
-    ),
-    tint: "from-indigo-500 to-purple-600",
-  },
-];
-
-const inquiryOptions = [
-  { value: "donation-support", label: "Monetary Donation Support" },
-  { value: "shoe-donation", label: "Donate Shoes" },
-  { value: "host-drive", label: "Host a Shoe Drive" },
-  { value: "partnership", label: "Partnership Inquiry" },
-  { value: "volunteer", label: "Volunteer Interest" },
-  { value: "general-question", label: "General Question" },
+const impactStats = [
+  { label: "Pairs Delivered", value: "1,003+" },
+  { label: "Shelter Partners", value: "6" },
+  { label: "Community Partners", value: "3" },
 ];
 
 export default function DonatePage() {
@@ -130,10 +58,10 @@ export default function DonatePage() {
   useEffect(() => {
     const amountParam = searchParams.get("amount");
     if (amountParam) {
-      const parsed = parseFloat(amountParam);
-      if (!Number.isNaN(parsed) && parsed > 0) {
-        setSelectedAmount(parsed);
-        setCustomAmount(presetSet.has(parsed) ? "" : amountParam);
+      const parsedAmount = parseFloat(amountParam);
+      if (!Number.isNaN(parsedAmount) && parsedAmount > 0) {
+        setSelectedAmount(parsedAmount);
+        setCustomAmount(presetSet.has(parsedAmount) ? "" : amountParam);
       }
     }
 
@@ -187,6 +115,7 @@ export default function DonatePage() {
       });
 
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.error || "Failed to initialize payment.");
       }
@@ -212,37 +141,35 @@ export default function DonatePage() {
     <>
       <NavBar />
       <main className="pt-24">
-        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)] via-white to-white">
+        {/* Intro */}
+        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] via-white to-white">
           <div className="mx-auto max-w-5xl px-5">
-            <MotionDiv
-              {...fadeInUp}
-              className="space-y-6 text-center sm:text-left"
-            >
-              <div className="inline-flex items-center justify-center sm:justify-start rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-                Shelter Aid TX
+            <MotionDiv {...fadeInUp} className="space-y-12 text-center">
+              <div className="space-y-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
+                  Shelter Aid TX
+                </span>
+                <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900">
+                  Donate Shoes. Fund Impact. Support Shelters.
+                </h1>
+                <p className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
+                  Every contribution keeps shoes flowing to Dallas-Fort Worth shelters. Choose a
+                  gift amount, share a quick note, and we’ll handle the rest within two business days.
+                </p>
               </div>
-              <h1 className="font-display text-4xl sm:text-[2.75rem] font-bold text-slate-900">
-                Donate Shoes. Fund Impact. Support Shelters.
-              </h1>
-              <p className="mx-auto sm:mx-0 max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
-                Every contribution keeps shoes flowing to Dallas-Fort Worth shelters. Choose a gift amount,
-                share a quick note, and we’ll handle the rest within two business days.
-              </p>
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-                {heroStats.map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-3">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${stat.tint}`}
-                    >
-                      <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {stat.icon}
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-display text-xl font-semibold text-slate-900">{stat.value}</p>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{stat.label}</p>
-                    </div>
+              <div className="grid gap-6 sm:grid-cols-3 text-left">
+                {impactStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-3xl border border-white/70 bg-white px-6 py-6 text-center shadow-sm"
+                  >
+                    <p className="font-display text-3xl font-bold text-[var(--color-primary)]">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      {stat.label}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -250,7 +177,8 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-14 sm:py-18">
+        {/* Monetary Donation */}
+        <section className="relative w-full py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-5">
             <MotionDiv
               {...fadeInUp}
@@ -263,7 +191,8 @@ export default function DonatePage() {
                       Donate Securely
                     </h2>
                     <p className="text-sm text-slate-500">
-                      Stripe powers the checkout experience. Choose your amount and share contact details for a receipt.
+                      Stripe powers the checkout experience. Choose your amount and share contact
+                      details so we can send a receipt.
                     </p>
                   </div>
 
@@ -289,7 +218,7 @@ export default function DonatePage() {
                     <h3 className="font-display text-xl font-semibold text-slate-900">
                       Choose Amount
                     </h3>
-                    <div className="grid gap-3 sm:grid-cols-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {presetAmounts.map((amount) => (
                         <button
                           key={amount}
@@ -376,7 +305,7 @@ export default function DonatePage() {
                           : "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
                     }}
                   >
-                    {isLoading ? "Preparing checkout..." : "Continue to Payment"}
+                    {isLoading ? "Preparing Checkout…" : "Continue to Payment"}
                   </button>
                   <p className="text-xs text-slate-500 text-center">
                     Secure payment processing powered by Stripe.
@@ -391,10 +320,12 @@ export default function DonatePage() {
                     }}
                     className="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)]"
                   >
-                    &larr; Back
+                    ← Back
                   </button>
                   <div className="rounded-2xl border border-white/60 bg-white/80 px-5 py-4 flex justify-between text-sm text-slate-700">
-                    <span>{frequency === "monthly" ? "Monthly donation" : "One-time donation"}</span>
+                    <span>
+                      {frequency === "monthly" ? "Monthly donation" : "One-time donation"}
+                    </span>
                     <span className="font-display text-lg text-[var(--color-primary)]">
                       ${selectedAmount.toFixed(2)}
                       {frequency === "monthly" && <span className="text-sm">/month</span>}
@@ -417,66 +348,84 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)]/40 to-white">
+        {/* Shoe Donation */}
+        <section className="relative w-full py-16 sm:py-24 bg-gradient-to-br from-[var(--color-secondary)]/40 to-white">
           <div className="mx-auto max-w-5xl px-5">
-            <MotionDiv {...fadeInUp} className="text-center mb-8 space-y-3">
-              <div className="mx-auto inline-flex items-center justify-center rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-                Donate Shoes
-              </div>
+            <MotionDiv {...fadeInUp} className="text-center mb-12 space-y-4">
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
-                Prefer to Donate Shoes?
+                Donate Shoes Instead?
               </h2>
               <p className="text-lg text-slate-600">
-                Follow these steps and we will make sure each pair reaches a Dallas-Fort Worth shelter.
+                Follow these steps and we’ll make sure every pair reaches a local shelter partner.
               </p>
             </MotionDiv>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {shoeSteps.map((step, index) => (
+              {shoeSupport.map((item, index) => (
                 <MotionDiv
-                  key={step.title}
+                  key={item.title}
                   {...fadeInUp}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4 text-left"
+                  className="rounded-3xl border border-white/80 bg-white p-6 shadow-lg backdrop-blur text-left"
                 >
-                  <div
-                    className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${step.tint}`}
-                  >
-                    <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      {step.icon}
-                    </svg>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-display font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <p className="font-display text-xl font-bold text-slate-900">{item.title}</p>
                   </div>
-                  <div>
-                    <p className="font-display text-xl font-bold text-slate-900">{step.title}</p>
-                    <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
-                  </div>
+                  <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
                 </MotionDiv>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="relative w-full py-12 sm:py-16">
+        {/* Contact */}
+        <section className="relative w-full py-16 sm:py-24">
           <div className="mx-auto max-w-4xl px-5">
-            <MotionDiv {...fadeInUp} className="text-center mb-8 space-y-3">
-              <div className="mx-auto inline-flex items-center justify-center rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
+            <MotionDiv {...fadeInUp} className="text-center mb-10 space-y-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
                 Quick Response
-              </div>
+              </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Tell Us How We Can Help
               </h2>
               <p className="text-base text-slate-600">
-                One form covers everything: donation questions, shoe pickups, collaborations, or volunteer interest.
+                One form, many paths—donation questions, shoe pickups, collaboration ideas, or
+                volunteer opportunities.
               </p>
             </MotionDiv>
 
             <ContactForm
               subject="Website Inquiry"
-              description="Have questions or want to collaborate? Share a few details below and we will follow up within two business days."
+              description="Have questions or want to collaborate? Share a few details below and we’ll follow up within two business days."
               submitLabel="Send Message"
               successMessage="Thank you! We'll reach out shortly."
-              inquiryOptions={inquiryOptions}
+              inquiryOptions={[
+                { value: "donation-support", label: "Monetary Donation Support" },
+                { value: "shoe-donation", label: "Donate Shoes" },
+                { value: "host-drive", label: "Host a Shoe Drive" },
+                { value: "partnership", label: "Partnership Inquiry" },
+                { value: "volunteer", label: "Volunteer Interest" },
+                { value: "general-question", label: "General Question" },
+              ]}
             />
+          </div>
+        </section>
+
+        {/* Impact */}
+        <section className="relative w-full py-16 sm:py-24 bg-white">
+          <div className="mx-auto max-w-5xl px-5 text-center">
+            <MotionDiv {...fadeInUp} className="space-y-4">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
+                Your Impact in DFW
+              </h2>
+              <p className="text-base text-slate-600 max-w-3xl mx-auto">
+                Every donation—monetary or in-kind—helps us deliver shoes quickly to local shelters,
+                restore dignity, and support neighbors experiencing homelessness.
+              </p>
+            </MotionDiv>
           </div>
         </section>
       </main>
@@ -484,3 +433,4 @@ export default function DonatePage() {
     </>
   );
 }
+
