@@ -45,9 +45,7 @@ export default function ContactForm({
     return FALLBACK_OPTIONS;
   }, [inquiryOptions]);
 
-  const [inquiryType, setInquiryType] = useState<string>(
-    options[0]?.value ?? "general-question"
-  );
+  const [inquiryType, setInquiryType] = useState<string>("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -55,8 +53,8 @@ export default function ContactForm({
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (!options.some((option) => option.value === inquiryType)) {
-      setInquiryType(options[0]?.value ?? "general-question");
+    if (inquiryType && !options.some((option) => option.value === inquiryType)) {
+      setInquiryType("");
     }
   }, [options, inquiryType]);
 
@@ -64,7 +62,7 @@ export default function ContactForm({
     setName("");
     setEmail("");
     setMessage("");
-    setInquiryType(options[0]?.value ?? "general-question");
+    setInquiryType("");
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -117,7 +115,7 @@ export default function ContactForm({
   return (
     <MotionDiv
       {...fadeInUp}
-      className={`rounded-3xl border border-white/80 bg-white/85 shadow-xl backdrop-blur p-6 sm:p-8 ${className}`}
+      className={`rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 ${className}`}
     >
       <form className="space-y-8" onSubmit={handleSubmit}>
         <div className="space-y-4 text-center sm:text-left">
@@ -269,7 +267,11 @@ function FormSelect({ id, label, value, onChange, options }: FormSelectProps) {
         value={value}
         onChange={(event) => onChange(event.target.value)}
         className="w-full rounded-2xl border border-slate-200/70 bg-white/90 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+        required
       >
+        <option value="" disabled>
+          Select an inquiry type
+        </option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

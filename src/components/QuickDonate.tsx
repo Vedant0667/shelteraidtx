@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { MotionDiv, fadeInUp } from "./Motion";
 
+// FEATURE FLAG: Set to true when banking details are ready
+const DONATIONS_ENABLED = false;
+
 const quickAmounts = [5, 10, 25, 50];
 
 export default function QuickDonate() {
@@ -42,12 +45,14 @@ export default function QuickDonate() {
       <div className="mx-auto max-w-6xl px-5">
         <MotionDiv
           {...fadeInUp}
-          className="rounded-3xl border border-slate-200/70 bg-white/90 shadow-2xl backdrop-blur-sm p-6 sm:p-10"
+          className="grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center"
         >
-          <div className="grid gap-10 md:grid-cols-[1.1fr,0.9fr] items-center">
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 rounded-full bg-[var(--color-secondary)] text-sm font-semibold text-[var(--color-primary)]">
-                Quick Gift
+          <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50">
+                <svg className="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-semibold text-rose-600">Quick Gift</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Make a Donation in Seconds
@@ -71,7 +76,20 @@ export default function QuickDonate() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-6 sm:p-8">
+            <div className={`rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 relative ${!DONATIONS_ENABLED ? 'opacity-60' : ''}`}>
+              {!DONATIONS_ENABLED && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-2xl z-10">
+                  <div className="text-center px-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-300 mb-2">
+                      <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="font-semibold text-slate-700">Coming Soon</span>
+                    </div>
+                    <p className="text-sm text-slate-600">Online donations will be available soon</p>
+                  </div>
+                </div>
+              )}
               <div className="flex justify-center mb-6">
                 <div className="inline-flex rounded-full bg-slate-100 p-1">
                   <button
@@ -150,7 +168,6 @@ export default function QuickDonate() {
                 You&apos;ll be redirected to our secure Stripe checkout.
               </p>
             </div>
-          </div>
         </MotionDiv>
       </div>
     </section>

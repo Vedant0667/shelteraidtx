@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Script from "next/script";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MotionDiv, fadeInUp } from "@/components/Motion";
@@ -9,6 +10,10 @@ import ContactForm from "@/components/ContactForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import StripePaymentForm from "@/components/StripePaymentForm";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+
+// FEATURE FLAG: Set to true when banking details are ready
+const DONATIONS_ENABLED = false;
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -112,6 +117,61 @@ const inquiryOptions = [
   { value: "general-question", label: "General Question" },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Is my donation tax-deductible?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Shelter Aid TX is a registered 501(c)(3) nonprofit organization (EIN 93-3584886). All monetary donations are tax-deductible, and you'll receive a receipt for your records after completing your donation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Where do the donated shoes go?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Every pair of shoes donated goes directly to homeless shelters across the Dallas-Fort Worth area. We partner with 6 local shelters to ensure shoes reach those experiencing homelessness in our community.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What types of shoes do you accept?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We accept clean, gently used sneakers and casual shoes of all sizes. Shoes should be in good condition—free from major damage, suitable for daily wear, and able to provide comfort and protection.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I donate shoes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can donate shoes by scheduling a drop-off, hosting a shoe drive at your school or workplace, or requesting a pickup if you have 30+ pairs. Use our contact form to coordinate any of these options—we'll respond within two business days.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I make a monetary donation instead of donating shoes?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes! Monetary donations help us cover operational costs, transportation, and shelter partnerships. You can make a secure one-time or monthly donation through our Stripe-powered payment form on this page.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can I volunteer or partner with Shelter Aid TX?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We welcome volunteers for sorting, delivery coordination, and community outreach. Organizations can partner with us for shoe drives or shelter collaborations. Fill out our contact form selecting 'Volunteer Interest' or 'Partnership Inquiry' to get started.",
+      },
+    },
+  ],
+};
+
 export default function DonatePage() {
   const searchParams = useSearchParams();
 
@@ -210,16 +270,38 @@ export default function DonatePage() {
 
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <NavBar />
       <main className="pt-24">
         <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)] via-white to-white">
           <div className="mx-auto max-w-5xl px-5">
             <MotionDiv
-              {...fadeInUp}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Breadcrumbs
+                items={[
+                  { name: "Home", url: "/" },
+                  { name: "Donate", url: "/donate" },
+                ]}
+              />
+            </MotionDiv>
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-6 text-center sm:text-left"
             >
-              <div className="inline-flex items-center justify-center sm:justify-start rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-                Shelter Aid TX
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
+                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-semibold text-[var(--color-primary)]">Support Our Mission</span>
               </div>
               <h1 className="font-display text-4xl sm:text-[2.75rem] font-bold text-slate-900">
                 Donate Shoes. Fund Impact. Support Shelters.
@@ -253,12 +335,35 @@ export default function DonatePage() {
         <section className="relative w-full py-14 sm:py-18">
           <div className="mx-auto max-w-4xl px-5">
             <MotionDiv
-              {...fadeInUp}
-              className="rounded-3xl border border-white/70 bg-white/95 p-6 sm:p-8 shadow-xl backdrop-blur"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className={`rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 ${!DONATIONS_ENABLED ? 'opacity-60 pointer-events-none relative' : ''}`}
             >
+              {!DONATIONS_ENABLED && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-3xl z-10">
+                  <div className="text-center px-6">
+                    <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 border border-slate-300 mb-4">
+                      <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="font-semibold text-slate-700 text-lg">Coming Soon</span>
+                    </div>
+                    <p className="text-slate-600 max-w-md mx-auto">
+                      Online donations will be available soon. In the meantime, contact us about shoe donations or volunteering opportunities.
+                    </p>
+                  </div>
+                </div>
+              )}
               {!showPaymentForm ? (
                 <div className="space-y-8">
                   <div className="space-y-3 text-center">
+                    <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 mb-2">
+                      <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                      <span className="text-sm font-semibold text-indigo-600">Secure Payment</span>
+                    </div>
                     <h2 className="font-display text-3xl font-bold text-slate-900">
                       Donate Securely
                     </h2>
@@ -419,9 +524,18 @@ export default function DonatePage() {
 
         <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)]/40 to-white">
           <div className="mx-auto max-w-5xl px-5">
-            <MotionDiv {...fadeInUp} className="text-center mb-8 space-y-3">
-              <div className="mx-auto inline-flex items-center justify-center rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-                Donate Shoes
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8 space-y-3"
+            >
+              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 mb-2 w-fit">
+                <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                </svg>
+                <span className="text-sm font-semibold text-purple-600">Donate Shoes</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Prefer to Donate Shoes?
@@ -435,8 +549,10 @@ export default function DonatePage() {
               {shoeSteps.map((step, index) => (
                 <MotionDiv
                   key={step.title}
-                  {...fadeInUp}
-                  transition={{ delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex items-start gap-4 text-left"
                 >
                   <div
@@ -456,11 +572,65 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-12 sm:py-16">
+        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)]/30 to-white">
           <div className="mx-auto max-w-4xl px-5">
-            <MotionDiv {...fadeInUp} className="text-center mb-8 space-y-3">
-              <div className="mx-auto inline-flex items-center justify-center rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-                Quick Response
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-10 space-y-3"
+            >
+              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 mb-2 w-fit">
+                <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-semibold text-emerald-600">Frequently Asked</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
+                Common Questions
+              </h2>
+              <p className="text-base text-slate-600">
+                Everything you need to know about donating shoes and supporting our mission.
+              </p>
+            </MotionDiv>
+
+            <div className="space-y-4">
+              {faqSchema.mainEntity.map((faq, index) => (
+                <MotionDiv
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  className="rounded-2xl border border-slate-200/70 bg-white/90 p-6 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h3 className="font-display text-lg font-semibold text-slate-900 mb-3">
+                    {faq.name}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {faq.acceptedAnswer.text}
+                  </p>
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact-form" className="relative w-full py-12 sm:py-16">
+          <div className="mx-auto max-w-4xl px-5">
+            <MotionDiv
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8 space-y-3"
+            >
+              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-light)] mb-2 w-fit">
+                <svg className="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span className="text-sm font-semibold text-[var(--color-accent)]">Quick Response</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Tell Us How We Can Help

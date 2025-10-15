@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { MotionDiv, fadeInUp } from "@/components/Motion";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function OurWorkPage() {
   return (
@@ -13,6 +14,12 @@ export default function OurWorkPage() {
         {/* Page Header */}
         <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
           <div className="mx-auto max-w-7xl px-5">
+            <Breadcrumbs
+              items={[
+                { name: "Home", url: "/" },
+                { name: "Our Work", url: "/our-work" },
+              ]}
+            />
             <div className="grid lg:grid-cols-2 gap-16 items-stretch">
               <MotionDiv
                 initial={{ opacity: 0, y: 30 }}
@@ -34,8 +41,11 @@ export default function OurWorkPage() {
                 transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 120, damping: 18 }}
                 className="flex flex-col justify-center"
               >
-                <div className="inline-block px-4 py-2 rounded-full bg-white/80 mb-6 w-fit">
-                  <span className="text-sm font-semibold text-[var(--color-primary)]">What We Do</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-light)] mb-6 w-fit">
+                  <svg className="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-[var(--color-accent)]">What We Do</span>
                 </div>
                 <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
                   Making a Difference Every Day
@@ -64,7 +74,7 @@ export default function OurWorkPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.1 }}
-                className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all"
+                className="flex items-start gap-6 bg-white rounded-2xl p-8 border border-slate-200"
               >
                 <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +94,7 @@ export default function OurWorkPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.2 }}
-                className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all"
+                className="flex items-start gap-6 bg-white rounded-2xl p-8 border border-slate-200"
               >
                 <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +114,7 @@ export default function OurWorkPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.3 }}
-                className="flex items-start gap-6 bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all"
+                className="flex items-start gap-6 bg-white rounded-2xl p-8 border border-slate-200"
               >
                 <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-amber-600 flex items-center justify-center shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

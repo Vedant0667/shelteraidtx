@@ -4,6 +4,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { MotionDiv, fadeInUp } from "@/components/Motion";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function GetInvolvedPage() {
   return (
@@ -13,6 +14,12 @@ export default function GetInvolvedPage() {
         {/* Page Header */}
         <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
           <div className="mx-auto max-w-7xl px-5">
+            <Breadcrumbs
+              items={[
+                { name: "Home", url: "/" },
+                { name: "Get Involved", url: "/get-involved" },
+              ]}
+            />
             <div className="grid lg:grid-cols-2 gap-16 items-stretch">
               <MotionDiv
                 initial={{ opacity: 0, y: 30 }}
@@ -20,8 +27,11 @@ export default function GetInvolvedPage() {
                 transition={{ duration: 0.7, type: "spring", stiffness: 120, damping: 18 }}
                 className="flex flex-col justify-center"
               >
-                <div className="inline-block px-4 py-2 rounded-full bg-white/80 mb-6 w-fit">
-                  <span className="text-sm font-semibold text-[var(--color-primary)]">Join Us</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 mb-6 w-fit">
+                  <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  <span className="text-sm font-semibold text-emerald-600">Join Us</span>
                 </div>
                 <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
                   Make a Difference Today

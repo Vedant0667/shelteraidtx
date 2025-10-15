@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { MotionDiv, fadeInUp } from "@/components/Motion";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function PartnersPage() {
   return (
@@ -14,6 +15,12 @@ export default function PartnersPage() {
         {/* Hero */}
         <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
           <div className="mx-auto max-w-7xl px-5">
+            <Breadcrumbs
+              items={[
+                { name: "Home", url: "/" },
+                { name: "Our Partners", url: "/partners" },
+              ]}
+            />
             <div className="grid lg:grid-cols-2 gap-16 items-stretch">
               <MotionDiv
                 initial={{ opacity: 0, y: 30 }}
@@ -21,8 +28,11 @@ export default function PartnersPage() {
                 transition={{ duration: 0.7, type: "spring", stiffness: 120, damping: 18 }}
                 className="flex flex-col justify-center"
               >
-                <div className="inline-block px-4 py-2 rounded-full bg-white/80 mb-6 w-fit">
-                  <span className="text-sm font-semibold text-[var(--color-primary)]">Our Network</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 mb-6 w-fit">
+                  <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                  <span className="text-sm font-semibold text-purple-600">Our Network</span>
                 </div>
                 <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
                   Partners Making Change Happen
@@ -179,7 +189,7 @@ export default function PartnersPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.1 }}
-                className="rounded-3xl border border-white/70 bg-white/85 backdrop-blur p-8 shadow-lg text-left"
+                className="rounded-3xl border border-slate-200 bg-white p-8 text-left"
               >
                 <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">For Shelters</h3>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
@@ -204,7 +214,7 @@ export default function PartnersPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.2 }}
-                className="rounded-3xl border border-white/70 bg-white/85 backdrop-blur p-8 shadow-lg text-left"
+                className="rounded-3xl border border-slate-200 bg-white p-8 text-left"
               >
                 <h3 className="font-display text-2xl font-bold text-slate-900 mb-3">For Community Organizations</h3>
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">

@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+// FEATURE FLAG: Set to true when banking details are ready
+const DONATIONS_ENABLED = false;
+
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -65,13 +68,22 @@ export default function NavBar() {
             </Link>
             <Link
               href="/donate"
-              className="inline-flex items-center rounded-full px-6 py-2.5 text-sm font-medium text-white shadow-lg hover:shadow-xl transition-all"
-              style={{
+              className={`inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium shadow-lg transition-all ${
+                DONATIONS_ENABLED
+                  ? 'text-white hover:shadow-xl'
+                  : 'text-slate-500 bg-slate-200 cursor-not-allowed hover:shadow-lg'
+              }`}
+              style={DONATIONS_ENABLED ? {
                 background:
                   "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
-              }}
+              } : {}}
             >
-              Donate Now
+              {DONATIONS_ENABLED ? 'Donate Now' : (
+                <>
+                  Donate Now
+                  <span className="text-xs bg-slate-300 px-2 py-0.5 rounded-full">Soon</span>
+                </>
+              )}
             </Link>
           </div>
 
@@ -128,13 +140,17 @@ export default function NavBar() {
           </a>
           <Link
             href="/donate"
-            className="block mt-4 text-center rounded-full px-6 py-2.5 text-sm font-medium text-white shadow-lg"
-            style={{
+            className={`block mt-4 text-center rounded-full px-6 py-2.5 text-sm font-medium shadow-lg ${
+              DONATIONS_ENABLED
+                ? 'text-white'
+                : 'text-slate-500 bg-slate-200 cursor-not-allowed'
+            }`}
+            style={DONATIONS_ENABLED ? {
               background:
                 "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
-            }}
+            } : {}}
           >
-            Donate Now
+            {DONATIONS_ENABLED ? 'Donate Now' : 'Donate Now (Coming Soon)'}
           </Link>
         </div>
       </div>

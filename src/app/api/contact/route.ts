@@ -66,13 +66,24 @@ export async function POST(req: NextRequest) {
       message,
     ].join("\n");
 
-    await transport.sendMail({
+    // Send email
+    const result = await transport.sendMail({
       to,
       from,
       replyTo: email,
       subject: subjectWithInquiry,
       text,
     });
+
+    // Log for development (remove in production)
+    if (!SMTP_HOST) {
+      console.log("\n📧 Contact Form Submission (DEV MODE - not actually sent):");
+      console.log("To:", to);
+      console.log("From:", from);
+      console.log("Subject:", subjectWithInquiry);
+      console.log("Message:\n", text);
+      console.log("---\n");
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
