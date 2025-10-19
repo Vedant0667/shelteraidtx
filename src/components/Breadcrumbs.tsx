@@ -27,7 +27,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
     <>
       <nav
-        className="text-sm text-slate-600 mb-6"
+        className="text-sm text-slate-600 mb-6 pt-24 px-5 max-w-7xl mx-auto"
         aria-label="Breadcrumb navigation"
       >
         {items.map((item, i) => (

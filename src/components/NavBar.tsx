@@ -67,6 +67,12 @@ export default function NavBar() {
               Partners
             </Link>
             <Link
+              href="/blog"
+              className="text-sm font-medium text-slate-700 hover:text-[var(--color-primary)] transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
               href="/donate"
               className={`inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium shadow-lg transition-all ${
                 DONATIONS_ENABLED
@@ -137,6 +143,12 @@ export default function NavBar() {
             className="block py-2 text-sm font-medium text-slate-700 hover:text-[var(--color-primary)] transition-colors"
           >
             Partners
+          </a>
+          <a
+            href="/blog"
+            className="block py-2 text-sm font-medium text-slate-700 hover:text-[var(--color-primary)] transition-colors"
+          >
+            Blog
           </a>
           <Link
             href="/donate"
