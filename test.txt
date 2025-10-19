@@ -1,0 +1,436 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+import { MotionDiv, fadeInUp } from "@/components/Motion";
+import ContactForm from "@/components/ContactForm";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import StripePaymentForm from "@/components/StripePaymentForm";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
+
+const presetAmounts = [10, 25, 50, 100];
+
+const shoeSupport = [
+  {
+    title: "Schedule a Drop-Off",
+    description:
+      "Clean, gently used sneakers and casual shoes of all sizes keep shelters stocked year-round.",
+  },
+  {
+    title: "Host a Shoe Drive",
+    description:
+      "Schools, teams, and workplaces can collect pairs together. We’ll share promo kits and pickup logistics.",
+  },
+  {
+    title: "Request Pickup",
+    description:
+      "Have 30+ pairs ready to go? Our volunteers will coordinate sorting and delivery to partner shelters.",
+  },
+];
+
+const impactStats = [
+  { label: "Pairs Delivered", value: "1,003+" },
+  { label: "Shelter Partners", value: "6" },
+  { label: "Community Partners", value: "3" },
+];
+
+export default function DonatePage() {
+  const searchParams = useSearchParams();
+
+  const [frequency, setFrequency] = useState<"one-time" | "monthly">("monthly");
+  const [selectedAmount, setSelectedAmount] = useState<number>(25);
+  const [customAmount, setCustomAmount] = useState<string>("");
+  const [donorName, setDonorName] = useState<string>("");
+  const [donorEmail, setDonorEmail] = useState<string>("");
+  const [clientSecret, setClientSecret] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [showPaymentForm, setShowPaymentForm] = useState<boolean>(false);
+
+  const presetSet = useMemo(() => new Set(presetAmounts), []);
+
+  useEffect(() => {
+    const amountParam = searchParams.get("amount");
+    if (amountParam) {
+      const parsedAmount = parseFloat(amountParam);
+      if (!Number.isNaN(parsedAmount) && parsedAmount > 0) {
+        setSelectedAmount(parsedAmount);
+        setCustomAmount(presetSet.has(parsedAmount) ? "" : amountParam);
+      }
+    }
+
+    const frequencyParam = searchParams.get("frequency");
+    if (frequencyParam === "one-time" || frequencyParam === "monthly") {
+      setFrequency(frequencyParam);
+    }
+  }, [searchParams, presetSet]);
+
+  const handleAmountClick = (amount: number) => {
+    setSelectedAmount(amount);
+    setCustomAmount("");
+  };
+
+  const handleCustomAmountChange = (value: string) => {
+    setCustomAmount(value);
+    const parsed = parseFloat(value);
+    if (!Number.isNaN(parsed) && parsed > 0) {
+      setSelectedAmount(parsed);
+    }
+  };
+
+  const handleProceedToPayment = async () => {
+    setError("");
+
+    if (selectedAmount < 1) {
+      setError("Please select or enter a valid donation amount.");
+      return;
+    }
+    if (!donorName.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!donorEmail.trim() || !donorEmail.includes("@")) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: selectedAmount,
+          frequency,
+          donorName,
+          donorEmail,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to initialize payment.");
+      }
+
+      setClientSecret(data.clientSecret);
+      setShowPaymentForm(true);
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePaymentError = (message: string) => {
+    setError(message);
+    setShowPaymentForm(false);
+    setClientSecret("");
+  };
+
+  return (
+    <>
+      <NavBar />
+      <main className="pt-24">
+        {/* Intro */}
+        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] via-white to-white">
+          <div className="mx-auto max-w-5xl px-5">
+            <MotionDiv {...fadeInUp} className="space-y-12 text-center">
+              <div className="space-y-4">
+                <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
+                  Shelter Aid TX
+                </span>
+                <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900">
+                  Donate Shoes. Fund Impact. Support Shelters.
+                </h1>
+                <p className="mx-auto max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
+                  Every contribution keeps shoes flowing to Dallas-Fort Worth shelters. Choose a
+                  gift amount, share a quick note, and we’ll handle the rest within two business days.
+                </p>
+              </div>
+
+              <div className="grid gap-6 sm:grid-cols-3 text-left">
+                {impactStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-3xl border border-white/70 bg-white px-6 py-6 text-center shadow-sm"
+                  >
+                    <p className="font-display text-3xl font-bold text-[var(--color-primary)]">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </MotionDiv>
+          </div>
+        </section>
+
+        {/* Monetary Donation */}
+        <section className="relative w-full py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-5">
+            <MotionDiv
+              {...fadeInUp}
+              className="rounded-3xl border border-white/70 bg-white/95 p-6 sm:p-8 shadow-xl backdrop-blur"
+            >
+              {!showPaymentForm ? (
+                <div className="space-y-8">
+                  <div className="space-y-3 text-center">
+                    <h2 className="font-display text-3xl font-bold text-slate-900">
+                      Donate Securely
+                    </h2>
+                    <p className="text-sm text-slate-500">
+                      Stripe powers the checkout experience. Choose your amount and share contact
+                      details so we can send a receipt.
+                    </p>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="inline-flex rounded-full bg-slate-100/80 p-1 shadow-inner">
+                      {(["one-time", "monthly"] as const).map((option) => (
+                        <button
+                          key={option}
+                          onClick={() => setFrequency(option)}
+                          className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                            frequency === option
+                              ? "bg-white text-[var(--color-primary)] shadow-sm"
+                              : "text-slate-600 hover:text-slate-900"
+                          }`}
+                        >
+                          {option === "one-time" ? "One-Time" : "Monthly"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="font-display text-xl font-semibold text-slate-900">
+                      Choose Amount
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      {presetAmounts.map((amount) => (
+                        <button
+                          key={amount}
+                          onClick={() => handleAmountClick(amount)}
+                          className={`py-4 rounded-2xl border text-lg font-display font-semibold transition-all ${
+                            selectedAmount === amount && !customAmount
+                              ? "bg-[var(--color-primary)] text-white border-transparent shadow-lg"
+                              : "border-slate-200/70 bg-white/80 text-slate-900 hover:border-[var(--color-primary)]/70 hover:bg-white"
+                          }`}
+                        >
+                          ${amount}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="relative">
+                      <label htmlFor="custom-amount" className="sr-only">
+                        Custom amount
+                      </label>
+                      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-display text-lg">
+                        $
+                      </span>
+                      <input
+                        id="custom-amount"
+                        type="number"
+                        min="1"
+                        step="0.01"
+                        value={customAmount}
+                        onChange={(event) => handleCustomAmountChange(event.target.value)}
+                        placeholder="Other amount"
+                        className="w-full pl-10 pr-4 py-3 rounded-2xl border border-slate-200/70 bg-white/90 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none font-display text-lg transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label
+                        className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2"
+                        htmlFor="donor-name"
+                      >
+                        Name
+                      </label>
+                      <input
+                        id="donor-name"
+                        type="text"
+                        value={donorName}
+                        onChange={(event) => setDonorName(event.target.value)}
+                        placeholder="Your name"
+                        className="w-full rounded-2xl border border-slate-200/70 bg-white/90 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2"
+                        htmlFor="donor-email"
+                      >
+                        Email
+                      </label>
+                      <input
+                        id="donor-email"
+                        type="email"
+                        value={donorEmail}
+                        onChange={(event) => setDonorEmail(event.target.value)}
+                        placeholder="you@example.com"
+                        className="w-full rounded-2xl border border-slate-200/70 bg-white/90 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+                      />
+                    </div>
+                  </div>
+
+                  {error && (
+                    <div className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+                      {error}
+                    </div>
+                  )}
+
+                  <button
+                    onClick={handleProceedToPayment}
+                    disabled={isLoading || selectedAmount < 1}
+                    className="w-full rounded-full px-8 py-4 font-display text-lg font-semibold text-white shadow-lg transition-all disabled:cursor-not-allowed disabled:opacity-60 hover:shadow-xl"
+                    style={{
+                      background:
+                        isLoading || selectedAmount < 1
+                          ? "#94a3b8"
+                          : "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
+                    }}
+                  >
+                    {isLoading ? "Preparing Checkout…" : "Continue to Payment"}
+                  </button>
+                  <p className="text-xs text-slate-500 text-center">
+                    Secure payment processing powered by Stripe.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <button
+                    onClick={() => {
+                      setShowPaymentForm(false);
+                      setClientSecret("");
+                    }}
+                    className="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)]"
+                  >
+                    ← Back
+                  </button>
+                  <div className="rounded-2xl border border-white/60 bg-white/80 px-5 py-4 flex justify-between text-sm text-slate-700">
+                    <span>
+                      {frequency === "monthly" ? "Monthly donation" : "One-time donation"}
+                    </span>
+                    <span className="font-display text-lg text-[var(--color-primary)]">
+                      ${selectedAmount.toFixed(2)}
+                      {frequency === "monthly" && <span className="text-sm">/month</span>}
+                    </span>
+                  </div>
+                  {clientSecret && (
+                    <Elements stripe={stripePromise} options={{ clientSecret, appearance }}>
+                      <StripePaymentForm
+                        amount={selectedAmount}
+                        frequency={frequency}
+                        donorEmail={donorEmail}
+                        onSuccess={() => {}}
+                        onError={handlePaymentError}
+                      />
+                    </Elements>
+                  )}
+                </div>
+              )}
+            </MotionDiv>
+          </div>
+        </section>
+
+        {/* Shoe Donation */}
+        <section className="relative w-full py-16 sm:py-24 bg-gradient-to-br from-[var(--color-secondary)]/40 to-white">
+          <div className="mx-auto max-w-5xl px-5">
+            <MotionDiv {...fadeInUp} className="text-center mb-12 space-y-4">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
+                Donate Shoes Instead?
+              </h2>
+              <p className="text-lg text-slate-600">
+                Follow these steps and we’ll make sure every pair reaches a local shelter partner.
+              </p>
+            </MotionDiv>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {shoeSupport.map((item, index) => (
+                <MotionDiv
+                  key={item.title}
+                  {...fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                  className="rounded-3xl border border-white/80 bg-white p-6 shadow-lg backdrop-blur text-left"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-lg font-display font-semibold text-white">
+                      {index + 1}
+                    </div>
+                    <p className="font-display text-xl font-bold text-slate-900">{item.title}</p>
+                  </div>
+                  <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                </MotionDiv>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="relative w-full py-16 sm:py-24">
+          <div className="mx-auto max-w-4xl px-5">
+            <MotionDiv {...fadeInUp} className="text-center mb-10 space-y-3">
+              <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
+                Quick Response
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
+                Tell Us How We Can Help
+              </h2>
+              <p className="text-base text-slate-600">
+                One form, many paths—donation questions, shoe pickups, collaboration ideas, or
+                volunteer opportunities.
+              </p>
+            </MotionDiv>
+
+            <ContactForm
+              subject="Website Inquiry"
+              description="Have questions or want to collaborate? Share a few details below and we’ll follow up within two business days."
+              submitLabel="Send Message"
+              successMessage="Thank you! We'll reach out shortly."
+              inquiryOptions={[
+                { value: "donation-support", label: "Monetary Donation Support" },
+                { value: "shoe-donation", label: "Donate Shoes" },
+                { value: "host-drive", label: "Host a Shoe Drive" },
+                { value: "partnership", label: "Partnership Inquiry" },
+                { value: "volunteer", label: "Volunteer Interest" },
+                { value: "general-question", label: "General Question" },
+              ]}
+            />
+          </div>
+        </section>
+
+        {/* Impact */}
+        <section className="relative w-full py-16 sm:py-24 bg-white">
+          <div className="mx-auto max-w-5xl px-5 text-center">
+            <MotionDiv {...fadeInUp} className="space-y-4">
+              <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
+                Your Impact in DFW
+              </h2>
+              <p className="text-base text-slate-600 max-w-3xl mx-auto">
+                Every donation—monetary or in-kind—helps us deliver shoes quickly to local shelters,
+                restore dignity, and support neighbors experiencing homelessness.
+              </p>
+            </MotionDiv>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
+

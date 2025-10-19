@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(magick:*)",
+      "Bash(convert:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "Bash(npm run dev:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run build:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
