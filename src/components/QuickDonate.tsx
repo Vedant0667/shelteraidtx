@@ -63,7 +63,7 @@ export default function QuickDonate() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl bg-[var(--color-secondary)] p-5 text-center">
                   <p className="font-display text-3xl font-bold text-[var(--color-primary)]">
-                    1,003+
+                    1,207+
                   </p>
                   <p className="text-sm text-slate-600">Pairs Delivered</p>
                 </div>

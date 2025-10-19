@@ -85,7 +85,7 @@ export default function OurWorkPage() {
                   <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">Shoe Donation Program</h3>
                   <p className="text-slate-600 leading-relaxed mb-3">Our flagship program collecting new and gently used shoes for homeless individuals across DFW. Every pair provides warmth, protection, and dignity.</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-xs px-3 py-1 rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)] font-semibold">1,003+ Pairs Donated</span>
+                    <span className="text-xs px-3 py-1 rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)] font-semibold">1,207+ Pairs Donated</span>
                     <span className="text-xs px-3 py-1 rounded-full bg-[var(--color-secondary)] text-[var(--color-primary)] font-semibold">All Sizes Welcome</span>
                   </div>
                 </div>
@@ -152,7 +152,7 @@ export default function OurWorkPage() {
                 className="text-center bg-white rounded-2xl p-8 shadow-xl"
               >
                 <div className="font-display text-6xl sm:text-7xl font-bold mb-3 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent">
-                  1,003
+                  1,207+
                 </div>
                 <div className="font-bold text-lg text-slate-900 mb-2">Pairs of Shoes Donated</div>
                 <div className="text-sm text-slate-600">Providing warmth and dignity to those in need</div>

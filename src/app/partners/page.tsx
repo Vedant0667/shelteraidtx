@@ -70,7 +70,7 @@ export default function PartnersPage() {
                 Local businesses, schools, and organizations that support our mission
               </p>
             </MotionDiv>
-            <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.1 }}
@@ -123,6 +123,42 @@ export default function PartnersPage() {
                 </div>
                 <p className="font-display text-xl font-bold text-slate-900 mb-2">CISV Dallas Chapter</p>
                 <p className="text-slate-600 text-sm leading-relaxed">Children&apos;s International Summer Villages promoting community service</p>
+              </MotionDiv>
+
+              <MotionDiv
+                {...fadeInUp}
+                transition={{ delay: 0.4 }}
+                className="text-center group"
+              >
+                <div className="h-24 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                  <Image
+                    src="/images/fleetfeet.png"
+                    alt="Fleet Feet Preston/Forest"
+                    width={365}
+                    height={365}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <p className="font-display text-xl font-bold text-slate-900 mb-2">Fleet Feet Preston/Forest</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Supporting our mission through community engagement and shoe drive initiatives</p>
+              </MotionDiv>
+
+              <MotionDiv
+                {...fadeInUp}
+                transition={{ delay: 0.5 }}
+                className="text-center group"
+              >
+                <div className="h-24 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+                  <Image
+                    src="/images/shelters/POP-logo.png"
+                    alt="Prince of Peace Plano Cross Country Team"
+                    width={365}
+                    height={365}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
+                <p className="font-display text-xl font-bold text-slate-900 mb-2">Prince of Peace Plano Cross Country Team</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Student athletes making an impact through organized shoe collection and community service</p>
               </MotionDiv>
             </div>
           </div>

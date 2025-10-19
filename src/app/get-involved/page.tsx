@@ -109,7 +109,7 @@ export default function GetInvolvedPage() {
                 </div>
                 <div className="order-2 text-center">
                   <div className="inline-block px-6 py-3 rounded-2xl bg-[var(--color-secondary)] border-2 border-[var(--color-primary)]">
-                    <p className="font-display text-5xl font-bold text-[var(--color-primary)] mb-1">1,003+</p>
+                    <p className="font-display text-5xl font-bold text-[var(--color-primary)] mb-1">1,207+</p>
                     <p className="text-sm font-semibold text-slate-700">Pairs Donated</p>
                   </div>
                 </div>

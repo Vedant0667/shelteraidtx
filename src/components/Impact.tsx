@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const stats = [
   {
-    value: "1,003",
+    value: "1,207+",
     label: "Pairs of Shoes Donated",
     description: "Providing warmth and dignity to those in need",
   },

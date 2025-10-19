@@ -69,7 +69,7 @@ const shoeSteps = [
 const heroStats = [
   {
     label: "Pairs Delivered",
-    value: "1,003+",
+    value: "1,207+",
     icon: (
       <path
         strokeLinecap="round"
@@ -95,7 +95,7 @@ const heroStats = [
   },
   {
     label: "Community Partners",
-    value: "3",
+    value: "5",
     icon: (
       <path
         strokeLinecap="round"
