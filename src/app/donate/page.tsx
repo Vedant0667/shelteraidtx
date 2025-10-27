@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
@@ -176,7 +176,7 @@ const appearance = {
   },
 };
 
-export default function DonatePage() {
+function DonatePageInner() {
   const searchParams = useSearchParams();
 
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("monthly");
@@ -657,6 +657,14 @@ export default function DonatePage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function DonatePage() {
+  return (
+    <Suspense fallback={null}>
+      <DonatePageInner />
+    </Suspense>
   );
 }
 
