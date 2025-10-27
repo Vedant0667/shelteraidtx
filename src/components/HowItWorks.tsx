@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { MotionDiv, fadeInUp } from "./Motion";
 
@@ -34,7 +34,7 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            From donation to distribution—here's how we help shelters across DFW
+            From donation to distribution&mdash;here&apos;s how we help shelters across DFW
           </p>
         </MotionDiv>
 

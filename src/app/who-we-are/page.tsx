@@ -3,7 +3,7 @@
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { MotionDiv, fadeInUp } from "@/components/Motion";
+import { MotionDiv } from "@/components/Motion";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const teamMembers = [

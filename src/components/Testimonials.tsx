@@ -1,7 +1,6 @@
 "use client";
 
-import { MotionDiv, fadeInUp, staggerContainer } from "./Motion";
-import Image from "next/image";
+import { MotionDiv, fadeInUp } from "./Motion";
 
 const testimonials = [
   {

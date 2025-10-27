@@ -32,7 +32,7 @@ const FALLBACK_OPTIONS: InquiryOption[] = [
 export default function ContactForm({
   subject,
   title = "Send Us a Message",
-  description = "Have questions or want to collaborate? Share a few details below and we'll follow up within two business days.",
+  description = "Have questions or want to collaborate? Share a few details below and we&apos;ll follow up within two business days.",
   submitLabel = "Send Message",
   successMessage = "Thank you! We received your message and will get back to you soon.",
   className = "",
@@ -122,6 +122,7 @@ export default function ContactForm({
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
             Let&rsquo;s Connect
           </span>
+          <h3 className="font-display text-2xl font-bold text-slate-900">{title}</h3>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{description}</p>
         </div>
 

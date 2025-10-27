@@ -34,7 +34,7 @@ export default function PrivacyPage() {
                 1. Introduction
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                Shelter Aid TX ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://shelteraidtx.org" className="text-[var(--color-primary)] hover:underline">shelteraidtx.org</a>, make a donation, or otherwise interact with our services.
+                Shelter Aid TX (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://shelteraidtx.org" className="text-[var(--color-primary)] hover:underline">shelteraidtx.org</a>, make a donation, or otherwise interact with our services.
               </p>
               <p className="text-slate-600 leading-relaxed mb-4">
                 Shelter Aid TX is a 501(c)(3) nonprofit organization (EIN: 93-3584886) dedicated to donating shoes to homeless shelters across Dallas-Fort Worth.
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
                 We use the following third-party services that may collect, use, and process your data:
               </p>
               <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li><strong>Stripe:</strong> Payment processing for donations. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">https://stripe.com/privacy</a></li>
+                <li><strong>Stripe:</strong> Payment processing for donations. Stripe&apos;s privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">https://stripe.com/privacy</a></li>
                 <li><strong>Google Analytics:</strong> Website analytics to understand visitor behavior (if applicable)</li>
                 <li><strong>Email service providers:</strong> For sending donation receipts and newsletters</li>
               </ul>
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
               </p>
 
               <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                8. Children's Privacy
+                8. Children&apos;s Privacy
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
                 Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
                 9. Changes to This Privacy Policy
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date. We encourage you to review this Privacy Policy periodically.
+                We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date. We encourage you to review this Privacy Policy periodically.
               </p>
 
               <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">

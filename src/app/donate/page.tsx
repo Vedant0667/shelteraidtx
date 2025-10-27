@@ -1,11 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Script from "next/script";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { MotionDiv, fadeInUp } from "@/components/Motion";
+import { MotionDiv } from "@/components/Motion";
 import ContactForm from "@/components/ContactForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -123,7 +123,7 @@ const faqSchema = {
       name: "Is my donation tax-deductible?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Shelter Aid TX is a registered 501(c)(3) nonprofit organization (EIN 93-3584886). All monetary donations are tax-deductible, and you'll receive a receipt for your records after completing your donation.",
+        text: "Yes. Shelter Aid TX is a registered 501(c)(3) nonprofit organization (EIN 93-3584886). All monetary donations are tax-deductible, and you&apos;ll receive a receipt for your records after completing your donation.",
       },
     },
     {
@@ -139,7 +139,7 @@ const faqSchema = {
       name: "What types of shoes do you accept?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We accept clean, gently used sneakers and casual shoes of all sizes. Shoes should be in good condition—free from major damage, suitable for daily wear, and able to provide comfort and protection.",
+        text: "We accept clean, gently used sneakers and casual shoes of all sizes. Shoes should be in good condition�free from major damage, suitable for daily wear, and able to provide comfort and protection.nd able to provide comfort and protection.",
       },
     },
     {
@@ -147,7 +147,7 @@ const faqSchema = {
       name: "How do I donate shoes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can donate shoes by scheduling a drop-off, hosting a shoe drive at your school or workplace, or requesting a pickup if you have 30+ pairs. Use our contact form to coordinate any of these options—we'll respond within two business days.",
+        text: "You can donate shoes by scheduling a drop-off, hosting a shoe drive at your school or workplace, or requesting a pickup if you have 30+ pairs. Use our contact form to coordinate any of these options�we&apos;ll respond within two business days.nd within two business days.",
       },
     },
     {
@@ -163,7 +163,7 @@ const faqSchema = {
       name: "How can I volunteer or partner with Shelter Aid TX?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We welcome volunteers for sorting, delivery coordination, and community outreach. Organizations can partner with us for shoe drives or shelter collaborations. Fill out our contact form selecting 'Volunteer Interest' or 'Partnership Inquiry' to get started.",
+        text: "We welcome volunteers for sorting, delivery coordination, and community outreach. Organizations can partner with us for shoe drives or shelter collaborations. Fill out our contact form selecting &apos;Volunteer Interest&apos; or &apos;Partnership Inquiry&apos; to get started.",
       },
     },
   ],
@@ -313,12 +313,12 @@ export default function DonatePage() {
               </h1>
               <p className="mx-auto sm:mx-0 max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
                 Every contribution keeps shoes flowing to Dallas-Fort Worth shelters. Choose a gift amount,
-                share a quick note, and we'll handle the rest within two business days.
+                share a quick note, and we&apos;ll handle the rest within two business days.
               </p>
 
               {/* Hero Stats - Simple inline gradient text */}
               <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 pt-4">
-                {heroStats.map((stat, index) => (
+                {heroStats.map((stat) => (
                   <div key={stat.label} className="flex items-center gap-2">
                     <div className="text-center sm:text-left">
                       <p className="font-display text-3xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent">
@@ -649,7 +649,7 @@ export default function DonatePage() {
               subject="Website Inquiry"
               description="Have questions or want to collaborate? Share a few details below and we will follow up within two business days."
               submitLabel="Send Message"
-              successMessage="Thank you! We'll reach out shortly."
+              successMessage="Thank you! We&apos;ll reach out shortly."
               inquiryOptions={inquiryOptions}
             />
           </div>
@@ -659,3 +659,5 @@ export default function DonatePage() {
     </>
   );
 }
+
+

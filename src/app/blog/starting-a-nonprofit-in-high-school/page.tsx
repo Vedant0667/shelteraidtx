@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv } from "@/components/Motion";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function StartingNonprofitPage() {
   return (

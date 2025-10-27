@@ -14,7 +14,7 @@ export default function Impact() {
               Supporting homeless shelters across DFW
             </h2>
             <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-              We're a student-led 501(c)3 nonprofit dedicated to providing warmth and dignity to those facing homelessness. Founded in October 2023, we channel community generosity directly to those who need it most.
+              We&apos;re a student-led 501(c)3 nonprofit dedicated to providing warmth and dignity to those facing homelessness. Founded in October 2023, we channel community generosity directly to those who need it most.
             </p>
           </MotionDiv>
         </div>

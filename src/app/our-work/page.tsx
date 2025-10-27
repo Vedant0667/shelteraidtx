@@ -37,7 +37,7 @@ export default function OurWorkPage() {
                   Making a Difference Every Day
                 </h1>
                 <p className="text-xl text-slate-600 leading-relaxed">
-                  From collecting shoes to building partnerships, discover how we're making a difference in the lives of those experiencing homelessness
+                From collecting shoes to building partnerships, discover how we&apos;re making a difference in the lives of those experiencing homelessness
                 </p>
               </MotionDiv>
               <MotionDiv
@@ -142,7 +142,7 @@ export default function OurWorkPage() {
                 Our Impact
               </h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Real numbers showing the difference we're making
+                Real numbers showing the difference we&apos;re making
               </p>
             </MotionDiv>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">

@@ -4,14 +4,13 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
-import { MotionDiv, fadeInUp } from "@/components/Motion";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { MotionDiv } from "@/components/Motion";
 
 const blogPosts = [
   {
     slug: "starting-a-nonprofit-in-high-school",
-    title: "Starting a Nonprofit in High School: What's Actually Hard (and What Isn't)",
-    excerpt: "Let's start simple: founding a nonprofit in high school is hard. But not for the reasons people think. It's not your age, it's not the official paperwork, and it's definitely not because you need more experience. It's hard because focus is rare.",
+    title: "Starting a Nonprofit in High School: What&apos;s Actually Hard (and What Isn&apos;t)",
+    excerpt: "Let&apos;s start simple: founding a nonprofit in high school is hard. But not for the reasons people think. It&apos;s not your age, it&apos;s not the official paperwork, and it&apos;s definitely not because you need more experience. It&apos;s hard because focus is rare.",
     date: "2025-10-26",
     author: "Vedant Subramanian",
     image: "/images/form-blog.jpg",
@@ -91,7 +90,7 @@ export default function BlogPage() {
                         <div className="flex items-center justify-between mt-auto pt-4 border-t border-slate-100">
                           <span className="text-sm text-slate-500">{post.author}</span>
                           <span className="text-[var(--color-primary)] font-semibold group-hover:translate-x-1 transition-transform">
-                            Read More →
+                            Read More &rarr;
                           </span>
                         </div>
                       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionDiv, fadeInUp, staggerContainer } from "./Motion";
+import { MotionDiv, fadeInUp } from "./Motion";
 import Image from "next/image";
 
 export default function About() {
