@@ -6,20 +6,6 @@ import Image from "next/image";
 export default function Impact() {
   return (
     <>
-      {/* Mission Statement */}
-      <section className="relative w-full py-20 sm:py-24 bg-slate-50">
-        <div className="mx-auto max-w-5xl px-5 text-center">
-          <MotionDiv {...fadeInUp}>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              Supporting homeless shelters across DFW
-            </h2>
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
-              We&apos;re a student-led 501(c)3 nonprofit dedicated to providing warmth and dignity to those facing homelessness. Founded in October 2023, we channel community generosity directly to those who need it most.
-            </p>
-          </MotionDiv>
-        </div>
-      </section>
-
       {/* Featured In */}
       <section className="relative w-full py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5">

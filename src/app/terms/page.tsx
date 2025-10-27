@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms and conditions for using Shelter Aid TX&apos;s website and services, including donation policies, refunds, and liability limitations.",
+  description: "Terms and conditions for using Shelter Aid TX's website and services, including donation policies, refunds, and liability limitations.",
   alternates: {
     canonical: "/terms",
   },
@@ -52,7 +52,7 @@ export default function TermsPage() {
               <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
                 <li>Use the Site in any way that violates applicable federal, state, or local laws</li>
                 <li>Impersonate or attempt to impersonate Shelter Aid TX, our employees, volunteers, or any other person or entity</li>
-                <li>Engage in any conduct that restricts or inhibits anyone&apos;s use or enjoyment of the Site</li>
+                <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Site</li>
                 <li>Use any robot, spider, or other automatic device to access the Site for any purpose</li>
                 <li>Introduce any viruses, Trojan horses, worms, logic bombs, or other malicious material</li>
               </ul>
@@ -78,7 +78,7 @@ export default function TermsPage() {
                 3.2 Payment Processing
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4">
-                All monetary donations are processed securely through Stripe, a third-party payment processor. By making a donation, you agree to Stripe&apos;s Terms of Service and Privacy Policy. We do not store your payment card information on our servers.
+                All monetary donations are processed securely through Stripe, a third-party payment processor. By making a donation, you agree to Stripe's Terms of Service and Privacy Policy. We do not store your payment card information on our servers.
               </p>
 
               <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
@@ -112,7 +112,7 @@ export default function TermsPage() {
               </p>
               <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
                 <li>Shoes should be new or gently used and in clean, wearable condition</li>
-                <li>We accept all sizes: men&apos;s, women&apos;s, and children&apos;s shoes</li>
+                <li>We accept all sizes: men's, women's, and children's shoes</li>
                 <li>We reserve the right to decline or properly dispose of items that do not meet quality standards</li>
                 <li>Once donated, shoes become the property of Shelter Aid TX and will be distributed to partner shelters at our discretion</li>
               </ul>
@@ -143,7 +143,7 @@ export default function TermsPage() {
                 7. Indemnification
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
-                You agree to defend, indemnify, and hold harmless Shelter Aid TX, its directors, officers, employees, volunteers, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys&apos; fees, arising out of or in any way connected with your access to or use of the Site or your violation of these Terms.
+                You agree to defend, indemnify, and hold harmless Shelter Aid TX, its directors, officers, employees, volunteers, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your access to or use of the Site or your violation of these Terms.
               </p>
 
               <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">

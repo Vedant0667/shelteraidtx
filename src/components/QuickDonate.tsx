@@ -58,7 +58,7 @@ export default function QuickDonate() {
                 Make a Donation in Seconds
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Choose an amount, tap donate, and we&apos;ll take you straight to our secure payment page. Your support keeps shoes headed to shelters across DFW.
+                Choose an amount, tap donate, and we'll take you straight to our secure payment page. Your support keeps shoes headed to shelters across DFW.
               </p>
               <div className="flex items-center gap-8 flex-wrap">
                 <div>
@@ -166,7 +166,7 @@ export default function QuickDonate() {
                 {frequency === "monthly" ? "/month" : ""}
               </button>
               <p className="mt-3 text-center text-xs text-slate-500">
-                You&apos;ll be redirected to our secure Stripe checkout.
+                You'll be redirected to our secure Stripe checkout.
               </p>
             </div>
         </MotionDiv>

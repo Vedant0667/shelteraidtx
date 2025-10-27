@@ -118,7 +118,7 @@ export default function Footer() {
             </h4>
             <p className="text-sm text-slate-600 mb-4">
               Have questions about donating shoes or partnering with us? Share a message through our
-              contact form and we&apos;ll respond within two business days.
+              contact form and we'll respond within two business days.
             </p>
             <Link
               href="/donate#contact-form"

@@ -32,7 +32,7 @@ const FALLBACK_OPTIONS: InquiryOption[] = [
 export default function ContactForm({
   subject,
   title = "Send Us a Message",
-  description = "Have questions or want to collaborate? Share a few details below and we&apos;ll follow up within two business days.",
+  description = "Have questions or want to collaborate? Share a few details below and we'll follow up within two business days.",
   submitLabel = "Send Message",
   successMessage = "Thank you! We received your message and will get back to you soon.",
   className = "",

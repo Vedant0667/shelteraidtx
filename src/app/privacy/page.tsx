@@ -92,7 +92,7 @@ export default function PrivacyPage() {
                 We use the following third-party services that may collect, use, and process your data:
               </p>
               <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li><strong>Stripe:</strong> Payment processing for donations. Stripe&apos;s privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">https://stripe.com/privacy</a></li>
+                <li><strong>Stripe:</strong> Payment processing for donations. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">https://stripe.com/privacy</a></li>
                 <li><strong>Google Analytics:</strong> Website analytics to understand visitor behavior (if applicable)</li>
                 <li><strong>Email service providers:</strong> For sending donation receipts and newsletters</li>
               </ul>
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
               </p>
 
               <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                8. Children&apos;s Privacy
+                8. Children's Privacy
               </h2>
               <p className="text-slate-600 leading-relaxed mb-4">
                 Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.

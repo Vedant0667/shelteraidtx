@@ -66,7 +66,7 @@ export default function GetInvolvedPage() {
                 Ways to Help
               </h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Choose how you&apos;d like to support our mission
+                Choose how you'd like to support our mission
               </p>
             </MotionDiv>
 
@@ -91,7 +91,7 @@ export default function GetInvolvedPage() {
                       <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-slate-700">All sizes accepted - men&apos;s, women&apos;s, and children&apos;s</span>
+                      <span className="text-slate-700">All sizes accepted - men's, women's, and children's</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <svg className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +208,7 @@ export default function GetInvolvedPage() {
                 Ready to Make a Difference?
               </h2>
               <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-                Every contribution, whether it&apos;s shoes, time, or funds, helps provide warmth and dignity to those experiencing homelessness.
+                Every contribution, whether it's shoes, time, or funds, helps provide warmth and dignity to those experiencing homelessness.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

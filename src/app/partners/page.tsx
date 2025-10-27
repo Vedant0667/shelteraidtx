@@ -86,7 +86,7 @@ export default function PartnersPage() {
                   />
                 </div>
                 <p className="font-display text-xl font-bold text-slate-900 mb-2">Greenhill School</p>
-                <p className="text-slate-600 text-sm leading-relaxed">Shoe donation drive partner with Genesis Women&apos;s Shelter</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Shoe donation drive partner with Genesis Women's Shelter</p>
               </MotionDiv>
 
               <MotionDiv
@@ -122,7 +122,7 @@ export default function PartnersPage() {
                   />
                 </div>
                 <p className="font-display text-xl font-bold text-slate-900 mb-2">CISV Dallas Chapter</p>
-                <p className="text-slate-600 text-sm leading-relaxed">Children&apos;s International Summer Villages promoting community service</p>
+                <p className="text-slate-600 text-sm leading-relaxed">Children's International Summer Villages promoting community service</p>
               </MotionDiv>
 
               <MotionDiv
@@ -183,7 +183,7 @@ export default function PartnersPage() {
                 { name: "AITF Services", desc: "Supporting individuals and families in crisis throughout DFW", logo: "/images/shelters/aitf.png" },
                 { name: "Our Daily Bread", desc: "Monsignor King Outreach Center providing meals and essential services", logo: "/images/shelters/our-daily-bread.png" },
                 { name: "Journey to Dream", desc: "Empowering individuals to achieve self-sufficiency and stability", logo: "/images/shelters/journey-to-dream.png" },
-                { name: "Genesis Women&apos;s Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
+                { name: "Genesis Women's Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
               ].map((partner, i) => (
                 <MotionDiv
                   key={i}

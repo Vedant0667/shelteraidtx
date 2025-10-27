@@ -65,7 +65,7 @@ function DonateSuccessPageInner() {
                   Thank You!
                 </h1>
                 <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-                  Your generous donation has been successfully processed. You&apos;ll receive a confirmation email shortly with your donation receipt.
+                  Your generous donation has been successfully processed. You'll receive a confirmation email shortly with your donation receipt.
                 </p>
 
                 <div className="bg-gradient-to-br from-[var(--color-secondary)] to-white rounded-2xl p-8 mb-8">

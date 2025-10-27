@@ -48,7 +48,7 @@ const supportHighlights = [
 const impactStats = [
   { label: "Pairs Delivered", value: "1.2k+" },
   { label: "Shelter Partners", value: "6" },
-  { label: "Community Partners", value: "3" },
+  { label: "Community Partners", value: "5" },
 ];
 
 export default function Donate() {
