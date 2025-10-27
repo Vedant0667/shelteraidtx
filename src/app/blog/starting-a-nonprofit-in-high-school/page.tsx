@@ -35,7 +35,7 @@ export default function StartingNonprofitPage() {
                 </h1>
                 <div className="flex items-center gap-4 text-slate-600">
                   <time className="text-sm">
-                    {new Date("2025-01-15").toLocaleDateString("en-US", {
+                    {new Date("2025-10-26").toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",

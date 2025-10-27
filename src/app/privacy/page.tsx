@@ -19,14 +19,14 @@ export default function PrivacyPage() {
   return (
     <>
       <NavBar />
-      <main className="pt-24">
+      <main className="pt-8 sm:pt-16">
         <section className="relative w-full py-20 sm:py-28">
           <div className="mx-auto max-w-4xl px-5">
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
               Privacy Policy
             </h1>
             <p className="text-sm text-slate-500 mb-8">
-              Last Updated: January 10, 2025
+              Last Updated: October 26, 2025
             </p>
 
             <div className="prose prose-slate max-w-none">

@@ -10,9 +10,9 @@ export default function GetInvolvedPage() {
   return (
     <>
       <NavBar />
-      <main className="pt-24">
+      <main className="pt-2">
         {/* Page Header */}
-        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
+        <section className="relative w-full py-20 sm:py-28 bg-white">
           <div className="mx-auto max-w-7xl px-5">
             <Breadcrumbs
               items={[
@@ -27,11 +27,11 @@ export default function GetInvolvedPage() {
                 transition={{ duration: 0.7, type: "spring", stiffness: 120, damping: 18 }}
                 className="flex flex-col justify-center"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 mb-6 w-fit">
-                  <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-light)] mb-6 w-fit">
+                  <svg className="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
-                  <span className="text-sm font-semibold text-emerald-600">Join Us</span>
+                  <span className="text-sm font-semibold text-[var(--color-accent)]">Join Us</span>
                 </div>
                 <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
                   Make a Difference Today
@@ -108,10 +108,8 @@ export default function GetInvolvedPage() {
                   </ul>
                 </div>
                 <div className="order-2 text-center">
-                  <div className="inline-block px-6 py-3 rounded-2xl bg-[var(--color-secondary)] border-2 border-[var(--color-primary)]">
-                    <p className="font-display text-5xl font-bold text-[var(--color-primary)] mb-1">1,207+</p>
-                    <p className="text-sm font-semibold text-slate-700">Pairs Donated</p>
-                  </div>
+                  <p className="font-display text-6xl sm:text-7xl font-bold bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent mb-2">1.2k+</p>
+                  <p className="text-sm font-semibold text-slate-600">Pairs Donated</p>
                 </div>
               </MotionDiv>
 
@@ -121,10 +119,8 @@ export default function GetInvolvedPage() {
                 className="grid md:grid-cols-2 gap-12 items-center"
               >
                 <div className="order-2 md:order-1 text-center">
-                  <div className="inline-block px-6 py-3 rounded-2xl bg-[var(--color-secondary)] border-2 border-blue-500">
-                    <p className="font-display text-5xl font-bold text-blue-600 mb-1">100%</p>
-                    <p className="text-sm font-semibold text-slate-700">Community-Funded</p>
-                  </div>
+                  <p className="font-display text-6xl sm:text-7xl font-bold bg-gradient-to-br from-blue-500 to-blue-600 bg-clip-text text-transparent mb-2">100%</p>
+                  <p className="text-sm font-semibold text-slate-600">Community-Funded</p>
                 </div>
                 <div className="order-1 md:order-2">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 mb-6 shadow-lg">
@@ -196,10 +192,8 @@ export default function GetInvolvedPage() {
                   </ul>
                 </div>
                 <div className="order-2 text-center">
-                  <div className="inline-block px-6 py-3 rounded-2xl bg-[var(--color-secondary)] border-2 border-[var(--color-accent)]">
-                    <p className="font-display text-5xl font-bold text-[var(--color-accent)] mb-1">6</p>
-                    <p className="text-sm font-semibold text-slate-700">Shelter Partners</p>
-                  </div>
+                  <p className="font-display text-6xl sm:text-7xl font-bold bg-gradient-to-br from-[var(--color-accent)] to-amber-600 bg-clip-text text-transparent mb-2">6</p>
+                  <p className="text-sm font-semibold text-slate-600">Shelter Partners</p>
                 </div>
               </MotionDiv>
             </div>

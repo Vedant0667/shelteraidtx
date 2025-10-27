@@ -11,9 +11,9 @@ export default function PartnersPage() {
   return (
     <>
       <NavBar />
-      <main className="pt-24">
+      <main className="pt-2">
         {/* Hero */}
-        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
+        <section className="relative w-full py-20 sm:py-28 bg-white">
           <div className="mx-auto max-w-7xl px-5">
             <Breadcrumbs
               items={[
@@ -165,45 +165,43 @@ export default function PartnersPage() {
         </section>
 
         {/* Who We Support */}
-        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
-          <div className="mx-auto max-w-7xl px-5">
+        <section className="relative w-full py-20 sm:py-24 bg-slate-50">
+          <div className="mx-auto max-w-6xl px-5">
             <MotionDiv {...fadeInUp} className="text-center mb-16">
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
-                Who We Support
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+                Shelter Partners
               </h2>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                Trusted organizations we support across Dallas-Fort Worth
+              <p className="text-lg text-slate-600">
+                Trusted nonprofits we support across Dallas-Fort Worth
               </p>
             </MotionDiv>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 { name: "Family Gateway", desc: "Shelter and support services for homeless families in Dallas", logo: "/images/shelters/family-gateway.png" },
                 { name: "Hope Restored Missions", desc: "Restoring hope and dignity to those experiencing homelessness", logo: "/images/shelters/hope-restored.png" },
                 { name: "AITF Services", desc: "Supporting individuals and families in crisis throughout DFW", logo: "/images/shelters/aitf.png" },
                 { name: "Our Daily Bread", desc: "Monsignor King Outreach Center providing meals and essential services", logo: "/images/shelters/our-daily-bread.png" },
                 { name: "Journey to Dream", desc: "Empowering individuals to achieve self-sufficiency and stability", logo: "/images/shelters/journey-to-dream.png" },
-                { name: "Genesis Women&apos;s Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
+                { name: "Genesis Women's Shelter", desc: "Safety and support for women and children escaping domestic violence", logo: "/images/shelters/genesis.png" },
               ].map((partner, i) => (
                 <MotionDiv
                   key={i}
                   {...fadeInUp}
-                  transition={{ delay: 0.1 * (i + 1) }}
-                  className="flex items-start gap-6 border-l-4 border-[var(--color-primary)] pl-8 pr-8 py-8 bg-white rounded-r-2xl shadow-lg hover:shadow-xl transition-all group"
+                  transition={{ delay: 0.05 * (i + 1) }}
+                  className="text-center group"
                 >
-                  <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center bg-white rounded-xl p-2 group-hover:scale-105 transition-transform">
+                  <div className="h-24 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                     <Image
                       src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      width={80}
-                      height={80}
-                      className="w-full h-full object-contain"
+                      alt={partner.name}
+                      width={120}
+                      height={120}
+                      className="h-full w-auto object-contain"
                     />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-xl font-bold text-slate-900 mb-2">{partner.name}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">{partner.desc}</p>
-                  </div>
+                  <h3 className="font-display text-xl font-bold text-slate-900 mb-2">{partner.name}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{partner.desc}</p>
                 </MotionDiv>
               ))}
             </div>
@@ -280,5 +278,3 @@ export default function PartnersPage() {
     </>
   );
 }
-
-

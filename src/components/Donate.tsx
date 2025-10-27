@@ -46,7 +46,7 @@ const supportHighlights = [
 ];
 
 const impactStats = [
-  { label: "Pairs Delivered", value: "1,207+" },
+  { label: "Pairs Delivered", value: "1.2k+" },
   { label: "Shelter Partners", value: "6" },
   { label: "Community Partners", value: "3" },
 ];
@@ -55,55 +55,57 @@ export default function Donate() {
   return (
     <section
       id="contact"
-      className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)] to-white"
+      className="relative w-full py-20 sm:py-24 bg-gradient-to-br from-[var(--color-secondary)] to-white"
     >
       <div className="mx-auto max-w-5xl px-5">
-        <MotionDiv {...fadeInUp} className="space-y-10 text-center sm:text-left">
+        <MotionDiv {...fadeInUp} className="space-y-10 text-center">
           <div className="space-y-4">
-            <div className="inline-flex items-center justify-center rounded-full bg-[var(--color-secondary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-primary)]">
-              Need a Hand?
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-200">
+              <svg className="w-3.5 h-3.5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span className="text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wide">Need a Hand?</span>
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900">
               Get in Touch
             </h2>
-            <p className="mx-auto sm:mx-0 max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
+            <p className="max-w-3xl mx-auto text-lg sm:text-xl text-slate-600 leading-relaxed">
               Let us know how you want to support Shelter Aid TX—donating shoes, hosting a drive,
               or partnering on community outreach. We respond within two business days.
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-3 text-left">
+          <div className="grid gap-8 sm:grid-cols-3 max-w-4xl mx-auto">
             {supportHighlights.map((item) => (
-              <div key={item.title} className="flex gap-3">
-                <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${item.tint}`}>
-                  <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div key={item.title} className="flex flex-col items-center text-center gap-3">
+                <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${item.tint}`}>
+                  <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {item.icon}
                   </svg>
                 </div>
                 <div>
-                  <p className="font-display text-xl font-semibold text-slate-900">{item.title}</p>
-                  <p className="text-base text-slate-600 leading-relaxed">{item.description}</p>
+                  <p className="font-display text-xl font-semibold text-slate-900 mb-2">{item.title}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 text-left sm:justify-start">
+          <div className="flex items-center gap-8 justify-center flex-wrap">
             {impactStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="flex items-center gap-3 rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-sm"
-              >
-                <p className="font-display text-xl font-bold text-[var(--color-primary)]">{stat.value}</p>
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{stat.label}</p>
+              <div key={stat.label}>
+                <div className="font-display text-4xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-sm font-medium text-slate-600 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:justify-start">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/donate#contact-form"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-base font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-lg font-semibold text-white transition-opacity hover:opacity-90"
               style={{
                 background:
                   "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))",
@@ -113,7 +115,7 @@ export default function Donate() {
             </Link>
             <Link
               href="/get-involved"
-              className="inline-flex items-center justify-center rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-3 text-base font-semibold transition-all hover:bg-[var(--color-primary)] hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-4 text-lg font-semibold transition-all hover:bg-[var(--color-primary)] hover:text-white"
             >
               Explore Ways to Help
             </Link>

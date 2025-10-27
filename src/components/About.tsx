@@ -5,12 +5,12 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="relative w-full py-20 sm:py-28">
+    <section id="about" className="relative w-full py-20 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-5">
-        <MotionDiv {...fadeInUp} className="grid lg:grid-cols-2 gap-16 items-stretch">
+        <MotionDiv {...fadeInUp} className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Image */}
-          <div className="relative min-h-[600px]">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
+          <div className="relative min-h-[500px]">
+            <div className="relative rounded-2xl overflow-hidden h-full">
               <Image
                 src="/images/stock-4430.jpg"
                 alt="Community helping those in need"
@@ -20,9 +20,9 @@ export default function About() {
               />
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6">
+            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl border border-slate-200 p-6">
               <div className="flex items-center gap-4">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center text-white text-sm font-bold leading-tight">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center text-white text-sm font-bold leading-tight">
                   501(c)3
                 </div>
                 <div>
@@ -35,8 +35,11 @@ export default function About() {
 
           {/* Right: Content */}
           <div className="flex flex-col justify-center">
-            <div className="inline-block px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-6 w-fit">
-              <span className="text-sm font-semibold text-[var(--color-primary)]">Our Mission</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-6 w-fit">
+              <svg className="w-3.5 h-3.5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span className="text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wide">Our Mission</span>
             </div>
 
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">

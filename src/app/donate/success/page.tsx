@@ -26,7 +26,7 @@ export default function DonateSuccessPage() {
   return (
     <>
       <NavBar />
-      <main className="pt-24 min-h-screen">
+      <main className="pt-8 sm:pt-16 min-h-screen">
         <section className="relative w-full py-20 sm:py-28">
           <div className="mx-auto max-w-3xl px-5">
             {paymentStatus === "loading" && (

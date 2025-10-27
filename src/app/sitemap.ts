@@ -48,13 +48,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified: new Date('2025-01-10'),
+      lastModified: new Date('2025-10-26'),
       changeFrequency: 'yearly',
       priority: 0.4,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date('2025-01-10'),
+      lastModified: new Date('2025-10-26'),
       changeFrequency: 'yearly',
       priority: 0.4,
     },

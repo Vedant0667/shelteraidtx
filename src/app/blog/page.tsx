@@ -12,7 +12,7 @@ const blogPosts = [
     slug: "starting-a-nonprofit-in-high-school",
     title: "Starting a Nonprofit in High School: What's Actually Hard (and What Isn't)",
     excerpt: "Let's start simple: founding a nonprofit in high school is hard. But not for the reasons people think. It's not your age, it's not the official paperwork, and it's definitely not because you need more experience. It's hard because focus is rare.",
-    date: "2025-01-15",
+    date: "2025-10-26",
     author: "Vedant Subramanian",
     image: "/images/form-blog.jpg",
     category: "Building a Student Nonprofit",
@@ -24,9 +24,9 @@ export default function BlogPage() {
   return (
     <>
       <NavBar />
-      <main className="relative min-h-screen bg-gradient-to-b from-white to-slate-50">
+      <main className="relative min-h-screen bg-gradient-to-b from-white to-slate-50 pt-32">
         {/* Hero Section */}
-        <section className="relative w-full pt-32 pb-12">
+        <section className="relative w-full pb-12">
           <div className="mx-auto max-w-7xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}

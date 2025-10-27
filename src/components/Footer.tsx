@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative w-full py-12 sm:py-16 mt-20"
+      className="relative w-full py-12 sm:py-16"
       style={{ backgroundColor: "rgba(135, 206, 235, 0.05)" }}
     >
       <div className="mx-auto max-w-7xl px-5">

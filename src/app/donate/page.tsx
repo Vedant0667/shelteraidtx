@@ -62,14 +62,14 @@ const shoeSteps = [
         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
       />
     ),
-    tint: "from-indigo-500 to-purple-600",
+    tint: "from-[var(--color-primary)] to-[var(--color-primary-hover)]",
   },
 ];
 
 const heroStats = [
   {
     label: "Pairs Delivered",
-    value: "1,207+",
+    value: "1.2k+",
     icon: (
       <path
         strokeLinecap="round"
@@ -78,7 +78,6 @@ const heroStats = [
         d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
       />
     ),
-    tint: "from-[var(--color-primary)] to-[var(--color-primary-hover)]",
   },
   {
     label: "Shelter Partners",
@@ -91,7 +90,6 @@ const heroStats = [
         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
       />
     ),
-    tint: "from-[var(--color-accent)] to-amber-600",
   },
   {
     label: "Community Partners",
@@ -104,7 +102,6 @@ const heroStats = [
         d="M5 13l4 4L19 7"
       />
     ),
-    tint: "from-indigo-500 to-purple-600",
   },
 ];
 
@@ -170,6 +167,13 @@ const faqSchema = {
       },
     },
   ],
+};
+
+const appearance = {
+  theme: "stripe" as const,
+  variables: {
+    colorPrimary: "#0284c7",
+  },
 };
 
 export default function DonatePage() {
@@ -276,8 +280,9 @@ export default function DonatePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <NavBar />
-      <main className="pt-24">
-        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)] via-white to-white">
+      <main className="pt-8 sm:pt-16">
+        {/* Hero Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-white">
           <div className="mx-auto max-w-5xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
@@ -297,7 +302,7 @@ export default function DonatePage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="space-y-6 text-center sm:text-left"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
                 <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -308,22 +313,18 @@ export default function DonatePage() {
               </h1>
               <p className="mx-auto sm:mx-0 max-w-3xl text-lg sm:text-xl text-slate-600 leading-relaxed">
                 Every contribution keeps shoes flowing to Dallas-Fort Worth shelters. Choose a gift amount,
-                share a quick note, and we’ll handle the rest within two business days.
+                share a quick note, and we'll handle the rest within two business days.
               </p>
 
-              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-                {heroStats.map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-3">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${stat.tint}`}
-                    >
-                      <svg className="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        {stat.icon}
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-display text-xl font-semibold text-slate-900">{stat.value}</p>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{stat.label}</p>
+              {/* Hero Stats - Simple inline gradient text */}
+              <div className="flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8 pt-4">
+                {heroStats.map((stat, index) => (
+                  <div key={stat.label} className="flex items-center gap-2">
+                    <div className="text-center sm:text-left">
+                      <p className="font-display text-3xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent">
+                        {stat.value}
+                      </p>
+                      <p className="text-sm font-medium text-slate-600">{stat.label}</p>
                     </div>
                   </div>
                 ))}
@@ -332,22 +333,23 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-14 sm:py-18">
+        {/* Payment Form Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-slate-50">
           <div className="mx-auto max-w-4xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className={`rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 ${!DONATIONS_ENABLED ? 'opacity-60 pointer-events-none relative' : ''}`}
+              className={`rounded-2xl bg-white p-6 sm:p-8 ${!DONATIONS_ENABLED ? 'opacity-60 pointer-events-none relative' : ''}`}
             >
               {!DONATIONS_ENABLED && (
-                <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-3xl z-10">
+                <div className="absolute inset-0 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-2xl z-10">
                   <div className="text-center px-6">
-                    <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 border border-slate-300 mb-4">
-                      <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-4">
+                      <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="font-semibold text-slate-700 text-lg">Coming Soon</span>
+                      <span className="font-semibold text-[var(--color-primary)] text-lg">Coming Soon</span>
                     </div>
                     <p className="text-slate-600 max-w-md mx-auto">
                       Online donations will be available soon. In the meantime, contact us about shoe donations or volunteering opportunities.
@@ -358,11 +360,11 @@ export default function DonatePage() {
               {!showPaymentForm ? (
                 <div className="space-y-8">
                   <div className="space-y-3 text-center">
-                    <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 mb-2">
-                      <svg className="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="mx-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-2">
+                      <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
-                      <span className="text-sm font-semibold text-indigo-600">Secure Payment</span>
+                      <span className="text-sm font-semibold text-[var(--color-primary)]">Secure Payment</span>
                     </div>
                     <h2 className="font-display text-3xl font-bold text-slate-900">
                       Donate Securely
@@ -373,14 +375,14 @@ export default function DonatePage() {
                   </div>
 
                   <div className="flex justify-center">
-                    <div className="inline-flex rounded-full bg-slate-100/80 p-1 shadow-inner">
+                    <div className="inline-flex rounded-full bg-slate-100 p-1">
                       {(["one-time", "monthly"] as const).map((option) => (
                         <button
                           key={option}
                           onClick={() => setFrequency(option)}
                           className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
                             frequency === option
-                              ? "bg-white text-[var(--color-primary)] shadow-sm"
+                              ? "bg-white text-[var(--color-primary)]"
                               : "text-slate-600 hover:text-slate-900"
                           }`}
                         >
@@ -399,10 +401,10 @@ export default function DonatePage() {
                         <button
                           key={amount}
                           onClick={() => handleAmountClick(amount)}
-                          className={`py-4 rounded-2xl border text-lg font-display font-semibold transition-all ${
+                          className={`py-4 rounded-xl text-lg font-display font-semibold transition-all ${
                             selectedAmount === amount && !customAmount
-                              ? "bg-[var(--color-primary)] text-white border-transparent shadow-lg"
-                              : "border-slate-200/70 bg-white/80 text-slate-900 hover:border-[var(--color-primary)]/70 hover:bg-white"
+                              ? "bg-[var(--color-primary)] text-white"
+                              : "bg-slate-50 text-slate-900 hover:bg-slate-100"
                           }`}
                         >
                           ${amount}
@@ -424,7 +426,7 @@ export default function DonatePage() {
                         value={customAmount}
                         onChange={(event) => handleCustomAmountChange(event.target.value)}
                         placeholder="Other amount"
-                        className="w-full pl-10 pr-4 py-3 rounded-2xl border border-slate-200/70 bg-white/90 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none font-display text-lg transition-all"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/20 outline-none font-display text-lg transition-all"
                       />
                     </div>
                   </div>
@@ -443,7 +445,7 @@ export default function DonatePage() {
                         value={donorName}
                         onChange={(event) => setDonorName(event.target.value)}
                         placeholder="Your name"
-                        className="w-full rounded-2xl border border-slate-200/70 bg-white/90 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+                        className="w-full rounded-xl bg-slate-50 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/20"
                       />
                     </div>
                     <div>
@@ -459,13 +461,13 @@ export default function DonatePage() {
                         value={donorEmail}
                         onChange={(event) => setDonorEmail(event.target.value)}
                         placeholder="you@example.com"
-                        className="w-full rounded-2xl border border-slate-200/70 bg-white/90 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+                        className="w-full rounded-xl bg-slate-50 px-4 py-3 font-medium text-slate-900 outline-none transition-all focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/20"
                       />
                     </div>
                   </div>
 
                   {error && (
-                    <div className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
+                    <div className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
                       {error}
                     </div>
                   )}
@@ -473,7 +475,7 @@ export default function DonatePage() {
                   <button
                     onClick={handleProceedToPayment}
                     disabled={isLoading || selectedAmount < 1}
-                    className="w-full rounded-full px-8 py-4 font-display text-lg font-semibold text-white shadow-lg transition-all disabled:cursor-not-allowed disabled:opacity-60 hover:shadow-xl"
+                    className="w-full rounded-full px-8 py-4 font-display text-lg font-semibold text-white transition-all disabled:cursor-not-allowed disabled:opacity-60"
                     style={{
                       background:
                         isLoading || selectedAmount < 1
@@ -498,7 +500,7 @@ export default function DonatePage() {
                   >
                     &larr; Back
                   </button>
-                  <div className="rounded-2xl border border-white/60 bg-white/80 px-5 py-4 flex justify-between text-sm text-slate-700">
+                  <div className="rounded-xl bg-slate-50 px-5 py-4 flex justify-between text-sm text-slate-700">
                     <span>{frequency === "monthly" ? "Monthly donation" : "One-time donation"}</span>
                     <span className="font-display text-lg text-[var(--color-primary)]">
                       ${selectedAmount.toFixed(2)}
@@ -522,20 +524,21 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)]/40 to-white">
+        {/* Shoe Donation Steps Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-white">
           <div className="mx-auto max-w-5xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-8 space-y-3"
+              className="text-center mb-10 space-y-3"
             >
-              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 mb-2 w-fit">
-                <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="mx-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
+                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
                 </svg>
-                <span className="text-sm font-semibold text-purple-600">Donate Shoes</span>
+                <span className="text-sm font-semibold text-[var(--color-primary)]">Donate Shoes</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Prefer to Donate Shoes?
@@ -545,7 +548,7 @@ export default function DonatePage() {
               </p>
             </MotionDiv>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-8 md:grid-cols-3">
               {shoeSteps.map((step, index) => (
                 <MotionDiv
                   key={step.title}
@@ -553,7 +556,7 @@ export default function DonatePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-start gap-4 text-left"
+                  className="flex flex-col items-center text-center space-y-3"
                 >
                   <div
                     className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${step.tint}`}
@@ -563,7 +566,7 @@ export default function DonatePage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-display text-xl font-bold text-slate-900">{step.title}</p>
+                    <p className="font-display text-xl font-bold text-slate-900 mb-2">{step.title}</p>
                     <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
                   </div>
                 </MotionDiv>
@@ -572,7 +575,8 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section className="relative w-full py-12 sm:py-16 bg-gradient-to-br from-[var(--color-secondary)]/30 to-white">
+        {/* FAQ Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-slate-50">
           <div className="mx-auto max-w-4xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
@@ -581,11 +585,11 @@ export default function DonatePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-10 space-y-3"
             >
-              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 mb-2 w-fit">
-                <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="mx-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
+                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span className="text-sm font-semibold text-emerald-600">Frequently Asked</span>
+                <span className="text-sm font-semibold text-[var(--color-primary)]">Frequently Asked</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Common Questions
@@ -603,7 +607,7 @@ export default function DonatePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="rounded-2xl border border-slate-200/70 bg-white/90 p-6 shadow-sm hover:shadow-md transition-shadow"
+                  className="rounded-xl bg-white p-6"
                 >
                   <h3 className="font-display text-lg font-semibold text-slate-900 mb-3">
                     {faq.name}
@@ -617,7 +621,8 @@ export default function DonatePage() {
           </div>
         </section>
 
-        <section id="contact-form" className="relative w-full py-12 sm:py-16">
+        {/* Contact Form Section */}
+        <section id="contact-form" className="relative w-full py-12 sm:py-16 bg-white">
           <div className="mx-auto max-w-4xl px-5">
             <MotionDiv
               initial={{ opacity: 0, y: 20 }}
@@ -626,11 +631,11 @@ export default function DonatePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-8 space-y-3"
             >
-              <div className="mx-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent-light)] mb-2 w-fit">
-                <svg className="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="mx-auto inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-2 w-fit">
+                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span className="text-sm font-semibold text-[var(--color-accent)]">Quick Response</span>
+                <span className="text-sm font-semibold text-[var(--color-primary)]">Quick Response</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-slate-900">
                 Tell Us How We Can Help

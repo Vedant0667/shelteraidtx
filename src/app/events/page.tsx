@@ -94,8 +94,9 @@ export default function EventsPage() {
         />
       ))}
       <NavBar />
-      <main className="pt-24">
-        <section className="relative w-full py-20 sm:py-28 bg-gradient-to-br from-[var(--color-secondary)] to-white">
+      <main className="pt-8 sm:pt-16">
+        {/* Hero Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-white">
           <div className="mx-auto max-w-5xl px-5">
             <Breadcrumbs
               items={[
@@ -103,8 +104,11 @@ export default function EventsPage() {
                 { name: "Events", url: "/events" },
               ]}
             />
-            <MotionDiv {...fadeInUp} className="text-center mb-12">
-              <div className="inline-block px-4 py-2 rounded-full bg-white/80 mb-6">
+            <MotionDiv {...fadeInUp} className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-secondary)] mb-6">
+                <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
                 <span className="text-sm font-semibold text-[var(--color-primary)]">
                   Get Involved
                 </span>
@@ -116,26 +120,31 @@ export default function EventsPage() {
                 Join us at shoe drives, volunteer days, and community events supporting Dallas-Fort Worth homeless shelters.
               </p>
             </MotionDiv>
+          </div>
+        </section>
 
-            <div className="space-y-6">
+        {/* Events Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-slate-50">
+          <div className="mx-auto max-w-5xl px-5">
+            <div className="space-y-12">
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200/70"
+                className="bg-white rounded-lg p-8"
               >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex flex-col items-center justify-center text-white shadow-lg">
+                <div className="flex flex-col sm:flex-row items-start gap-6">
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex flex-col items-center justify-center text-white">
                     <span className="text-sm font-semibold uppercase">Feb</span>
                     <span className="text-3xl font-bold">15</span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl font-bold text-slate-900">
                       Community Shoe Drive - Plano
                     </h3>
-                    <p className="text-slate-600 mb-4">
+                    <p className="text-slate-600 leading-relaxed">
                       Join us for a community shoe drive at Fleet Feet Plano. Donate new or gently used shoes to support homeless shelters across Dallas-Fort Worth.
                     </p>
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-4">
+                    <div className="flex flex-col sm:flex-row gap-4 text-sm text-slate-600">
                       <div className="flex items-center gap-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -149,7 +158,7 @@ export default function EventsPage() {
                         Fleet Feet Plano, 5800 Legacy Dr
                       </div>
                     </div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-semibold">
                       Free Event
                     </span>
                   </div>
@@ -159,21 +168,21 @@ export default function EventsPage() {
               <MotionDiv
                 {...fadeInUp}
                 transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200/70"
+                className="bg-white rounded-lg p-8"
               >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-[var(--color-accent)] to-amber-600 flex flex-col items-center justify-center text-white shadow-lg">
+                <div className="flex flex-col sm:flex-row items-start gap-6">
+                  <div className="flex-shrink-0 w-20 h-20 rounded-lg bg-gradient-to-br from-[var(--color-accent)] to-amber-600 flex flex-col items-center justify-center text-white">
                     <span className="text-sm font-semibold uppercase">Mar</span>
                     <span className="text-3xl font-bold">08</span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-2xl font-bold text-slate-900 mb-2">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="font-display text-2xl font-bold text-slate-900">
                       Volunteer Sorting Day - Dallas
                     </h3>
-                    <p className="text-slate-600 mb-4">
+                    <p className="text-slate-600 leading-relaxed">
                       Help us sort and prepare shoe donations for delivery to Dallas homeless shelters. All volunteers welcome - no experience necessary.
                     </p>
-                    <div className="flex flex-wrap gap-4 text-sm text-slate-600 mb-4">
+                    <div className="flex flex-col sm:flex-row gap-4 text-sm text-slate-600">
                       <div className="flex items-center gap-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -187,25 +196,30 @@ export default function EventsPage() {
                         Shelter Aid TX Warehouse, Austin
                       </div>
                     </div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-green-100 text-green-700 text-xs font-semibold">
+                    <span className="inline-block px-3 py-1 rounded-full bg-green-50 text-green-700 text-xs font-semibold">
                       Free Event
                     </span>
                   </div>
                 </div>
               </MotionDiv>
             </div>
+          </div>
+        </section>
 
+        {/* CTA Section */}
+        <section className="relative w-full py-12 sm:py-16 bg-white">
+          <div className="mx-auto max-w-5xl px-5">
             <MotionDiv
               {...fadeInUp}
               transition={{ delay: 0.3 }}
-              className="mt-12 text-center"
+              className="text-center"
             >
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-600 mb-6 text-lg">
                 Want to host your own shoe drive or volunteer at future events?
               </p>
               <Link
                 href="/donate#contact-form"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-display text-lg font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-display text-lg font-semibold text-white transition-all hover:opacity-90"
                 style={{
                   background: "linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end))"
                 }}

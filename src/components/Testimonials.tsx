@@ -22,14 +22,16 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full pt-8 sm:pt-12 pb-20 sm:pb-28">
+    <section className="relative w-full py-20 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-5">
-        <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4 text-center">
-          What Our Partners Say
-        </h2>
-        <p className="text-xl text-slate-600 mb-12 text-center max-w-3xl mx-auto">
-          Hear from the shelters and organizations we work with across Dallas-Fort Worth
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+            What Our Partners Say
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Hear from the shelters and organizations we work with across Dallas-Fort Worth
+          </p>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
