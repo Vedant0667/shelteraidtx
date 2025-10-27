@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { MotionDiv } from "@/components/Motion";
 import Link from "next/link";
 
-export default function DonateSuccessPage() {
+function DonateSuccessPageInner() {
   const searchParams = useSearchParams();
   const [paymentStatus, setPaymentStatus] = useState<"loading" | "success" | "error">("loading");
 
@@ -193,5 +193,13 @@ export default function DonateSuccessPage() {
       </main>
       <Footer />
     </>
+  );
+}
+
+export default function DonateSuccessPage() {
+  return (
+    <Suspense fallback={null}>
+      <DonateSuccessPageInner />
+    </Suspense>
   );
 }
