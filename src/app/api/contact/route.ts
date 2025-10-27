@@ -1,7 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,6 +12,20 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("Resend API key is not configured.");
+      return NextResponse.json(
+        {
+          error:
+            "Email service is temporarily unavailable. Please email shelteraidtx@gmail.com directly while we finish setup.",
+        },
+        { status: 503 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
 
     const normalizedInquiry: string =
       typeof inquiryType === "string" && inquiryType.trim().length > 0
@@ -44,7 +56,6 @@ export async function POST(req: NextRequest) {
       message,
     ].join("\n");
 
-    // Send email via Resend
     const { data, error } = await resend.emails.send({
       from: "Shelter Aid TX <contact@shelteraidtx.org>",
       to: [to],
@@ -61,7 +72,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    console.log("✅ Email sent successfully via Resend:", data);
+    console.log("Email sent successfully via Resend:", data?.id ?? data);
 
     return NextResponse.json({ success: true });
   } catch (error) {
