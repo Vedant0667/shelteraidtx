@@ -175,7 +175,7 @@ export default function WhoWeArePage() {
                           alt={member.name}
                           width={400}
                           height={400}
-                          className={`w-full h-full object-cover ${member.name === "Aarav Nesargi" ? "scale-125 translate-y-[12%]" : ""}`}
+                          className={`w-full h-full object-cover ${member.name === "Aarav Nesargi" ? "scale-125 -translate-y-[1%]" : ""}`}
                         />
                       ) : (
                         <div className="w-full h-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-hover)] flex items-center justify-center">
