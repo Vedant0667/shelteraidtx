@@ -280,7 +280,7 @@ export default function PartnersPage() {
                     alt={partner.name}
                     width={120}
                     height={120}
-                    className="w-3/4 h-3/4 object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-full object-contain p-3 grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
                 <h3 className="font-display font-bold text-center text-sm md:text-base">{partner.name}</h3>
@@ -316,3 +316,4 @@ export default function PartnersPage() {
     </div>
   )
 }
+
