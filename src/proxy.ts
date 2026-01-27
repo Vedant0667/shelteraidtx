@@ -8,6 +8,7 @@ function buildCsp() {
     "object-src 'none'",
     "frame-ancestors 'none'",
     "form-action 'self'",
+    "frame-src 'self' https://player.vimeo.com https://vimeo.com",
     "img-src 'self' data: https:",
     "font-src 'self' data: https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -40,4 +41,3 @@ export function proxy(req: NextRequest) {
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 }
-
