@@ -1,169 +1,204 @@
-import type { Metadata } from "next";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "Learn how Shelter Aid TX collects, uses, and protects your personal information. Our privacy policy covers donations, email communications, and data security.",
-  alternates: {
-    canonical: "/privacy",
-  },
-  openGraph: {
-    title: "Privacy Policy | Shelter Aid TX",
-    description: "Our commitment to protecting your privacy and personal information.",
-    url: "https://shelteraidtx.org/privacy",
-  },
-};
+import Link from "next/link"
+import { SiteFooter } from "@/components/SiteFooter"
 
 export default function PrivacyPage() {
   return (
-    <>
-      <NavBar />
-      <main className="pt-8 sm:pt-16">
-        <section className="relative w-full py-20 sm:py-28">
-          <div className="mx-auto max-w-4xl px-5">
-            <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+    <div className="min-h-screen bg-[#FAFBFC] text-[#0F172A]">
+      <main className="px-6 pt-28 pb-16 md:pt-36">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-[#64748B] mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2B9FD9] pulse-dot" />
               Privacy Policy
-            </h1>
-            <p className="text-sm text-slate-500 mb-8">
-              Last Updated: October 26, 2025
-            </p>
-
-            <div className="prose prose-slate max-w-none">
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                1. Introduction
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Shelter Aid TX (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://shelteraidtx.org" className="text-[var(--color-primary)] hover:underline">shelteraidtx.org</a>, make a donation, or otherwise interact with our services.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Shelter Aid TX is a 501(c)(3) nonprofit organization (EIN: 93-3584886) dedicated to donating shoes to homeless shelters across Dallas-Fort Worth.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                2. Information We Collect
-              </h2>
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                2.1 Personal Information You Provide
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We may collect personal information that you voluntarily provide to us when you:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>Make a donation (name, email address, payment information)</li>
-                <li>Submit a contact form (name, email address, phone number, message)</li>
-                <li>Sign up for our email newsletter</li>
-                <li>Volunteer or inquire about partnership opportunities</li>
-              </ul>
-
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                2.2 Information Automatically Collected
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                When you visit our website, we may automatically collect certain information about your device, including:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>IP address</li>
-                <li>Browser type and version</li>
-                <li>Operating system</li>
-                <li>Referring website</li>
-                <li>Pages viewed and time spent on pages</li>
-                <li>Access times and dates</li>
-              </ul>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                3. How We Use Your Information
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We use the information we collect for the following purposes:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li><strong>Process donations:</strong> To process your financial contributions and issue tax receipts</li>
-                <li><strong>Communicate with you:</strong> To respond to inquiries, send donation receipts, and provide updates about our work</li>
-                <li><strong>Improve our services:</strong> To understand how visitors use our website and improve user experience</li>
-                <li><strong>Comply with legal obligations:</strong> To maintain records as required by law for nonprofit organizations</li>
-                <li><strong>Marketing communications:</strong> With your consent, to send you newsletters and updates about our mission (you may opt out at any time)</li>
-              </ul>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                4. Third-Party Services
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We use the following third-party services that may collect, use, and process your data:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li><strong>Stripe:</strong> Payment processing for donations. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">https://stripe.com/privacy</a></li>
-                <li><strong>Google Analytics:</strong> Website analytics to understand visitor behavior (if applicable)</li>
-                <li><strong>Email service providers:</strong> For sending donation receipts and newsletters</li>
-              </ul>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                These third parties have their own privacy policies, and we encourage you to review them.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                5. Data Security
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We implement appropriate technical and organizational security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Payment information is processed securely through Stripe and is not stored on our servers.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                6. Data Retention
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. Donation records are retained for tax and accounting purposes as required by IRS regulations.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                7. Your Rights
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Depending on your location, you may have the following rights regarding your personal information:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
-                <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
-                <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal retention requirements)</li>
-                <li><strong>Opt-out:</strong> Unsubscribe from marketing emails at any time</li>
-              </ul>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                To exercise these rights, please contact us at <a href="mailto:shelteraidtx@gmail.com" className="text-[var(--color-primary)] hover:underline">shelteraidtx@gmail.com</a>.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                8. Children's Privacy
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe we have collected information from a child under 13, please contact us immediately.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                9. Changes to This Privacy Policy
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date. We encourage you to review this Privacy Policy periodically.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                10. Contact Us
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                If you have questions or concerns about this Privacy Policy, please contact us:
-              </p>
-              <div className="bg-[var(--color-secondary)] rounded-2xl p-6 mb-8">
-                <p className="text-slate-900 font-semibold mb-2">Shelter Aid TX</p>
-                <p className="text-slate-600">Email: <a href="mailto:shelteraidtx@gmail.com" className="text-[var(--color-primary)] hover:underline">shelteraidtx@gmail.com</a></p>
-                <p className="text-slate-600">Address: 5900 Balcones Dr Ste 100, Austin, TX 78731</p>
-                <p className="text-slate-600 mt-2">EIN: 93-3584886</p>
-              </div>
             </div>
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 text-balance">
+              Your privacy, <span className="gradient-text">handled with care</span>
+            </h1>
+            <p className="text-sm md:text-base text-[#64748B]">
+              Effective date: January 27, 2026
+            </p>
           </div>
-        </section>
+
+          <div className="glass-card rounded-3xl p-6 md:p-10 space-y-8 leading-relaxed text-[#475569]">
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Overview</h2>
+              <p>
+                Shelter Aid TX ("we," "our," or "us") is a student-led 501(c)(3) nonprofit
+                organization. This Privacy Policy explains what information we collect through this
+                website, how we use it, and the choices you have.
+              </p>
+              <p>
+                We aim to keep this policy clear and easy to read. A good privacy notice should
+                explain what is collected, why it is collected, how it is used or shared, what
+                security measures are used, and how to contact the organization.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Information we collect</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Contact details you provide:</strong> such as name, email, organization,
+                  and message content when you submit a form.
+                </li>
+                <li>
+                  <strong>Donation-related details:</strong> if online donations are enabled, we
+                  may collect information needed to process your donation (for example, amount and
+                  basic contact details). Payment details are handled by the payment processor.
+                </li>
+                <li>
+                  <strong>Basic technical data:</strong> like approximate device/browser details
+                  and high-level usage events to help us improve the site.
+                </li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">How we use information</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Respond to inquiries and partnership requests.</li>
+                <li>Coordinate shoe donations, drives, and volunteer activity.</li>
+                <li>Operate, maintain, and improve the website and our programs.</li>
+                <li>Comply with applicable legal or reporting obligations.</li>
+              </ul>
+              <p>
+                We process personal information based on consent, our legitimate nonprofit interests,
+                and compliance with legal obligations.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">When we share information</h2>
+              <p>We do not sell personal information.</p>
+              <p>We may share limited information with trusted service providers that help us run the site and our operations, such as:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Email and form delivery providers.</li>
+                <li>Hosting, analytics, or security tooling providers.</li>
+                <li>Payment processors, when donations are enabled.</li>
+              </ul>
+              <p>
+                Privacy policies are generally expected to describe the categories of third parties
+                that receive information and why.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Cookies and analytics</h2>
+              <p>
+                We may use lightweight analytics and similar technologies to understand high-level
+                site usage. This may include aggregate page views, referral sources, and approximate
+                device or browser types. You can reduce tracking by adjusting your browser settings.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Data retention</h2>
+              <p>
+                We generally retain contact and inquiry information for up to 5 years unless a
+                longer period is required for record-keeping or legal purposes.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Security</h2>
+              <p>
+                We use reasonable administrative, technical, and organizational measures designed to
+                protect personal information. Privacy notices should describe security safeguards at
+                a high level.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Children's privacy</h2>
+              <p>
+                This site is not directed to children under 13, and we do not knowingly collect
+                personal information from children under 13 through this website.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">No sensitive data</h2>
+              <p>
+                We do not intentionally collect sensitive personal information such as government
+                identification numbers, health data, or precise location data through this website.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Email communications</h2>
+              <p>
+                We may send occasional updates related to donations, partnerships, or program
+                activity. You can opt out of these communications at any time.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Your choices</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>You can contact us to update or correct your information.</li>
+                <li>You can request that we delete information you submitted through the site.</li>
+                <li>You can opt out of non-essential emails by following unsubscribe instructions.</li>
+              </ul>
+              <p>
+                Many privacy frameworks emphasize making user choices and contact paths clear in the
+                privacy policy.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">State privacy rights</h2>
+              <p>
+                Depending on where you live, you may have additional rights under applicable privacy
+                laws, including the right to request access to or deletion of your personal
+                information. We do not discriminate against individuals who exercise these rights.
+              </p>
+              <p className="text-sm text-[#64748B]">
+                We aim to provide a clear privacy notice and reasonable methods to contact us about
+                privacy requests, consistent with state guidance.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Third-party links</h2>
+              <p>
+                Our website may link to third-party sites. We are not responsible for their privacy
+                practices.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Changes to this policy</h2>
+              <p>
+                We may update this policy from time to time. When we do, we will revise the
+                effective date at the top of the page.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Contact us</h2>
+              <p>
+                If you have questions about this policy or our privacy practices, contact us at{" "}
+                <a className="text-[#2B9FD9] hover:underline font-medium" href="mailto:shelteraidtx@gmail.com">
+                  shelteraidtx@gmail.com
+                </a>
+                .
+              </p>
+              <p>
+                Mailing address: 5900 Balcones Dr Ste 100, Austin, TX 78731.
+              </p>
+              <p className="text-sm text-[#64748B]">
+                For questions about donations or partnering, you can also use the{" "}
+                <Link href="/get-involved?tab=partnership#contact" className="text-[#2B9FD9] hover:underline font-medium">
+                  contact form
+                </Link>
+                .
+              </p>
+            </section>
+          </div>
+        </div>
       </main>
-      <Footer />
-    </>
-  );
+
+      <SiteFooter />
+    </div>
+  )
 }

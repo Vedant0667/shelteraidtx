@@ -70,8 +70,8 @@ export default function Donate() {
               Get in Touch
             </h2>
             <p className="max-w-3xl mx-auto text-lg sm:text-xl text-slate-600 leading-relaxed">
-              Let us know how you want to support Shelter Aid TX—donating shoes, hosting a drive,
-              or partnering on community outreach. We respond within two business days.
+              Let us know how you want to support Shelter Aid TX, whether that means donating shoes,
+              hosting a drive, or partnering on community outreach. We respond within two business days.
             </p>
           </div>
 

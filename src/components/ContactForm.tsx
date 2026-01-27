@@ -16,6 +16,9 @@ interface ContactFormProps {
   successMessage?: string;
   className?: string;
   inquiryOptions?: InquiryOption[];
+  minimal?: boolean;
+  defaultInquiry?: string;
+  messagePlaceholder?: string;
 }
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -37,6 +40,9 @@ export default function ContactForm({
   successMessage = "Thank you! We received your message and will get back to you soon.",
   className = "",
   inquiryOptions,
+  minimal = false,
+  defaultInquiry = "",
+  messagePlaceholder = "Share any details you would like us to know...",
 }: ContactFormProps) {
   const options = useMemo(() => {
     if (inquiryOptions && inquiryOptions.length > 0) {
@@ -45,7 +51,7 @@ export default function ContactForm({
     return FALLBACK_OPTIONS;
   }, [inquiryOptions]);
 
-  const [inquiryType, setInquiryType] = useState<string>("");
+  const [inquiryType, setInquiryType] = useState<string>(defaultInquiry);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -57,6 +63,12 @@ export default function ContactForm({
       setInquiryType("");
     }
   }, [options, inquiryType]);
+
+  useEffect(() => {
+    if (defaultInquiry) {
+      setInquiryType(defaultInquiry);
+    }
+  }, [defaultInquiry]);
 
   const resetForm = () => {
     setName("");
@@ -112,19 +124,23 @@ export default function ContactForm({
     }
   };
 
+  const showHeader = !minimal && title;
+
   return (
     <MotionDiv
       {...fadeInUp}
-      className={`rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 ${className}`}
+      className={minimal ? className : `rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 ${className}`}
     >
       <form className="space-y-8" onSubmit={handleSubmit}>
-        <div className="space-y-4 text-center sm:text-left">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
-            Let&rsquo;s Connect
-          </span>
-          <h3 className="font-display text-2xl font-bold text-slate-900">{title}</h3>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{description}</p>
-        </div>
+        {showHeader && (
+          <div className="space-y-4 text-center sm:text-left">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-primary)]">
+              Let&rsquo;s Connect
+            </span>
+            <h3 className="font-display text-2xl font-bold text-slate-900">{title}</h3>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{description}</p>
+          </div>
+        )}
 
         <div className="grid gap-6 sm:grid-cols-2">
           <FormSelect
@@ -155,7 +171,7 @@ export default function ContactForm({
         <FormTextArea
           id={`message-${subject}`}
           label="How can we help?"
-          placeholder="Share any details you would like us to know..."
+          placeholder={messagePlaceholder}
           value={message}
           onChange={setMessage}
         />

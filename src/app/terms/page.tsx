@@ -1,189 +1,163 @@
-import type { Metadata } from "next";
-import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
-
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "Terms and conditions for using Shelter Aid TX's website and services, including donation policies, refunds, and liability limitations.",
-  alternates: {
-    canonical: "/terms",
-  },
-  openGraph: {
-    title: "Terms of Service | Shelter Aid TX",
-    description: "Terms and conditions for using our services and making donations.",
-    url: "https://shelteraidtx.org/terms",
-  },
-};
+import Link from "next/link"
+import { SiteFooter } from "@/components/SiteFooter"
 
 export default function TermsPage() {
   return (
-    <>
-      <NavBar />
-      <main className="pt-8 sm:pt-16">
-        <section className="relative w-full py-20 sm:py-28">
-          <div className="mx-auto max-w-4xl px-5">
-            <h1 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+    <div className="min-h-screen bg-[#FAFBFC] text-[#0F172A]">
+      <main className="px-6 pt-28 pb-16 md:pt-36">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-10 text-center">
+            <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-[#64748B] mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A574] pulse-dot" />
               Terms of Service
-            </h1>
-            <p className="text-sm text-slate-500 mb-8">
-              Last Updated: October 26, 2025
-            </p>
-
-            <div className="prose prose-slate max-w-none">
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                1. Acceptance of Terms
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                By accessing or using the Shelter Aid TX website at <a href="https://shelteraidtx.org" className="text-[var(--color-primary)] hover:underline">shelteraidtx.org</a> (the &quot;Site&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, please do not use our Site or services.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Shelter Aid TX is a 501(c)(3) nonprofit organization (EIN: 93-3584886) organized under the laws of the State of Texas.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                2. Use of Website
-              </h2>
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                2.1 Permitted Use
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                You may use our Site for lawful purposes only and in accordance with these Terms. You agree not to:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>Use the Site in any way that violates applicable federal, state, or local laws</li>
-                <li>Impersonate or attempt to impersonate Shelter Aid TX, our employees, volunteers, or any other person or entity</li>
-                <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Site</li>
-                <li>Use any robot, spider, or other automatic device to access the Site for any purpose</li>
-                <li>Introduce any viruses, Trojan horses, worms, logic bombs, or other malicious material</li>
-              </ul>
-
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                2.2 Intellectual Property
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                All content on this Site, including text, graphics, logos, images, and software, is the property of Shelter Aid TX or its content suppliers and is protected by United States and international copyright laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                3. Donations
-              </h2>
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                3.1 Tax Deductibility
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Donations to Shelter Aid TX are tax-deductible to the extent allowed by law. As a 501(c)(3) nonprofit organization, we will provide you with a receipt for your donation that can be used for tax purposes. We recommend consulting with a tax professional regarding the deductibility of your specific donation.
-              </p>
-
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                3.2 Payment Processing
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                All monetary donations are processed securely through Stripe, a third-party payment processor. By making a donation, you agree to Stripe's Terms of Service and Privacy Policy. We do not store your payment card information on our servers.
-              </p>
-
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                3.3 Refund Policy
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Donations are generally non-refundable. However, if you believe a charge was made in error or you need to cancel a recurring donation, please contact us at <a href="mailto:shelteraidtx@gmail.com" className="text-[var(--color-primary)] hover:underline">shelteraidtx@gmail.com</a> within 15 days of the transaction. We will review refund requests on a case-by-case basis.
-              </p>
-
-              <h3 className="font-display text-xl font-semibold text-slate-900 mt-6 mb-3">
-                3.4 Use of Donations
-              </h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Donations to Shelter Aid TX will be used to support our mission of providing shoes and essential items to homeless shelters across the Dallas-Fort Worth area. This includes, but is not limited to:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>Purchasing new shoes and essential items for shelter residents</li>
-                <li>Transportation and logistics for delivering donations to partner shelters</li>
-                <li>Operational costs associated with running our programs</li>
-                <li>Community outreach and awareness initiatives</li>
-              </ul>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We reserve the right to use donations where they are most needed to fulfill our charitable mission.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                4. Shoe Donations
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                When donating physical shoes to Shelter Aid TX:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>Shoes should be new or gently used and in clean, wearable condition</li>
-                <li>We accept all sizes: men's, women's, and children's shoes</li>
-                <li>We reserve the right to decline or properly dispose of items that do not meet quality standards</li>
-                <li>Once donated, shoes become the property of Shelter Aid TX and will be distributed to partner shelters at our discretion</li>
-              </ul>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                5. Disclaimer of Warranties
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                THIS SITE AND ALL CONTENT, SERVICES, AND PRODUCTS PROVIDED THROUGH THE SITE ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                Shelter Aid TX does not warrant that:
-              </p>
-              <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                <li>The Site will be uninterrupted, timely, secure, or error-free</li>
-                <li>The results obtained from the use of the Site will be accurate or reliable</li>
-                <li>Any errors in the Site will be corrected</li>
-              </ul>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                6. Limitation of Liability
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SHELTER AID TX, ITS DIRECTORS, OFFICERS, EMPLOYEES, VOLUNTEERS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SITE OR SERVICES, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                7. Indemnification
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                You agree to defend, indemnify, and hold harmless Shelter Aid TX, its directors, officers, employees, volunteers, and affiliates from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your access to or use of the Site or your violation of these Terms.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                8. Governing Law
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                These Terms and your use of the Site shall be governed by and construed in accordance with the laws of the State of Texas, without giving effect to any principles of conflicts of law. Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts located in Travis County, Texas.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                9. Changes to Terms
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                We reserve the right to modify these Terms at any time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date. Your continued use of the Site after any changes indicates your acceptance of the new Terms.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                10. Severability
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
-              </p>
-
-              <h2 className="font-display text-2xl font-bold text-slate-900 mt-8 mb-4">
-                11. Contact Information
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                If you have any questions about these Terms, please contact us:
-              </p>
-              <div className="bg-[var(--color-secondary)] rounded-2xl p-6 mb-8">
-                <p className="text-slate-900 font-semibold mb-2">Shelter Aid TX</p>
-                <p className="text-slate-600">Email: <a href="mailto:shelteraidtx@gmail.com" className="text-[var(--color-primary)] hover:underline">shelteraidtx@gmail.com</a></p>
-                <p className="text-slate-600">Address: 5900 Balcones Dr Ste 100, Austin, TX 78731</p>
-                <p className="text-slate-600 mt-2">EIN: 93-3584886</p>
-              </div>
             </div>
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 text-balance">
+              Clear rules for a <span className="gradient-text-warm">shared mission</span>
+            </h1>
+            <p className="text-sm md:text-base text-[#64748B]">
+              Effective date: January 27, 2026
+            </p>
           </div>
-        </section>
+
+          <div className="glass-card rounded-3xl p-6 md:p-10 space-y-8 leading-relaxed text-[#475569]">
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Acceptance of terms</h2>
+              <p>
+                By accessing or using this website, you agree to these Terms of Service. If you do
+                not agree, please do not use the site.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">About this website</h2>
+              <p>
+                Shelter Aid TX is a student-led 501(c)(3) nonprofit organization. This website is
+                provided to share information about our mission, coordinate donations and
+                partnerships, and help people get involved.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Donations and partnerships</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Donation and partnership opportunities may change over time.</li>
+                <li>We may accept, decline, or limit donations based on program needs.</li>
+                <li>Online donations, if enabled, are processed by third-party providers.</li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Appropriate use</h2>
+              <p>You agree not to misuse the site. This includes, for example:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Attempting to interfere with the site’s normal operation.</li>
+                <li>Submitting false, misleading, or harmful information.</li>
+                <li>Trying to access areas or data you are not authorized to access.</li>
+              </ul>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Content and intellectual property</h2>
+              <p>
+                Unless otherwise noted, the content on this site is owned by Shelter Aid TX and is
+                protected by applicable intellectual property laws. We grant you a limited,
+                non-commercial, non-exclusive license to access and share public content for
+                informational purposes, provided it is not modified or presented in a misleading way.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Third-party links and services</h2>
+              <p>
+                This site may link to third-party websites or services (for example, a partner
+                portal or donation tooling). We are not responsible for third-party content, terms,
+                or privacy practices.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Disclaimers</h2>
+              <p>
+                This website is provided on an “as is” and “as available” basis. While we aim for
+                accuracy and reliability, we do not guarantee that the site will always be
+                error-free, uninterrupted, or fully up to date.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Limitation of liability</h2>
+              <p>
+                To the fullest extent permitted by law, Shelter Aid TX is not liable for indirect,
+                incidental, special, consequential, or punitive damages arising from your use of the
+                site.
+              </p>
+              <p>
+                To the fullest extent permitted by law, our total liability for any claim related to
+                the site will not exceed $100.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Termination</h2>
+              <p>
+                We may suspend or terminate access to the website at any time if we believe these
+                Terms have been violated or if continued access could harm the organization or
+                others.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Governing law</h2>
+              <p>
+                These Terms are governed by the laws of the State of Texas, without regard to
+                conflict-of-law principles.
+              </p>
+              <p>
+                Any disputes arising from these Terms will be resolved in state or federal courts
+                located in Texas.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Severability</h2>
+              <p>
+                If any provision of these Terms is found unenforceable, the remaining provisions
+                will remain in effect.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Changes to these terms</h2>
+              <p>
+                We may update these Terms of Service from time to time. When we do, we will revise
+                the effective date at the top of the page. Continued use of the site after changes
+                means you accept the updated terms.
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h2 className="font-display text-2xl font-bold text-[#0F172A]">Contact</h2>
+              <p>
+                Questions about these terms can be sent to{" "}
+                <a className="text-[#2B9FD9] hover:underline font-medium" href="mailto:shelteraidtx@gmail.com">
+                  shelteraidtx@gmail.com
+                </a>
+                .
+              </p>
+              <p>Mailing address: 5900 Balcones Dr Ste 100, Austin, TX 78731.</p>
+              <p className="text-sm text-[#64748B]">
+                You can also reach out via the{" "}
+                <Link href="/get-involved?tab=partnership#contact" className="text-[#2B9FD9] hover:underline font-medium">
+                  contact form
+                </Link>
+                .
+              </p>
+            </section>
+          </div>
+        </div>
       </main>
-      <Footer />
-    </>
-  );
+
+      <SiteFooter />
+    </div>
+  )
 }
