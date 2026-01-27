@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { SiteFooter } from "@/components/SiteFooter"
 import {
   Menu,
   X,
@@ -13,9 +14,6 @@ import {
   Handshake,
   ArrowRight,
   Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
   CheckCircle,
 } from "lucide-react"
 import ContactForm from "@/components/ContactForm"
@@ -418,80 +416,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0F172A] text-white py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <Image
-                src="/images/main-logo-white.png"
-                alt="Shelter Aid TX"
-                width={160}
-                height={50}
-                className="h-12 w-auto mb-6"
-              />
-              <p className="text-gray-400 leading-relaxed max-w-md">
-                Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope
-                to those experiencing homelessness in Dallas-Fort Worth.
-              </p>
-              <p className="text-gray-500 text-sm mt-4">EIN: 93-3584886</p>
-            </div>
-
-            <div>
-              <h4 className="font-display font-bold mb-4">Quick Links</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><Link href="/who-we-are" className="hover:text-white transition-colors">Who We Are</Link></li>
-                <li><Link href="/get-involved" className="hover:text-white transition-colors">Get Involved</Link></li>
-                <li><Link href="/partners" className="hover:text-white transition-colors">Partners</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-display font-bold mb-4">Connect</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:shelteraidtx@gmail.com" className="hover:text-white transition-colors">
-                    shelteraidtx@gmail.com
-                  </a>
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  <span>Dallas-Fort Worth, TX</span>
-                </li>
-              </ul>
-              <div className="flex gap-4 mt-6">
-                <a
-                  href="https://instagram.com/shelteraidtx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2B9FD9] transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://linkedin.com/company/shelteraidtx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#2B9FD9] transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} Shelter Aid TX. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-sm text-gray-500">
-              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

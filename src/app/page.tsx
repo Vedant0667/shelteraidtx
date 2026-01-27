@@ -870,12 +870,12 @@ export default function HomePage() {
             <div className="md:col-span-1">
               <Link href="/" className="flex items-center gap-3 mb-4">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/main-logo.png"
                   alt="Shelter Aid TX"
-                  width={40}
-                  height={40}
+                  width={180}
+                  height={56}
+                  className="h-12 w-auto"
                 />
-                <span className="font-display text-lg font-bold">Shelter Aid TX</span>
               </Link>
               <p className="text-sm text-[#64748B] leading-relaxed mb-4">
                 Student-led 501(c)(3) nonprofit providing shoes to shelters across Dallas-Fort Worth.
