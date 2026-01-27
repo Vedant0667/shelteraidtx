@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { SiteFooter } from "@/components/SiteFooter"
 import {
@@ -66,7 +65,6 @@ export default function GetInvolvedPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("volunteer")
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -91,11 +89,13 @@ export default function GetInvolvedPage() {
   }, [])
 
   useEffect(() => {
-    const tab = searchParams.get("tab")
+    if (typeof window === "undefined") return
+    const params = new URLSearchParams(window.location.search)
+    const tab = params.get("tab")
     if (tab && waysToHelp.some((way) => way.id === tab)) {
       setActiveTab(tab)
     }
-  }, [searchParams])
+  }, [])
 
   const inquiryOptions = [
     { value: "volunteer", label: "Volunteer Interest" },

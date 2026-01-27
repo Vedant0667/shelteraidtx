@@ -40,7 +40,7 @@ export const fadeInUp = {
     stiffness: 120,
     damping: 18,
   },
-};
+} as const;
 
 export const staggerContainer = {
   initial: {},
@@ -49,10 +49,10 @@ export const staggerContainer = {
   transition: {
     staggerChildren: 0.1,
   },
-};
+} as const;
 
 export const hoverScale = {
   scale: 1.05,
   y: -5,
   transition: { duration: 0.3 },
-};
+} as const;
