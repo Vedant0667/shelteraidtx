@@ -302,18 +302,17 @@ export default function HomePage() {
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-8">
               {[
-                { label: "Impact", id: "impact" },
-                { label: "How It Works", id: "how-it-works" },
-                { label: "Partners", id: "partners" },
-                { label: "FAQ", id: "faq" },
+                { label: "Who We Are", href: "/who-we-are" },
+                { label: "Get Involved", href: "/get-involved" },
+                { label: "Partners", href: "/partners" },
               ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                <Link
+                  key={item.href}
+                  href={item.href}
                   className="text-sm font-medium text-[#64748B] hover:text-[#2B9FD9] transition-colors duration-300"
                 >
                   {item.label}
-                </button>
+                </Link>
               ))}
               <a
                 href="https://portal.shelteraidtx.org"
@@ -323,9 +322,9 @@ export default function HomePage() {
               >
                 Login
               </a>
-              <Link href="/get-involved">
+              <Link href="#donate">
                 <Button className="bg-[#2B9FD9] hover:bg-[#1E87C4] text-white rounded-full px-6 py-2 text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-[#2B9FD9]/20">
-                  Get Involved
+                  Donate
                 </Button>
               </Link>
             </nav>
@@ -347,27 +346,35 @@ export default function HomePage() {
         <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6">
           <nav className="flex flex-col gap-6">
             {[
-              { label: "Impact", id: "impact" },
-              { label: "How It Works", id: "how-it-works" },
-              { label: "Partners", id: "partners" },
-              { label: "FAQ", id: "faq" },
+              { label: "Who We Are", href: "/who-we-are" },
+              { label: "Get Involved", href: "/get-involved" },
+              { label: "Partners", href: "/partners" },
             ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+              <Link
+                key={item.href}
+                href={item.href}
                 className="font-display text-3xl font-bold text-[#0F172A] text-left hover:text-[#2B9FD9] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
-            <Link
-              href="/get-involved"
-              className="font-display text-3xl font-bold text-[#2B9FD9] text-left"
-              onClick={() => setIsMenuOpen(false)}
+            <a
+              href="https://portal.shelteraidtx.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-3xl font-bold text-[#0F172A] text-left hover:text-[#2B9FD9] transition-colors"
             >
-              Get Involved
-            </Link>
+              Login
+            </a>
           </nav>
+          <div className="mt-auto pb-8">
+            <Link href="#donate" onClick={() => setIsMenuOpen(false)}>
+              <Button className="w-full bg-[#2B9FD9] hover:bg-[#1E87C4] text-white rounded-full py-4 text-lg font-medium">
+                Donate
+              </Button>
+            </Link>
+          </div>
         </div>
       )}
 
@@ -454,7 +461,7 @@ export default function HomePage() {
           >
             {[
               { value: "1200", suffix: "+", label: "Shoes Donated", display: "1.2k" },
-              { value: "6", suffix: "", label: "Shelter Partners", display: "6" },
+              { value: "22", suffix: "", label: "Community Partners", display: "22" },
               { value: "100", suffix: "%", label: "Community-Funded", display: "100" },
             ].map((stat, i) => (
               <div key={i} className="text-center">
@@ -721,7 +728,7 @@ export default function HomePage() {
                 inquiryOptions={[
                   { value: "shoe-donation", label: "Donate Shoes" },
                   { value: "host-drive", label: "Host a Shoe Drive" },
-                  { value: "volunteer", label: "Volunteer to Help" },
+                  { value: "volunteer", label: "Volunteer Interest" },
                 ]}
                 minimal
                 defaultInquiry="shoe-donation"

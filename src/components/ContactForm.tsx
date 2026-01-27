@@ -64,6 +64,12 @@ export default function ContactForm({
     }
   }, [options, inquiryType]);
 
+  useEffect(() => {
+    if (defaultInquiry) {
+      setInquiryType(defaultInquiry);
+    }
+  }, [defaultInquiry]);
+
   const resetForm = () => {
     setName("");
     setEmail("");

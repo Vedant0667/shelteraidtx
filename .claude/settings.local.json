@@ -19,7 +19,9 @@
       "Bash(npx shadcn@latest init:*)",
       "Bash(npx shadcn@latest add:*)",
       "WebSearch",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "WebFetch(domain:www.subframe.com)",
+      "WebFetch(domain:theplusaddons.com)"
     ],
     "deny": [],
     "ask": []
