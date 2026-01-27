@@ -23,6 +23,7 @@ const shelterPartners = [
   { name: "Our Daily Bread", logo: "/images/shelters/our-daily-bread.png" },
   { name: "Journey to Dream", logo: "/images/shelters/journey-to-dream.png" },
   { name: "Genesis Women's Shelter", logo: "/images/shelters/genesis.png" },
+  { name: "Family Place", logo: "/images/shelters/family-place.png" },
 ]
 
 const collectionPartners = [
@@ -31,12 +32,22 @@ const collectionPartners = [
   { name: "CISV Dallas Chapter", logo: "/images/cisv.png" },
   { name: "Fleet Feet Preston/Forest", logo: "/images/fleetfeet.png" },
   { name: "Prince of Peace XC", logo: "/images/shelters/POP-logo.png" },
+  { name: "B&B Consignment", logo: "/images/partners/collection/b-and-b-consignment.png" },
+  { name: "Indy Clover Plano", logo: "/images/partners/collection/indy-clover-plano.png" },
+  { name: "Lamplighter School", logo: "/images/partners/collection/lamplighter-school.png" },
+  { name: "Levine School", logo: "/images/partners/collection/levine-school.png" },
+  { name: "Promenade Optical", logo: "/images/partners/collection/promenade-optical.png" },
+  { name: "SAS Store", logo: "/images/partners/collection/sas-store.png" },
+  { name: "Sneaker Haven Allen", logo: "/images/partners/collection/sneaker-haven-allen.png" },
+  { name: "Sneaker Haven Dallas", logo: "/images/partners/collection/sneaker-haven-dallas.png" },
+  { name: "Tradehome Shoes", logo: "/images/partners/collection/tradehome-shoes.png" },
+  { name: "Local Dallas Neighborhoods", logo: "/images/partners/collection/local-dallas-neighborhoods.webp" },
 ]
 
 export default function PartnersPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<"shelters" | "collection">("shelters")
+  const [activeSection, setActiveSection] = useState<"shelters" | "collection">("collection")
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -186,22 +197,6 @@ export default function PartnersPage() {
         <div className="max-w-md mx-auto">
           <div className="bg-white rounded-full p-1.5 shadow-lg border border-[#E2E8F0] flex">
             <button
-              onClick={() => setActiveSection("shelters")}
-              className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-full font-medium transition-all duration-300 ${
-                activeSection === "shelters"
-                  ? "bg-[#2B9FD9] text-white shadow-md"
-                  : "text-[#64748B] hover:text-[#2B9FD9]"
-              }`}
-            >
-              <Heart className="w-5 h-5" />
-              <span>Shelters</span>
-              <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
-                activeSection === "shelters" ? "bg-white/20" : "bg-[#E8F4F8]"
-              }`}>
-                {shelterPartners.length}
-              </span>
-            </button>
-            <button
               onClick={() => setActiveSection("collection")}
               className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-full font-medium transition-all duration-300 ${
                 activeSection === "collection"
@@ -215,6 +210,22 @@ export default function PartnersPage() {
                 activeSection === "collection" ? "bg-white/20" : "bg-[#F5E6D3]"
               }`}>
                 {collectionPartners.length}
+              </span>
+            </button>
+            <button
+              onClick={() => setActiveSection("shelters")}
+              className={`flex-1 flex items-center justify-center gap-2 py-4 px-6 rounded-full font-medium transition-all duration-300 ${
+                activeSection === "shelters"
+                  ? "bg-[#2B9FD9] text-white shadow-md"
+                  : "text-[#64748B] hover:text-[#2B9FD9]"
+              }`}
+            >
+              <Heart className="w-5 h-5" />
+              <span>Shelters</span>
+              <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                activeSection === "shelters" ? "bg-white/20" : "bg-[#E8F4F8]"
+              }`}>
+                {shelterPartners.length}
               </span>
             </button>
           </div>
@@ -256,7 +267,7 @@ export default function PartnersPage() {
             {(activeSection === "shelters" ? shelterPartners : collectionPartners).map((partner, i) => (
               <div
                 key={i}
-                className="group relative bg-white rounded-3xl border border-[#E2E8F0] p-6 md:p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+                className="group relative bg-white rounded-3xl border border-[#E2E8F0] p-6 md:p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 {/* Gradient border on hover */}
@@ -264,9 +275,7 @@ export default function PartnersPage() {
                   activeSection === "shelters" ? "bg-[#2B9FD9]/20" : "bg-[#D4A574]/20"
                 }`} />
 
-                <div className={`aspect-square flex items-center justify-center rounded-2xl mb-4 ${
-                  activeSection === "shelters" ? "bg-[#E8F4F8]" : "bg-[#F5E6D3]"
-                }`}>
+                <div className="flex items-center justify-center rounded-2xl mb-4 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 border border-[#E2E8F0] bg-white">
                   <Image
                     src={partner.logo}
                     alt={partner.name}
