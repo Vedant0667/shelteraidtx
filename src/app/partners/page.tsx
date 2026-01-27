@@ -94,6 +94,7 @@ export default function PartnersPage() {
               {[
                 { label: "Who We Are", href: "/who-we-are" },
                 { label: "Get Involved", href: "/get-involved" },
+                { label: "Blog", href: "/blog" },
                 { label: "Partners", href: "/partners" },
               ].map((item) => (
                 <Link
@@ -141,6 +142,7 @@ export default function PartnersPage() {
             {[
               { label: "Who We Are", href: "/who-we-are" },
               { label: "Get Involved", href: "/get-involved" },
+              { label: "Blog", href: "/blog" },
               { label: "Partners", href: "/partners" },
             ].map((item) => (
               <Link
@@ -301,7 +303,7 @@ export default function PartnersPage() {
           <p className="text-[#64748B] text-lg mb-10 max-w-xl mx-auto">
             Whether you are a shelter needing shoes or an organization wanting to host a drive, we would love to work with you.
           </p>
-          <Link href="/get-involved">
+          <Link href="/get-involved?tab=partnership#contact">
             <Button className="bg-[#2B9FD9] hover:bg-[#1E87C4] text-white rounded-full px-10 py-6 text-lg font-medium transition-all duration-300 hover:shadow-xl hover:shadow-[#2B9FD9]/20 hover:scale-105">
               Get in Touch
               <ArrowRight className="w-5 h-5 ml-2" />

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { SiteFooter } from "@/components/SiteFooter"
 import {
@@ -65,6 +66,7 @@ export default function GetInvolvedPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("volunteer")
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -88,6 +90,13 @@ export default function GetInvolvedPage() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const tab = searchParams.get("tab")
+    if (tab && waysToHelp.some((way) => way.id === tab)) {
+      setActiveTab(tab)
+    }
+  }, [searchParams])
+
   const inquiryOptions = [
     { value: "volunteer", label: "Volunteer Interest" },
     { value: "shoe-donation", label: "Donate Shoes" },
@@ -101,7 +110,7 @@ export default function GetInvolvedPage() {
         return {
           subject: "Shoe Donation",
           defaultInquiry: "shoe-donation",
-          placeholder: "Tell us about your donation — shoe types, sizes, quantity, and your preferred dropoff/pickup location.",
+          placeholder: "Tell us about your donation, including shoe types, sizes, quantity, and your preferred dropoff or pickup location.",
         }
       case "host-drive":
         return {
@@ -159,6 +168,7 @@ export default function GetInvolvedPage() {
               {[
                 { label: "Who We Are", href: "/who-we-are" },
                 { label: "Get Involved", href: "/get-involved" },
+                { label: "Blog", href: "/blog" },
                 { label: "Partners", href: "/partners" },
               ].map((item) => (
                 <Link
@@ -207,6 +217,7 @@ export default function GetInvolvedPage() {
             {[
               { label: "Who We Are", href: "/who-we-are" },
               { label: "Get Involved", href: "/get-involved" },
+              { label: "Blog", href: "/blog" },
               { label: "Partners", href: "/partners" },
             ].map((item) => (
               <Link
@@ -304,7 +315,7 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Form Section */}
-      <section className="py-12 md:py-20 px-6 animate-on-scroll">
+      <section id="contact" className="py-12 md:py-20 px-6 animate-on-scroll">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left - Info */}
@@ -321,7 +332,7 @@ export default function GetInvolvedPage() {
               </h2>
               <p className="text-[#64748B] text-lg leading-relaxed mb-8">
                 {activeTab === "shoe-donation" && "Your donation goes directly to shelters across Dallas-Fort Worth. We accept new and gently used shoes in all sizes."}
-                {activeTab === "host-drive" && "We'll provide everything you need — collection boxes, promotional materials, and pickup coordination. Perfect for schools, workplaces, and community groups."}
+                {activeTab === "host-drive" && "We'll provide everything you need, including collection boxes, promotional materials, and pickup coordination. Perfect for schools, workplaces, and community groups."}
                 {activeTab === "volunteer" && "Whether you have a few hours or want to be more involved, we'd love your help sorting donations, assisting at events, or spreading the word."}
                 {activeTab === "partnership" && "Corporate partners help us scale our impact. From employee drives to sponsorships, there are many ways to get involved."}
               </p>

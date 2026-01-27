@@ -8,7 +8,10 @@ export function SiteFooter() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-1">
-            <Link href="/" className="inline-flex items-center mb-4">
+            <Link
+              href="/"
+              className="inline-flex items-center mb-4 rounded-2xl border border-[#E2E8F0] px-4 py-3 bg-white shadow-sm"
+            >
               <Image
                 src="/images/main-logo.png"
                 alt="Shelter Aid TX"
@@ -67,7 +70,7 @@ export function SiteFooter() {
             <h4 className="text-xs uppercase tracking-[0.15em] font-semibold mb-4">Resources</h4>
             <ul className="space-y-3">
               {[
-                { label: "Donate", href: "/donate" },
+                { label: "Donate", href: "/#donate" },
                 { label: "Blog", href: "/blog" },
                 { label: "Privacy Policy", href: "/privacy" },
                 { label: "Terms of Service", href: "/terms" },
@@ -95,6 +98,10 @@ export function SiteFooter() {
                 <MapPin className="w-4 h-4 mt-0.5" />
                 Dallas-Fort Worth, TX
               </li>
+              <li className="flex items-start gap-2 text-sm text-[#64748B]">
+                <MapPin className="w-4 h-4 mt-0.5" />
+                5900 Balcones Dr Ste 100, Austin, TX 78731
+              </li>
             </ul>
             <div className="mt-4 p-3 bg-[#FAFBFC] rounded-lg border border-[#E2E8F0]">
               <p className="text-xs text-[#64748B]">
@@ -116,4 +123,3 @@ export function SiteFooter() {
     </footer>
   )
 }
-

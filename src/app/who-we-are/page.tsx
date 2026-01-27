@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { SiteFooter } from "@/components/SiteFooter"
 import {
@@ -23,7 +24,7 @@ const teamMembers = [
   },
   {
     name: "Arjun Subramanian",
-    title: "Board Chair & Co-Founder",
+    title: "Co-Founder & Board Chair",
     image: "/images/Arjun-headshot.JPG",
     bio: "Arjun oversees the board and strategic direction of Shelter Aid TX, ensuring the organization stays true to its mission.",
   },
@@ -57,7 +58,7 @@ const coreValues = [
   {
     icon: Zap,
     title: "Action Over Words",
-    description: "We don't just talk about change — we deliver real shoes to real people who need them.",
+    description: "We do not just talk about change, we deliver real shoes to real people who need them.",
   },
 ]
 
@@ -87,6 +88,30 @@ const timeline = [
 export default function WhoWeArePage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const baseUrl = "https://shelteraidtx.org"
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "NonprofitOrganization",
+    name: "Shelter Aid TX",
+    url: baseUrl,
+    logo: `${baseUrl}/images/main-logo.png`,
+    description:
+      "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
+    areaServed: "Dallas-Fort Worth, TX",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "general",
+        email: "shelteraidtx@gmail.com",
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/shelteraidtx",
+      "https://www.linkedin.com/company/shelter-aid-tx",
+    ],
+    foundingDate: "2023-10-01",
+  }
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
@@ -112,6 +137,11 @@ export default function WhoWeArePage() {
 
   return (
     <div className="relative min-h-screen bg-[#FAFBFC] text-[#0F172A] overflow-x-hidden">
+      <Script
+        id="organization-schema-who-we-are"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
       {/* Navigation */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -137,6 +167,7 @@ export default function WhoWeArePage() {
               {[
                 { label: "Who We Are", href: "/who-we-are" },
                 { label: "Get Involved", href: "/get-involved" },
+                { label: "Blog", href: "/blog" },
                 { label: "Partners", href: "/partners" },
               ].map((item) => (
                 <Link
@@ -185,6 +216,7 @@ export default function WhoWeArePage() {
             {[
               { label: "Who We Are", href: "/who-we-are" },
               { label: "Get Involved", href: "/get-involved" },
+              { label: "Blog", href: "/blog" },
               { label: "Partners", href: "/partners" },
             ].map((item) => (
               <Link
@@ -243,7 +275,7 @@ export default function WhoWeArePage() {
               Our Team
             </div>
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-              Meet the <span className="gradient-text">people behind</span> Shelter Aid
+              Meet the <span className="gradient-text">people behind</span> Shelter Aid TX
             </h2>
             <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
               A passionate group of students and mentors committed to making a difference.
@@ -275,6 +307,9 @@ export default function WhoWeArePage() {
               </div>
             ))}
           </div>
+          <p className="text-[11px] md:text-xs text-[#64748B] text-center mt-4">
+            The team on this page is just part of the story. There are 12+ other members behind the mission now.
+          </p>
         </div>
 
         {boardMembers.length > 0 && (
@@ -314,10 +349,10 @@ export default function WhoWeArePage() {
               <div className="space-y-4 text-[#64748B] leading-relaxed">
                 <p>
                   In the summer of 2023, we knew we wanted to help people experiencing homelessness
-                  in DFW — we just did not know how. So we picked up the phone and started calling shelters.
+                  in DFW, we just did not know how. So we picked up the phone and started calling shelters.
                 </p>
                 <p>
-                  After 50 calls, a pattern emerged: shoes. Shelter after shelter told us the same thing —
+                  After 50 calls, a pattern emerged: shoes. Shelter after shelter told us the same thing,
                   they needed shoes more than almost anything else. That was our answer.
                 </p>
                 <p>

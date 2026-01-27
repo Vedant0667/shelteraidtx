@@ -18,9 +18,12 @@ const libreBaskerville = Libre_Baskerville({
 })
 
 export const metadata: Metadata = {
-  title: "Shelter Aid TX — Shoes for Those Who Need Them Most",
+  title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
   description:
     "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "shoe donation",
     "homeless shelter",
@@ -38,12 +41,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://shelteraidtx.org",
     siteName: "Shelter Aid TX",
-    title: "Shelter Aid TX — Shoes for Those Who Need Them Most",
+    title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
     description:
       "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth.",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shelter Aid TX",
@@ -52,10 +55,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shelter Aid TX — Shoes for Those Who Need Them Most",
+    title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
     description:
       "Student-led nonprofit providing warmth, dignity, and hope to those experiencing homelessness in DFW.",
-    images: ["/images/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   icons: {
     icon: [

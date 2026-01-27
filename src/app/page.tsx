@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import {
   Menu,
@@ -241,7 +242,7 @@ export default function HomePage() {
     {
       question: "What types of shoes do you accept?",
       answer:
-        "We accept all types of clean, gently used shoes in good condition - including athletic shoes, casual shoes, boots, and sandals. We welcome all sizes for men, women, and children.",
+        "We accept all types of clean, gently used shoes in good condition, including athletic shoes, casual shoes, boots, and sandals. We welcome all sizes for men, women, and children.",
     },
     {
       question: "How can I donate shoes?",
@@ -260,6 +261,44 @@ export default function HomePage() {
     },
   ]
 
+  const baseUrl = "https://shelteraidtx.org"
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "NonprofitOrganization",
+    name: "Shelter Aid TX",
+    url: baseUrl,
+    logo: `${baseUrl}/images/main-logo.png`,
+    description:
+      "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
+    areaServed: "Dallas-Fort Worth, TX",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "general",
+        email: "shelteraidtx@gmail.com",
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/shelteraidtx",
+      "https://www.linkedin.com/company/shelter-aid-tx",
+    ],
+    foundingDate: "2023-10-01",
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
   const shelterPartners = [
     { name: "Family Gateway", logo: "/images/shelters/family-gateway.png" },
     { name: "Hope Restored Missions", logo: "/images/shelters/hope-restored.png" },
@@ -267,6 +306,7 @@ export default function HomePage() {
     { name: "Our Daily Bread", logo: "/images/shelters/our-daily-bread.png" },
     { name: "Journey to Dream", logo: "/images/shelters/journey-to-dream.png" },
     { name: "Genesis Women's Shelter", logo: "/images/shelters/genesis.png" },
+    { name: "Family Place", logo: "/images/shelters/family-place.png" },
   ]
 
   const collectionPartners = [
@@ -279,6 +319,16 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-[#FAFBFC] text-[#0F172A] overflow-x-hidden">
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Navigation */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -304,6 +354,7 @@ export default function HomePage() {
               {[
                 { label: "Who We Are", href: "/who-we-are" },
                 { label: "Get Involved", href: "/get-involved" },
+                { label: "Blog", href: "/blog" },
                 { label: "Partners", href: "/partners" },
               ].map((item) => (
                 <Link
@@ -348,6 +399,7 @@ export default function HomePage() {
             {[
               { label: "Who We Are", href: "/who-we-are" },
               { label: "Get Involved", href: "/get-involved" },
+              { label: "Blog", href: "/blog" },
               { label: "Partners", href: "/partners" },
             ].map((item) => (
               <Link
@@ -431,7 +483,7 @@ export default function HomePage() {
             style={{ animationDelay: "300ms" }}
           >
             We collect and distribute shoes to homeless shelters across Dallas-Fort Worth,
-            providing warmth, dignity, and hope—one pair at a time.
+            providing warmth, dignity, and hope, one pair at a time.
           </p>
 
           {/* CTAs */}
@@ -439,7 +491,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row gap-4 justify-center stagger-reveal"
             style={{ animationDelay: "400ms" }}
           >
-            <Link href="/donate">
+            <Link href="/#donate">
               <Button className="isolate bg-white/10 backdrop-blur-2xl hover:bg-white/20 text-[#0F172A] rounded-full px-8 py-6 text-base font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 border border-white/40 ring-1 ring-black/5 shadow-xl">
                 Donate Shoes
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -732,7 +784,7 @@ export default function HomePage() {
                 ]}
                 minimal
                 defaultInquiry="shoe-donation"
-                messagePlaceholder="Tell us about your donation — shoe sizes, quantity, preferred pickup/drop-off, etc."
+                messagePlaceholder="Tell us about your donation, including shoe sizes, quantity, and preferred pickup or drop-off details."
               />
             </div>
 
@@ -868,7 +920,10 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div className="md:col-span-1">
-              <Link href="/" className="flex items-center gap-3 mb-4">
+              <Link
+                href="/"
+                className="inline-flex items-center mb-4 rounded-2xl border border-[#E2E8F0] px-4 py-3 bg-white shadow-sm"
+              >
                 <Image
                   src="/images/main-logo.png"
                   alt="Shelter Aid TX"
@@ -929,7 +984,7 @@ export default function HomePage() {
               <h4 className="text-xs uppercase tracking-[0.15em] font-semibold mb-4">Resources</h4>
               <ul className="space-y-3">
                 {[
-                  { label: "Donate", href: "/donate" },
+                  { label: "Donate", href: "/#donate" },
                   { label: "Blog", href: "/blog" },
                   { label: "Privacy Policy", href: "/privacy" },
                   { label: "Terms of Service", href: "/terms" },
@@ -957,6 +1012,10 @@ export default function HomePage() {
                 <li className="flex items-start gap-2 text-sm text-[#64748B]">
                   <MapPin className="w-4 h-4 mt-0.5" />
                   Dallas-Fort Worth, TX
+                </li>
+                <li className="flex items-start gap-2 text-sm text-[#64748B]">
+                  <MapPin className="w-4 h-4 mt-0.5" />
+                  5900 Balcones Dr Ste 100, Austin, TX 78731
                 </li>
               </ul>
               <div className="mt-4 p-3 bg-[#FAFBFC] rounded-lg border border-[#E2E8F0]">
