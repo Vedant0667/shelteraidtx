@@ -80,7 +80,7 @@ const timeline = [
   },
   {
     year: "2025",
-    title: "1,200+ Shoes",
+    title: "1,400+ Shoes",
     description: "Reached a major milestone with 6 shelter partners across Dallas-Fort Worth.",
   },
 ]
@@ -357,7 +357,7 @@ export default function WhoWeArePage() {
                 </p>
                 <p>
                   We founded Shelter Aid TX as a 501(c)(3), and the rest is history. What started as
-                  a simple question has grown into over 1,200 pairs donated and partnerships with
+                  a simple question has grown into over 1,400 pairs donated and partnerships with
                   6 shelters across Dallas-Fort Worth.
                 </p>
               </div>

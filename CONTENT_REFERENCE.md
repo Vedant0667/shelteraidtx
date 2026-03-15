@@ -50,7 +50,7 @@ This document contains all content extracted from the current website for redesi
 
 ## IMPACT METRICS
 
-- **1.2k+** Pairs of Shoes Donated
+- **1.4k+** Pairs of Shoes Donated
 - **6** Active Shelter Partners
 - **5** Community Partners
 - **100%** Community-Funded
@@ -127,7 +127,7 @@ This document contains all content extracted from the current website for redesi
 ## PROGRAMS (Our Work Page)
 
 ### 1. Shoe Donation Program
-- **Stat:** 1.2k+ pairs donated
+- **Stat:** 1.4k+ pairs donated
 - **Description:** All sizes welcome
 - **Details:** Collecting and distributing quality footwear to those in need
 

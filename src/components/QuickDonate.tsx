@@ -63,7 +63,7 @@ export default function QuickDonate() {
               <div className="flex items-center gap-8 flex-wrap">
                 <div>
                   <div className="font-display text-4xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-hover)] bg-clip-text text-transparent">
-                    1.2k+
+                    1.4k+
                   </div>
                   <div className="text-sm font-medium text-slate-600 mt-1">Pairs Delivered</div>
                 </div>
