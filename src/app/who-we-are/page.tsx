@@ -18,19 +18,19 @@ import {
 const teamMembers = [
   {
     name: "Vedant Subramanian",
-    title: "Founder & President",
+    title: "Founder & Board Chair",
     image: "/images/Vedant-headshot.jpg",
     bio: "Vedant founded Shelter Aid TX after calling 50 shelters and discovering the urgent need for shoes.",
   },
   {
     name: "Arjun Subramanian",
-    title: "Co-Founder & Board Chair",
+    title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
     bio: "Arjun oversees the board and strategic direction of Shelter Aid TX, ensuring the organization stays true to its mission.",
   },
   {
     name: "Vikram Sampath",
-    title: "Co-President",
+    title: "President",
     image: "/images/Vikram-headshot.jpg",
     bio: "Vikram helps lead day-to-day operations and coordinates volunteer efforts across the DFW area.",
   },
@@ -80,7 +80,7 @@ const timeline = [
   },
   {
     year: "2026",
-    title: "1,700+ Shoes",
+    title: "2,500+ Shoes",
     description: "Reached a major milestone with 6 shelter partners across Dallas-Fort Worth.",
   },
 ]
@@ -357,7 +357,7 @@ export default function WhoWeArePage() {
                 </p>
                 <p>
                   We founded Shelter Aid TX as a 501(c)(3), and the rest is history. What started as
-                  a simple question has grown into over 1,700 pairs donated and partnerships with
+                  a simple question has grown into over 2,500 pairs donated and partnerships with
                   6 shelters across Dallas-Fort Worth.
                 </p>
               </div>

@@ -512,7 +512,7 @@ export default function HomePage() {
             style={{ animationDelay: "500ms" }}
           >
             {[
-              { value: "1700", suffix: "+", label: "Shoes Donated", display: "1.7k" },
+              { value: "2500", suffix: "+", label: "Shoes Donated", display: "2.5k" },
               { value: "22", suffix: "", label: "Community Partners", display: "22" },
               { value: "100", suffix: "%", label: "Community-Funded", display: "100" },
             ].map((stat, i) => (
