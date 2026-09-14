@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     canonical: "/privacy",
   },
   openGraph: {
+    type: "website",
     title: "Privacy Policy | Shelter Aid TX",
     description:
       "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",

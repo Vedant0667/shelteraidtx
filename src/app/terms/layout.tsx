@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     canonical: "/terms",
   },
   openGraph: {
+    type: "website",
     title: "Terms of Service | Shelter Aid TX",
     description:
       "Read the terms that govern use of the Shelter Aid TX website, including appropriate use, liability limits, and governing law.",

@@ -1,13 +1,19 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Blog",
+  // A plain string here would null out the root layout's title template for
+  // every post underneath, so the template is re-declared alongside the default.
+  title: {
+    default: "Blog: Notes from a Student-Led DFW Nonprofit",
+    template: "%s | Shelter Aid TX",
+  },
   description:
     "Stories, lessons, and updates from Shelter Aid TX, a student-led nonprofit serving homeless shelters across Dallas-Fort Worth.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
+    type: "website",
     title: "Blog | Shelter Aid TX",
     description:
       "Stories, lessons, and updates from Shelter Aid TX, a student-led nonprofit serving homeless shelters across Dallas-Fort Worth.",

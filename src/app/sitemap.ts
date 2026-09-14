@@ -1,74 +1,32 @@
 import { MetadataRoute } from 'next'
 
+/**
+ * `priority` and `changeFrequency` are omitted on purpose: Google ignores both.
+ * `lastModified` is a fixed ISO date per route, reflecting the last real content
+ * change, rather than `new Date()` — a sitemap that claims every page changed on
+ * every crawl teaches crawlers to ignore the field.
+ */
+const REDESIGN = '2026-09-13'
+
+const routes: { path: string; lastModified: string }[] = [
+  { path: '', lastModified: REDESIGN },
+  { path: '/who-we-are', lastModified: REDESIGN },
+  { path: '/get-involved', lastModified: REDESIGN },
+  { path: '/request-shoes', lastModified: REDESIGN },
+  { path: '/donate', lastModified: REDESIGN },
+  { path: '/partners', lastModified: REDESIGN },
+  { path: '/events', lastModified: REDESIGN },
+  { path: '/blog', lastModified: REDESIGN },
+  { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: '2025-10-26' },
+  { path: '/privacy', lastModified: '2026-01-27' },
+  { path: '/terms', lastModified: '2026-01-27' },
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://shelteraidtx.org'
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/who-we-are`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/our-work`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/get-involved`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/donate`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
-      url: `${baseUrl}/partners`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/events`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.75,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/starting-a-nonprofit-in-high-school`,
-      lastModified: new Date('2025-10-26'),
-      changeFrequency: 'yearly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date('2026-01-27'),
-      changeFrequency: 'yearly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date('2026-01-27'),
-      changeFrequency: 'yearly',
-      priority: 0.4,
-    },
-  ]
+  return routes.map(({ path, lastModified }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified,
+  }))
 }

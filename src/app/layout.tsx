@@ -8,17 +8,24 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
 })
 
 const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
   weight: ["400", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
+  preload: true,
 })
 
 export const metadata: Metadata = {
-  title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
+  metadataBase: new URL("https://shelteraidtx.org"),
+  title: {
+    default: "Shelter Aid TX: Shoes for Those Who Need Them Most",
+    template: "%s | Shelter Aid TX",
+  },
   description:
     "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
   alternates: {
@@ -89,7 +96,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#2B9FD9",
+  themeColor: "#fbf8f2",
 }
 
 export default function RootLayout({
@@ -99,7 +106,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
-      <body className="font-sans antialiased bg-[#FAFBFC] text-[#0F172A]">
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

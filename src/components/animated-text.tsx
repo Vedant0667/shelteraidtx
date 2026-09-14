@@ -1,30 +1,23 @@
 "use client"
 
-import { motion } from "framer-motion"
-
 interface AnimatedTextProps {
   text: string
+  /** Delay before the word rises in, in seconds. */
   delay?: number
 }
 
+/**
+ * Word-level rise-in. The whole word animates as one box (no per-letter
+ * inline-blocks, which seam and clip with italic serifs). Remounts on `text`.
+ */
 export function AnimatedText({ text, delay = 0 }: AnimatedTextProps) {
   return (
-    <span key={text}>
-      {text.split("").map((char, index) => (
-        <motion.span
-          key={`${text}-${index}`}
-          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.5,
-            delay: delay + index * 0.03,
-            ease: [0.21, 0.47, 0.32, 0.98],
-          }}
-          style={{ display: char === " " ? "inline" : "inline-block" }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
+    <span
+      key={text}
+      className="word-in"
+      style={{ animationDelay: `${delay}s` }}
+    >
+      {text}
     </span>
   )
 }

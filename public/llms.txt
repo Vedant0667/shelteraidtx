@@ -1,12 +1,26 @@
-Shelter Aid TX is a student-led 501(c)(3) nonprofit that collects and distributes shoes to homeless shelters across Dallas-Fort Worth, Texas.
-Key pages:
-- / (home)
-- /get-involved
-- /donate
-- /our-work
-- /events
-- /partners
-- /who-we-are
-- /blog
-- /privacy
-- /terms
+# Shelter Aid TX
+
+> Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth, Texas that collects new and gently used shoes and delivers every pair directly to homeless shelters, more than 14,000 pairs so far.
+
+Founded in 2023 after calling 50 DFW shelters and hearing the same answer every time (shoes), Shelter Aid TX now works with 23 community partners. Shoes arrive through drop-offs at collection partners and through drives hosted by schools, shops, teams, and neighborhoods; volunteers sort them by size, type, and condition; and 100% of them go straight to shelter partners including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, Genesis Women's Shelter, and Family Place. Shelters request what they need through a dedicated form. All donations are tax-deductible.
+
+## Pages
+
+- [Home](https://shelteraidtx.org/): What Shelter Aid TX does, impact to date, how the four-step collection process works, and answers to common donation questions.
+- [Who We Are](https://shelteraidtx.org/who-we-are): The student-led team, the 50 phone calls the organization started with, and milestones from 2023 to today.
+- [Get Involved](https://shelteraidtx.org/get-involved): The four ways to help, donate shoes, host a drive, volunteer, or partner with us, each with its own contact form.
+- [Donate Shoes](https://shelteraidtx.org/donate): Where to donate shoes in Dallas-Fort Worth, what condition and sizes are accepted, and how drop-off or pickup is arranged.
+- [Request Shoes](https://shelteraidtx.org/request-shoes): For shelters: send the sizes, quantities, and gender you need and we deliver directly, with a reply within 2 business days.
+- [Our Partners](https://shelteraidtx.org/partners): The DFW shelters that receive the shoes and the schools, shops, and businesses that collect them.
+- [Events](https://shelteraidtx.org/events): Upcoming shoe drives and community collection events across Dallas-Fort Worth.
+- [Blog](https://shelteraidtx.org/blog): Notes from running a student-led nonprofit, what worked at a drive, what shelters actually needed.
+- [What is hard about starting a nonprofit in high school](https://shelteraidtx.org/blog/starting-a-nonprofit-in-high-school): Why the 501(c)(3) paperwork was the easy part and earning trust with shelter partners was not.
+- [Privacy Policy](https://shelteraidtx.org/privacy): What this website collects through its forms, why, and the choices visitors have.
+- [Terms of Service](https://shelteraidtx.org/terms): How this website may be used, how donations and partnerships work, and liability limits.
+
+## Contact
+
+- Email: shelteraidtx@gmail.com
+- Service area: Dallas-Fort Worth, Texas
+- Mailing address: 5900 Balcones Dr Ste 100, Austin, TX 78731
+- EIN: 93-3584886 (501(c)(3), donations are tax-deductible)

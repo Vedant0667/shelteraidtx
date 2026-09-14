@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get Involved",
+  title: "Get Involved: Donate, Volunteer, Host a Shoe Drive",
   description: "Donate shoes, volunteer, or host a shoe drive with Shelter Aid TX. Join our mission to support Dallas-Fort Worth homeless shelters.",
   alternates: {
     canonical: "/get-involved",
   },
   openGraph: {
+    type: "website",
     title: "Get Involved | Shelter Aid TX",
     description: "Donate shoes, volunteer, or host a drive to support DFW homeless shelters.",
     url: "https://shelteraidtx.org/get-involved",

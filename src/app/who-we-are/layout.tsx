@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Who We Are",
+  title: "Who We Are: Student-Led Shoe Nonprofit in DFW",
   description: "Meet the student-led team behind Shelter Aid TX, a 501(c)(3) nonprofit delivering shoes to Dallas-Fort Worth homeless shelters since October 2023.",
   alternates: {
     canonical: "/who-we-are",
   },
   openGraph: {
+    type: "website",
     title: "Who We Are | Shelter Aid TX",
     description: "Student-led nonprofit team donating shoes to DFW homeless shelters.",
     url: "https://shelteraidtx.org/who-we-are",

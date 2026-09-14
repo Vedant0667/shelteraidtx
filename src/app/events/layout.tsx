@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Upcoming Events",
+  title: "Upcoming Shoe Drives and Events in DFW",
   description: "Join Shelter Aid TX at upcoming shoe drives and community events across Dallas-Fort Worth. Help us collect shoes for local homeless shelters.",
   alternates: {
     canonical: "/events",
   },
   openGraph: {
+    type: "website",
     title: "Upcoming Events | Shelter Aid TX",
     description: "Community shoe drives and volunteer events supporting DFW homeless shelters.",
     url: "https://shelteraidtx.org/events",

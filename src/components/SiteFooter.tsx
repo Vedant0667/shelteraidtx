@@ -1,125 +1,112 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Heart, Instagram, Linkedin, Mail, MapPin } from "lucide-react"
+import { Instagram, Linkedin } from "lucide-react"
 
+const SITE_LINKS = [
+  { label: "Who We Are", href: "/who-we-are" },
+  { label: "Get Involved", href: "/get-involved" },
+  { label: "Partners", href: "/partners" },
+  { label: "Events", href: "/events" },
+  { label: "Blog", href: "/blog" },
+]
+
+const TAKE_PART = [
+  { label: "Donate shoes", href: "/donate" },
+  { label: "Request shoes (shelters)", href: "/request-shoes" },
+  { label: "Host a drive", href: "/get-involved?tab=host-drive#contact" },
+  { label: "Volunteer", href: "/get-involved?tab=volunteer#contact" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+]
+
+/** Quiet ivory footer with hairlines. */
 export function SiteFooter() {
   return (
-    <footer className="py-16 px-6 border-t border-[#E2E8F0] bg-white">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-1">
-            <Link
-              href="/"
-              className="inline-flex items-center mb-4 rounded-2xl border border-[#E2E8F0] px-4 py-3 bg-white shadow-sm"
-            >
-              <Image
-                src="/images/main-logo.png"
-                alt="Shelter Aid TX"
-                width={180}
-                height={56}
-                className="h-12 w-auto"
-              />
+    <footer className="w-full border-t border-[var(--hairline)] bg-[var(--bg)]">
+      <div className="wrap py-14 md:py-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Link href="/" className="inline-block" aria-label="Shelter Aid TX home">
+              <Image src="/images/main-logo.png" alt="Shelter Aid TX" width={170} height={32} className="h-8 w-auto" />
             </Link>
-            <p className="text-sm text-[#64748B] leading-relaxed mb-4">
-              Student-led 501(c)(3) nonprofit providing shoes to shelters across Dallas-Fort Worth.
+            <p className="body mt-5 max-w-sm">
+              A student-led 501(c)(3) in Dallas-Fort Worth. We collect shoes and deliver every pair to shelter
+              partners across the metroplex.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="mt-6 flex items-center gap-2">
               <a
                 href="https://www.instagram.com/shelteraidtx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#FAFBFC] border border-[#E2E8F0] flex items-center justify-center text-[#64748B] hover:text-[#2B9FD9] hover:border-[#2B9FD9] transition-colors"
-                aria-label="Instagram"
+                aria-label="Shelter Aid TX on Instagram"
+                className="grid h-10 w-10 place-items-center rounded-full border border-[var(--hairline)] text-[var(--muted)] transition-colors hover:border-[var(--hairline-strong)] hover:text-[var(--ink)]"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/company/shelter-aid-tx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#FAFBFC] border border-[#E2E8F0] flex items-center justify-center text-[#64748B] hover:text-[#2B9FD9] hover:border-[#2B9FD9] transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Shelter Aid TX on LinkedIn"
+                className="grid h-10 w-10 place-items-center rounded-full border border-[var(--hairline)] text-[var(--muted)] transition-colors hover:border-[var(--hairline-strong)] hover:text-[var(--ink)]"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Who We Are", href: "/who-we-are" },
-                { label: "Our Work", href: "/our-work" },
-                { label: "Get Involved", href: "/get-involved" },
-                { label: "Partners", href: "/partners" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#64748B] hover:text-[#2B9FD9] transition-colors"
-                  >
-                    {link.label}
+          <div className="md:col-span-2">
+            <p className="kicker-muted">Site</p>
+            <ul className="mt-4 space-y-2.5">
+              {SITE_LINKS.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]">
+                    {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold mb-4">Resources</h4>
-            <ul className="space-y-3">
-              {[
-                { label: "Donate", href: "/#donate" },
-                { label: "Blog", href: "/blog" },
-                { label: "Privacy Policy", href: "/privacy" },
-                { label: "Terms of Service", href: "/terms" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#64748B] hover:text-[#2B9FD9] transition-colors"
-                  >
-                    {link.label}
+          <div className="md:col-span-2">
+            <p className="kicker-muted">Take part</p>
+            <ul className="mt-4 space-y-2.5">
+              {TAKE_PART.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--ink)]">
+                    {l.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-xs uppercase tracking-[0.15em] font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-[#64748B]">
-                <Mail className="w-4 h-4" />
-                shelteraidtx@gmail.com
+          <div className="md:col-span-3">
+            <p className="kicker-muted">Contact</p>
+            <ul className="mt-4 space-y-2.5 text-sm text-[var(--muted)]">
+              <li>
+                <a href="mailto:shelteraidtx@gmail.com" className="transition-colors hover:text-[var(--ink)]">
+                  shelteraidtx@gmail.com
+                </a>
               </li>
-              <li className="flex items-start gap-2 text-sm text-[#64748B]">
-                <MapPin className="w-4 h-4 mt-0.5" />
-                Dallas-Fort Worth, TX
+              <li>Dallas-Fort Worth, TX</li>
+              <li className="text-[0.82rem]">
+                Mailing: 5900 Balcones Dr Ste 100
+                <br />
+                Austin, TX 78731
               </li>
-              <li className="flex items-start gap-2 text-sm text-[#64748B]">
-                <MapPin className="w-4 h-4 mt-0.5" />
-                5900 Balcones Dr Ste 100, Austin, TX 78731
-              </li>
+              <li className="pt-1 text-[0.82rem]">EIN 93-3584886</li>
             </ul>
-            <div className="mt-4 p-3 bg-[#FAFBFC] rounded-lg border border-[#E2E8F0]">
-              <p className="text-xs text-[#64748B]">
-                <span className="font-medium">EIN:</span> 93-3584886
-              </p>
-            </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#E2E8F0] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-[#64748B]">
-            © {new Date().getFullYear()} Shelter Aid TX. All rights reserved.
-          </p>
-          <p className="text-xs text-[#94A3B8]">
-            Made with <Heart className="w-3 h-3 inline text-[#D4A574]" /> by students in DFW
-          </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-[var(--hairline)] pt-6 text-[0.8rem] text-[var(--muted)] md:flex-row md:items-center md:justify-between">
+          <span className="font-display text-[var(--ink)]/70">Shelter Aid TX</span>
+          <span>© {new Date().getFullYear()} · Made by students in DFW</span>
         </div>
       </div>
     </footer>
   )
 }
+
+export default SiteFooter

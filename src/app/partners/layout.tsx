@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Partners",
+  title: "Our Partners: Shelters and Collection Partners in DFW",
   description: "Meet the Dallas-Fort Worth homeless shelters and community organizations partnering with Shelter Aid TX to deliver shoes to those in need.",
   alternates: {
     canonical: "/partners",
   },
   openGraph: {
+    type: "website",
     title: "Our Partners | Shelter Aid TX",
     description: "DFW homeless shelters and community partners working with Shelter Aid TX.",
     url: "https://shelteraidtx.org/partners",
