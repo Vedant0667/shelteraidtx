@@ -10,7 +10,7 @@ Three audiences, all in Dallas-Fort Worth, all arriving on a phone or a laptop w
 
 - **Donors and drive hosts.** Parents, teachers, coaches, store managers, and students who have shoes to give or want to run a drive. They want to know in under a minute what is accepted, where to drop off, and that the shoes actually reach people.
 - **Shelter staff.** Case managers and directors who need shoes for the people they serve. They want to see who we already work with and how to request a delivery.
-- **Supporters and press.** Grant reviewers, sponsors, local media, and other students. They want proof: numbers, partners, faces, the story of how a student-run 501(c)(3) got to 14,000 pairs.
+- **Supporters and press.** Grant reviewers, sponsors, local media, and other students. They want proof: numbers, partners, faces, the story of how a student-run 501(c)(3) got to 8,000 pairs.
 
 ## Product Purpose
 

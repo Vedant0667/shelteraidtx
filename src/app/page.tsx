@@ -24,14 +24,14 @@ function easeInOutQuart(t: number) {
   return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2
 }
 
-// While counting, mirror the style of the final display: "14k" counts 0 -> 999 -> 1k -> 13.9k -> 14k.
+// While counting, mirror the style of the final display: "8k" counts 0 -> 999 -> 1k -> 7.9k -> 8k.
 function formatLike(display: string, n: number) {
   if (/k$/i.test(display) && n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`
   return `${Math.round(n)}`
 }
 
 function HeroCounter({ value, suffix, display }: { value: string; suffix: string; display: string }) {
-  // Seeded with the real number so the server-rendered HTML carries "14k"/"23"/
+  // Seeded with the real number so the server-rendered HTML carries "8k"/"23"/
   // "100" for crawlers and no-JS visitors. Only an in-view, motion-allowed visit
   // rewinds it to zero and counts back up.
   const [displayValue, setDisplayValue] = useState(display)
@@ -194,7 +194,7 @@ const collectionPartners = [
 ]
 
 const stats = [
-  { value: "14000", suffix: "+", label: "Pairs collected", display: "14k" },
+  { value: "8000", suffix: "+", label: "Pairs collected", display: "8k" },
   { value: "23", suffix: "", label: "Community partners", display: "23" },
   { value: "100", suffix: "%", label: "Direct to shelters", display: "100" },
 ]

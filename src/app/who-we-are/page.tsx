@@ -69,9 +69,9 @@ const timeline = [
   },
   {
     year: "2026",
-    title: "14,000+ pairs collected",
+    title: "8,000+ pairs collected",
     description:
-      "More than 14,000 pairs collected, and every pair we collect goes directly to those in need through our shelter partners across Dallas-Fort Worth.",
+      "More than 8,000 pairs collected, and every pair we collect goes directly to those in need through our shelter partners across Dallas-Fort Worth.",
   },
 ]
 
@@ -192,7 +192,7 @@ export default function WhoWeArePage() {
             </p>
             <p className="body-lg mt-4">
               We founded Shelter Aid TX as a 501(c)(3), and the rest is history. What started as a simple question has
-              grown into over 14,000 pairs collected, every one of them going directly to those in need through our
+              grown into over 8,000 pairs collected, every one of them going directly to those in need through our
               shelter partners across Dallas-Fort Worth.
             </p>
           </div>
@@ -204,7 +204,7 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="Three years from a list of phone numbers to more than 14,000 pairs delivered through shelter partners."
+          lede="Three years from a list of phone numbers to more than 8,000 pairs delivered through shelter partners."
         >
           <Timeline items={timeline} />
         </Section>
