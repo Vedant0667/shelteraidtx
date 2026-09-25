@@ -46,7 +46,6 @@ export default function TermsPage() {
               <ul>
                 <li>Donation and partnership opportunities may change over time.</li>
                 <li>We may accept, decline, or limit donations based on program needs.</li>
-                <li>Online donations, if enabled, are processed by third-party providers.</li>
               </ul>
 
               <h2 id="appropriate-use">Appropriate use</h2>
@@ -68,7 +67,7 @@ export default function TermsPage() {
               <h2 id="third-party-links-and-services">Third-party links and services</h2>
               <p>
                 This site may link to third-party websites or services (for example, a partner
-                portal or donation tooling). We are not responsible for third-party content, terms,
+                portal). We are not responsible for third-party content, terms,
                 or privacy practices.
               </p>
 

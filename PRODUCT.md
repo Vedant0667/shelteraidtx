@@ -14,7 +14,7 @@ Three audiences, all in Dallas-Fort Worth, all arriving on a phone or a laptop w
 
 ## Product Purpose
 
-Shelter Aid TX collects new and gently used shoes and delivers every pair directly to shelter partners across DFW. The site exists to turn attention into action: a shoe donation, a hosted drive, a partnership, or a monetary gift. Success is a visitor who finds the one thing they came to do without hunting, trusts that it works, and does it.
+Shelter Aid TX collects new and gently used shoes and delivers every pair directly to shelter partners across DFW. The site exists to turn attention into action: a shoe donation, a hosted drive, or a partnership. Success is a visitor who finds the one thing they came to do without hunting, trusts that it works, and does it.
 
 ## Brand Personality
 

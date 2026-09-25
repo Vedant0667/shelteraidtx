@@ -50,10 +50,10 @@ This document contains all content extracted from the current website for redesi
 
 ## IMPACT METRICS
 
-- **1.4k+** Pairs of Shoes Donated
-- **6** Active Shelter Partners
-- **5** Community Partners
-- **100%** Community-Funded
+- **8k+** Pairs collected
+- **23** Community partners
+- **100%** Direct to shelters
+- **7** Shelter partners (listed on /partners; not a hero stat)
 - **Founded:** 2023
 
 ---
@@ -160,18 +160,13 @@ This document contains all content extracted from the current website for redesi
 - Share posts and stories
 - Organize shoe drives at your school/organization
 
-### 4. Monetary Donations
-- 100% goes to the cause
-- Tax-deductible (501(c)(3))
-- One-time or monthly options
-
-### 5. Host a Shoe Drive
+### 4. Host a Shoe Drive
 - Partner with us for collection events
 - We provide guidance and support
 
 ---
 
-## SHELTER PARTNERS (6)
+## SHELTER PARTNERS (7)
 
 1. **Family Gateway**
    - Description: Homeless families shelter
@@ -197,9 +192,12 @@ This document contains all content extracted from the current website for redesi
    - Description: Safety from domestic violence
    - Logo: /images/shelters/genesis.png
 
+7. **Family Place**
+   - Logo: /images/shelters/family-place.png
+
 ---
 
-## COMMUNITY PARTNERS (5)
+## COLLECTION PARTNERS (first 5 listed; the Partners page has the full set)
 
 1. **Greenhill School**
    - Description: Shoe drive partner with Genesis
@@ -243,16 +241,13 @@ This document contains all content extracted from the current website for redesi
 A: Yes! Shelter Aid TX is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible to the extent allowed by law. Our EIN is 93-3584886.
 
 ### Q: Where do the shoes go?
-A: All donated shoes go directly to our shelter partners in the Dallas-Fort Worth area, including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, and Genesis Women's Shelter.
+A: All donated shoes go directly to our shelter partners in the Dallas-Fort Worth area, including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, Genesis Women's Shelter, and Family Place.
 
 ### Q: What types of shoes do you accept?
 A: We accept all types of clean, gently used shoes in good condition - including athletic shoes, casual shoes, boots, and sandals. We welcome all sizes for men, women, and children.
 
 ### Q: How can I donate shoes?
 A: You can drop off shoes at one of our partner locations, organize a shoe drive at your school or workplace, or request a volunteer pickup for donations of 30 or more pairs.
-
-### Q: Can I make a monetary donation?
-A: Yes! Monetary donations help us cover operational costs and expand our reach. All funds go directly to supporting our mission. You can donate through our secure payment system.
 
 ### Q: How can I volunteer or partner with you?
 A: We're always looking for volunteers and partners! Fill out our contact form below with your interest, and we'll get back to you within 2 business days to discuss opportunities.
@@ -289,12 +284,11 @@ Don't wait until you have everything figured out. We started collecting shoes be
 
 ## CONTACT FORM INQUIRY TYPES
 
-1. Monetary Donation Support
-2. Donate Shoes
-3. Host a Shoe Drive
-4. Partnership Inquiry
-5. Volunteer Interest
-6. General Question
+1. Donate Shoes
+2. Host a Shoe Drive
+3. Partnership Inquiry
+4. Volunteer Interest
+5. General Question
 
 ---
 
@@ -361,15 +355,11 @@ Don't wait until you have everything figured out. We started collecting shoes be
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- Stripe integration (feature-flagged)
 - Resend for email
 
 ### API Routes (Keep)
 - /api/contact
-- /api/create-payment-intent
-
-### Feature Flags
-- DONATIONS_ENABLED = false (Stripe payments currently disabled)
+- /api/create-payment-intent (stub, returns 503; no payments are live)
 
 ---
 
@@ -380,7 +370,7 @@ Don't wait until you have everything figured out. We started collecting shoes be
 3. **/our-work** - Programs, Impact, Mission
 4. **/get-involved** - Ways to help, Volunteer, Donate
 5. **/partners** - Community & Shelter partners
-6. **/donate** - Payment form, FAQ, Contact
+6. **/donate** - Donate shoes: what we accept, drop-off, pickup, contact form
 7. **/blog** - Blog listing
 8. **/blog/starting-a-nonprofit-in-high-school** - Blog post
 9. **/events** - Events page

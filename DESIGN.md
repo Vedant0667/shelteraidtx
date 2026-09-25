@@ -169,27 +169,30 @@ Neutrals: `surface` white for content, `ground` for the page body, `line` for ru
 
 ## 3. Typography
 
-Two families. **Libre Baskerville** speaks; **Work Sans** explains.
+Two families. **Libre Baskerville** speaks; **Inter** explains.
 
 - `display` is the page title only (one per page). Cap at 4.75rem; `text-wrap: balance`.
 - `headline` is every section title. Left-aligned by default; centered only in the hero and in full-bleed bands.
 - `title` is a card or list-item title, and the FAQ question.
 - `quote` is Baskerville regular for testimonials and pull quotes, never italic on the whole block; italicize a phrase at most.
 - `lede` is the one-paragraph intro under a title, capped at 60ch.
-- `body` is 17px Work Sans, 1.6 line height, capped at 65ch; `text-wrap: pretty`.
-- `label` is buttons, nav, form labels, tags, and metadata. Sentence case. Uppercase tracked text appears in exactly one place per page at most (a tag on a lead partner, a "Founded 2023" mark), never as a section eyebrow.
+- `body` is 1.05rem Inter (1.02rem on small screens), 1.7 line height, capped at 65ch; `text-wrap: pretty`.
+- `label` is buttons, nav, form labels, tags, and metadata. Sentence case.
+- `kicker` is the one uppercase style: 0.76rem, weight 500, tracked 0.22em, `accent-ink`. It sits above every section heading (`Section` renders it) and above rows and cards that share an anatomy.
 
 Scale ratio between steps is at least 1.25. Letter-spacing on headings is between -0.02em and -0.01em; never tighter.
 
 ## 4. Elevation
 
-Flat by default. Depth comes from ground changes (white on cream, cream on white, white on sky) and from photography, not from shadows.
+Ground changes separate sections. Shadows separate a card from the ground it sits on, and they are soft, warm, and layered.
 
-- Rules: 1px `line` on white, 1px `ink` at 12% on cream, 1px white at 15% on navy or sky.
-- The only shadow in the system is the scrolled header: `0 1px 0 line, 0 8px 24px -16px ink at 25%`.
-- Logo tiles get a 1px `line` border and no shadow. Hover on a logo tile changes the border to `sky` and removes the grayscale; nothing lifts.
-- Images get `rounded.lg` on light grounds and square edges when full-bleed.
-- No backdrop blur, no glass, no glow blurs behind cards.
+- Shadow color is `--shadow-color` (40 36 28), a warm near-black. Never pure black.
+- `.card`: white surface, 1px hairline border, 1.25rem radius, and a three-layer resting shadow (the same stack as `.shadow-editorial`).
+- `.card-hover`: on hover the card rises 4px, the border darkens to `hairline-strong`, and the shadow deepens to the `.shadow-editorial-lg` stack. Use it only on cards that are links.
+- `.card-flat` and `.well`: border and radius, no shadow, for panels that should not float.
+- `.glass-card` (white at 80%, 12px backdrop blur) exists for one place: the team cards on Who We Are, kept at the owner's request. Nowhere else.
+- Logo tiles get a 1px border and no shadow. Hover and focus darken the border to `hairline-strong` and raise the tile 2px. The home page logo strip alone shows logos in grayscale until hover.
+- Images get a 1.25rem radius on light grounds and square edges when full-bleed.
 
 ## 5. Components
 
@@ -230,10 +233,9 @@ Flat by default. Depth comes from ground changes (white on cream, cream on white
 - Write button labels as verb + object.
 
 **Don't**
-- No gradient text, glass cards, or backdrop blur anywhere.
-- No uppercase tracked eyebrow above section titles.
+- No gradient text. Backdrop blur appears in two places only: the Who We Are team cards and the site header once the page scrolls.
 - No numbered section markers unless the section is a real sequence.
 - No side-stripe borders on quotes or callouts.
-- No hover-lift, scale, or glow on cards and tiles; hover changes color or border only.
+- No scale or glow on hover. Linked cards (`.card-hover`) and the Who We Are team cards rise 4px; logo tiles, `btn-primary`, and `btn-on-dark` rise 2px; rows change color only.
 - No bounce or spring easing; no animation that gates whether content is visible.
 - No new grays, no new accent colors, no purple or indigo gradients.

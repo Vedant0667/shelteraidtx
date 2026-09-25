@@ -49,11 +49,6 @@ export default function PrivacyPage() {
                   content when you submit a form.
                 </li>
                 <li>
-                  Donation-related details. If online donations are enabled, we may collect
-                  information needed to process your donation (for example, amount and basic
-                  contact details). Payment details are handled by the payment processor.
-                </li>
-                <li>
                   Basic technical data, like approximate device or browser details and high-level
                   usage events to help us improve the site.
                 </li>
@@ -77,7 +72,6 @@ export default function PrivacyPage() {
               <ul>
                 <li>Email and form delivery providers.</li>
                 <li>Hosting, analytics, or security tooling providers.</li>
-                <li>Payment processors, when donations are enabled.</li>
               </ul>
               <p>
                 Privacy policies are generally expected to describe the categories of third parties

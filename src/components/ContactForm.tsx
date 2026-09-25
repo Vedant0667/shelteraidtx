@@ -28,7 +28,6 @@ const FALLBACK_OPTIONS: InquiryOption[] = [
   { value: "host-drive", label: "Host a Shoe Drive" },
   { value: "partnership", label: "Partnership Inquiry" },
   { value: "volunteer", label: "Volunteer Interest" },
-  { value: "donation-support", label: "Monetary Donation Support" },
 ];
 
 /** Field ids have to be valid HTML ids, and the subject has spaces in it. */

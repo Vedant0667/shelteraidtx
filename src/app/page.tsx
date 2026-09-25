@@ -141,7 +141,7 @@ const faqs = [
   {
     question: "Where do the shoes go?",
     answer:
-      "All donated shoes go directly to our shelter partners in the Dallas-Fort Worth area, including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, and Genesis Women's Shelter.",
+      "All donated shoes go directly to our shelter partners in the Dallas-Fort Worth area, including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, Genesis Women's Shelter, and Family Place.",
   },
   {
     question: "What types of shoes do you accept?",
@@ -152,11 +152,6 @@ const faqs = [
     question: "How can I donate shoes?",
     answer:
       "You can drop off shoes at one of our partner locations, organize a shoe drive at your school or workplace, or request a volunteer pickup for donations of 30 or more pairs.",
-  },
-  {
-    question: "Can I make a monetary donation?",
-    answer:
-      "Yes! Monetary donations help us cover operational costs and expand our reach. All funds go directly to supporting our mission.",
   },
   {
     question: "How can I volunteer or partner with you?",
@@ -503,7 +498,7 @@ export default function HomePage() {
           kicker="Donate"
           title="Ready to make"
           em="a difference?"
-          lede="Whether you have shoes to give or want to support our mission financially, we'd love to hear from you."
+          lede="Whether you have shoes to give or want to host a drive, we'd love to hear from you."
         >
           {/* Contract §15: both columns open with a kicker on the same line and
               the card and the row list each fill the stretched column, so the two
@@ -544,16 +539,6 @@ export default function HomePage() {
                   <p className="body mt-2">Tell us sizes, quantities, and gender.</p>
                   <div className="mt-2">
                     <LinkArrow href="/request-shoes">Request shoes</LinkArrow>
-                  </div>
-                </li>
-                <li className="row flex-1 py-3 md:py-3">
-                  <p className="kicker">Monetary donations</p>
-                  <h3 className="title mt-3">Online payments are coming soon.</h3>
-                  <p className="body mt-2">All donations are tax-deductible (EIN 93-3584886).</p>
-                  <div className="mt-2">
-                    <LinkArrow href="mailto:shelteraidtx@gmail.com" external>
-                      Email us
-                    </LinkArrow>
                   </div>
                 </li>
                 <li className="row flex-1 py-3 md:py-3">

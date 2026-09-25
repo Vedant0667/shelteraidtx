@@ -105,7 +105,7 @@ const waysToHelp: Way[] = [
     inquiryValue: "partnership",
     heading: "Partner",
     headingEm: "with us.",
-    body: "Corporate partners help us scale our impact. From employee drives to sponsorships, there are many ways to get involved.",
+    body: "Corporate partners help us scale our impact. From employee drives to drop-off locations, there are many ways to get involved.",
     subject: "Partnership Inquiry",
     placeholder: "Tell us about your organization and how you would like to partner with Shelter Aid TX.",
   },
