@@ -142,7 +142,7 @@ export default function DonatePage() {
           kicker="Giving online"
           title="What does a money donation"
           em="pay for?"
-          lede="Collection, storage, and delivery. The shoes are donated, but getting them from drop-off points to shelters takes collection supplies, storage space, and trips across Dallas-Fort Worth."
+          lede="Collection, storage, and delivery. The shoes themselves are donated; money covers collecting them, storing them, and delivering them to shelters across Dallas-Fort Worth."
         >
           <RowList items={givingFacts} />
         </Section>

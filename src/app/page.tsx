@@ -155,7 +155,7 @@ const faqs = [
   {
     question: "Can I donate money instead of shoes?",
     answer:
-      "Yes, once or monthly, from the Donate section on this page or our Donate page. The shoes themselves are donated; money pays for collecting, storing, and delivering them to shelters.",
+      "Yes, once or monthly, at shelteraidtx.org/donate. The shoes themselves are donated; money pays for collecting, storing, and delivering them to shelters.",
   },
   {
     question: "Can I cancel a monthly donation?",
@@ -515,7 +515,7 @@ export default function HomePage() {
           {/* The rest of the ways in, one strip under the two cards. */}
           <div className="mt-12 md:mt-16">
             <div className="mb-8 flex items-center gap-5">
-              <h3 className="kicker shrink-0">More ways to help</h3>
+              <p className="kicker shrink-0">More ways to help</p>
               <div className="h-px flex-1 bg-[var(--hairline)]" />
             </div>
             <ul className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
