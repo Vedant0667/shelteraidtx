@@ -1,7 +1,9 @@
 import "server-only"
 
 import { Resend } from "resend"
-import { ORG_EIN, formatUsd } from "@/lib/donations"
+import { formatUsd } from "@/lib/donations"
+import { renderReceipt } from "@/lib/receipt-email"
+import { renderReceiptPdf } from "@/lib/receipt-pdf"
 
 const FROM = "Shelter Aid TX <contact@shelteraidtx.org>"
 const REPLY_TO = "shelteraidtx@gmail.com"
@@ -12,13 +14,6 @@ function getResend(): Resend {
   const key = process.env.RESEND_API_KEY
   if (!key) throw new EmailNotConfiguredError("RESEND_API_KEY is not set")
   return new Resend(key)
-}
-
-function formatDate(unixSeconds: number): string {
-  return new Intl.DateTimeFormat("en-US", {
-    dateStyle: "long",
-    timeZone: "America/Chicago",
-  }).format(new Date(unixSeconds * 1000))
 }
 
 /**
@@ -32,6 +27,28 @@ function safeName(name: string | null | undefined): string | null {
   // Anything a mail app could turn into a link: "@", tags, "://", "www.", or a bare domain like "claim-refund.co".
   if (!cleaned || cleaned.length > 60 || /[@<>]|:\/\/|www\.|[a-z0-9-]\.[a-z]{2,}/i.test(cleaned)) return null
   return cleaned
+}
+
+const CHICAGO = "America/Chicago"
+
+function receiptDate(unixSeconds: number): string {
+  return new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: CHICAGO }).format(new Date(unixSeconds * 1000))
+}
+
+function receiptMonth(unixSeconds: number): string {
+  return new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: CHICAGO }).format(
+    new Date(unixSeconds * 1000)
+  )
+}
+
+/**
+ * Stable per payment: "SATX-20261006-1WEKAB2Z" (paid date + the tail of the
+ * Stripe payment or invoice id). Retries of the same event get the same number.
+ */
+function receiptNumberFor(paidAt: number, reference: string): string {
+  const ymd = new Intl.DateTimeFormat("en-CA", { timeZone: CHICAGO }).format(new Date(paidAt * 1000)).replace(/-/g, "")
+  const tail = reference.replace(/[^A-Za-z0-9]/g, "").slice(-8).toUpperCase()
+  return `SATX-${ymd}-${tail}`
 }
 
 type Receipt = {
@@ -48,41 +65,37 @@ type Receipt = {
 /** Returns the Resend email id, for logs. */
 export async function sendDonationReceipt(r: Receipt): Promise<string> {
   const resend = getResend()
-  const amount = formatUsd(r.amountCents)
-  // Customer Portal login link, configured in the Stripe Dashboard. Optional.
-  const portal = process.env.STRIPE_PORTAL_LOGIN_URL
-
   const name = safeName(r.name)
-  const lines = [
-    name ? `Hi ${name},` : "Hi,",
-    "",
-    `Thank you for your ${amount} donation to Shelter Aid TX.`,
-    "",
-    `Amount: ${amount}${r.monthly ? " (monthly)" : ""}`,
-    `Date: ${formatDate(r.paidAt)}`,
-    `Reference: ${r.reference}`,
-    "",
-    `Shelter Aid TX is a 501(c)(3) nonprofit, EIN ${ORG_EIN}. No goods or services were provided in exchange for this donation. Keep this email for your tax records.`,
-  ]
-
-  if (r.monthly) {
-    lines.push(
-      "",
-      portal
-        ? `This donation repeats every month. To change or cancel it, sign in here with this email address: ${portal}`
-        : "This donation repeats every month. To change or cancel it, reply to this email."
-    )
-  }
-
-  lines.push("", "Shelter Aid TX", "https://www.shelteraidtx.org")
+  const receiptNumber = receiptNumberFor(r.paidAt, r.reference)
+  const { subject, html, text } = renderReceipt({
+    name,
+    amountCents: r.amountCents,
+    paidAt: r.paidAt,
+    monthly: r.monthly,
+    reference: r.reference,
+    receiptNumber,
+    // Customer Portal login link, configured in the Stripe Dashboard. Optional.
+    portal: process.env.STRIPE_PORTAL_LOGIN_URL,
+  })
+  const pdf = await renderReceiptPdf({
+    receiptNumber,
+    date: receiptDate(r.paidAt),
+    donorName: name,
+    donorEmail: r.to,
+    amount: new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(r.amountCents / 100),
+    description: r.monthly ? `Monthly donation, ${receiptMonth(r.paidAt)}` : "One-time donation",
+    reference: r.reference,
+  })
 
   const { data, error } = await resend.emails.send(
     {
       from: FROM,
       to: [r.to],
       replyTo: REPLY_TO,
-      subject: `Your ${amount} donation receipt from Shelter Aid TX`,
-      text: lines.join("\n"),
+      subject,
+      html,
+      text,
+      attachments: [{ filename: `Shelter-Aid-TX-receipt-${receiptNumber}.pdf`, content: Buffer.from(pdf) }],
     },
     { idempotencyKey: `receipt-${r.key}` }
   )

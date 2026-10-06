@@ -161,8 +161,11 @@
   .display-soft {
     font-optical-sizing: auto;
   }
+  /* Second line of a display heading. Upright, not italic (Vedant: "remove the
+     curly italic font"); the regular weight against the bold first line keeps
+     the two-line contrast. */
   .display-em {
-    font-style: italic;
+    font-style: normal;
     font-weight: 400;
   }
   .display-xl {
@@ -337,12 +340,6 @@
   }
   .tone-ink .kicker {
     color: #87ceeb;
-  }
-
-  /* Editorial paper texture: ultra-faint horizontal rules behind mastheads */
-  .paper-rules {
-    background-image: linear-gradient(var(--hairline) 1px, transparent 1px);
-    background-size: 100% 2.25rem;
   }
 
   .hairline {
@@ -889,9 +886,6 @@
   .kicker,
   .kicker-muted {
     letter-spacing: 0.18em;
-  }
-  .paper-rules {
-    background-size: 100% 2rem;
   }
   .logo-tile {
     height: 6rem;

@@ -112,7 +112,6 @@ export function PageIntro({
   const prose = width === "prose"
   return (
     <section className="relative isolate overflow-hidden tone-bg">
-      <div aria-hidden className="paper-rules pointer-events-none absolute inset-x-0 top-0 h-full opacity-50" />
       <div className="relative pt-[calc(var(--header-h)+3.5rem)] md:pt-[calc(var(--header-h)+5.5rem)]">
         {above}
         <div className={`${prose ? "wrap-prose" : "wrap"} ${above ? "mt-9 md:mt-10" : ""} pb-16 md:pb-20`}>

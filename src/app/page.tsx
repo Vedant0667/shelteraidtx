@@ -266,7 +266,6 @@ export default function HomePage() {
             />
           </div>
           <div className="absolute inset-0" style={{ background: HERO_WASH }} />
-          <div aria-hidden className="paper-rules pointer-events-none absolute inset-0 opacity-[0.22]" />
 
           <div className="wrap relative z-10 text-center">
             {/* Tighter type + tracking under sm so the label holds one line on a
