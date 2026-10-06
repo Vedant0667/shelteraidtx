@@ -79,6 +79,7 @@ export async function sendDonationReceipt(r: Receipt): Promise<string> {
   })
   const pdf = await renderReceiptPdf({
     receiptNumber,
+    paidAt: r.paidAt,
     date: receiptDate(r.paidAt),
     donorName: name,
     donorEmail: r.to,

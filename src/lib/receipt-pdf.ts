@@ -8,6 +8,9 @@ import { RECEIPT_LOGO_PNG_BASE64 } from "@/lib/receipt-logo"
 
 export type ReceiptPdfData = {
   receiptNumber: string
+  /** Payment time (unix seconds). Pinned into the PDF metadata so a retried
+   *  webhook renders byte-identical bytes under the same Resend idempotency key. */
+  paidAt: number
   /** Long date, e.g. "October 6, 2026". */
   date: string
   donorName: string | null
@@ -71,6 +74,10 @@ function rightText(page: PDFPage, text: string, xRight: number, y: number, font:
 
 export async function renderReceiptPdf(d: ReceiptPdfData): Promise<Uint8Array> {
   const pdf = await PDFDocument.create()
+  const stamp = new Date(d.paidAt * 1000)
+  pdf.setCreationDate(stamp)
+  pdf.setModificationDate(stamp)
+  pdf.setProducer("Shelter Aid TX")
   pdf.setTitle(`Donation receipt ${d.receiptNumber}`)
   pdf.setAuthor("Shelter Aid TX")
   pdf.setSubject("Donation receipt")
