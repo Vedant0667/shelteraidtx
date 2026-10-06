@@ -13,13 +13,13 @@ import { ORG_EIN } from "@/lib/donations"
  * down (flex-1 spacer), not with empty card. Once Stripe's tall checkout iframe
  * mounts, the grid stops stretching so the shoe card keeps its own height.
  */
-export default function DonateOptions() {
+export default function DonateOptions({ titleAs: Title = "h3" }: { titleAs?: "h2" | "h3" } = {}) {
   return (
     <div className="grid grid-cols-1 items-stretch gap-8 has-[iframe]:items-start md:grid-cols-12 md:gap-12">
       <div className="flex flex-col md:col-span-6">
         <p className="kicker mb-5">Give shoes</p>
         <Card className="flex flex-1 flex-col p-7 md:p-9">
-          <h3 className="title">Donate shoes</h3>
+          <Title className="title">Donate shoes</Title>
           <p className="body mt-2">Tell us what you have and we will set up a drop-off or pickup.</p>
           <div className="rule mb-7 mt-6" />
           <div>
@@ -42,7 +42,7 @@ export default function DonateOptions() {
       <div className="flex flex-col md:col-span-6">
         <p className="kicker mb-5">Give online</p>
         <Card className="flex flex-1 flex-col p-7 md:p-9">
-          <h3 className="title">Donate money</h3>
+          <Title className="title">Donate money</Title>
           <p className="body mt-2">Once or monthly. Tax-deductible, with a receipt by email.</p>
           <div className="rule mb-7 mt-6" />
           <DonateOnline />
