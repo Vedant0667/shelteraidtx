@@ -39,6 +39,8 @@ export const metadata: Metadata = {
     "student nonprofit",
     "501(c)(3)",
     "donate shoes",
+    "donate online",
+    "donate to homeless shelters",
     "volunteer",
   ],
   authors: [{ name: "Shelter Aid TX" }],

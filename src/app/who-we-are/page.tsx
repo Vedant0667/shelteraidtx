@@ -232,7 +232,7 @@ export default function WhoWeArePage() {
           kicker="Join us"
           title="Ready to join"
           em="us?"
-          lede="Whether you want to donate shoes, volunteer your time, or partner with us, we would love to have you on board."
+          lede="Whether you want to donate shoes or money, volunteer your time, or partner with us, we would love to have you on board."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
               <ButtonLink arrow variant="on-dark" href="/get-involved">

@@ -33,4 +33,11 @@ export const organizationSchema = {
   contactPoint: [{ "@type": "ContactPoint", contactType: "general", email: "shelteraidtx@gmail.com" }],
   sameAs: ["https://www.instagram.com/shelteraidtx", "https://www.linkedin.com/company/shelter-aid-tx"],
   foundingDate: "2023-10-01",
+  // Real schema.org action, so search and answer engines can point "how do I
+  // donate" straight at the page that takes both shoes and money.
+  potentialAction: {
+    "@type": "DonateAction",
+    name: "Donate shoes or money to Shelter Aid TX",
+    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/donate` },
+  },
 }

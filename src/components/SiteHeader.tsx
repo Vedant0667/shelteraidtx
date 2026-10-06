@@ -145,7 +145,7 @@ export function SiteHeader() {
             Request shoes
           </Link>
           <Link href="/donate" className="btn btn-primary btn-sm">
-            Donate shoes
+            Donate
           </Link>
         </div>
 
@@ -207,7 +207,7 @@ export function SiteHeader() {
             Request shoes
           </Link>
           <Link href="/donate" className="btn btn-primary btn-lg w-full" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
-            Donate shoes
+            Donate
           </Link>
         </div>
       </div>

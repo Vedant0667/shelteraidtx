@@ -139,7 +139,7 @@ export default function BlogPostPage() {
                 Volunteer
               </ButtonLink>
               <ButtonLink href="/donate" variant="secondary">
-                Donate shoes
+                Donate
               </ButtonLink>
             </div>
           }

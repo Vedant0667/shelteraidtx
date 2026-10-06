@@ -5,19 +5,17 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { AnimatedText } from "@/components/animated-text"
-import ContactForm from "@/components/ContactForm"
+import DonateOptions from "@/components/DonateOptions"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import {
   Accordion,
   ButtonLink,
-  Card,
   LinkArrow,
   LogoWall,
   Reveal,
   Section,
 } from "@/components/site"
-import { ORG_EIN } from "@/lib/donations"
 import { organizationSchema } from "@/lib/schema"
 
 // Eased count-up: slow start, fast middle, gentle settle (S-curve, ease-in-out quart).
@@ -137,7 +135,7 @@ const faqs = [
   {
     question: "Are donations tax-deductible?",
     answer:
-      "Yes! Shelter Aid TX is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible to the extent allowed by law. Our EIN is 93-3584886.",
+      "Yes. Shelter Aid TX is a 501(c)(3) nonprofit, EIN 93-3584886, so donations of shoes and money are tax-deductible to the extent allowed by law. Online donations come with a receipt by email.",
   },
   {
     question: "Where do the shoes go?",
@@ -155,14 +153,19 @@ const faqs = [
       "You can drop off shoes at one of our partner locations, organize a shoe drive at your school or workplace, or request a volunteer pickup for donations of 30 or more pairs.",
   },
   {
-    question: "Can I make a monetary donation?",
+    question: "Can I donate money instead of shoes?",
     answer:
-      "Yes. You can donate online once or monthly on our Donate page. Money donations help us cover operating costs and reach more shelters, and we email you a receipt for your tax records.",
+      "Yes, once or monthly, from the Donate section on this page or our Donate page. The shoes themselves are donated; money pays for collecting, storing, and delivering them to shelters.",
+  },
+  {
+    question: "Can I cancel a monthly donation?",
+    answer:
+      "Yes, any time. Every monthly receipt tells you how, or you can email shelteraidtx@gmail.com.",
   },
   {
     question: "How can I volunteer or partner with you?",
     answer:
-      "We're always looking for volunteers and partners! Fill out our contact form with your interest, and we'll get back to you within 2 business days to discuss opportunities.",
+      "Tell us how you would like to help through the contact form, and we will reply within 2 business days.",
   },
 ]
 
@@ -304,8 +307,9 @@ export default function HomePage() {
               className="rise-in mt-9 flex w-full flex-col gap-3 sm:mt-10 sm:flex-row sm:justify-center"
               style={{ animationDelay: "460ms" }}
             >
-              <Link href="/donate" className="btn btn-primary">
-                Donate shoes
+              {/* Lands on the donate section, where shoes and money sit side by side. */}
+              <Link href="#donate" className="btn btn-primary">
+                Donate
                 <ArrowRight aria-hidden="true" />
               </Link>
               {/* Shelters are the other half of the audience: they need a way in
@@ -502,77 +506,44 @@ export default function HomePage() {
           id="donate"
           tone="sunken"
           kicker="Donate"
-          title="Ready to make"
-          em="a difference?"
-          lede="Whether you have shoes to give or want to support our mission financially, we'd love to hear from you."
+          title="Give shoes,"
+          em="or help deliver them."
+          lede="Shoes come from people like you. Money covers what it takes to get them to shelters: collection, storage, and delivery across Dallas-Fort Worth."
         >
-          {/* Contract §15: both columns open with a kicker on the same line and
-              the card and the row list each fill the stretched column, so the two
-              columns share a top and a bottom edge whatever the copy length. */}
-          <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">Shoe donations</p>
-              <Card className="flex flex-col p-7 md:p-9">
-                <h3 className="title">Donate shoes</h3>
-                <p className="body mt-2">Fill out the form and we will coordinate pickup or drop-off details.</p>
-                <div className="rule mb-7 mt-6" />
-                <div>
-                  <ContactForm
-                    subject="Shoe Donation Inquiry"
-                    submitLabel="Send message"
-                    successMessage="Thank you. We will be in touch within 2 business days to coordinate your donation."
-                    inquiryOptions={[
-                      { value: "shoe-donation", label: "Donate shoes" },
-                      { value: "host-drive", label: "Host a drive" },
-                      { value: "volunteer", label: "Volunteer" },
-                    ]}
-                    minimal
-                    defaultInquiry="shoe-donation"
-                    messagePlaceholder="Tell us about your donation, including sizes, quantities, and gender, plus preferred pickup or drop-off details."
-                  />
+          <DonateOptions />
+
+          {/* The rest of the ways in, one strip under the two cards. */}
+          <div className="mt-12 md:mt-16">
+            <div className="mb-8 flex items-center gap-5">
+              <h3 className="kicker shrink-0">More ways to help</h3>
+              <div className="h-px flex-1 bg-[var(--hairline)]" />
+            </div>
+            <ul className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
+              <li>
+                <p className="kicker">For shelters</p>
+                <h3 className="title mt-3">Need shoes for the people you serve?</h3>
+                <p className="body mt-2">Tell us sizes, quantities, and gender.</p>
+                <div className="mt-2">
+                  <LinkArrow href="/request-shoes">Request shoes</LinkArrow>
                 </div>
-              </Card>
-            </div>
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">More ways to give</p>
-              {/* Every row is the same anatomy: kicker, serif title, body, link.
-                  No chips (contract §14). `flex-1` rows share the leftover height
-                  so the last hairline meets the bottom of the card. */}
-              <ul className="rows flex flex-1 flex-col">
-                <li className="row flex-1 py-3 md:py-3">
-                  <p className="kicker">For shelters</p>
-                  <h3 className="title mt-3">Need shoes for the people you serve?</h3>
-                  <p className="body mt-2">Tell us sizes, quantities, and gender.</p>
-                  <div className="mt-2">
-                    <LinkArrow href="/request-shoes">Request shoes</LinkArrow>
-                  </div>
-                </li>
-                <li className="row flex-1 py-3 md:py-3">
-                  <p className="kicker">Drop-offs</p>
-                  <h3 className="title mt-3">Prefer to drop off?</h3>
-                  <p className="body mt-2">Bring pairs to any collection partner.</p>
-                  <div className="mt-2">
-                    <LinkArrow href="/partners">Find a drop-off partner</LinkArrow>
-                  </div>
-                </li>
-                <li className="row flex-1 py-3 md:py-3">
-                  <p className="kicker">Shoe drives</p>
-                  <h3 className="title mt-3">Host a drive</h3>
-                  <p className="body mt-2">Schools, teams, and workplaces run drives with us.</p>
-                  <div className="mt-2">
-                    <LinkArrow href="/get-involved?tab=host-drive#contact">Host a drive</LinkArrow>
-                  </div>
-                </li>
-                <li className="row flex-1 py-3 md:py-3">
-                  <p className="kicker">Monetary donations</p>
-                  <h3 className="title mt-3">Give online, once or monthly</h3>
-                  <p className="body mt-2">Tax-deductible to the extent allowed by law (EIN {ORG_EIN}).</p>
-                  <div className="mt-2">
-                    <LinkArrow href="/donate#give">Donate online</LinkArrow>
-                  </div>
-                </li>
-              </ul>
-            </div>
+              </li>
+              <li>
+                <p className="kicker">Drop-offs</p>
+                <h3 className="title mt-3">Prefer to drop off?</h3>
+                <p className="body mt-2">Bring pairs to any collection partner.</p>
+                <div className="mt-2">
+                  <LinkArrow href="/partners">Find a drop-off partner</LinkArrow>
+                </div>
+              </li>
+              <li>
+                <p className="kicker">Shoe drives</p>
+                <h3 className="title mt-3">Host a drive</h3>
+                <p className="body mt-2">Schools, teams, and workplaces run drives with us.</p>
+                <div className="mt-2">
+                  <LinkArrow href="/get-involved?tab=host-drive#contact">Host a drive</LinkArrow>
+                </div>
+              </li>
+            </ul>
           </div>
         </Section>
 
@@ -632,16 +603,16 @@ export default function HomePage() {
         <Section
           tone="sunken"
           kicker="Get involved"
-          title="Have shoes to give,"
-          em="or need them?"
-          lede="Drop off pairs, host a drive, or, if you run a shelter, tell us the sizes, quantities, and gender you need."
+          title="Ready to help,"
+          em="or need shoes?"
+          lede="Donate shoes or money, host a drive, or, if you run a shelter, tell us the sizes, quantities, and gender you need."
           action={
             /* Contract §9: the closing pills are the section `action`, so they
                sit right of the header on desktop and stack full width below it
                on mobile. */
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <ButtonLink href="/donate" arrow>
-                Donate shoes
+              <ButtonLink href="#donate" arrow>
+                Donate
               </ButtonLink>
               <ButtonLink href="/request-shoes" variant="secondary">
                 Request shoes

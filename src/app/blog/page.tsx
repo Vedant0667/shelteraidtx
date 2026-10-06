@@ -146,7 +146,7 @@ export default function BlogPage() {
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="/donate" arrow>
-                Donate shoes
+                Donate
               </ButtonLink>
               <ButtonLink href="/get-involved?tab=host-drive#contact" variant="secondary">
                 Host a drive

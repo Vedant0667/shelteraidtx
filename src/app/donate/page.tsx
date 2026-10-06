@@ -2,53 +2,50 @@ import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
-import ContactForm from "@/components/ContactForm"
-import DonateOnline from "@/components/DonateOnline"
-import { ButtonLink, Card, LinkArrow, PageIntro, RowList, Section, StatStrip } from "@/components/site"
+import DonateOptions from "@/components/DonateOptions"
+import { ButtonLink, LinkArrow, PageIntro, RowList, Section, StatStrip } from "@/components/site"
 import { ORG_EIN } from "@/lib/donations"
 
+const description =
+  "Donate shoes or give online to Shelter Aid TX, a DFW 501(c)(3). Money, once or monthly, covers collecting, storing, and delivering shoes to shelters."
+
 export const metadata: Metadata = {
-  title: "Donate Shoes in DFW",
-  description:
-    "Donate new or gently used shoes in Dallas-Fort Worth. See what we accept, how drop-off works, and how to request pickup for larger donations.",
+  title: "Donate Shoes or Money in DFW",
+  description,
   alternates: {
     canonical: "/donate",
   },
   openGraph: {
     type: "website",
-    title: "Donate Shoes in DFW | Shelter Aid TX",
-    description:
-      "Donate new or gently used shoes in Dallas-Fort Worth. See what we accept, how drop-off works, and how to request pickup for larger donations.",
+    title: "Donate Shoes or Money in DFW | Shelter Aid TX",
+    description,
     url: "https://shelteraidtx.org/donate",
     images: [
       {
         url: "https://shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Donate Shoes in DFW",
+        alt: "Donate shoes or money to Shelter Aid TX",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Donate Shoes in DFW | Shelter Aid TX",
-    description:
-      "Donate new or gently used shoes in Dallas-Fort Worth. See what we accept, how drop-off works, and how to request pickup for larger donations.",
+    title: "Donate Shoes or Money in DFW | Shelter Aid TX",
+    description,
     images: ["https://shelteraidtx.org/og-image.jpg"],
   },
 }
 
+/** Entity, metro, and both ways to give in the first sentences (AEO: answer first). */
 const intro =
-  'If you are searching for "donate shoes DFW," you are in the right place. Shelter Aid TX collects shoes and delivers them directly to shelter partners across the Dallas-Fort Worth area.'
+  "Shelter Aid TX is a 501(c)(3) nonprofit that delivers donated shoes to homeless shelters across Dallas-Fort Worth. Give shoes through a drop-off or pickup, or give money online, once or monthly."
 
-/**
- * Masthead strip (portfolio hero anatomy). Facts only, restating what the page
- * already says further down — deliberately no counts or impact numbers.
- */
+/** Masthead strip: the two ways to give, then the fact both share. */
 const mastheadFacts = [
-  { label: "We accept", value: "Clean, wearable shoes" },
-  { label: "We serve", value: "Shelters across DFW" },
-  { label: "We coordinate", value: "Drop-off or pickup" },
+  { label: "Give shoes", value: "Drop-off or pickup" },
+  { label: "Give online", value: "Once or monthly" },
+  { label: "Tax-deductible", value: `EIN ${ORG_EIN}` },
 ]
 
 /** Same three roles as every other row list on the site: kicker, title, detail. */
@@ -71,42 +68,27 @@ const acceptance = [
   },
 ]
 
-const steps = [
-  {
-    title: "Check what to donate",
-    description: "We accept new and gently used shoes that are clean and ready to wear.",
-  },
-  {
-    title: "Choose drop-off or pickup",
-    description:
-      "Smaller donations can be dropped off through partners. For larger donations, we can coordinate pickup.",
-  },
-  {
-    title: "Send details",
-    description:
-      "Share sizes, quantities, and gender, plus your preferred timing, so we can coordinate quickly with shelter partners.",
-  },
-]
-
 const givingFacts = [
   {
+    kicker: "Taxes",
     title: "Tax-deductible",
-    description: `Shelter Aid TX is a 501(c)(3) nonprofit, EIN ${ORG_EIN}. Donations are tax-deductible to the extent allowed by law.`,
+    detail: `Shelter Aid TX is a 501(c)(3) nonprofit, EIN ${ORG_EIN}. Donations are tax-deductible to the extent allowed by law.`,
   },
   {
+    kicker: "Receipts",
+    title: "A receipt by email",
+    detail: "We email a receipt when the payment clears, and again each month for monthly donations.",
+  },
+  {
+    kicker: "Monthly",
+    title: "Cancel any time",
+    detail: "Every monthly receipt tells you how, or email shelteraidtx@gmail.com.",
+  },
+  {
+    kicker: "Security",
     title: "Processed by Stripe",
-    description: "You enter your card details in Stripe's secure form. They never reach our servers.",
+    detail: "You enter card details in Stripe's secure form. They never reach our servers.",
   },
-  {
-    title: "Receipt by email",
-    description: "We email a receipt when the payment clears. Monthly donors get one each month and can cancel any time.",
-  },
-]
-
-const inquiryOptions = [
-  { value: "shoe-donation", label: "Donate shoes" },
-  { value: "host-drive", label: "Host a drive" },
-  { value: "volunteer", label: "Volunteer" },
 ]
 
 export default function DonatePage() {
@@ -118,7 +100,7 @@ export default function DonatePage() {
           /* Kicker names the page area; the H1 carries the search phrase, so the
              two must not be the same words (every other route does the same). */
           kicker="How to give"
-          title="Donate shoes"
+          title="Donate shoes or money"
           em="in Dallas-Fort Worth."
           lede={intro}
           strip={<StatStrip items={mastheadFacts} columns={3} />}
@@ -126,11 +108,24 @@ export default function DonatePage() {
             <Breadcrumbs
               items={[
                 { name: "Home", url: "/" },
-                { name: "Donate Shoes", url: "/donate" },
+                { name: "Donate", url: "/donate" },
               ]}
             />
           }
         />
+
+        {/* Both ways to give, first thing under the masthead. Same block as the
+            homepage donate section. `id="give"` is linked from the thank-you page. */}
+        <Section
+          id="give"
+          tone="sunken"
+          kicker="Two ways to give"
+          title="How can I donate to"
+          em="Shelter Aid TX?"
+          lede="Send shoes through a drop-off or pickup, or give money online. Shoes go straight to shelters; money pays for collecting, storing, and delivering them."
+        >
+          <DonateOptions />
+        </Section>
 
         <Section
           tone="surface"
@@ -142,91 +137,18 @@ export default function DonatePage() {
           <RowList items={acceptance} />
         </Section>
 
-        {/* Form card sits on a sunken section (contract §6, never on white).
-            `items-stretch` plus `h-full` on both columns makes the card's top and
-            bottom edges land on the row list's first and last hairline, and the
-            card's inner top padding equals the first row's so the two kickers
-            share a baseline (§15). Same block as the homepage donate section. */}
-        <Section
-          tone="sunken"
-          kicker="Send us the details"
-          title="Tell us what"
-          em="you have."
-          lede="Share sizes, quantities, and gender, plus whether you would rather drop off or have us pick up."
-        >
-          <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">Shoe donations</p>
-              {/* `[&_.field]:text-base`: inputs must be 16px or iOS Safari zooms
-                  the whole page on focus. Belongs in `.field` itself — see report. */}
-              <Card className="flex flex-1 flex-col p-7 [&_.field]:text-base md:p-9">
-                <h3 className="title">Donate shoes</h3>
-                <p className="body mt-2">
-                  Fill out the form and we will coordinate pickup or drop-off details.
-                </p>
-                <div className="rule mb-7 mt-6" />
-                <ContactForm
-                  subject="Shoe Donation Inquiry"
-                  submitLabel="Send message"
-                  successMessage="Thank you. We will be in touch within 2 business days to coordinate your donation."
-                  inquiryOptions={inquiryOptions}
-                  minimal
-                  defaultInquiry="shoe-donation"
-                  messagePlaceholder="Tell us about your donation, including sizes, quantities, and gender, plus preferred pickup or drop-off details."
-                />
-              </Card>
-            </div>
-
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">How it works</p>
-              <ol className="rows flex flex-1 flex-col">
-                {steps.map((step, i) => (
-                  <li key={step.title} className="row flex-1">
-                    <p className="kicker">Step {i + 1}</p>
-                    <h3 className="title mt-4">{step.title}</h3>
-                    <p className="body mt-2">{step.description}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </Section>
-
-        <Section
-          id="give"
-          tone="surface"
-          kicker="Donate money"
-          title="Give online,"
-          em="once or monthly."
-          lede="Money donations help us cover operating costs and reach more shelters."
-        >
-          {/* The card sets the height; compact rows spread to meet its bottom edge.
-              Once Stripe's (much taller) checkout iframe mounts, rows stop
-              spreading so they don't drift hundreds of pixels apart. */}
-          <div className="group grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">Online donation</p>
-              <Card className="flex flex-1 flex-col p-7 md:p-9">
-                <DonateOnline />
-              </Card>
-            </div>
-
-            <div className="flex flex-col md:col-span-6">
-              <p className="kicker mb-5">Good to know</p>
-              <ul className="rows flex flex-1 flex-col">
-                {givingFacts.map((fact) => (
-                  <li key={fact.title} className="row flex-1 py-4 group-has-[iframe]:flex-none md:py-5">
-                    <h3 className="title">{fact.title}</h3>
-                    <p className="body mt-2">{fact.description}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Section>
-
         <Section
           tone="bg"
+          kicker="Giving online"
+          title="What does a money donation"
+          em="pay for?"
+          lede="Collection, storage, and delivery. The shoes are donated, but getting them from drop-off points to shelters takes collection supplies, storage space, and trips across Dallas-Fort Worth."
+        >
+          <RowList items={givingFacts} />
+        </Section>
+
+        <Section
+          tone="sunken"
           kicker="Other ways to help"
           title="Host a drive or"
           em="volunteer with us."

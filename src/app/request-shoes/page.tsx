@@ -124,11 +124,11 @@ export default function RequestShoesPage() {
           kicker="Other ways"
           title="Not a shelter, but want"
           em="to help?"
-          lede="Pairs reach us through drop-offs and drives, and volunteers sort and deliver them. Either one keeps the shelves stocked."
+          lede="Pairs reach us through drop-offs and drives, volunteers sort and deliver them, and money donations pay for storage and delivery. Any of these keeps shelters stocked."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/donate">
-                Donate shoes
+                Donate
               </ButtonLink>
               <ButtonLink href="/get-involved?tab=host-drive#contact" variant="secondary">
                 Host a drive

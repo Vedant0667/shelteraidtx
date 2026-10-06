@@ -7,19 +7,20 @@ import { MetadataRoute } from 'next'
  * every crawl teaches crawlers to ignore the field.
  */
 const REDESIGN = '2026-09-13'
+const DONATIONS = '2026-10-06'
 
 const routes: { path: string; lastModified: string }[] = [
-  { path: '', lastModified: REDESIGN },
-  { path: '/who-we-are', lastModified: REDESIGN },
-  { path: '/get-involved', lastModified: REDESIGN },
-  { path: '/request-shoes', lastModified: REDESIGN },
-  { path: '/donate', lastModified: REDESIGN },
+  { path: '', lastModified: DONATIONS },
+  { path: '/who-we-are', lastModified: DONATIONS },
+  { path: '/get-involved', lastModified: DONATIONS },
+  { path: '/request-shoes', lastModified: DONATIONS },
+  { path: '/donate', lastModified: DONATIONS },
   { path: '/partners', lastModified: REDESIGN },
   { path: '/events', lastModified: REDESIGN },
   { path: '/blog', lastModified: REDESIGN },
   { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: '2025-10-26' },
-  { path: '/privacy', lastModified: '2026-01-27' },
-  { path: '/terms', lastModified: '2026-01-27' },
+  { path: '/privacy', lastModified: DONATIONS },
+  { path: '/terms', lastModified: DONATIONS },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

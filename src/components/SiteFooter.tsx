@@ -11,7 +11,7 @@ const SITE_LINKS = [
 ]
 
 const TAKE_PART = [
-  { label: "Donate shoes", href: "/donate" },
+  { label: "Donate", href: "/donate" },
   { label: "Request shoes (shelters)", href: "/request-shoes" },
   { label: "Host a drive", href: "/get-involved?tab=host-drive#contact" },
   { label: "Volunteer", href: "/get-involved?tab=volunteer#contact" },

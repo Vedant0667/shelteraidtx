@@ -3,7 +3,7 @@
 import { useRef, useState, type KeyboardEvent } from "react"
 import { useSearchParams } from "next/navigation"
 import ContactForm from "@/components/ContactForm"
-import { Em } from "@/components/site"
+import { Em, LinkArrow } from "@/components/site"
 
 /**
  * Every checklist on this page is the same row anatomy as every other list on
@@ -55,6 +55,8 @@ type Way = {
   placeholder: string
   listTitle?: string
   list?: CheckItem[]
+  /** Optional link under the intro, for a closely related way to help. */
+  aside?: { href: string; label: string }
 }
 
 const waysToHelp: Way[] = [
@@ -72,6 +74,7 @@ const waysToHelp: Way[] = [
       "Tell us about your donation, including types, sizes, quantities, and gender, plus your preferred drop-off or pickup location.",
     listTitle: "What we accept",
     list: donationGuidelines,
+    aside: { href: "/donate#give", label: "Rather give money? Donate online" },
   },
   {
     id: "host-drive",
@@ -239,6 +242,11 @@ export function WaysToHelp() {
                   <Em>{way.headingEm}</Em>
                 </h3>
                 <p className="lede mt-5">{way.body}</p>
+                {way.aside && (
+                  <div className="mt-4">
+                    <LinkArrow href={way.aside.href}>{way.aside.label}</LinkArrow>
+                  </div>
+                )}
               </div>
 
               {/* Contract §15: both columns open with a kicker on the same line

@@ -11,7 +11,7 @@ import { WaysToHelp } from "./WaysToHelp"
  * sent there rather than through a tab.
  */
 const ways = [
-  { label: "Donate", value: "New or gently used shoes" },
+  { label: "Donate", value: "Shoes or money" },
   { label: "Host a drive", value: "Boxes, flyers, pickup" },
   { label: "Volunteer", value: "Sort, pack, staff events" },
   { label: "Partner", value: "Schools, shops, and teams" },
