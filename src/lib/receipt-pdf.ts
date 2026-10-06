@@ -37,17 +37,32 @@ const ORG_LINES = [
 
 /**
  * The standard PDF fonts only encode WinAnsi (roughly Latin-1), and drawText
- * throws on anything else. A donor named "Łukasz" or "王", or with an emoji in
- * their name, must still get a receipt, so strip accents where that maps to
- * plain letters and drop what can't be drawn.
+ * throws on anything else. A donor named "Łukasz", "Đặng" or "王", or with an
+ * emoji in their name, must still get a receipt: keep every character the font
+ * can draw ("José" stays "José"), map letters that don't decompose (Ł, Đ),
+ * strip accents from the rest, and drop what still can't be drawn.
  */
+const WIN_ANSI = /[\x20-\x7e\xa0-\xff\u2013\u2014\u2018\u2019\u201c\u201d\u2022\u2026]/
+const NO_DECOMPOSITION: Record<string, string> = { Đ: "D", đ: "d", Ł: "L", ł: "l", ı: "i", Ħ: "H", ħ: "h", Ŧ: "T", ŧ: "t" }
+
 function pdfSafe(text: string): string {
-  return text
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^\x20-\x7e\xa0-\xff\u2013\u2014\u2018\u2019\u201c\u201d\u2022\u2026]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
+  let out = ""
+  for (const ch of text) {
+    if (WIN_ANSI.test(ch)) out += ch
+    else if (NO_DECOMPOSITION[ch]) out += NO_DECOMPOSITION[ch]
+    else out += [...ch.normalize("NFKD")].filter((c) => WIN_ANSI.test(c)).join("")
+  }
+  return out.replace(/\s+/g, " ").trim()
+}
+
+/** Largest size from `size` down to `min` at which `text` fits `maxWidth`; truncates with "..." below that. */
+function fitText(text: string, font: PDFFont, size: number, maxWidth: number, min = 7): { text: string; size: number } {
+  for (let s = size; s >= min; s -= 0.5) {
+    if (font.widthOfTextAtSize(text, s) <= maxWidth) return { text, size: s }
+  }
+  let t = text
+  while (t.length > 1 && font.widthOfTextAtSize(`${t}...`, min) > maxWidth) t = t.slice(0, -1)
+  return { text: `${t}...`, size: min }
 }
 
 /** Greedy word wrap for Helvetica at a given size. */
@@ -113,7 +128,12 @@ export async function renderReceiptPdf(d: ReceiptPdfData): Promise<Uint8Array> {
   const donorLines = [pdfSafe(d.donorName ?? "") || "Donor", pdfSafe(d.donorEmail)]
   for (let i = 0; i < Math.max(ORG_LINES.length, donorLines.length); i++) {
     if (ORG_LINES[i]) page.drawText(ORG_LINES[i], { x: left, y, size: 10, font: i === 0 ? bold : regular, color: i === 0 ? INK : SOFT })
-    if (donorLines[i]) page.drawText(donorLines[i], { x: colB, y, size: 10, font: i === 0 ? bold : regular, color: i === 0 ? INK : SOFT })
+    if (donorLines[i]) {
+      // Names can run 60 characters and emails longer; shrink to the column, never past the page edge.
+      const font = i === 0 ? bold : regular
+      const fit = fitText(donorLines[i], font, 10, right - colB)
+      page.drawText(fit.text, { x: colB, y, size: fit.size, font, color: i === 0 ? INK : SOFT })
+    }
     y -= 14
   }
   y -= 22

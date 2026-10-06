@@ -2,7 +2,7 @@ import "server-only"
 
 import { Resend } from "resend"
 import { formatUsd } from "@/lib/donations"
-import { renderReceipt } from "@/lib/receipt-email"
+import { longDate, money, renderReceipt } from "@/lib/receipt-email"
 import { renderReceiptPdf } from "@/lib/receipt-pdf"
 
 const FROM = "Shelter Aid TX <contact@shelteraidtx.org>"
@@ -30,10 +30,6 @@ function safeName(name: string | null | undefined): string | null {
 }
 
 const CHICAGO = "America/Chicago"
-
-function receiptDate(unixSeconds: number): string {
-  return new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: CHICAGO }).format(new Date(unixSeconds * 1000))
-}
 
 function receiptMonth(unixSeconds: number): string {
   return new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: CHICAGO }).format(
@@ -80,10 +76,10 @@ export async function sendDonationReceipt(r: Receipt): Promise<string> {
   const pdf = await renderReceiptPdf({
     receiptNumber,
     paidAt: r.paidAt,
-    date: receiptDate(r.paidAt),
+    date: longDate(r.paidAt),
     donorName: name,
     donorEmail: r.to,
-    amount: new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(r.amountCents / 100),
+    amount: money(r.amountCents),
     description: r.monthly ? `Monthly donation, ${receiptMonth(r.paidAt)}` : "One-time donation",
     reference: r.reference,
   })

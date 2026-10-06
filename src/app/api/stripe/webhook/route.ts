@@ -161,7 +161,14 @@ export async function POST(req: NextRequest) {
         break
     }
   } catch (err) {
-    const reason = err instanceof EmailNotConfiguredError ? "email not configured" : "handler error"
+    // Error name and a short message only: pdf-lib/Resend messages name a
+    // character or an API error, never the donor's email or name.
+    const reason =
+      err instanceof EmailNotConfiguredError
+        ? "email not configured"
+        : err instanceof Error
+          ? `${err.name}: ${err.message.slice(0, 100)}`
+          : "handler error"
     console.error(`Stripe webhook ${event.type} ${event.id} failed (${reason})`)
     // 500 makes Stripe retry with backoff for up to 3 days; sends are idempotent.
     return NextResponse.json({ error: "Handler failed." }, { status: 500 })

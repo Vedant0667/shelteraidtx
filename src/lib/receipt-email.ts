@@ -42,11 +42,11 @@ function escapeHtml(value: string): string {
 }
 
 /** Receipts always show cents: "$5.00", not "$5". */
-function money(cents: number): string {
+export function money(cents: number): string {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100)
 }
 
-function longDate(unixSeconds: number): string {
+export function longDate(unixSeconds: number): string {
   return new Intl.DateTimeFormat("en-US", { dateStyle: "long", timeZone: "America/Chicago" }).format(
     new Date(unixSeconds * 1000)
   )
