@@ -65,7 +65,7 @@ export default async function ThankYouPage({
           em: "for your donation.",
           lede: `Your ${outcome.amount != null ? formatUsd(outcome.amount) + " " : ""}${
             outcome.monthly ? "monthly " : ""
-          }donation went through. We emailed you a receipt for your tax records.`,
+          }donation went through. Your receipt for tax records is on its way to your email.`,
         }
       : outcome.kind === "processing"
         ? {

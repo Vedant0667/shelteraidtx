@@ -85,9 +85,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Too many requests." }, { status: 429 })
     }
 
+    // Content-Length is optional (chunked uploads omit it), so cap the bytes
+    // actually read too, not just the header.
+    const raw = await req.text()
+    if (raw.length > MAX_JSON_BYTES) {
+      return NextResponse.json({ error: "Payload too large." }, { status: 413 })
+    }
+
     let body: unknown
     try {
-      body = await req.json()
+      body = JSON.parse(raw)
     } catch {
       return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 })
     }

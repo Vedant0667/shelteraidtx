@@ -41,6 +41,9 @@ export default function DonateOnline() {
   const [preset, setPreset] = useState<number | null>(PRESET_AMOUNTS_CENTS[1])
   const [custom, setCustom] = useState("")
   const [clientSecret, setClientSecret] = useState<string | null>(null)
+  // What the open Checkout Session was created with. The summary reads this, not
+  // the live picker state, so it always matches what Stripe will charge.
+  const [submitted, setSubmitted] = useState<{ amount: number; frequency: DonationFrequency } | null>(null)
   const [status, setStatus] = useState<"idle" | "loading">("idle")
   const [error, setError] = useState<string | null>(null)
 
@@ -62,14 +65,15 @@ export default function DonateOnline() {
   }
 
   async function startCheckout() {
-    if (!amountValid || amount === null) return
+    if (!amountValid || amount === null || status === "loading") return
+    const request = { amount, frequency }
     setStatus("loading")
     setError(null)
     try {
       const res = await fetch("/api/donate/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount, frequency }),
+        body: JSON.stringify(request),
       })
       const data: { clientSecret?: string; error?: string } = await res.json().catch(() => ({}))
       if (!res.ok || !data.clientSecret) {
@@ -80,6 +84,7 @@ export default function DonateOnline() {
         )
         return
       }
+      setSubmitted(request)
       setClientSecret(data.clientSecret)
     } catch {
       setError("We couldn't reach the server. Check your connection and try again.")
@@ -88,18 +93,21 @@ export default function DonateOnline() {
     }
   }
 
-  if (clientSecret) {
+  if (clientSecret && submitted) {
     return (
       <div>
         <div className="mb-5 flex items-center justify-between gap-4">
           <p className="body">
-            {formatUsd(amount ?? 0)}
-            {frequency === "monthly" ? " every month" : ""}
+            {formatUsd(submitted.amount)}
+            {submitted.frequency === "monthly" ? " every month" : ""}
           </p>
           <button
             type="button"
             className="text-[0.9rem] font-medium text-[var(--accent-ink)] underline"
-            onClick={() => setClientSecret(null)}
+            onClick={() => {
+              setClientSecret(null)
+              setSubmitted(null)
+            }}
           >
             Change amount
           </button>
@@ -120,7 +128,8 @@ export default function DonateOnline() {
         void startCheckout()
       }}
     >
-      <fieldset>
+      {/* Locked while checkout is being created, so the choice can't change under it. */}
+      <fieldset disabled={status === "loading"}>
         <legend className="field-label">How often</legend>
         <div className="mt-2 flex flex-wrap gap-2">
           {FREQUENCIES.map((f) => (
@@ -137,7 +146,7 @@ export default function DonateOnline() {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset disabled={status === "loading"}>
         <legend className="field-label">Amount</legend>
         <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {PRESET_AMOUNTS_CENTS.map((cents) => (
