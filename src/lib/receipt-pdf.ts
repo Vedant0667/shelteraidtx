@@ -32,6 +32,21 @@ const ORG_LINES = [
   `EIN ${ORG_EIN} · 501(c)(3) nonprofit`,
 ]
 
+/**
+ * The standard PDF fonts only encode WinAnsi (roughly Latin-1), and drawText
+ * throws on anything else. A donor named "Łukasz" or "王", or with an emoji in
+ * their name, must still get a receipt, so strip accents where that maps to
+ * plain letters and drop what can't be drawn.
+ */
+function pdfSafe(text: string): string {
+  return text
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\x20-\x7e\xa0-\xff\u2013\u2014\u2018\u2019\u201c\u201d\u2022\u2026]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
 /** Greedy word wrap for Helvetica at a given size. */
 function wrap(text: string, font: PDFFont, size: number, maxWidth: number): string[] {
   const words = text.split(" ")
@@ -88,7 +103,7 @@ export async function renderReceiptPdf(d: ReceiptPdfData): Promise<Uint8Array> {
   page.drawText("FROM", { x: left, y, size: 8, font: bold, color: MUTED })
   page.drawText("RECEIVED FROM", { x: colB, y, size: 8, font: bold, color: MUTED })
   y -= 16
-  const donorLines = [d.donorName ?? "Donor", d.donorEmail]
+  const donorLines = [pdfSafe(d.donorName ?? "") || "Donor", pdfSafe(d.donorEmail)]
   for (let i = 0; i < Math.max(ORG_LINES.length, donorLines.length); i++) {
     if (ORG_LINES[i]) page.drawText(ORG_LINES[i], { x: left, y, size: 10, font: i === 0 ? bold : regular, color: i === 0 ? INK : SOFT })
     if (donorLines[i]) page.drawText(donorLines[i], { x: colB, y, size: 10, font: i === 0 ? bold : regular, color: i === 0 ? INK : SOFT })
@@ -110,7 +125,7 @@ export async function renderReceiptPdf(d: ReceiptPdfData): Promise<Uint8Array> {
   rightText(page, d.amount, right - 12, y, bold, 13)
   y -= 30
 
-  page.drawText(`Payment reference: ${d.reference}`, { x: left + 12, y, size: 9, font: regular, color: MUTED })
+  page.drawText(`Payment reference: ${pdfSafe(d.reference)}`, { x: left + 12, y, size: 9, font: regular, color: MUTED })
   y -= 36
 
   // Tax acknowledgment (IRS: org name, amount, date, no goods or services).
