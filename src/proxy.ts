@@ -8,13 +8,14 @@ function buildCsp(isHttps: boolean) {
     "object-src 'none'",
     "frame-ancestors 'none'",
     "form-action 'self'",
-    "frame-src 'self' https://player.vimeo.com https://vimeo.com",
+    // Stripe embedded Checkout (donations): Stripe.js plus its card/3DS iframes.
+    "frame-src 'self' https://player.vimeo.com https://vimeo.com https://js.stripe.com https://*.js.stripe.com https://checkout.stripe.com https://hooks.stripe.com",
     "img-src 'self' data: https:",
     "font-src 'self' data: https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     // React dev mode needs eval for its debugging features; never in production.
-    `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://vercel.live https://*.vercel-insights.com https://va.vercel-scripts.com`,
-    "connect-src 'self' https://vercel.live https://*.vercel-insights.com https://va.vercel-scripts.com",
+    `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://vercel.live https://*.vercel-insights.com https://va.vercel-scripts.com https://js.stripe.com https://*.js.stripe.com`,
+    "connect-src 'self' https://vercel.live https://*.vercel-insights.com https://va.vercel-scripts.com https://api.stripe.com https://checkout.stripe.com",
   ]
   // Only on HTTPS. On plain http://localhost (next dev), Safari upgrades every
   // /_next/* subresource to https://localhost, which fails, so the page renders unstyled.

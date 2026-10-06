@@ -17,6 +17,7 @@ import {
   Reveal,
   Section,
 } from "@/components/site"
+import { ORG_EIN } from "@/lib/donations"
 import { organizationSchema } from "@/lib/schema"
 
 // Eased count-up: slow start, fast middle, gentle settle (S-curve, ease-in-out quart).
@@ -152,6 +153,11 @@ const faqs = [
     question: "How can I donate shoes?",
     answer:
       "You can drop off shoes at one of our partner locations, organize a shoe drive at your school or workplace, or request a volunteer pickup for donations of 30 or more pairs.",
+  },
+  {
+    question: "Can I make a monetary donation?",
+    answer:
+      "Yes. You can donate online once or monthly on our Donate page. Money donations help us cover operating costs and reach more shelters, and we email you a receipt for your tax records.",
   },
   {
     question: "How can I volunteer or partner with you?",
@@ -498,7 +504,7 @@ export default function HomePage() {
           kicker="Donate"
           title="Ready to make"
           em="a difference?"
-          lede="Whether you have shoes to give or want to host a drive, we'd love to hear from you."
+          lede="Whether you have shoes to give or want to support our mission financially, we'd love to hear from you."
         >
           {/* Contract §15: both columns open with a kicker on the same line and
               the card and the row list each fill the stretched column, so the two
@@ -555,6 +561,14 @@ export default function HomePage() {
                   <p className="body mt-2">Schools, teams, and workplaces run drives with us.</p>
                   <div className="mt-2">
                     <LinkArrow href="/get-involved?tab=host-drive#contact">Host a drive</LinkArrow>
+                  </div>
+                </li>
+                <li className="row flex-1 py-3 md:py-3">
+                  <p className="kicker">Monetary donations</p>
+                  <h3 className="title mt-3">Give online, once or monthly</h3>
+                  <p className="body mt-2">Tax-deductible to the extent allowed by law (EIN {ORG_EIN}).</p>
+                  <div className="mt-2">
+                    <LinkArrow href="/donate#give">Donate online</LinkArrow>
                   </div>
                 </li>
               </ul>

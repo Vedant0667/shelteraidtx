@@ -27,7 +27,7 @@ export default function TermsPage() {
 
         <section className="sect tone-surface">
           <div className="wrap-prose">
-            <p className="meta">Last updated January 27, 2026</p>
+            <p className="meta">Last updated October 6, 2026</p>
             <Prose className="mt-8 [&>*:first-child]:mt-0">
               <h2 id="acceptance-of-terms">Acceptance of terms</h2>
               <p>
@@ -46,6 +46,7 @@ export default function TermsPage() {
               <ul>
                 <li>Donation and partnership opportunities may change over time.</li>
                 <li>We may accept, decline, or limit donations based on program needs.</li>
+                <li>Online donations are processed by Stripe, a third-party payment processor.</li>
               </ul>
 
               <h2 id="appropriate-use">Appropriate use</h2>
@@ -67,7 +68,7 @@ export default function TermsPage() {
               <h2 id="third-party-links-and-services">Third-party links and services</h2>
               <p>
                 This site may link to third-party websites or services (for example, a partner
-                portal). We are not responsible for third-party content, terms,
+                portal or our payment processor). We are not responsible for third-party content, terms,
                 or privacy practices.
               </p>
 

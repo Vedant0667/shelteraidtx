@@ -27,7 +27,7 @@ export default function PrivacyPage() {
 
         <section className="sect tone-surface">
           <div className="wrap-prose">
-            <p className="meta">Last updated January 27, 2026</p>
+            <p className="meta">Last updated October 6, 2026</p>
             <Prose className="mt-8 [&>*:first-child]:mt-0">
               <h2 id="overview">Overview</h2>
               <p>
@@ -47,6 +47,11 @@ export default function PrivacyPage() {
                 <li>
                   Contact details you provide, such as name, email, organization, and message
                   content when you submit a form.
+                </li>
+                <li>
+                  Donation details. When you donate online, we receive your name, email, and
+                  donation amount so we can send your receipt. Stripe, our payment processor,
+                  collects your card or bank details; they never reach our servers.
                 </li>
                 <li>
                   Basic technical data, like approximate device or browser details and high-level
@@ -72,6 +77,7 @@ export default function PrivacyPage() {
               <ul>
                 <li>Email and form delivery providers.</li>
                 <li>Hosting, analytics, or security tooling providers.</li>
+                <li>Stripe, which processes online donations.</li>
               </ul>
               <p>
                 Privacy policies are generally expected to describe the categories of third parties

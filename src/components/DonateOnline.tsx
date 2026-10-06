@@ -1,0 +1,198 @@
+"use client"
+
+import { useId, useState } from "react"
+import { loadStripe } from "@stripe/stripe-js"
+import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js"
+import {
+  MAX_DONATION_CENTS,
+  MIN_DONATION_CENTS,
+  PRESET_AMOUNTS_CENTS,
+  formatUsd,
+  type DonationFrequency,
+} from "@/lib/donations"
+
+// Publishable key only (pk_...). It is safe in the browser by design; the secret
+// key stays in src/lib/stripe.ts on the server.
+const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+const stripePromise = publishableKey ? loadStripe(publishableKey) : null
+
+const FREQUENCIES: { value: DonationFrequency; label: string }[] = [
+  { value: "once", label: "One time" },
+  { value: "monthly", label: "Monthly" },
+]
+
+/** Parses "25", "25.5", "$1,000" into cents; null when it isn't a plain dollar amount. */
+function parseDollars(raw: string): number | null {
+  const cleaned = raw.replace(/[$,\s]/g, "")
+  if (!/^\d+(\.\d{1,2})?$/.test(cleaned)) return null
+  return Math.round(Number(cleaned) * 100)
+}
+
+const pill = (active: boolean) =>
+  `rounded-full border px-4 py-2.5 text-[0.95rem] font-medium transition-colors ${
+    active
+      ? "border-[var(--accent)] bg-[var(--accent)] text-white"
+      : "border-[var(--hairline)] bg-transparent text-[var(--ink)] hover:border-[var(--accent)]"
+  }`
+
+export default function DonateOnline() {
+  const uid = useId()
+  const [frequency, setFrequency] = useState<DonationFrequency>("once")
+  const [preset, setPreset] = useState<number | null>(PRESET_AMOUNTS_CENTS[1])
+  const [custom, setCustom] = useState("")
+  const [clientSecret, setClientSecret] = useState<string | null>(null)
+  const [status, setStatus] = useState<"idle" | "loading">("idle")
+  const [error, setError] = useState<string | null>(null)
+
+  const customCents = custom ? parseDollars(custom) : null
+  const amount = custom ? customCents : preset
+  const amountValid =
+    amount !== null && amount >= MIN_DONATION_CENTS && amount <= MAX_DONATION_CENTS
+
+  if (!stripePromise) {
+    return (
+      <p className="body">
+        Online donations are unavailable right now. Email{" "}
+        <a className="underline" href="mailto:shelteraidtx@gmail.com">
+          shelteraidtx@gmail.com
+        </a>{" "}
+        and we will help you give another way.
+      </p>
+    )
+  }
+
+  async function startCheckout() {
+    if (!amountValid || amount === null) return
+    setStatus("loading")
+    setError(null)
+    try {
+      const res = await fetch("/api/donate/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount, frequency }),
+      })
+      const data: { clientSecret?: string; error?: string } = await res.json().catch(() => ({}))
+      if (!res.ok || !data.clientSecret) {
+        setError(
+          res.status === 429
+            ? "Too many attempts. Wait a few minutes and try again."
+            : "We couldn't start checkout. Try again, or email shelteraidtx@gmail.com."
+        )
+        return
+      }
+      setClientSecret(data.clientSecret)
+    } catch {
+      setError("We couldn't reach the server. Check your connection and try again.")
+    } finally {
+      setStatus("idle")
+    }
+  }
+
+  if (clientSecret) {
+    return (
+      <div>
+        <div className="mb-5 flex items-center justify-between gap-4">
+          <p className="body">
+            {formatUsd(amount ?? 0)}
+            {frequency === "monthly" ? " every month" : ""}
+          </p>
+          <button
+            type="button"
+            className="text-[0.9rem] font-medium text-[var(--accent-ink)] underline"
+            onClick={() => setClientSecret(null)}
+          >
+            Change amount
+          </button>
+        </div>
+        {/* Card details are entered inside Stripe's iframe and never touch our server. */}
+        <EmbeddedCheckoutProvider key={clientSecret} stripe={stripePromise} options={{ clientSecret }}>
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+      </div>
+    )
+  }
+
+  return (
+    <form
+      className="space-y-6"
+      onSubmit={(e) => {
+        e.preventDefault()
+        void startCheckout()
+      }}
+    >
+      <fieldset>
+        <legend className="field-label">How often</legend>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {FREQUENCIES.map((f) => (
+            <button
+              key={f.value}
+              type="button"
+              aria-pressed={frequency === f.value}
+              className={pill(frequency === f.value)}
+              onClick={() => setFrequency(f.value)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend className="field-label">Amount</legend>
+        <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+          {PRESET_AMOUNTS_CENTS.map((cents) => (
+            <button
+              key={cents}
+              type="button"
+              aria-pressed={!custom && preset === cents}
+              className={pill(!custom && preset === cents)}
+              onClick={() => {
+                setPreset(cents)
+                setCustom("")
+              }}
+            >
+              {formatUsd(cents)}
+            </button>
+          ))}
+        </div>
+        <label htmlFor={`custom-${uid}`} className="field-label mt-4 block">
+          Or enter an amount
+        </label>
+        <input
+          id={`custom-${uid}`}
+          className="field mt-2 text-base"
+          inputMode="decimal"
+          autoComplete="off"
+          placeholder="$"
+          value={custom}
+          maxLength={12}
+          aria-invalid={custom !== "" && !amountValid}
+          aria-describedby={`amount-help-${uid}`}
+          onChange={(e) => setCustom(e.target.value)}
+        />
+        <p id={`amount-help-${uid}`} className="mt-2 text-[0.85rem] text-[var(--ink-soft)]">
+          {formatUsd(MIN_DONATION_CENTS)} to {formatUsd(MAX_DONATION_CENTS)}.
+        </p>
+      </fieldset>
+
+      <div className="space-y-4">
+        <button
+          type="submit"
+          disabled={!amountValid || status === "loading"}
+          className="btn btn-primary btn-lg w-full"
+        >
+          {status === "loading"
+            ? "Starting checkout..."
+            : amountValid && amount !== null
+              ? `Donate ${formatUsd(amount)}${frequency === "monthly" ? " a month" : ""}`
+              : "Donate"}
+        </button>
+        {error && (
+          <p role="alert" className="field-error">
+            {error}
+          </p>
+        )}
+      </div>
+    </form>
+  )
+}

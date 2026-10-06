@@ -3,7 +3,9 @@ import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import ContactForm from "@/components/ContactForm"
+import DonateOnline from "@/components/DonateOnline"
 import { ButtonLink, Card, LinkArrow, PageIntro, RowList, Section, StatStrip } from "@/components/site"
+import { ORG_EIN } from "@/lib/donations"
 
 export const metadata: Metadata = {
   title: "Donate Shoes in DFW",
@@ -83,6 +85,21 @@ const steps = [
     title: "Send details",
     description:
       "Share sizes, quantities, and gender, plus your preferred timing, so we can coordinate quickly with shelter partners.",
+  },
+]
+
+const givingFacts = [
+  {
+    title: "Tax-deductible",
+    description: `Shelter Aid TX is a 501(c)(3) nonprofit, EIN ${ORG_EIN}. Donations are tax-deductible to the extent allowed by law.`,
+  },
+  {
+    title: "Processed by Stripe",
+    description: "You enter your card details in Stripe's secure form. They never reach our servers.",
+  },
+  {
+    title: "Receipt by email",
+    description: "We email a receipt when the payment clears. Monthly donors get one each month and can cancel any time.",
   },
 ]
 
@@ -171,6 +188,39 @@ export default function DonatePage() {
                   </li>
                 ))}
               </ol>
+            </div>
+          </div>
+        </Section>
+
+        <Section
+          id="give"
+          tone="surface"
+          kicker="Donate money"
+          title="Give online,"
+          em="once or monthly."
+          lede="Money donations help us cover operating costs and reach more shelters."
+        >
+          {/* The card sets the height; compact rows spread to meet its bottom edge.
+              Once Stripe's (much taller) checkout iframe mounts, rows stop
+              spreading so they don't drift hundreds of pixels apart. */}
+          <div className="group grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
+            <div className="flex flex-col md:col-span-6">
+              <p className="kicker mb-5">Online donation</p>
+              <Card className="flex flex-1 flex-col p-7 md:p-9">
+                <DonateOnline />
+              </Card>
+            </div>
+
+            <div className="flex flex-col md:col-span-6">
+              <p className="kicker mb-5">Good to know</p>
+              <ul className="rows flex flex-1 flex-col">
+                {givingFacts.map((fact) => (
+                  <li key={fact.title} className="row flex-1 py-4 group-has-[iframe]:flex-none md:py-5">
+                    <h3 className="title">{fact.title}</h3>
+                    <p className="body mt-2">{fact.description}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Section>
