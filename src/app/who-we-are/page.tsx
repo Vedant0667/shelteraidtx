@@ -199,7 +199,7 @@ export default function WhoWeArePage() {
               </p>
               <p className="body-lg mt-4">
                 We founded Shelter Aid TX as a 501(c)(3). What started as a simple question to shelters has grown into
-                more than 8,000 pairs collected, and every pair has gone directly to our shelter partners across
+                more than 8,000 pairs collected, and every pair goes directly to our shelter partners across
                 Dallas-Fort Worth.
               </p>
             </div>
@@ -212,7 +212,7 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="Three years from a list of phone numbers to more than 8,000 pairs delivered through shelter partners."
+          lede="Three years from a list of phone numbers to more than 8,000 pairs collected for our shelter partners."
         >
           <Timeline items={timeline} />
         </Section>
