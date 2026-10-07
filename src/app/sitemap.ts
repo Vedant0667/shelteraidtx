@@ -6,21 +6,21 @@ import { MetadataRoute } from 'next'
  * change, rather than `new Date()` — a sitemap that claims every page changed on
  * every crawl teaches crawlers to ignore the field.
  */
-const REDESIGN = '2026-09-13'
-const DONATIONS = '2026-10-06'
+// Every route's copy changed in the 2026-10-06 grotesk redesign.
+const UPDATED = '2026-10-06'
 
 const routes: { path: string; lastModified: string }[] = [
-  { path: '', lastModified: DONATIONS },
-  { path: '/who-we-are', lastModified: DONATIONS },
-  { path: '/get-involved', lastModified: DONATIONS },
-  { path: '/request-shoes', lastModified: DONATIONS },
-  { path: '/donate', lastModified: DONATIONS },
-  { path: '/partners', lastModified: REDESIGN },
-  { path: '/events', lastModified: REDESIGN },
-  { path: '/blog', lastModified: REDESIGN },
-  { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: '2025-10-26' },
-  { path: '/privacy', lastModified: DONATIONS },
-  { path: '/terms', lastModified: DONATIONS },
+  { path: '', lastModified: UPDATED },
+  { path: '/who-we-are', lastModified: UPDATED },
+  { path: '/get-involved', lastModified: UPDATED },
+  { path: '/request-shoes', lastModified: UPDATED },
+  { path: '/donate', lastModified: UPDATED },
+  { path: '/partners', lastModified: UPDATED },
+  { path: '/events', lastModified: UPDATED },
+  { path: '/blog', lastModified: UPDATED },
+  { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: UPDATED },
+  { path: '/privacy', lastModified: UPDATED },
+  { path: '/terms', lastModified: UPDATED },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
