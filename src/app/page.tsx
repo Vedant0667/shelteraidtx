@@ -283,7 +283,7 @@ export default function HomePage() {
               <span className="rise-in block" style={{ animationDelay: "220ms" }}>
                 Give{" "}
                 {/* Opacity only. The blur-rise belongs to `.word-in` inside
-                    AnimatedText, which pads its box so tall italic glyphs stay
+                    AnimatedText, which pads its box so tall glyphs stay
                     inside the filter's raster; `overflow-visible` plus the
                     padding/negative-margin pair here keeps this wrapper from
                     clipping that padded child while leaving the line box intact. */}

@@ -17,7 +17,7 @@ const posts = [
     title: "What is hard about starting a nonprofit in high school",
     titleLines: { first: "What is hard about starting", last: "a nonprofit in high school." },
     excerpt:
-      "Paperwork was the easy part. Getting people to take us seriously took longer. Here is what worked.",
+      "Paperwork was the easy part. Getting people to take us seriously was the hard part. Here is what worked.",
     date: "October 26, 2025",
     /** Machine form of `date`, for the Blog JSON-LD below. */
     datePublished: "2025-10-26",

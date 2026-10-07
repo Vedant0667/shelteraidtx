@@ -79,10 +79,10 @@ const waysToHelp: Way[] = [
   {
     id: "host-drive",
     title: "Host a drive",
-    description: "Run a collection at your school, workplace, or community group. Tell us when, and we'll send what you need.",
+    description: "Run a collection at your school, workplace, or community group. Tell us when, and we'll supply what you need.",
     inquiryValue: "host-drive",
     heading: "Host a shoe drive.",
-    headingEm: "We bring the boxes.",
+    headingEm: "We supply the boxes.",
     body: "We supply collection boxes and promotional materials, then coordinate the pickup. Schools, workplaces, and community groups run drives with us.",
     subject: "Shoe Drive Inquiry",
     placeholder:
@@ -96,7 +96,7 @@ const waysToHelp: Way[] = [
     description: "Sort donations, help at events, or spread the word about Shelter Aid TX.",
     inquiryValue: "volunteer",
     heading: "Sort shoes and",
-    headingEm: "staff events.",
+    headingEm: "help at events.",
     body: "Volunteers sort donations, help at events, and spread the word. You can give a few hours or take on a bigger role.",
     subject: "Volunteer Interest",
     placeholder: "Tell us about yourself, your availability, and how you would like to help.",

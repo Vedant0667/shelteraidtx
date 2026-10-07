@@ -32,8 +32,9 @@
   --accent-wash-strong: rgba(43, 159, 217, 0.14);
   /* shadow: navy-tinted, soft */
   --shadow-color: 15 23 42;
-  /* faint ink for the soft second line of a heading */
-  --ink-3: #8a96a6;
+  /* faint ink for the soft second phrase of a heading: >= 3:1 (WCAG AA large
+     text) on white, the --sunken panel and navy alike */
+  --ink-3: #74808f;
   --font-display: var(--font-sans);
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -420,18 +421,6 @@
   }
   .photo-frame {
     position: relative;
-  }
-  /* The offset outline frame read as decorative; the grotesk system drops it. */
-  .photo-frame::after {
-    display: none;
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translate(0.75rem, 0.75rem);
-    border-radius: 1.25rem;
-    border: 1px solid rgb(43 159 217 / 0.4);
-    pointer-events: none;
-    z-index: -1;
   }
   .logo-tile {
     display: flex;

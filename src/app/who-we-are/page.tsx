@@ -109,7 +109,7 @@ export default function WhoWeArePage() {
           kicker="Our team"
           title="Meet the people behind"
           em="Shelter Aid TX."
-          lede="Students and mentors run Shelter Aid TX. The four below lead the board, operations, and partnerships."
+          lede="Students lead Shelter Aid TX, with help from mentors. The four below lead the board, operations, and partnerships."
         >
         {/* Left-aligned at the `.wrap` gutter (no `mx-auto`); the cards
             themselves are the originals, untouched. */}
@@ -202,7 +202,7 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="From 50 phone calls in 2023 to more than 8,000 pairs delivered through shelter partners in 2026."
+          lede="From 50 phone calls in 2023 to more than 8,000 pairs delivered through shelter partners by 2026."
         >
           <Timeline items={timeline} />
         </Section>

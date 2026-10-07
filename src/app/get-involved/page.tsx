@@ -27,8 +27,6 @@ export default function GetInvolvedPage() {
       <main>
         <PageIntro
           kicker="Get involved"
-          /* Faint phrase passed inside the title, not as `em`, so it stays on
-             the same line (PageIntro still breaks before `em`). */
           title={
             <>
               Get shoes to <span className="display-em">DFW shelters.</span>
