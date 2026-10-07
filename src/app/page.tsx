@@ -291,7 +291,7 @@ export default function HomePage() {
                     padding/negative-margin pair here keeps this wrapper from
                     clipping that padded child while leaving the line box intact. */}
                 <span
-                  className={`display-em inline-block overflow-visible pb-[0.15em] -mb-[0.15em] text-[var(--accent-ink)] transition-opacity duration-300 ${
+                  className={`display-em inline-block overflow-visible pb-[0.15em] -mb-[0.15em] font-extrabold text-[var(--accent-ink)] transition-opacity duration-300 ${
                     wordFade ? "opacity-100" : "opacity-0"
                   }`}
                 >
