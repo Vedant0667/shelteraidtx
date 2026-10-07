@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     // Content-Length is optional (chunked uploads omit it), so cap the bytes
     // actually read too, not just the header.
     const raw = await req.text()
-    if (raw.length > MAX_JSON_BYTES) {
+    if (new TextEncoder().encode(raw).byteLength > MAX_JSON_BYTES) {
       const res = NextResponse.json({ error: "Payload too large." }, { status: 413 })
       return withRateLimitHeaders(res, limit.remaining, limit.resetAt)
     }
