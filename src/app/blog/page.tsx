@@ -82,7 +82,7 @@ export default function BlogPage() {
           kicker="Latest"
           title="What we've"
           em="written."
-          lede="One post so far, written after a year of drives and deliveries. We add another when there is something worth passing on."
+          lede="One post so far, written after a year of drives and deliveries. We add the next one when a drive or a shelter teaches us something new."
         >
           {/* The blog feature row is the one place the image comes first in the
               DOM (contract §5), so it opens the post on a phone. `items-stretch`
@@ -143,7 +143,7 @@ export default function BlogPage() {
           kicker="Keep in touch"
           title="More notes are"
           em="on the way."
-          lede="We write when there is something worth passing on: what worked at a drive, what a shelter actually needed, what we would do differently. Until the next post, the fastest way to help is a pair of shoes."
+          lede="We write about what worked at a drive, what a shelter needed, and what we would do differently. Until the next post, the fastest way to help is a pair of shoes."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="/donate" arrow>

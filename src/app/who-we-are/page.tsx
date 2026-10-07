@@ -152,7 +152,7 @@ export default function WhoWeArePage() {
             photo frame and a bottom-anchored caption makes both columns start and
             end on the same line whatever the copy length (§15). */}
         <Section tone="sunken">
-          <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
+          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-12 md:gap-12">
             {/* DOM order is the phone order: text first, then the photo. */}
             <div className="md:col-span-6">
               <p className="kicker kicker-rule mb-6">How it started</p>
@@ -165,8 +165,9 @@ export default function WhoWeArePage() {
               </p>
             </div>
 
-            <figure className="flex flex-col md:col-span-6 md:h-full">
-              <div className="photo shadow-editorial relative aspect-[2/1] md:aspect-auto md:min-h-0 md:flex-1">
+            {/* The photo keeps its own 2:1 shape (1240x620) so nobody is cropped. */}
+            <figure className="md:col-span-6">
+              <div className="photo shadow-editorial relative aspect-[2/1]">
                 <Image
                   src="/images/team-photo.jpeg"
                   alt="Our founders: Vedant Subramanian (left), Harshdeep Bommareddy (center), and Arjun Subramanian (right)"
@@ -182,20 +183,26 @@ export default function WhoWeArePage() {
             </figure>
           </div>
 
-          <div className="mt-12 md:mt-16 md:max-w-[44rem]">
-            <p className="kicker kicker-rule mb-6">Our story</p>
-            <h3 className="display-md">
-              Shelters kept saying the same thing: <Em>shoes.</Em>
-            </h3>
-            <p className="body-lg mt-4">
-              After 50 calls, a pattern was clear. Shelter after shelter told us they needed shoes more than almost
-              anything else. That was our answer.
-            </p>
-            <p className="body-lg mt-4">
-              We founded Shelter Aid TX as a 501(c)(3). What started as a simple question to shelters has grown into
-              more than 8,000 pairs collected, and every pair has gone directly to our shelter partners across
-              Dallas-Fort Worth.
-            </p>
+          {/* Heading left, story right: the same two columns as the row above,
+              so neither side sits empty. */}
+          <div className="mt-14 grid grid-cols-1 gap-6 border-t border-[var(--hairline)] pt-12 md:mt-20 md:grid-cols-12 md:gap-12 md:pt-16">
+            <div className="md:col-span-6">
+              <p className="kicker kicker-rule mb-6">Our story</p>
+              <h3 className="display-md">
+                Shelters kept saying the same thing: <Em>shoes.</Em>
+              </h3>
+            </div>
+            <div className="md:col-span-6">
+              <p className="body-lg">
+                After 50 calls, a pattern was clear. Shelter after shelter told us they needed shoes more than almost
+                anything else. That was our answer.
+              </p>
+              <p className="body-lg mt-4">
+                We founded Shelter Aid TX as a 501(c)(3). What started as a simple question to shelters has grown into
+                more than 8,000 pairs collected, and every pair has gone directly to our shelter partners across
+                Dallas-Fort Worth.
+              </p>
+            </div>
           </div>
         </Section>
 

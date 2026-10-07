@@ -260,7 +260,7 @@ function FormTextArea({ id, label, placeholder, value, onChange }: FormTextAreaP
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         rows={5}
-        className="field resize-none"
+        className="field min-h-[8rem] resize-y"
         required
       />
     </div>

@@ -50,7 +50,7 @@ export function Section({
     <section id={id} className={`${TONE[tone]} ${tight ? "sect-tight" : "sect"} ${className}`}>
       <div className="wrap">
         {(kicker || title) && (
-          <div className={`flex flex-col gap-8 md:flex-row md:items-start md:justify-between ${children ? "mb-12 md:mb-16" : ""}`}>
+          <div className={children ? "mb-12 md:mb-16" : ""}>
             <div className="max-w-3xl">
               {kicker && <p className="kicker kicker-rule mb-6">{kicker}</p>}
               {title && (
@@ -65,8 +65,9 @@ export function Section({
                 </h2>
               )}
               {lede && <p className="lede mt-6">{lede}</p>}
+              {/* Actions sit directly under the text, not at the far edge of the page. */}
+              {action && <div className="mt-8">{action}</div>}
             </div>
-            {action && <div className="shrink-0">{action}</div>}
           </div>
         )}
         {children}

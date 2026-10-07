@@ -111,7 +111,7 @@ export default function BlogPostPage() {
                 consistent results.
               </p>
 
-              <h2>What actually worked</h2>
+              <h2>What worked</h2>
               <ul>
                 <li>
                   Start small on purpose. Early wins do not have to be huge. They just have to be
