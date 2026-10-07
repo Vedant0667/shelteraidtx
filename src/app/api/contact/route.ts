@@ -15,8 +15,9 @@ const contactSchema = z
     name: z.string().trim().min(1).max(100),
     email: z.string().trim().email().max(254),
     message: z.string().trim().min(1).max(4000),
-    subject: z.string().trim().max(160).optional(),
-    inquiryType: z.string().trim().max(80).optional(),
+    // Both reach the email subject line, so no line breaks.
+    subject: z.string().trim().max(160).regex(/^[^\r\n]*$/).optional(),
+    inquiryType: z.string().trim().max(80).regex(/^[^\r\n]*$/).optional(),
   })
   .strict()
 
@@ -72,9 +73,17 @@ export async function POST(req: NextRequest) {
       return withRateLimitHeaders(res, limit.remaining, limit.resetAt)
     }
 
+    // Content-Length is optional (chunked uploads omit it), so cap the bytes
+    // actually read too, not just the header.
+    const raw = await req.text()
+    if (raw.length > MAX_JSON_BYTES) {
+      const res = NextResponse.json({ error: "Payload too large." }, { status: 413 })
+      return withRateLimitHeaders(res, limit.remaining, limit.resetAt)
+    }
+
     let body: unknown
     try {
-      body = await req.json()
+      body = JSON.parse(raw)
     } catch {
       const res = NextResponse.json({ error: "Invalid JSON body." }, { status: 400 })
       return withRateLimitHeaders(res, limit.remaining, limit.resetAt)

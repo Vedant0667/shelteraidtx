@@ -50,12 +50,11 @@ export function isAllowedOrigin(req: NextRequest): boolean {
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.NEXT_PUBLIC_APP_URL
 
-  const allowedOrigins = new Set<string>([
-    req.nextUrl.origin,
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://localhost:3000",
-  ])
+  const allowedOrigins = new Set<string>([req.nextUrl.origin])
+  // Local dev servers only; production must not accept a localhost Origin.
+  if (process.env.NODE_ENV !== "production") {
+    for (const o of ["http://localhost:3000", "http://127.0.0.1:3000", "https://localhost:3000"]) allowedOrigins.add(o)
+  }
 
   if (envOrigin) {
     allowedOrigins.add(envOrigin)
