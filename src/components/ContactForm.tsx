@@ -38,14 +38,14 @@ function slugify(value: string) {
 export default function ContactForm({
   subject,
   title = "Send Us a Message",
-  description = "Have questions or want to collaborate? Share a few details below and we'll follow up within two business days.",
+  description = "Send a few details and we will reply within two business days.",
   submitLabel = "Send Message",
-  successMessage = "Thank you! We received your message and will get back to you soon.",
+  successMessage = "Thanks. We got your message and will reply within two business days.",
   className = "",
   inquiryOptions,
   minimal = false,
   defaultInquiry = "",
-  messagePlaceholder = "Share any details you would like us to know...",
+  messagePlaceholder = "Your message",
 }: ContactFormProps) {
   const options = useMemo(() => {
     if (inquiryOptions && inquiryOptions.length > 0) {

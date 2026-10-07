@@ -83,7 +83,7 @@ function HeroCounter({ value, suffix, display }: { value: string; suffix: string
   return (
     <div
       ref={ref}
-      className="font-display text-[2.4rem] leading-none tracking-tight text-[var(--ink)] sm:text-5xl md:text-6xl lg:text-7xl"
+      className="font-display text-[2.4rem] font-extrabold leading-none tracking-[-0.045em] text-[var(--ink)] sm:text-5xl md:text-6xl lg:text-7xl"
     >
       {displayValue}
       {suffix && <span>{suffix}</span>}
@@ -99,20 +99,21 @@ const dynamicWords = ["warmth", "dignity", "comfort", "hope", "care"]
 
 const steps = [
   {
-    title: "Collect donations",
-    description: "We gather new and gently used shoes from individuals, schools, and community organizations.",
+    title: "Collect",
+    description:
+      "We collect new and gently used shoes from individuals, schools, and community groups, through drop-off partners and shoe drives.",
   },
   {
-    title: "Sort and organize",
-    description: "Our volunteers sort donations by size, type, and condition to ensure quality.",
+    title: "Sort",
+    description: "Volunteers sort every pair by size, type, and condition.",
   },
   {
-    title: "Partner with shelters",
-    description: "We work directly with local shelters to understand their specific needs.",
+    title: "Match",
+    description: "Shelters tell us the sizes, quantities, and gender they need.",
   },
   {
-    title: "Make an impact",
-    description: "Shoes are distributed to those who need them most, providing comfort and dignity.",
+    title: "Deliver",
+    description: "We take the shoes directly to our shelter partners across Dallas-Fort Worth.",
   },
 ]
 
@@ -145,7 +146,7 @@ const faqs = [
   {
     question: "What types of shoes do you accept?",
     answer:
-      "We accept all types of clean, gently used shoes in good condition, including athletic shoes, casual shoes, boots, and sandals. We welcome all sizes for men, women, and children.",
+      "Clean new or gently used shoes in good condition: athletic shoes, casual shoes, boots, and sandals, in all sizes for men, women, and children.",
   },
   {
     question: "How can I donate shoes?",
@@ -207,7 +208,7 @@ const stats = [
    header sits on a clean field, lightest through the middle where the field of
    shoes reads, then settling back to the page ground at the section seam. */
 const HERO_WASH =
-  "linear-gradient(to bottom, rgb(251 248 242 / 0.95) 0%, rgb(251 248 242 / 0.82) 15%, rgb(251 248 242 / 0.62) 52%, rgb(251 248 242 / 0.88) 86%, var(--bg) 100%)"
+  "linear-gradient(to bottom, rgb(255 255 255 / 0.94) 0%, rgb(255 255 255 / 0.8) 15%, rgb(255 255 255 / 0.62) 52%, rgb(255 255 255 / 0.9) 86%, var(--bg) 100%)"
 
 /* ------------------------------------------------------------------ */
 /* Page                                                                */
@@ -298,8 +299,8 @@ export default function HomePage() {
             </h1>
 
             <p className="lede rise-in mx-auto mt-7 text-center sm:mt-8" style={{ animationDelay: "340ms" }}>
-              Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth. We collect and distribute
-              shoes to homeless shelters across DFW, providing warmth, dignity, and hope, one pair at a time.
+              Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth. We collect new and gently
+              used shoes and deliver them to homeless shelters across DFW.
             </p>
 
             <div
@@ -320,7 +321,7 @@ export default function HomePage() {
 
             {/* Counters: plain numerals in three columns, small kickers underneath. */}
             <div
-              className="rise-in mx-auto mt-12 grid w-full max-w-3xl grid-cols-3 gap-x-3 sm:mt-16 sm:gap-x-8 md:gap-x-12"
+              className="rise-in mx-auto mt-12 grid w-full max-w-3xl grid-cols-3 gap-x-3 border-t border-[var(--hairline)] pt-6 sm:mt-16 sm:gap-x-8 sm:pt-8 md:gap-x-12"
               style={{ animationDelay: "600ms" }}
             >
               {stats.map((stat) => (
@@ -356,7 +357,7 @@ export default function HomePage() {
             {/* Same left kicker + hairline-to-the-right rule as every other
                 sub-head on the page ("In their own words", "Also collecting"). */}
             <div className="mb-7 flex items-center gap-5 md:mb-8">
-              <h2 className="kicker shrink-0">Trusted by shelters across DFW</h2>
+              <h2 className="kicker shrink-0">Shelters we deliver to</h2>
               <div className="h-px flex-1 bg-[var(--hairline)]" />
             </div>
           </div>
@@ -383,9 +384,9 @@ export default function HomePage() {
           id="how-it-works"
           tone="bg"
           kicker="How it works"
-          title="From your closet to"
-          em="someone in need."
-          lede="Our simple four-step process ensures every donation makes the maximum impact. We handle everything from collection to delivery."
+          title="How a pair gets"
+          em="to a shelter."
+          lede="We handle collection, sorting, and delivery. Shelters tell us what they need."
         >
           {/* Two-column block, contract §5/§15: text first in the DOM, 6/6 split,
               `items-stretch` so both columns share a top and a bottom edge. */}
@@ -426,24 +427,19 @@ export default function HomePage() {
         <Section id="impact" tone="surface">
           <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-6">
-              <p className="kicker mb-5">Our impact</p>
+              <p className="kicker kicker-rule mb-6">Our impact</p>
               <h2 className="display-lg">
-                Making a real difference
-                <br />
-                <span className="display-em">in our community.</span>
+                Shoes for DFW shelters <span className="display-em">since 2023.</span>
               </h2>
               <p className="lede mt-6">
-                Since 2023 we have been providing shoes and essential items to people experiencing
-                homelessness in the Dallas-Fort Worth area.
+                Since 2023 we have delivered shoes and other essentials to people experiencing homelessness
+                across Dallas-Fort Worth.
               </p>
               <ul className="rows mt-8">
                 <li className="row">
                   <p className="kicker">Featured in</p>
                   <h3 className="title mt-4">The Dallas Morning News</h3>
-                  <p className="body mt-2">
-                    Our work has been recognized by local media for making a meaningful impact in the
-                    DFW community.
-                  </p>
+                  <p className="body mt-2">The Dallas Morning News covered Shelter Aid TX and our work with DFW shelters.</p>
                   <div className="mt-4">
                     <LinkArrow href="/who-we-are">Meet the team</LinkArrow>
                   </div>
@@ -507,7 +503,7 @@ export default function HomePage() {
           kicker="Donate"
           title="Give shoes,"
           em="or help deliver them."
-          lede="Shoes come from people like you. Money covers what it takes to get them to shelters: collection, storage, and delivery across Dallas-Fort Worth."
+          lede="Shoes come from donors. Money pays to collect, store, and deliver them to shelters across Dallas-Fort Worth."
         >
           <DonateOptions />
 
@@ -551,9 +547,9 @@ export default function HomePage() {
           id="partners"
           tone="bg"
           kicker="Collection partners"
-          title="Helping us"
-          em="collect shoes."
-          lede="Schools, businesses, and community organizations across DFW host shoe drives and collection events with us."
+          title="Where to drop off"
+          em="shoes."
+          lede="Schools, businesses, and community groups across DFW hold collection bins and run shoe drives with us."
           action={<LinkArrow href="/partners">See all partners</LinkArrow>}
         >
           {/* Same block as /partners: the lead partner reads as one hairline row
@@ -594,7 +590,7 @@ export default function HomePage() {
         </Section>
 
         {/* FAQ */}
-        <Section id="faq" tone="surface" kicker="FAQ" title="Got" em="questions?" lede="Everything you need to know about donating and getting involved.">
+        <Section id="faq" tone="surface" kicker="FAQ" title="Questions" em="people ask.">
           <Accordion items={faqs} />
         </Section>
 

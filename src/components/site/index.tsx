@@ -52,13 +52,13 @@ export function Section({
         {(kicker || title) && (
           <div className={`flex flex-col gap-8 md:flex-row md:items-start md:justify-between ${children ? "mb-12 md:mb-16" : ""}`}>
             <div className="max-w-3xl">
-              {kicker && <p className="kicker mb-5">{kicker}</p>}
+              {kicker && <p className="kicker kicker-rule mb-6">{kicker}</p>}
               {title && (
                 <h2 className="display-lg">
                   {title}
                   {em && (
                     <>
-                      <br />
+                      {" "}
                       <Em>{em}</Em>
                     </>
                   )}
@@ -332,7 +332,7 @@ export function MediaCard({
       {image && (
         <div className={`relative ${imageAspect} overflow-hidden border-b hairline bg-[var(--sunken)]`}>
           <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          {badge && <span className="kicker absolute left-4 top-4 rounded-full bg-[var(--surface)] px-3 py-1">{badge}</span>}
+          {badge && <span className="kicker absolute left-4 top-4 rounded-md bg-[var(--surface)] px-2.5 py-1">{badge}</span>}
         </div>
       )}
       <div className="p-7 md:p-8">

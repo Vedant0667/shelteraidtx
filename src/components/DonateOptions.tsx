@@ -43,7 +43,7 @@ export default function DonateOptions({ titleAs: Title = "h3" }: { titleAs?: "h2
         <p className="kicker mb-5">Give online</p>
         <Card className="flex flex-1 flex-col p-7 md:p-9">
           <Title className="title">Donate money</Title>
-          <p className="body mt-2">Once or monthly. Tax-deductible, with a receipt by email.</p>
+          <p className="body mt-2">Once or monthly. Tax-deductible, with a PDF receipt by email.</p>
           <div className="rule mb-7 mt-6" />
           <DonateOnline />
           <div aria-hidden className="min-h-7 flex-1" />

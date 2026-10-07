@@ -1,21 +1,23 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, Libre_Baskerville } from "next/font/google"
+import { DM_Mono, Epilogue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const inter = Inter({
+// One sans family for everything (headings and body), plus a mono for small
+// labels: the stowr-landing system, in Shelter Aid's colors.
+const epilogue = Epilogue({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
   preload: true,
 })
 
-const libreBaskerville = Libre_Baskerville({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal"],
-  variable: "--font-display",
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
   preload: true,
 })
@@ -23,11 +25,11 @@ const libreBaskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   metadataBase: new URL("https://shelteraidtx.org"),
   title: {
-    default: "Shelter Aid TX: Shoes for Those Who Need Them Most",
+    default: "Shelter Aid TX: Shoe Donations for DFW Homeless Shelters",
     template: "%s | Shelter Aid TX",
   },
   description:
-    "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
+    "Shelter Aid TX is a student-led 501(c)(3) in Dallas-Fort Worth. We collect new and gently used shoes and deliver them to homeless shelters across DFW.",
   alternates: {
     canonical: "/",
   },
@@ -50,9 +52,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://shelteraidtx.org",
     siteName: "Shelter Aid TX",
-    title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
+    title: "Shelter Aid TX: Shoe Donations for DFW Homeless Shelters",
     description:
-      "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth.",
+      "Shelter Aid TX is a student-led 501(c)(3) in Dallas-Fort Worth. We collect new and gently used shoes and deliver them to homeless shelters across DFW.",
     images: [
       {
         url: "/og-image.jpg",
@@ -64,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shelter Aid TX: Shoes for Those Who Need Them Most",
+    title: "Shelter Aid TX: Shoe Donations for DFW Homeless Shelters",
     description:
-      "Student-led nonprofit providing warmth, dignity, and hope to those experiencing homelessness in DFW.",
+      "Shelter Aid TX is a student-led 501(c)(3) in Dallas-Fort Worth. We collect new and gently used shoes and deliver them to homeless shelters across DFW.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -107,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${libreBaskerville.variable}`}>
+    <html lang="en" className={`${epilogue.variable} ${dmMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

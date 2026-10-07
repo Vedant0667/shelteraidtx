@@ -29,7 +29,7 @@ function parseDollars(raw: string): number | null {
 }
 
 const pill = (active: boolean) =>
-  `rounded-full border px-4 py-2.5 text-[0.95rem] font-medium transition-colors ${
+  `rounded-lg border px-4 py-2.5 text-[0.95rem] font-semibold transition-colors ${
     active
       ? "border-[var(--accent)] bg-[var(--accent)] text-white"
       : "border-[var(--hairline)] bg-transparent text-[var(--ink)] hover:border-[var(--accent)]"

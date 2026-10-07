@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 /* ============================================================
-   Editorial Sky: the portfolio's quiet-luxury system, in Shelter
-   Aid's colors. Ivory ground, hairlines, warm soft shadows, sky
-   accent, navy ink. No gradients except text overlays on photos.
+   Grotesk (2026-10, after stowr-landing): one sans family (Epilogue)
+   for headings and body, DM Mono for small labels, white and pale
+   blue-gray panels, hairlines, 8px buttons, 14px cards. Shelter
+   Aid's sky accent and navy ink. No serif, no italics, no pills.
    ============================================================ */
 :root {
   /* surfaces */
-  --bg: #fbf8f2;        /* ivory page */
+  --bg: #ffffff;        /* page */
   --surface: #ffffff;   /* raised card */
-  --sunken: #f3ede2;    /* recessed wells (cream) */
+  --sunken: #f5f8fa;    /* panel: pale blue-gray, alternates with --bg */
   /* text */
   --ink: #0f172a;       /* navy ink */
   --muted: #5b6472;     /* muted body */
@@ -29,8 +30,11 @@
   /* soft tints of the accent for fills */
   --accent-wash: rgba(43, 159, 217, 0.08);
   --accent-wash-strong: rgba(43, 159, 217, 0.14);
-  /* shadow tuned warm + soft */
-  --shadow-color: 40 36 28;
+  /* shadow: navy-tinted, soft */
+  --shadow-color: 15 23 42;
+  /* faint ink for the soft second line of a heading */
+  --ink-3: #8a96a6;
+  --font-display: var(--font-sans);
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -61,7 +65,7 @@
   --color-border: var(--hairline);
 
   /* shadcn variables (ui/button) */
-  --background: 40 43% 96%;
+  --background: 0 0% 100%;
   --foreground: 222 47% 11%;
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
@@ -128,12 +132,11 @@
     background-color: var(--bg);
     color: var(--ink);
     font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    font-feature-settings: "ss01", "cv05";
     font-size: 1.0625rem;
     line-height: 1.6;
   }
   h1, h2, h3 {
-    font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
     text-wrap: balance;
     color: var(--ink);
   }
@@ -155,87 +158,98 @@
    ============================================================ */
 @layer components {
   .font-display {
-    font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   }
-  /* Fraunces optical sizing + a touch of softness for display use */
-  .display-soft {
-    font-optical-sizing: auto;
-  }
-  /* Second line of a display heading. Upright, not italic (Vedant: "remove the
-     curly italic font"); the regular weight against the bold first line keeps
-     the two-line contrast. */
+  /* Second line of a display heading: same face and weight, faint ink.
+     Upright, never italic (Vedant: "remove the curly italic font"). */
   .display-em {
     font-style: normal;
-    font-weight: 400;
+    color: var(--ink-3);
   }
   .display-xl {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-size: clamp(2.6rem, calc(1.2rem + 6.5vw), 5.5rem);
-    font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(2.9rem, calc(1.1rem + 6.6vw), 6.1rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
     color: var(--ink);
   }
   .display-lg {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-size: clamp(2.2rem, calc(1rem + 5vw), 4rem);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.015em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(2.1rem, calc(1rem + 4.2vw), 3.6rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
     color: var(--ink);
   }
   .display-md {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-size: clamp(1.7rem, calc(0.9rem + 3vw), 2.6rem);
-    font-weight: 400;
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(1.7rem, calc(0.9rem + 2.6vw), 2.5rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
     color: var(--ink);
   }
   .title {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-size: 1.55rem;
-    font-weight: 400;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.018em;
     color: var(--ink);
   }
   @media (min-width: 768px) {
     .title {
-      font-size: 1.8rem;
+      font-size: 1.45rem;
     }
   }
   .title-sm {
-    font-family: var(--font-display), ui-serif, Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
     line-height: 1.3;
+    letter-spacing: -0.012em;
     color: var(--ink);
   }
+  /* Small uppercase labels in DM Mono (stowr's eyebrow). */
   .kicker {
-    font-size: 0.76rem;
+    font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+    font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     color: var(--accent-ink);
   }
   .kicker-muted {
-    font-size: 0.76rem;
+    font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+    font-size: 0.72rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     color: var(--muted);
   }
+  /* Kicker followed by a hairline that runs to the right (section rule). */
+  .kicker-rule {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .kicker-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--hairline);
+  }
   .lede {
-    font-size: 1.15rem;
-    line-height: 1.65;
+    font-size: 1.1rem;
+    line-height: 1.6;
     color: var(--muted);
     max-width: 34rem;
     text-wrap: pretty;
   }
   @media (min-width: 768px) {
     .lede {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
   .body {
@@ -369,11 +383,10 @@
   .card {
     background: var(--surface);
     border: 1px solid var(--hairline);
-    border-radius: 1.25rem;
+    border-radius: 14px;
     box-shadow:
       0 1px 2px rgb(var(--shadow-color) / 0.04),
-      0 8px 24px -8px rgb(var(--shadow-color) / 0.12),
-      0 24px 48px -24px rgb(var(--shadow-color) / 0.16);
+      0 12px 32px -18px rgb(var(--shadow-color) / 0.2);
   }
   .card-hover {
     transition:
@@ -382,7 +395,7 @@
       border-color 0.35s var(--ease-out-expo);
   }
   .card-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     border-color: var(--hairline-strong);
     box-shadow:
       0 2px 4px rgb(var(--shadow-color) / 0.05),
@@ -392,15 +405,15 @@
   .card-flat {
     background: var(--surface);
     border: 1px solid var(--hairline);
-    border-radius: 1.25rem;
+    border-radius: 14px;
   }
   .well {
     background: var(--sunken);
     border: 1px solid var(--hairline);
-    border-radius: 1.25rem;
+    border-radius: 14px;
   }
   .photo {
-    border-radius: 1.25rem;
+    border-radius: 14px;
     border: 1px solid var(--hairline);
     background: var(--sunken);
     overflow: hidden;
@@ -408,7 +421,9 @@
   .photo-frame {
     position: relative;
   }
+  /* The offset outline frame read as decorative; the grotesk system drops it. */
   .photo-frame::after {
+    display: none;
     content: "";
     position: absolute;
     inset: 0;
@@ -426,7 +441,7 @@
     padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--hairline);
-    border-radius: 1rem;
+    border-radius: 12px;
     transition:
       border-color 0.3s var(--ease-out-expo),
       transform 0.3s var(--ease-out-expo);
@@ -448,11 +463,12 @@
     align-items: center;
     gap: 0.4rem;
     border: 1px solid var(--hairline);
-    border-radius: 9999px;
-    padding: 0.3rem 0.8rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent-ink);
     background: var(--accent-wash);
@@ -493,18 +509,20 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border-radius: 9999px;
-    padding: 0.85rem 1.65rem;
-    font-size: 1rem;
-    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.97rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     line-height: 1.2;
     white-space: nowrap;
     border: 1px solid transparent;
     transition:
-      transform 0.3s var(--ease-out-expo),
-      background-color 0.3s var(--ease-out-expo),
-      border-color 0.3s var(--ease-out-expo),
-      color 0.3s var(--ease-out-expo);
+      transform 0.2s var(--ease-out-quint),
+      background-color 0.2s var(--ease-out-quint),
+      border-color 0.2s var(--ease-out-quint),
+      box-shadow 0.2s var(--ease-out-quint),
+      color 0.2s var(--ease-out-quint);
   }
   .btn svg {
     width: 1rem;
@@ -514,24 +532,32 @@
   .btn:hover svg {
     transform: translate(2px, 0);
   }
+  /* Sky fill with a top highlight and a soft blue glow (stowr's button, in our accent). */
   .btn-primary {
-    background: var(--accent);
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0) 50%), var(--accent);
     color: var(--accent-contrast);
     border-color: var(--accent);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.22),
+      0 8px 22px -8px rgb(43 159 217 / 0.65);
   }
   .btn-primary:hover {
-    transform: translateY(-2px);
-    background: var(--accent-deep);
+    transform: translateY(-1px);
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0.18), rgb(255 255 255 / 0.03) 50%), var(--accent-deep);
     border-color: var(--accent-deep);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      0 12px 28px -8px rgb(43 159 217 / 0.7);
   }
   .btn-secondary {
-    background: transparent;
+    background: var(--surface);
     color: var(--ink);
-    border-color: var(--hairline);
+    border-color: rgb(15 23 42 / 0.16);
+    box-shadow: 0 1px 2px rgb(var(--shadow-color) / 0.05);
   }
   .btn-secondary:hover {
     border-color: var(--hairline-strong);
-    background: var(--surface);
+    transform: translateY(-1px);
   }
   .btn-on-dark {
     background: #ffffff;
@@ -539,7 +565,7 @@
     border-color: #ffffff;
   }
   .btn-on-dark:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
   .btn-ghost-on-dark {
     background: transparent;
@@ -550,11 +576,11 @@
     border-color: #ffffff;
   }
   .btn-sm {
-    padding: 0.6rem 1.2rem;
+    padding: 0.55rem 1rem;
     font-size: 0.875rem;
   }
   .btn-lg {
-    padding: 0.9rem 1.75rem;
+    padding: 0.9rem 1.5rem;
     font-size: 1rem;
   }
   .btn-icon {
@@ -633,7 +659,7 @@
     display: grid;
     gap: 1px;
     overflow: hidden;
-    border-radius: 1rem;
+    border-radius: 12px;
     border: 1px solid var(--hairline);
     background: var(--hairline);
   }
@@ -652,8 +678,8 @@
     width: 100%;
     background: var(--surface);
     color: var(--ink);
-    border: 1px solid var(--hairline);
-    border-radius: 0.9rem;
+    border: 1px solid rgb(15 23 42 / 0.16);
+    border-radius: 8px;
     padding: 0.8rem 1rem;
     font-size: 1rem; /* never below 16px: iOS zooms on focus */
     line-height: 1.4;
@@ -682,9 +708,10 @@
   }
   .field-label {
     display: block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono), ui-monospace, Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 0.45rem;
@@ -712,6 +739,7 @@
     justify-content: space-between;
     gap: 1.5rem;
     padding: 1.5rem 0;
+    font-weight: 600;
   }
   .acc > summary::-webkit-details-marker {
     display: none;
@@ -763,17 +791,19 @@
     margin-top: 1.25em;
   }
   .prose-site h2 {
-    font-family: var(--font-display), Georgia, serif;
-    font-weight: 400;
-    font-size: 1.75rem;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    font-size: 1.65rem;
     line-height: 1.2;
     margin-top: 2.5em;
     margin-bottom: 0.6em;
     color: var(--ink);
   }
   .prose-site h3 {
-    font-family: var(--font-display), Georgia, serif;
-    font-weight: 400;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
     font-size: 1.3rem;
     line-height: 1.3;
     margin-top: 2em;
@@ -802,8 +832,10 @@
     font-weight: 600;
   }
   .prose-site blockquote {
-    font-family: var(--font-display), Georgia, serif;
-    font-size: 1.3rem;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    font-size: 1.25rem;
     line-height: 1.45;
     color: var(--ink);
     padding-left: 1.25rem;
@@ -815,7 +847,7 @@
     margin: 2.5em 0;
   }
   .prose-site img {
-    border-radius: 1.25rem;
+    border-radius: 14px;
   }
 
   /* Utilities used by the who-we-are team cards (kept by owner request) */
@@ -896,10 +928,10 @@
     gap: 1rem;
   }
   .card {
-    border-radius: 1rem;
+    border-radius: 12px;
   }
   .photo {
-    border-radius: 1rem;
+    border-radius: 12px;
   }
   input,
   select,

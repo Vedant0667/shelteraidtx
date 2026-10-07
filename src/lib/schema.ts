@@ -17,7 +17,7 @@ export const organizationSchema = {
     url: `${SITE_URL}/images/main-logo.png`,
   },
   description:
-    "Student-led 501(c)(3) nonprofit providing warmth, dignity, and hope to those experiencing homelessness in Dallas-Fort Worth through shoe donations.",
+    "Student-led 501(c)(3) in Dallas-Fort Worth that collects new and gently used shoes and delivers them to homeless shelters across DFW. Supporters can also donate money online, once or monthly.",
   email: "shelteraidtx@gmail.com",
   address: {
     "@type": "PostalAddress",

@@ -96,7 +96,9 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color] duration-300 ${
-        scrolled || open ? "border-[var(--hairline)] bg-[rgb(251_248_242/0.94)] backdrop-blur-md" : "border-transparent bg-transparent"
+        scrolled || open
+          ? "border-[var(--hairline)] bg-[rgb(255_255_255/0.85)] shadow-[0_4px_20px_-8px_rgb(15_23_42/0.08)] backdrop-blur-md backdrop-saturate-[1.4]"
+          : "border-transparent bg-transparent"
       }`}
     >
       <nav className="wrap flex h-[var(--header-h)] items-center justify-between" aria-label="Primary">
