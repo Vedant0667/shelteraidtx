@@ -29,10 +29,10 @@ export default function GetInvolvedPage() {
           kicker="Get involved"
           title={
             <>
-              Get shoes to <span className="display-em">DFW shelters.</span>
+              Help us get shoes <span className="display-em">to DFW shelters.</span>
             </>
           }
-          lede="Donate shoes or money, host a drive, volunteer, or partner with us. The shoes go to shelters serving people experiencing homelessness in DFW."
+          lede="Donate shoes or money, host a drive, volunteer, or partner with us. The shoes go to shelters serving our neighbors experiencing homelessness in DFW."
           strip={<StatStrip items={ways} columns={4} />}
           above={
             <Breadcrumbs
@@ -62,8 +62,8 @@ export default function GetInvolvedPage() {
           tone="surface"
           kicker="Questions"
           title="Have a question?"
-          em="Email us."
-          lede="Write to shelteraidtx@gmail.com and we will reply within 2 business days."
+          em="We're happy to help."
+          lede="Write to shelteraidtx@gmail.com any time, and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>

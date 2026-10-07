@@ -135,7 +135,7 @@ export default function BlogPostPage() {
           kicker="Take part"
           title="Want to help"
           em="get started?"
-          lede="Do not wait for perfect conditions. Start with what you have, keep the promises you make, and build a rhythm you can sustain."
+          lede="Do not wait for perfect conditions. Start with what you have, keep the promises you make, and build a rhythm you can sustain. Over time, that consistency does most of the work."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="/get-involved?tab=volunteer#contact" arrow>

@@ -36,7 +36,7 @@ const blogSchema = {
   name: "Shelter Aid TX Blog",
   url: `${baseUrl}/blog`,
   description:
-    "What we have learned running a student-led nonprofit and working with homeless shelters across Dallas-Fort Worth.",
+    "What we have learned running a student-led nonprofit, working with homeless shelters across Dallas-Fort Worth, and keeping small efforts going until they add up.",
   publisher: { "@type": "Organization", name: "Shelter Aid TX", url: baseUrl },
   blogPost: posts.map((post) => ({
     "@type": "BlogPosting",
@@ -66,7 +66,7 @@ export default function BlogPage() {
               Notes from <Em>the work.</Em>
             </>
           }
-          lede="What we have learned running a student-led nonprofit and working with homeless shelters across Dallas-Fort Worth."
+          lede="What we have learned running a student-led nonprofit, working with homeless shelters across Dallas-Fort Worth, and keeping small efforts going until they add up."
           above={
             <Breadcrumbs
               items={[

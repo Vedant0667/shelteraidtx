@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Arjun Subramanian",
     title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
-    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX.",
+    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX, keeping the focus on getting shoes to shelters.",
   },
   {
     name: "Vikram Sampath",
@@ -37,7 +37,8 @@ const coreValues = [
   {
     kicker: "Impact",
     title: "Focused on DFW shelters",
-    description: "Our work is for people experiencing homelessness across Dallas-Fort Worth, through the shelters that serve them.",
+    description:
+      "Our work is for people experiencing homelessness across Dallas-Fort Worth. We count it in pairs that reach them through the shelters that serve them.",
   },
   {
     kicker: "Leadership",
@@ -60,12 +61,13 @@ const timeline = [
   {
     year: "2023",
     title: "501(c)(3) founded",
-    description: "Incorporated as a nonprofit. Donations are tax-deductible.",
+    description: "Officially incorporated as a nonprofit, so donations to Shelter Aid TX are tax-deductible.",
   },
   {
     year: "2024",
-    title: "$7,000 raised",
-    description: "Won funding at a VC pitch competition to expand our operations.",
+    title: "$7,000 award",
+    description:
+      "At Greenhill School's What's NEXT Pitch Night, a Shark Tank-like event, we won mentorship and $7,000, the largest award of the night. The money went to storage.",
   },
   {
     year: "2026",
@@ -140,7 +142,7 @@ export default function WhoWeArePage() {
             ))}
           </div>
           <p className="meta mt-6 md:mt-8">
-            Another 12+ members work alongside these four.
+            These four are only part of the team. Another 12+ members work alongside them.
           </p>
         </div>
         </Section>
@@ -159,7 +161,7 @@ export default function WhoWeArePage() {
               </h2>
               <p className="lede mt-6">
                 In the summer of 2023 we wanted to help people experiencing homelessness in DFW, but we did not know
-                how. So we started calling shelters.
+                how. So we picked up the phone and started calling shelters.
               </p>
             </div>
 
@@ -186,12 +188,17 @@ export default function WhoWeArePage() {
               Shelters kept saying the same thing: <Em>shoes.</Em>
             </h3>
             <p className="body-lg mt-4">
-              Shelter after shelter told us they needed shoes more than almost anything else. By the 50th call, we had
-              our answer.
+              After 50 calls, a pattern was clear. Three out of four shelters we called needed shoes, and shelter after
+              shelter told us they needed them more than almost anything else. That was our answer.
             </p>
             <p className="body-lg mt-4">
-              We founded Shelter Aid TX as a 501(c)(3). Since then we have collected more than 8,000 pairs, and every
-              pair has gone directly to our shelter partners across Dallas-Fort Worth.
+              Everyone needs shoes. For someone staying at a shelter, a pair that fits makes it easier to get around,
+              stay healthy, and keep their dignity.
+            </p>
+            <p className="body-lg mt-4">
+              We founded Shelter Aid TX as a 501(c)(3). What started as a simple question to shelters has grown into
+              more than 8,000 pairs collected, and every pair has gone directly to our shelter partners across
+              Dallas-Fort Worth.
             </p>
           </div>
         </Section>
@@ -202,7 +209,7 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="From 50 phone calls in 2023 to more than 8,000 pairs delivered through shelter partners by 2026."
+          lede="Three years from a list of phone numbers to more than 8,000 pairs delivered through shelter partners."
         >
           <Timeline items={timeline} />
         </Section>
@@ -213,6 +220,7 @@ export default function WhoWeArePage() {
           kicker="Values"
           title="What we"
           em="stand for."
+          lede="Three commitments that decide what we take on and how we follow through."
         >
           <RowList
             items={coreValues.map((value) => ({
@@ -227,9 +235,9 @@ export default function WhoWeArePage() {
         <Section
           tone="ink"
           kicker="Get involved"
-          title="Donate, volunteer,"
-          em="or partner with us."
-          lede="Give shoes or money, or give your time. Schools, shops, and teams can partner with us on a drive."
+          title="Want to help?"
+          em="We'd love to have you."
+          lede="Donate shoes or money, volunteer your time, or partner with us on a drive with your school, shop, or team."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
               <ButtonLink arrow variant="on-dark" href="/get-involved">

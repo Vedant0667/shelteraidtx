@@ -99,21 +99,24 @@ const dynamicWords = ["warmth", "dignity", "comfort", "hope", "care"]
 
 const steps = [
   {
-    title: "Collect",
+    title: "Collect donations",
     description:
       "We collect new and gently used shoes from individuals, schools, and community groups, through drop-off partners and shoe drives.",
   },
   {
-    title: "Sort",
-    description: "Volunteers sort every pair by size, type, and condition.",
+    title: "Sort every pair",
+    description:
+      "Our volunteers sort every pair by size, type, and condition, and check that it is clean and in good shape.",
   },
   {
-    title: "Match",
-    description: "Shelters tell us the sizes, quantities, and gender they need.",
+    title: "Match each request",
+    description:
+      "We work directly with each shelter. They tell us the sizes, quantities, and gender they need, and we match pairs to the request.",
   },
   {
-    title: "Deliver",
-    description: "We take the shoes directly to our shelter partners across Dallas-Fort Worth.",
+    title: "Deliver to shelters",
+    description:
+      "We take the shoes directly to our shelter partners across Dallas-Fort Worth, and they go to the people who need them most.",
   },
 ]
 
@@ -384,9 +387,9 @@ export default function HomePage() {
           id="how-it-works"
           tone="bg"
           kicker="How it works"
-          title="How a pair gets"
-          em="to a shelter."
-          lede="We handle collection, sorting, and delivery. Shelters tell us what they need."
+          title="From your closet"
+          em="to a DFW shelter."
+          lede="You give the shoes. We handle collection, sorting, and delivery, and shelters tell us what they need."
         >
           {/* Two-column block, contract §5/§15: text first in the DOM, 6/6 split,
               `items-stretch` so both columns share a top and a bottom edge. */}
@@ -429,17 +432,22 @@ export default function HomePage() {
             <div className="md:col-span-6">
               <p className="kicker kicker-rule mb-6">Our impact</p>
               <h2 className="display-lg">
-                Shoes for DFW shelters <span className="display-em">since 2023.</span>
+                Shoes for neighbors across DFW <span className="display-em">since 2023.</span>
               </h2>
               <p className="lede mt-6">
                 Since 2023 we have delivered shoes and other essentials to people experiencing homelessness
-                across Dallas-Fort Worth.
+                across Dallas-Fort Worth. Everyone needs shoes. For someone staying at a shelter, a pair that
+                fits makes it easier to get around, stay healthy, and keep their dignity.
               </p>
               <ul className="rows mt-8">
                 <li className="row">
                   <p className="kicker">Featured in</p>
                   <h3 className="title mt-4">The Dallas Morning News</h3>
-                  <p className="body mt-2">The Dallas Morning News covered Shelter Aid TX and our work with DFW shelters.</p>
+                  <p className="body mt-2">
+                    The Dallas Morning News wrote about the shelter calls that started it, our $7,000 award at
+                    Greenhill School&rsquo;s What&rsquo;s NEXT Pitch Night, and the shoes we bring to Family
+                    Gateway, Our Daily Bread, and Journey to Dream.
+                  </p>
                   <div className="mt-4">
                     <LinkArrow href="/who-we-are">Meet the team</LinkArrow>
                   </div>
@@ -503,7 +511,7 @@ export default function HomePage() {
           kicker="Donate"
           title="Give shoes,"
           em="or help deliver them."
-          lede="Shoes come from donors. Money pays to collect, store, and deliver them to shelters across Dallas-Fort Worth."
+          lede="Shoes come from people like you. Money covers what it takes to get them to shelters: collection, storage, and delivery across Dallas-Fort Worth."
         >
           <DonateOptions />
 
@@ -547,9 +555,9 @@ export default function HomePage() {
           id="partners"
           tone="bg"
           kicker="Collection partners"
-          title="Where to drop off"
-          em="shoes."
-          lede="Schools, businesses, and community groups across DFW hold collection bins and run shoe drives with us."
+          title="Drop off shoes"
+          em="close to home."
+          lede="Schools, businesses, and community groups across DFW hold collection bins, run shoe drives, and host collection events with us."
           action={<LinkArrow href="/partners">See all partners</LinkArrow>}
         >
           {/* Same block as /partners: the lead partner reads as one hairline row
@@ -590,7 +598,14 @@ export default function HomePage() {
         </Section>
 
         {/* FAQ */}
-        <Section id="faq" tone="surface" kicker="FAQ" title="Questions" em="people ask.">
+        <Section
+          id="faq"
+          tone="surface"
+          kicker="FAQ"
+          title="Got a question?"
+          em="Start here."
+          lede="Answers about donating shoes or money, volunteering, and partnering with us."
+        >
           <Accordion items={faqs} />
         </Section>
 

@@ -65,10 +65,10 @@ export default function PartnersPage() {
           kicker="Our partners"
           title={
             <>
-              Our collection and <span className="display-em">shelter partners.</span>
+              Who collects the shoes, <span className="display-em">and where they go.</span>
             </>
           }
-          lede="Schools, shops, and neighborhoods collect the shoes. Shelters across Dallas-Fort Worth receive every pair."
+          lede="Schools, shops, and neighborhoods collect the shoes, and shelters across Dallas-Fort Worth receive every pair. We could not do this work without them."
           above={
             <Breadcrumbs
               items={[
@@ -143,7 +143,7 @@ export default function PartnersPage() {
           kicker="Partnerships"
           title="Want to become"
           em="a partner?"
-          lede="Shelters that need shoes can partner with us. Schools, businesses, and community groups can host a drive."
+          lede="If you run a shelter that needs shoes, or a school, business, or community group that wants to host a drive, we would love to work with you."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/get-involved?tab=partnership#contact">

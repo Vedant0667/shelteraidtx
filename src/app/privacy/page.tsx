@@ -40,9 +40,7 @@ export default function PrivacyPage() {
                 have.
               </p>
               <p>
-                We aim to keep this policy clear and easy to read. A good privacy notice should
-                explain what is collected, why it is collected, how it is used or shared, what
-                security measures are used, and how to contact the organization.
+                We aim to keep this policy clear and easy to read.
               </p>
 
               <h2 id="information-we-collect">Information we collect</h2>
@@ -82,10 +80,6 @@ export default function PrivacyPage() {
                 <li>Hosting, analytics, or security tooling providers.</li>
                 <li>Stripe, which processes online donations.</li>
               </ul>
-              <p>
-                Privacy policies are generally expected to describe the categories of third parties
-                that receive information and why.
-              </p>
 
               <h2 id="cookies-and-analytics">Cookies and analytics</h2>
               <p>
@@ -103,8 +97,7 @@ export default function PrivacyPage() {
               <h2 id="security">Security</h2>
               <p>
                 We use reasonable administrative, technical, and organizational measures designed to
-                protect personal information. Privacy notices should describe security safeguards at
-                a high level.
+                protect personal information.
               </p>
 
               <h2 id="childrens-privacy">Children&rsquo;s privacy</h2>
@@ -131,20 +124,12 @@ export default function PrivacyPage() {
                 <li>You can request that we delete information you submitted through the site.</li>
                 <li>You can opt out of non-essential emails by following unsubscribe instructions.</li>
               </ul>
-              <p>
-                Many privacy frameworks emphasize making user choices and contact paths clear in the
-                privacy policy.
-              </p>
 
               <h2 id="state-privacy-rights">State privacy rights</h2>
               <p>
                 Depending on where you live, you may have additional rights under applicable privacy
                 laws, including the right to request access to or deletion of your personal
                 information. We do not discriminate against individuals who exercise these rights.
-              </p>
-              <p>
-                We aim to provide a clear privacy notice and reasonable methods to contact us about
-                privacy requests, consistent with state guidance.
               </p>
 
               <h2 id="third-party-links">Third-party links</h2>

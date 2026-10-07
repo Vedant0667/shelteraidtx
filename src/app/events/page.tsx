@@ -34,7 +34,7 @@ export default function EventsPage() {
               Upcoming shoe&nbsp;drives <Em>and community events.</Em>
             </>
           }
-          lede="Shelter Aid TX hosts and supports shoe collection events across Dallas-Fort Worth. Events let us collect a lot of shoes quickly, and we deliver them to our shelter partners."
+          lede="Shelter Aid TX hosts and supports shoe collection events across Dallas-Fort Worth. Events let us collect a lot of shoes quickly, and we deliver them to the shelters that need them most."
           above={
             <Breadcrumbs
               items={[
