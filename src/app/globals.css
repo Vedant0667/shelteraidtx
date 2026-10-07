@@ -160,17 +160,19 @@
   .font-display {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   }
-  /* Soft second phrase of a display heading: same face and ink color, lighter
-     weight. Never italic (Vedant: "remove the curly italic font") and never
-     gray (Vedant: "I really hate the grey"; DESIGN.md: no new grays). */
+  /* Second phrase of a display heading: identical to the rest of the heading,
+     one face, one weight, one color. Never italic ("remove the curly italic
+     font"), never gray ("I really hate the grey"), never a thin/thick mix
+     ("I really hate how you use thick and thin fonts in headers"). */
   .display-em {
     font-style: normal;
-    font-weight: 400;
+    font-weight: inherit;
+    color: inherit;
   }
   .display-xl {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
     font-size: clamp(2.9rem, calc(1.1rem + 6.6vw), 6.1rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.045em;
     color: var(--ink);
