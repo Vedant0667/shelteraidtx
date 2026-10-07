@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     title: "Privacy Policy | Shelter Aid TX",
     description:
       "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",
-    url: "https://shelteraidtx.org/privacy",
+    url: "https://www.shelteraidtx.org/privacy",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shelter Aid TX Privacy Policy",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | Shelter Aid TX",
     description:
       "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }
 

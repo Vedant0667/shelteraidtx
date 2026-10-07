@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     type: "website",
     title: "Request Shoes for Your Shelter | Shelter Aid TX",
     description: "Tell us the sizes, quantities, and gender you need and we deliver directly to your shelter.",
-    url: "https://shelteraidtx.org/request-shoes",
+    url: "https://www.shelteraidtx.org/request-shoes",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Request Shoes for Your Shelter",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Request Shoes for Your Shelter | Shelter Aid TX",
     description: "Tell us the sizes, quantities, and gender you need and we deliver directly to your shelter.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }
 

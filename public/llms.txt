@@ -6,17 +6,17 @@ Founded in 2023 after calling 50 DFW shelters and hearing the same answer every 
 
 ## Pages
 
-- [Home](https://shelteraidtx.org/): What Shelter Aid TX does, impact to date, how the four-step collection process works, the two ways to donate (shoes or money), and answers to common donation questions.
-- [Who We Are](https://shelteraidtx.org/who-we-are): The student-led team, the 50 phone calls the organization started with, and milestones from 2023 to today.
-- [Get Involved](https://shelteraidtx.org/get-involved): The four ways to help, donate (shoes or money), host a drive, volunteer, or partner with us, each with its own contact form.
-- [Donate](https://shelteraidtx.org/donate): Two ways to give in Dallas-Fort Worth: send a shoe donation request for drop-off or pickup, or give money online, once or monthly, with a PDF tax receipt by email.
-- [Request Shoes](https://shelteraidtx.org/request-shoes): For shelters: send the sizes, quantities, and gender you need and we deliver directly, with a reply within 2 business days.
-- [Our Partners](https://shelteraidtx.org/partners): The DFW shelters that receive the shoes and the schools, shops, and businesses that collect them.
-- [Events](https://shelteraidtx.org/events): Upcoming shoe drives and community collection events across Dallas-Fort Worth.
-- [Blog](https://shelteraidtx.org/blog): Notes from running a student-led nonprofit, what worked at a drive, what shelters actually needed.
-- [What is hard about starting a nonprofit in high school](https://shelteraidtx.org/blog/starting-a-nonprofit-in-high-school): Why the 501(c)(3) paperwork was the easy part and earning trust with shelter partners was not.
-- [Privacy Policy](https://shelteraidtx.org/privacy): What this website collects through its forms, why, and the choices visitors have.
-- [Terms of Service](https://shelteraidtx.org/terms): How this website may be used, how donations and partnerships work, and liability limits.
+- [Home](https://www.shelteraidtx.org/): What Shelter Aid TX does, impact to date, how the four-step collection process works, the two ways to donate (shoes or money), and answers to common donation questions.
+- [Who We Are](https://www.shelteraidtx.org/who-we-are): The student-led team, the 50 phone calls the organization started with, and milestones from 2023 to today.
+- [Get Involved](https://www.shelteraidtx.org/get-involved): The four ways to help, donate (shoes or money), host a drive, volunteer, or partner with us, each with its own contact form.
+- [Donate](https://www.shelteraidtx.org/donate): Two ways to give in Dallas-Fort Worth: send a shoe donation request for drop-off or pickup, or give money online, once or monthly, with a PDF tax receipt by email.
+- [Request Shoes](https://www.shelteraidtx.org/request-shoes): For shelters: send the sizes, quantities, and gender you need and we deliver directly, with a reply within 2 business days.
+- [Our Partners](https://www.shelteraidtx.org/partners): The DFW shelters that receive the shoes and the schools, shops, and businesses that collect them.
+- [Events](https://www.shelteraidtx.org/events): Upcoming shoe drives and community collection events across Dallas-Fort Worth.
+- [Blog](https://www.shelteraidtx.org/blog): Notes from running a student-led nonprofit, what worked at a drive, what shelters actually needed.
+- [What is hard about starting a nonprofit in high school](https://www.shelteraidtx.org/blog/starting-a-nonprofit-in-high-school): Why the 501(c)(3) paperwork was the easy part and earning trust with shelter partners was not.
+- [Privacy Policy](https://www.shelteraidtx.org/privacy): What this website collects through its forms, why, and the choices visitors have.
+- [Terms of Service](https://www.shelteraidtx.org/terms): How this website may be used, how donations and partnerships work, and liability limits.
 
 ## Contact
 

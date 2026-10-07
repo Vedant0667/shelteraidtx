@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     title: "Blog | Shelter Aid TX",
     description:
       "Notes from Shelter Aid TX, a student-led nonprofit in Dallas-Fort Worth, on starting a nonprofit in high school and working with local homeless shelters.",
-    url: "https://shelteraidtx.org/blog",
+    url: "https://www.shelteraidtx.org/blog",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shelter Aid TX Blog",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Blog | Shelter Aid TX",
     description:
       "Notes from Shelter Aid TX, a student-led nonprofit in Dallas-Fort Worth, on starting a nonprofit in high school and working with local homeless shelters.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }
 

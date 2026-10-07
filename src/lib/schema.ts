@@ -1,4 +1,4 @@
-export const SITE_URL = "https://shelteraidtx.org"
+export const SITE_URL = "https://www.shelteraidtx.org"
 
 /**
  * One organization node, shared by / and /who-we-are so the two copies cannot

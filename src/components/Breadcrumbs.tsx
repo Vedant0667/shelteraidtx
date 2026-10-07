@@ -22,7 +22,7 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      item: `https://shelteraidtx.org${item.url}`,
+      item: `https://www.shelteraidtx.org${item.url}`,
     })),
   };
 

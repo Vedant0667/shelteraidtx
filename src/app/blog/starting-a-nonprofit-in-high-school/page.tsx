@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { ButtonLink, Em, LinkArrow, PageIntro, Prose, Section } from "@/components/site"
 
-const baseUrl = "https://shelteraidtx.org"
+const baseUrl = "https://www.shelteraidtx.org"
 
 const postSchema = {
   "@context": "https://schema.org",

@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     title: "Terms of Service | Shelter Aid TX",
     description:
       "Read the terms that govern use of the Shelter Aid TX website, including appropriate use, liability limits, and governing law.",
-    url: "https://shelteraidtx.org/terms",
+    url: "https://www.shelteraidtx.org/terms",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shelter Aid TX Terms of Service",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Terms of Service | Shelter Aid TX",
     description:
       "Read the terms that govern use of the Shelter Aid TX website, including appropriate use, liability limits, and governing law.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }
 

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     type: "website",
     title: "Get Involved | Shelter Aid TX",
     description: "Donate shoes or money, host a drive, volunteer, or partner with us to get shoes to DFW homeless shelters.",
-    url: "https://shelteraidtx.org/get-involved",
+    url: "https://www.shelteraidtx.org/get-involved",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Get Involved with Shelter Aid TX",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Get Involved | Shelter Aid TX",
     description: "Donate shoes or money, host a drive, volunteer, or partner with us to get shoes to DFW homeless shelters.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 };
 

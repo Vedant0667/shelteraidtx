@@ -4,15 +4,17 @@
 
 /* ============================================================
    Grotesk (2026-10, after stowr-landing): one sans family (Epilogue)
-   for headings and body, DM Mono for small labels, white and pale
-   blue-gray panels, hairlines, 8px buttons, 14px cards. Shelter
-   Aid's sky accent and navy ink. No serif, no italics, no pills.
+   for headings and body, DM Mono for small labels, hairlines, 8px
+   buttons, 14px cards. Shelter Aid's original colors: ivory page,
+   cream panels, sky accent, navy ink, warm shadows (Vedant: the
+   pre-redesign colors look better). No serif, no italics, no pills,
+   no new grays.
    ============================================================ */
 :root {
   /* surfaces */
-  --bg: #ffffff;        /* page */
+  --bg: #fbf8f2;        /* ivory page */
   --surface: #ffffff;   /* raised card */
-  --sunken: #f5f8fa;    /* panel: pale blue-gray, alternates with --bg */
+  --sunken: #f3ede2;    /* recessed wells (cream) */
   /* text */
   --ink: #0f172a;       /* navy ink */
   --muted: #5b6472;     /* muted body */
@@ -30,11 +32,8 @@
   /* soft tints of the accent for fills */
   --accent-wash: rgba(43, 159, 217, 0.08);
   --accent-wash-strong: rgba(43, 159, 217, 0.14);
-  /* shadow: navy-tinted, soft */
-  --shadow-color: 15 23 42;
-  /* faint ink for the soft second phrase of a heading: >= 3:1 (WCAG AA large
-     text) on white, the --sunken panel and navy alike */
-  --ink-3: #74808f;
+  /* shadow tuned warm + soft */
+  --shadow-color: 40 36 28;
   --font-display: var(--font-sans);
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -66,7 +65,7 @@
   --color-border: var(--hairline);
 
   /* shadcn variables (ui/button) */
-  --background: 0 0% 100%;
+  --background: 40 43% 96%;
   --foreground: 222 47% 11%;
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
@@ -161,11 +160,12 @@
   .font-display {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   }
-  /* Second line of a display heading: same face and weight, faint ink.
-     Upright, never italic (Vedant: "remove the curly italic font"). */
+  /* Soft second phrase of a display heading: same face and ink color, lighter
+     weight. Never italic (Vedant: "remove the curly italic font") and never
+     gray (Vedant: "I really hate the grey"; DESIGN.md: no new grays). */
   .display-em {
     font-style: normal;
-    color: var(--ink-3);
+    font-weight: 400;
   }
   .display-xl {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;

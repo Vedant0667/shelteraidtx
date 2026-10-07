@@ -23,7 +23,7 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shelteraidtx.org"),
+  metadataBase: new URL("https://www.shelteraidtx.org"),
   title: {
     default: "Shelter Aid TX: Shoe Donations for DFW Homeless Shelters",
     template: "%s | Shelter Aid TX",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://shelteraidtx.org",
+    url: "https://www.shelteraidtx.org",
     siteName: "Shelter Aid TX",
     title: "Shelter Aid TX: Shoe Donations for DFW Homeless Shelters",
     description:

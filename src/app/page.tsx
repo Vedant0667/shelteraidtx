@@ -208,7 +208,7 @@ const stats = [
    header sits on a clean field, lightest through the middle where the field of
    shoes reads, then settling back to the page ground at the section seam. */
 const HERO_WASH =
-  "linear-gradient(to bottom, rgb(255 255 255 / 0.94) 0%, rgb(255 255 255 / 0.8) 15%, rgb(255 255 255 / 0.62) 52%, rgb(255 255 255 / 0.9) 86%, var(--bg) 100%)"
+  "linear-gradient(to bottom, rgb(251 248 242 / 0.95) 0%, rgb(251 248 242 / 0.82) 15%, rgb(251 248 242 / 0.62) 52%, rgb(251 248 242 / 0.88) 86%, var(--bg) 100%)"
 
 /* ------------------------------------------------------------------ */
 /* Page                                                                */

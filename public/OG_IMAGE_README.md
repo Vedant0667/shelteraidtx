@@ -34,7 +34,7 @@ convert og-image.svg -resize 1200x630 -quality 85 og-image.jpg
 After creating og-image.jpg:
 1. Check file exists: `ls -lh public/og-image.jpg`
 2. Verify size: Should be <100KB
-3. Test in https://www.opengraph.xyz/url/https://shelteraidtx.org
+3. Test in https://www.opengraph.xyz/url/https://www.shelteraidtx.org
 4. Delete this README once conversion is complete
 
 ## DO NOT DELETE og-image.svg

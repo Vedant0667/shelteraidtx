@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     type: "website",
     title: "Our Partners | Shelter Aid TX",
     description: "DFW homeless shelters and community partners working with Shelter Aid TX.",
-    url: "https://shelteraidtx.org/partners",
+    url: "https://www.shelteraidtx.org/partners",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Shelter Aid TX Partners",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Our Partners | Shelter Aid TX",
     description: "DFW homeless shelters and community partners working with Shelter Aid TX.",
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 };
 

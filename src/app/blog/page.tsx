@@ -27,7 +27,7 @@ const posts = [
   },
 ]
 
-const baseUrl = "https://shelteraidtx.org"
+const baseUrl = "https://www.shelteraidtx.org"
 
 /** The index's own Blog node, listing every post so crawlers see the archive. */
 const blogSchema = {

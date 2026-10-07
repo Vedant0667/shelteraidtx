@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     type: "website",
     title: "Donate Shoes or Money in DFW | Shelter Aid TX",
     description,
-    url: "https://shelteraidtx.org/donate",
+    url: "https://www.shelteraidtx.org/donate",
     images: [
       {
-        url: "https://shelteraidtx.org/og-image.jpg",
+        url: "https://www.shelteraidtx.org/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Donate shoes or money to Shelter Aid TX",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Donate Shoes or Money in DFW | Shelter Aid TX",
     description,
-    images: ["https://shelteraidtx.org/og-image.jpg"],
+    images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }
 
@@ -40,8 +40,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://shelteraidtx.org/" },
-    { "@type": "ListItem", position: 2, name: "Donate", item: "https://shelteraidtx.org/donate" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.shelteraidtx.org/" },
+    { "@type": "ListItem", position: 2, name: "Donate", item: "https://www.shelteraidtx.org/donate" },
   ],
 }
 

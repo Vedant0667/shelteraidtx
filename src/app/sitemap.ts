@@ -24,7 +24,7 @@ const routes: { path: string; lastModified: string }[] = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://shelteraidtx.org'
+  const baseUrl = 'https://www.shelteraidtx.org'
 
   return routes.map(({ path, lastModified }) => ({
     url: `${baseUrl}${path}`,
