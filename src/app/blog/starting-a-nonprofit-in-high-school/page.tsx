@@ -74,7 +74,7 @@ export default function BlogPostPage() {
             <figure className="photo shadow-editorial">
               <Image
                 src="/images/form-blog.jpg"
-                alt="A volunteer filling out a paper form on a clipboard outdoors"
+                alt="Hands filling out a paper form on a clipboard"
                 width={540}
                 height={360}
                 sizes="(min-width: 768px) 42rem, 100vw"
@@ -82,7 +82,6 @@ export default function BlogPostPage() {
                 priority
               />
             </figure>
-            <p className="meta mt-4">Filling out a collection form at a neighborhood drive</p>
           </div>
 
           <div className="wrap-prose mt-10 md:mt-14">

@@ -412,7 +412,7 @@ export default function HomePage() {
               <figure className="photo shadow-editorial relative aspect-[4/3] sm:aspect-[3/2] md:aspect-auto md:h-full">
                 <Image
                   src="/images/process-img.jpeg"
-                  alt="Bags of donated shoes collected at a neighborhood drive"
+                  alt="Blue bags of donated shoes next to sneakers on a hand-lettered sign"
                   fill
                   sizes="(min-width: 768px) 46vw, 100vw"
                   className="object-cover"

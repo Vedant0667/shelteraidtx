@@ -97,7 +97,7 @@ export default function BlogPage() {
               >
                 <Image
                   src={featuredPost.image}
-                  alt="A volunteer filling out a paper form on a clipboard outdoors"
+                  alt="Hands filling out a paper form on a clipboard"
                   fill
                   sizes="(min-width: 768px) 46vw, 100vw"
                   className="object-cover"
