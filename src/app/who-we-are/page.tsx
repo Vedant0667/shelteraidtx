@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Arjun Subramanian",
     title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
-    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX, so the focus stays on getting shoes to shelters.",
+    bio: "Arjun sets the long-term direction of Shelter Aid TX, so the focus stays on getting shoes to shelters.",
   },
   {
     name: "Vikram Sampath",
