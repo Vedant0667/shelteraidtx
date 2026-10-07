@@ -1,7 +1,10 @@
 "use client"
 
 import { useId, useState } from "react"
-import { loadStripe } from "@stripe/stripe-js"
+// "/pure": importing the default entry injects Stripe.js immediately as a side
+// effect. The pure entry waits until loadStripe() is called.
+import { loadStripe } from "@stripe/stripe-js/pure"
+import type { Stripe } from "@stripe/stripe-js"
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js"
 import {
   MAX_DONATION_CENTS,
@@ -14,7 +17,15 @@ import {
 // Publishable key only (pk_...). It is safe in the browser by design; the secret
 // key stays in src/lib/stripe.ts on the server.
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-const stripePromise = publishableKey ? loadStripe(publishableKey) : null
+// Stripe.js (and its fraud-detection cookie) loads on the first Donate click,
+// not with the page: keeps the homepage and /donate fast and cookie-free until
+// someone actually starts checkout.
+let stripePromise: Promise<Stripe | null> | null = null
+function getStripe(): Promise<Stripe | null> | null {
+  if (!publishableKey) return null
+  if (!stripePromise) stripePromise = loadStripe(publishableKey)
+  return stripePromise
+}
 
 const FREQUENCIES: { value: DonationFrequency; label: string }[] = [
   { value: "once", label: "One time" },
@@ -53,7 +64,7 @@ export default function DonateOnline() {
   const amountValid =
     amount !== null && amount >= MIN_DONATION_CENTS && amount <= MAX_DONATION_CENTS
 
-  if (!stripePromise) {
+  if (!publishableKey) {
     return (
       <p className="body">
         Online donations are unavailable right now. Email{" "}
@@ -70,6 +81,8 @@ export default function DonateOnline() {
     const request = { amount, frequency }
     setStatus("loading")
     setError(null)
+    // Start downloading Stripe.js now, in parallel with creating the session.
+    void getStripe()
     try {
       const res = await fetch("/api/donate/checkout", {
         method: "POST",
@@ -114,7 +127,7 @@ export default function DonateOnline() {
           </button>
         </div>
         {/* Card details are entered inside Stripe's iframe and never touch our server. */}
-        <EmbeddedCheckoutProvider key={clientSecret} stripe={stripePromise} options={{ clientSecret }}>
+        <EmbeddedCheckoutProvider key={clientSecret} stripe={getStripe()} options={{ clientSecret }}>
           <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
       </div>
