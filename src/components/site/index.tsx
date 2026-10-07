@@ -463,11 +463,13 @@ export function LogoWall({ items, columns = 6, showNames = true }: { items: Part
         <li key={p.name} className={`flex flex-col gap-2.5 ${p.span ? "col-span-2 sm:col-span-1" : ""}`}>
           <div className={`logo-tile ${p.bleed ? "overflow-hidden p-0" : ""}`}>
             {p.bleed ? (
-              <Image src={p.logo} alt={p.name} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-cover" />
+              <Image src={p.logo} alt={showNames ? "" : p.name} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-cover" />
             ) : (
               <Image
                 src={p.logo}
-                alt={p.name}
+                // When the name is printed under the logo, the logo is decorative;
+                // repeating it in alt makes screen readers announce it twice.
+                alt={showNames ? "" : p.name}
                 width={240}
                 height={120}
                 className={`w-auto max-w-full object-contain ${p.box ?? "max-h-12"}`}
