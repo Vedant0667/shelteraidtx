@@ -131,6 +131,10 @@ export default function PrivacyPage() {
                 laws, including the right to request access to or deletion of your personal
                 information. We do not discriminate against individuals who exercise these rights.
               </p>
+              <p>
+                We aim to provide a clear privacy notice and reasonable methods to contact us about
+                privacy requests, consistent with state guidance.
+              </p>
 
               <h2 id="third-party-links">Third-party links</h2>
               <p>
