@@ -1,14 +1,15 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { DM_Mono, Epilogue } from "next/font/google"
+import { DM_Mono, Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 // One sans family for everything (headings and body), plus a mono for small
 // labels: the stowr-landing system, in Shelter Aid's colors.
-const epilogue = Epilogue({
+// Plus Jakarta Sans: Vedant's pick from the six-font mockup set (2026-10-07).
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
   preload: true,
@@ -109,7 +110,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${epilogue.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${jakarta.variable} ${dmMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />
