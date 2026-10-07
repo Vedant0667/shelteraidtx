@@ -205,7 +205,8 @@ export function WaysToHelp() {
               onKeyDown={(event) => onKeyDown(event, index)}
               className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-[0.9rem] font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-1 sm:px-5 ${
                 selected
-                  ? "bg-[var(--accent)] text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.22),0_6px_16px_-8px_rgb(43_159_217/0.65)]"
+                  ? // Deeper brand blue so white text clears 4.5:1 (sky is 2.97:1).
+                    "bg-[var(--accent-ink)] text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.22),0_6px_16px_-8px_rgb(43_159_217/0.65)]"
                   : "text-[var(--ink-soft)] hover:bg-[var(--sunken)] hover:text-[var(--ink)]"
               }`}
             >
