@@ -14,14 +14,14 @@ export type { StepTab } from "./StepsTabs"
 type Tone = "bg" | "surface" | "sunken" | "ink"
 const TONE: Record<Tone, string> = { bg: "tone-bg", surface: "tone-surface", sunken: "tone-sunken", ink: "tone-ink" }
 
-/** Italic word inside a display heading. */
+/** Soft second phrase inside a display heading: same face, faint ink, inline. */
 export function Em({ children }: { children: ReactNode }) {
   return <span className="display-em">{children}</span>
 }
 
 /**
- * Editorial section: hairline top, kicker + big serif heading (last line
- * italic via `em`), lede beside/below, optional action on the right.
+ * Section: hairline top, ruled mono kicker + heavy sans heading (the `em`
+ * phrase inline in faint ink), lede beside/below, optional action on the right.
  */
 export function Section({
   id,
@@ -76,12 +76,11 @@ export function Section({
 }
 
 /**
- * Page masthead (portfolio hero anatomy): kicker, big serif title with an
- * italic line, lede, actions; optional photo card on the right with an
- * offset accent frame. Faint paper rules behind.
+ * Page masthead: mono kicker, heavy sans title with the `em` phrase inline in
+ * faint ink, lede, actions; optional photo card on the right.
  *
  * Every route uses this so the top of the site is identical everywhere:
- * same ivory ground, same paper rules, same `--header-h + 3.5/5.5rem` top
+ * same ground, same `--header-h + 3.5/5.5rem` top
  * padding. `width="prose"` is the document variant (blog post, legal): the
  * same anatomy at the 44rem measure and one heading step down, so the
  * masthead lines up with the body copy underneath it.
@@ -122,7 +121,7 @@ export function PageIntro({
                 {title}
                 {em && (
                   <>
-                    <br />
+                    {" "}
                     <Em>{em}</Em>
                   </>
                 )}
@@ -246,7 +245,7 @@ export function StatStrip({ items, columns }: { items: { label: string; value: R
 
 export type RowItem = { kicker?: string; title: ReactNode; detail?: ReactNode; link?: { href: string; label: string; external?: boolean } }
 
-/** Hairline-separated rows: kicker left, serif title + detail, arrow right. */
+/** Hairline-separated rows: kicker left, title + detail, arrow right. */
 export function RowList({ items, compact = false }: { items: RowItem[]; compact?: boolean }) {
   return (
     <ul className="rows">
@@ -305,7 +304,7 @@ export function Card({
   return <Tag className={`${flat ? "card-flat" : "card"} ${hover ? "card-hover" : ""} ${className}`}>{children}</Tag>
 }
 
-/** Supporting card: image on top, serif title with optional icon box, text, dot-separated meta. */
+/** Supporting card: image on top, title with optional icon box, text, dot-separated meta. */
 export function MediaCard({
   image,
   title,
@@ -370,7 +369,7 @@ export function MediaCard({
   return <article className="card overflow-hidden">{body}</article>
 }
 
-/** Flagship row: media card on one side, kicker + serif title + text + meta on the other. */
+/** Flagship row: media card on one side, kicker + title + text + meta on the other. */
 export function FeatureRow({
   kicker,
   title,
@@ -530,7 +529,7 @@ export function Prose({ children, className = "" }: { children: ReactNode; class
 /**
  * Vertical timeline: hairline spine, accent year markers, entries alternate
  * sides on desktop. Uses the same type roles as every other list on the site
- * (kicker year, serif `title`, muted `body`).
+ * (kicker year, `title`, muted `body`).
  */
 /** Vertical timeline: left hairline spine with accent year markers, entries left-aligned (contract §1). */
 export function Timeline({ items }: { items: { year: string; title: string; description: string }[] }) {
