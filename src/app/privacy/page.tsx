@@ -2,7 +2,7 @@ import Link from "next/link"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { ButtonLink, PageIntro, Prose, Section } from "@/components/site"
+import { ButtonLink, Em, PageIntro, Prose, Section } from "@/components/site"
 
 export default function PrivacyPage() {
   return (
@@ -11,10 +11,13 @@ export default function PrivacyPage() {
       <main>
         <PageIntro
           width="prose"
-          kicker="Privacy"
-          title="Your privacy, handled"
-          em="with care."
-          lede="What we collect through this website, why we collect it, how it is used, and the choices you have."
+          kicker="Privacy policy"
+          title={
+            <>
+              What we collect, <Em>and why.</Em>
+            </>
+          }
+          lede="The information you send us through this website, how we use it, who else receives it, and the choices you have."
           above={
             <Breadcrumbs
               items={[

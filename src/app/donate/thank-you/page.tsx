@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { headers } from "next/headers"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
-import { ButtonLink, PageIntro } from "@/components/site"
+import { ButtonLink, Em, PageIntro } from "@/components/site"
 import { formatUsd } from "@/lib/donations"
 import { rateLimit } from "@/lib/security"
 import { getStripe } from "@/lib/stripe"
@@ -91,8 +91,11 @@ export default async function ThankYouPage({
       <main>
         <PageIntro
           kicker="Donate"
-          title={copy.title}
-          em={copy.em}
+          title={
+            <>
+              {copy.title} <Em>{copy.em}</Em>
+            </>
+          }
           lede={copy.lede}
           actions={
             outcome.kind === "unpaid" ? (

@@ -3,12 +3,12 @@ import Link from "next/link"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
-import { ButtonLink, LinkArrow, MediaCard, PageIntro, Section } from "@/components/site"
+import { ButtonLink, Em, LinkArrow, MediaCard, PageIntro, Section } from "@/components/site"
 
 /**
- * `titleLines` is the display form of the title: a plain first line and an
- * italic last line ending in punctuation, the same anatomy as every other
- * display heading on the site (contract §13). `title` is the plain string used
+ * `titleLines` is the display form of the title: a plain first phrase and a
+ * faint second phrase on the same line, ending in punctuation, the same
+ * anatomy as every other display heading on the site. `title` is the plain string used
  * for card titles, aria labels, and metadata.
  */
 const posts = [
@@ -17,7 +17,7 @@ const posts = [
     title: "What is hard about starting a nonprofit in high school",
     titleLines: { first: "What is hard about starting", last: "a nonprofit in high school." },
     excerpt:
-      "Paperwork was the easy part. Getting people to take us seriously was the real challenge, and here is what actually worked.",
+      "Paperwork was the easy part. Getting people to take us seriously took longer. Here is what worked.",
     date: "October 26, 2025",
     /** Machine form of `date`, for the Blog JSON-LD below. */
     datePublished: "2025-10-26",
@@ -36,7 +36,7 @@ const blogSchema = {
   name: "Shelter Aid TX Blog",
   url: `${baseUrl}/blog`,
   description:
-    "Real notes on building a student-led nonprofit, partnering with shelters, and turning small actions into consistent impact.",
+    "What we have learned running a student-led nonprofit and working with homeless shelters across Dallas-Fort Worth.",
   publisher: { "@type": "Organization", name: "Shelter Aid TX", url: baseUrl },
   blogPost: posts.map((post) => ({
     "@type": "BlogPosting",
@@ -61,9 +61,12 @@ export default function BlogPage() {
       <main>
         <PageIntro
           kicker="Blog"
-          title="Notes from"
-          em="the work."
-          lede="Real notes on building a student-led nonprofit, partnering with shelters, and turning small actions into consistent impact."
+          title={
+            <>
+              Notes from <Em>the work.</Em>
+            </>
+          }
+          lede="What we have learned running a student-led nonprofit and working with homeless shelters across Dallas-Fort Worth."
           above={
             <Breadcrumbs
               items={[
@@ -107,9 +110,7 @@ export default function BlogPage() {
               </p>
               <h3 className="display-md">
                 <Link href={featuredPost.slug} className="transition-colors hover:text-[var(--accent-ink)]">
-                  {featuredPost.titleLines.first}
-                  <br />
-                  <span className="display-em">{featuredPost.titleLines.last}</span>
+                  {featuredPost.titleLines.first} <Em>{featuredPost.titleLines.last}</Em>
                 </Link>
               </h3>
               <p className="body-lg mt-4">{featuredPost.excerpt}</p>

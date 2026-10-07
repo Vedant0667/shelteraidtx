@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Shelter Aid TX",
   },
   description:
-    "Stories, lessons, and updates from Shelter Aid TX, a student-led nonprofit serving homeless shelters across Dallas-Fort Worth.",
+    "Notes from Shelter Aid TX, a student-led nonprofit in Dallas-Fort Worth, on starting a nonprofit in high school and working with local homeless shelters.",
   alternates: {
     canonical: "/blog",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Blog | Shelter Aid TX",
     description:
-      "Stories, lessons, and updates from Shelter Aid TX, a student-led nonprofit serving homeless shelters across Dallas-Fort Worth.",
+      "Notes from Shelter Aid TX, a student-led nonprofit in Dallas-Fort Worth, on starting a nonprofit in high school and working with local homeless shelters.",
     url: "https://shelteraidtx.org/blog",
     images: [
       {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog | Shelter Aid TX",
     description:
-      "Stories, lessons, and updates from Shelter Aid TX, a student-led nonprofit serving homeless shelters across Dallas-Fort Worth.",
+      "Notes from Shelter Aid TX, a student-led nonprofit in Dallas-Fort Worth, on starting a nonprofit in high school and working with local homeless shelters.",
     images: ["https://shelteraidtx.org/og-image.jpg"],
   },
 }

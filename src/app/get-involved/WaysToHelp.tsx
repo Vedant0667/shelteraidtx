@@ -7,7 +7,7 @@ import { Em, LinkArrow } from "@/components/site"
 
 /**
  * Every checklist on this page is the same row anatomy as every other list on
- * the site: a kicker, then a serif title (contract §13/§14). No ordinal rail,
+ * the site: a kicker, then a bold title (contract §13/§14). No ordinal rail,
  * no chips.
  */
 type CheckItem = { kicker: string; title: string }
@@ -41,13 +41,13 @@ const HOW_WE_WORK_TITLE = "What to expect"
 
 type Way = {
   id: string
-  /** Pill label. Sentence case, and the same words the whole site uses. */
+  /** Tab label. Sentence case, and the same words the whole site uses. */
   title: string
-  /** Panel kicker when it should read differently from the pill label. */
+  /** Panel kicker when it should read differently from the tab label. */
   kicker?: string
   description: string
   inquiryValue: string
-  /** Two-line display heading: plain first line, italic last line (§13). */
+  /** Display heading: plain phrase, then a faint-ink phrase on the same line. */
   heading: string
   headingEm: string
   body: string
@@ -64,11 +64,11 @@ const waysToHelp: Way[] = [
     id: "shoe-donation",
     title: "Donate shoes",
     description:
-      "Give new or gently used shoes to help those in need. We accept all sizes for men, women, and children.",
+      "Tell us what you have and where you are, and we'll set up a drop-off or pickup. We accept all sizes for men, women, and children.",
     inquiryValue: "shoe-donation",
-    heading: "Give shoes,",
-    headingEm: "change lives.",
-    body: "Your donation goes directly to shelters across Dallas-Fort Worth. We accept new and gently used shoes in all sizes.",
+    heading: "Donate new or",
+    headingEm: "gently used shoes.",
+    body: "Every pair goes directly to shelters across Dallas-Fort Worth. We take new and gently used shoes in all sizes.",
     subject: "Shoe Donation",
     placeholder:
       "Tell us about your donation, including types, sizes, quantities, and gender, plus your preferred drop-off or pickup location.",
@@ -79,11 +79,11 @@ const waysToHelp: Way[] = [
   {
     id: "host-drive",
     title: "Host a drive",
-    description: "Organize a collection event at your school, workplace, or community organization.",
+    description: "Run a collection at your school, workplace, or community group. Tell us when, and we'll send what you need.",
     inquiryValue: "host-drive",
-    heading: "Host a collection",
-    headingEm: "event.",
-    body: "We provide everything you need, including collection boxes, promotional materials, and pickup coordination. It works well for schools, workplaces, and community groups.",
+    heading: "Host a shoe drive.",
+    headingEm: "We bring the boxes.",
+    body: "We supply collection boxes and promotional materials, then coordinate the pickup. Schools, workplaces, and community groups run drives with us.",
     subject: "Shoe Drive Inquiry",
     placeholder:
       "Tell us about your organization and when you would like to host a drive. We will provide collection boxes and promotional materials.",
@@ -93,22 +93,22 @@ const waysToHelp: Way[] = [
   {
     id: "volunteer",
     title: "Volunteer",
-    description: "Help us sort donations, assist at events, or spread the word about our mission.",
+    description: "Sort donations, help at events, or spread the word about Shelter Aid TX.",
     inquiryValue: "volunteer",
-    heading: "Join the",
-    headingEm: "team.",
-    body: "Whether you have a few hours or want to be more involved, we would love your help sorting donations, assisting at events, or spreading the word.",
+    heading: "Sort shoes and",
+    headingEm: "staff events.",
+    body: "Volunteers sort donations, help at events, and spread the word. You can give a few hours or take on a bigger role.",
     subject: "Volunteer Interest",
     placeholder: "Tell us about yourself, your availability, and how you would like to help.",
   },
   {
     id: "partnership",
     title: "Partner with us",
-    description: "Businesses and organizations can make a lasting impact through corporate partnerships.",
+    description: "For businesses and organizations: employee drives, drop-off locations, and other corporate partnerships.",
     inquiryValue: "partnership",
-    heading: "Partner",
-    headingEm: "with us.",
-    body: "Corporate partners help us scale our impact. From employee drives to drop-off locations, there are many ways to get involved.",
+    heading: "Run an employee drive or",
+    headingEm: "host a drop-off.",
+    body: "Corporate partners run employee drives and host drop-off locations, which gives people more places to give shoes. Tell us what would work for your organization.",
     subject: "Partnership Inquiry",
     placeholder: "Tell us about your organization and how you would like to partner with Shelter Aid TX.",
   },
@@ -180,12 +180,12 @@ export function WaysToHelp() {
 
   return (
     <div>
-      {/* Two-up pills on a phone; a wrapping inline row from the small
-          breakpoint up. */}
+      {/* Segmented control: one hairline tray, 8px tabs inside it. Two-up on a
+          phone; a single inline row from the small breakpoint up. */}
       <div
         role="tablist"
         aria-label="Ways to help"
-        className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-2.5"
+        className="grid grid-cols-2 gap-1 rounded-xl border border-[var(--hairline)] bg-[var(--surface)] p-1 shadow-[0_1px_2px_rgb(var(--shadow-color)/0.05)] sm:inline-grid sm:grid-flow-col sm:auto-cols-fr sm:grid-cols-none"
       >
         {waysToHelp.map((way, index) => {
           const selected = way.id === active.id
@@ -203,7 +203,11 @@ export function WaysToHelp() {
               tabIndex={selected ? 0 : -1}
               onClick={() => setPicked(way.id)}
               onKeyDown={(event) => onKeyDown(event, index)}
-              className={`btn btn-sm ${selected ? "btn-primary" : "btn-secondary"}`}
+              className={`whitespace-nowrap rounded-lg px-4 py-2.5 text-[0.9rem] font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-1 sm:px-5 ${
+                selected
+                  ? "bg-[var(--accent)] text-white shadow-[inset_0_1px_0_rgb(255_255_255/0.22),0_6px_16px_-8px_rgb(43_159_217/0.65)]"
+                  : "text-[var(--ink-soft)] hover:bg-[var(--sunken)] hover:text-[var(--ink)]"
+              }`}
             >
               {way.title}
             </button>
@@ -235,11 +239,9 @@ export function WaysToHelp() {
               hidden={!selected}
             >
               <div className="max-w-3xl">
-                <p className="kicker mb-4">{way.kicker ?? way.title}</p>
+                <p className="kicker mb-5">{way.kicker ?? way.title}</p>
                 <h3 className="display-md">
-                  {way.heading}
-                  <br />
-                  <Em>{way.headingEm}</Em>
+                  {way.heading} <Em>{way.headingEm}</Em>
                 </h3>
                 <p className="lede mt-5">{way.body}</p>
                 {way.aside && (

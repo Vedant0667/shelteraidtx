@@ -63,9 +63,12 @@ export default function PartnersPage() {
       <main>
         <PageIntro
           kicker="Our partners"
-          title="The people who make it"
-          em="possible."
-          lede="From collection to delivery, our partners are the backbone of everything we do."
+          title={
+            <>
+              Our collection and <span className="display-em">shelter partners.</span>
+            </>
+          }
+          lede="Schools, shops, and neighborhoods collect the shoes. Shelters across Dallas-Fort Worth receive every pair."
           above={
             <Breadcrumbs
               items={[
@@ -83,19 +86,17 @@ export default function PartnersPage() {
         <Section tone="surface">
           <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-6">
-              <p className="kicker mb-5">Where the shoes come from</p>
+              <p className="kicker kicker-rule mb-6">Where the shoes come from</p>
               <h2 className="display-lg">
-                Drives and
-                <br />
-                <span className="display-em">drop-offs.</span>
+                Drives and <span className="display-em">drop-offs.</span>
               </h2>
               <p className="lede mt-6">
-                Buckner International is our lead collection partner, bringing in shoes for shelters
+                Buckner International is our lead collection partner. It brings in shoes for shelters
                 across Dallas-Fort Worth.
               </p>
               <p className="body mt-8">
-                Everything else arrives through drives: schools, shops, teams, and neighborhoods that
-                set out a bin and fill it for us.
+                The rest come from drives: schools, shops, teams, and neighborhoods that set out a bin
+                and fill it for us.
               </p>
             </div>
 
@@ -118,7 +119,7 @@ export default function PartnersPage() {
           kicker="Collection partners"
           title="Schools, shops, and"
           em="neighborhoods."
-          lede="Businesses, campuses, and community organizations that host drives and collection events with us."
+          lede="These businesses, schools, and community groups host drives and collection events with us."
         >
           <Reveal>
             <LogoWall items={collectionPartners} columns={5} />
@@ -130,7 +131,7 @@ export default function PartnersPage() {
           kicker="Where the shoes go"
           title="Shelters we"
           em="deliver to."
-          lede="Every pair we collect goes directly to these shelters serving people experiencing homelessness across DFW."
+          lede="Every pair we collect goes directly to these shelters, which serve people experiencing homelessness across DFW."
         >
           <Reveal>
             <LogoWall items={shelterPartners} columns={4} />
@@ -139,10 +140,10 @@ export default function PartnersPage() {
 
         <Section
           tone="surface"
-          kicker="Join us"
+          kicker="Partnerships"
           title="Want to become"
           em="a partner?"
-          lede="Whether you run a shelter that needs shoes or an organization that wants to host a drive, we would love to work with you."
+          lede="Shelters that need shoes can partner with us. Schools, businesses, and community groups can host a drive."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/get-involved?tab=partnership#contact">

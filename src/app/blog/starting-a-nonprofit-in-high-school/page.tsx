@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
-import { ButtonLink, LinkArrow, PageIntro, Prose, Section } from "@/components/site"
+import { ButtonLink, Em, LinkArrow, PageIntro, Prose, Section } from "@/components/site"
 
 const baseUrl = "https://shelteraidtx.org"
 
@@ -27,7 +27,7 @@ const postSchema = {
     },
   },
   datePublished: "2025-10-26",
-  dateModified: "2026-09-13",
+  dateModified: "2026-10-06",
   mainEntityOfPage: `${baseUrl}/blog/starting-a-nonprofit-in-high-school`,
 }
 
@@ -44,8 +44,11 @@ export default function BlogPostPage() {
         <PageIntro
           width="prose"
           kicker={<time dateTime="2025-10-26">October 26, 2025</time>}
-          title="What is hard about starting"
-          em="a nonprofit in high school."
+          title={
+            <>
+              What is hard about starting <Em>a nonprofit in high school.</Em>
+            </>
+          }
           lede="Starting a student nonprofit looks intimidating from the outside, mostly because of the legal and administrative steps. In practice, the slower work is earning trust, keeping momentum, and proving you can deliver consistently over time."
           above={
             <>
@@ -91,8 +94,8 @@ export default function BlogPostPage() {
                 plenty of free resources that walk through the process step by step.
               </p>
               <p>
-                The paperwork is important because it enables the work, but it is rarely the main
-                constraint on impact.
+                The paperwork is necessary, since nothing else can happen without it, but it is
+                rarely what limits how much you get done.
               </p>
 
               <h2>Being taken seriously is the hard part</h2>
@@ -119,8 +122,8 @@ export default function BlogPostPage() {
                   when it would be easier to let something slide.
                 </li>
                 <li>
-                  Let the work speak. Completed work communicates reliability more clearly than any
-                  single pitch.
+                  Let the work speak. Finished work shows you are reliable more clearly than any
+                  pitch.
                 </li>
               </ul>
             </Prose>
@@ -132,7 +135,7 @@ export default function BlogPostPage() {
           kicker="Take part"
           title="Want to help"
           em="get started?"
-          lede="Do not wait for perfect conditions. Start with what you have, keep the promises you make, and build a rhythm you can sustain. Over time, consistency does most of the heavy lifting."
+          lede="Do not wait for perfect conditions. Start with what you have, keep the promises you make, and build a rhythm you can sustain."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="/get-involved?tab=volunteer#contact" arrow>

@@ -46,7 +46,7 @@ const steps = [
   {
     kicker: "Step 3",
     title: "We deliver to your shelter",
-    detail: "Every pair goes directly to you, with no middle step.",
+    detail: "We bring every pair straight to you, with no middle step.",
   },
 ]
 
@@ -57,9 +57,12 @@ export default function RequestShoesPage() {
       <main>
         <PageIntro
           kicker="For shelters"
-          title="Need shoes for the"
-          em="people you serve?"
-          lede="Tell us the sizes, quantities, and gender you need and we deliver directly to your shelter. We reply within 2 business days."
+          title={
+            <>
+              Need shoes for the <span className="display-em">people you serve?</span>
+            </>
+          }
+          lede="Tell us the sizes, quantities, and gender you need, and we deliver them directly to your shelter. We reply within 2 business days."
           above={
             <Breadcrumbs
               items={[
@@ -79,7 +82,7 @@ export default function RequestShoesPage() {
           kicker="Request shoes"
           title="How do shelters"
           em="request shoes?"
-          lede="Shelters in Dallas-Fort Worth send Shelter Aid TX the sizes, quantities, and gender they need and we deliver directly, usually within days. One form, straight to the team that sorts, packs, and delivers."
+          lede="Shelters in Dallas-Fort Worth send Shelter Aid TX the sizes, quantities, and gender they need, and we deliver directly, usually within days. The form below goes to the team that sorts, packs, and delivers the shoes."
         >
           <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12" id="request">
             <div className="flex flex-col md:col-span-6">
@@ -124,7 +127,7 @@ export default function RequestShoesPage() {
           kicker="Other ways"
           title="Not a shelter, but want"
           em="to help?"
-          lede="Pairs reach us through drop-offs and drives, volunteers sort and deliver them, and money donations pay for storage and delivery. Any of these keeps shelters stocked."
+          lede="Shoes reach us through drop-offs and drives. Volunteers sort and deliver them, and money donations pay for storage and delivery."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/donate">

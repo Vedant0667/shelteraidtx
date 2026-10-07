@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Upcoming Shoe Drives and Events in DFW",
-  description: "Join Shelter Aid TX at upcoming shoe drives and community events across Dallas-Fort Worth. Help us collect shoes for local homeless shelters.",
+  description: "See upcoming Shelter Aid TX shoe drives and community events across Dallas-Fort Worth, or host your own drive to collect shoes for local homeless shelters.",
   alternates: {
     canonical: "/events",
   },

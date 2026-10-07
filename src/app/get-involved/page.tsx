@@ -27,11 +27,14 @@ export default function GetInvolvedPage() {
       <main>
         <PageIntro
           kicker="Get involved"
-          /* Non-breaking spaces keep the line from breaking after "Every" on a
-             phone; the words and their order are unchanged. */
-          title={<>Every&nbsp;shoe tells&nbsp;a</>}
-          em="story of hope."
-          lede="Join us in providing warmth and dignity to those experiencing homelessness in DFW. There are many ways to make a difference."
+          /* Faint phrase passed inside the title, not as `em`, so it stays on
+             the same line (PageIntro still breaks before `em`). */
+          title={
+            <>
+              Get shoes to <span className="display-em">DFW shelters.</span>
+            </>
+          }
+          lede="Donate shoes or money, host a drive, volunteer, or partner with us. The shoes go to shelters serving people experiencing homelessness in DFW."
           strip={<StatStrip items={ways} columns={4} />}
           above={
             <Breadcrumbs
@@ -50,7 +53,7 @@ export default function GetInvolvedPage() {
           kicker="Ways to help"
           title="Pick how you'd"
           em="like to help."
-          lede="Four ways in. Choose one and the form below sends straight to the team that handles it."
+          lede="Choose one of the four. The form under it goes straight to the team that handles it."
         >
           <Suspense fallback={null}>
             <WaysToHelp />
@@ -60,23 +63,23 @@ export default function GetInvolvedPage() {
         <Section
           tone="surface"
           kicker="Questions"
-          title="We are here"
-          em="to help."
-          lede="Reach out any time and we will get back to you within 2 business days."
+          title="Have a question?"
+          em="Email us."
+          lede="Write to shelteraidtx@gmail.com and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
                 Email us
               </ButtonLink>
               <ButtonLink href="https://instagram.com/shelteraidtx" external variant="secondary">
-                Follow us
+                Follow on Instagram
               </ButtonLink>
             </div>
           }
         >
           <p className="body">
-            Run a shelter? Requests have their own form, so you can send sizes, quantities, and gender
-            without picking a category.
+            Run a shelter? Shoe requests have their own form, where you send sizes, quantities, and
+            gender without picking a category.
           </p>
           <div className="mt-5">
             <LinkArrow href="/request-shoes">Request shoes for your shelter</LinkArrow>

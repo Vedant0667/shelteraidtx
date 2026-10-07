@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2025-10-26",
-    modifiedTime: "2026-09-13",
+    modifiedTime: "2026-10-06",
     title: "Starting a Nonprofit in High School | Shelter Aid TX",
     description:
       "What it actually takes to start a student nonprofit: building trust, staying consistent, and delivering real results for shelter partners.",

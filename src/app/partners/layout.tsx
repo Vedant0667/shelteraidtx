@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Our Partners: Shelters and Collection Partners in DFW",
-  description: "Meet the Dallas-Fort Worth homeless shelters and community organizations partnering with Shelter Aid TX to deliver shoes to those in need.",
+  description: "The Dallas-Fort Worth schools, shops, and community groups that collect shoes with Shelter Aid TX, and the homeless shelters that receive every pair.",
   alternates: {
     canonical: "/partners",
   },

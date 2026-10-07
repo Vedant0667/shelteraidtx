@@ -2,7 +2,7 @@ import Link from "next/link"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { ButtonLink, PageIntro, Prose, Section } from "@/components/site"
+import { ButtonLink, Em, PageIntro, Prose, Section } from "@/components/site"
 
 export default function TermsPage() {
   return (
@@ -11,9 +11,12 @@ export default function TermsPage() {
       <main>
         <PageIntro
           width="prose"
-          kicker="Terms"
-          title="Clear rules for"
-          em="a shared mission."
+          kicker="Terms of service"
+          title={
+            <>
+              The rules for <Em>using this site.</Em>
+            </>
+          }
           lede="How this website may be used, how donations and partnerships work, and what we are and are not responsible for."
           above={
             <Breadcrumbs

@@ -1,21 +1,21 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
-import { ButtonLink, PageIntro, RowList, Section } from "@/components/site"
+import { ButtonLink, Em, PageIntro, RowList, Section } from "@/components/site"
 
 const upcomingEvents = [
   {
     type: "Community",
     title: "Community Shoe Drive",
     summary:
-      "A local collection event focused on gathering new and gently used shoes for shelter partners.",
+      "A local event to collect new and gently used shoes for our shelter partners.",
     note: "Date and location will be announced soon",
   },
   {
     type: "Schools",
     title: "School Partner Drive",
     summary:
-      "Student-led collection drive coordinated with school partners across the Dallas-Fort Worth area.",
+      "A student-led drive run with our school partners across the Dallas-Fort Worth area.",
     note: "Date and location will be announced soon",
   },
 ]
@@ -28,11 +28,13 @@ export default function EventsPage() {
       <main>
         <PageIntro
           kicker="Events"
-          /* nbsp keeps "shoe drives" whole so the masthead rags
-             Upcoming / shoe drives instead of stranding "drives". */
-          title={<>Upcoming shoe&nbsp;drives</>}
-          em="and community events."
-          lede="Shelter Aid TX hosts and supports collection events across Dallas-Fort Worth. These events help us gather shoes quickly and deliver them where they are needed most."
+          /* nbsp keeps "shoe drives" whole so the line never strands "drives". */
+          title={
+            <>
+              Upcoming shoe&nbsp;drives <Em>and community events.</Em>
+            </>
+          }
+          lede="Shelter Aid TX hosts and supports shoe collection events across Dallas-Fort Worth. Events let us collect a lot of shoes quickly, and we deliver them to our shelter partners."
           above={
             <Breadcrumbs
               items={[
@@ -69,7 +71,7 @@ export default function EventsPage() {
           kicker="Host"
           title="Want to host"
           em="a drive?"
-          lede="Hosting a shoe drive is one of the fastest ways to help. We can provide guidance on promotion, collection setup, and pickup coordination."
+          lede="A shoe drive at your school, team, or workplace is one of the fastest ways to collect shoes. We help with promotion, collection setup, and pickup."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="/get-involved?tab=host-drive#contact" arrow>

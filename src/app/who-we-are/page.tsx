@@ -10,25 +10,25 @@ const teamMembers = [
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
     image: "/images/Vedant-headshot.jpg",
-    bio: "Vedant founded Shelter Aid TX after calling 50 shelters and discovering the urgent need for shoes.",
+    bio: "Vedant founded Shelter Aid TX after calling 50 shelters and hearing the same request again and again: shoes.",
   },
   {
     name: "Arjun Subramanian",
     title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
-    bio: "Arjun oversees the board and strategic direction of Shelter Aid TX, ensuring the organization stays true to its mission.",
+    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX.",
   },
   {
     name: "Vikram Sampath",
     title: "President",
     image: "/images/Vikram-headshot.jpg",
-    bio: "Vikram helps lead day-to-day operations and coordinates volunteer efforts across the DFW area.",
+    bio: "Vikram helps run day-to-day operations and coordinates volunteers across DFW.",
   },
   {
     name: "Aarav Nesargi",
     title: "VP & Secretary",
     image: "/images/aarav-nesargi-2026.jpeg",
-    bio: "Aarav leads partnerships with schools and community organizations, and keeps the team organized.",
+    bio: "Aarav leads partnerships with schools and community organizations and keeps the team organized.",
   },
 ]
 
@@ -36,18 +36,18 @@ const teamMembers = [
 const coreValues = [
   {
     kicker: "Impact",
-    title: "A tangible difference in DFW",
-    description: "Making real change in the lives of people experiencing homelessness across Dallas-Fort Worth.",
+    title: "Focused on DFW shelters",
+    description: "Our work is for people experiencing homelessness across Dallas-Fort Worth, through the shelters that serve them.",
   },
   {
     kicker: "Leadership",
     title: "Students leading the work",
-    description: "Empowering young people to lead meaningful change in their communities.",
+    description: "Students lead Shelter Aid TX and organize the work in their own schools and communities.",
   },
   {
     kicker: "Action",
     title: "Delivery over talk",
-    description: "We do not just talk about change, we deliver real shoes to real people who need them.",
+    description: "We deliver real shoes to real people who need them.",
   },
 ]
 
@@ -55,23 +55,23 @@ const timeline = [
   {
     year: "2023",
     title: "50 phone calls",
-    description: "Called 50 shelters across DFW to identify the greatest need. The answer: shoes.",
+    description: "We called 50 shelters across DFW and asked what they needed most. The answer was shoes.",
   },
   {
     year: "2023",
     title: "501(c)(3) founded",
-    description: "Officially incorporated as a nonprofit, making all donations tax-deductible.",
+    description: "Incorporated as a nonprofit. Donations are tax-deductible.",
   },
   {
     year: "2024",
     title: "$7,000 raised",
-    description: "Won funding at a VC pitch competition to scale our operations.",
+    description: "Won funding at a VC pitch competition to expand our operations.",
   },
   {
     year: "2026",
     title: "8,000+ pairs collected",
     description:
-      "More than 8,000 pairs collected, and every pair we collect goes directly to those in need through our shelter partners across Dallas-Fort Worth.",
+      "More than 8,000 pairs collected so far. Every one goes directly to our shelter partners across Dallas-Fort Worth.",
   },
 ]
 
@@ -86,9 +86,12 @@ export default function WhoWeArePage() {
       <main>
         <PageIntro
           kicker="Founded 2023"
-          title={<>Students making&nbsp;a</>}
-          em="real difference."
-          lede="Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth, providing warmth, dignity, and hope to those experiencing homelessness."
+          title={
+            <>
+              Students collecting shoes <Em>for shelters.</Em>
+            </>
+          }
+          lede="Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth. We collect shoes and deliver them to shelters serving people experiencing homelessness."
           above={
             <Breadcrumbs
               items={[
@@ -106,7 +109,7 @@ export default function WhoWeArePage() {
           kicker="Our team"
           title="Meet the people behind"
           em="Shelter Aid TX."
-          lede="A passionate group of students and mentors committed to making a difference."
+          lede="Students and mentors run Shelter Aid TX. The four below lead the board, operations, and partnerships."
         >
         {/* Left-aligned at the `.wrap` gutter (no `mx-auto`); the cards
             themselves are the originals, untouched. */}
@@ -114,7 +117,7 @@ export default function WhoWeArePage() {
           <div className="grid grid-cols-2 gap-3 md:gap-6">
             {teamMembers.map((member, i) => (
               <div key={i} className="group">
-                <div className="glass-card rounded-2xl md:rounded-3xl overflow-hidden hover-lift">
+                <div className="glass-card rounded-[14px] overflow-hidden hover-lift">
                   <div className="aspect-square md:aspect-[3/4] relative">
                     <Image
                       src={member.image}
@@ -137,7 +140,7 @@ export default function WhoWeArePage() {
             ))}
           </div>
           <p className="meta mt-6 md:mt-8">
-            The team on this page is just part of the story. There are 12+ other members behind the mission now.
+            Another 12+ members work alongside these four.
           </p>
         </div>
         </Section>
@@ -150,15 +153,13 @@ export default function WhoWeArePage() {
           <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
             {/* DOM order is the phone order: text first, then the photo. */}
             <div className="md:col-span-6">
-              <p className="kicker mb-5">How it started</p>
+              <p className="kicker kicker-rule mb-6">How it started</p>
               <h2 className="display-lg">
-                It started with
-                <br />
-                <Em>50 phone calls.</Em>
+                It started with <Em>50 phone calls.</Em>
               </h2>
               <p className="lede mt-6">
-                In the summer of 2023, we knew we wanted to help people experiencing homelessness in DFW, we just did
-                not know how. So we picked up the phone and started calling shelters.
+                In the summer of 2023 we wanted to help people experiencing homelessness in DFW, but we did not know
+                how. So we started calling shelters.
               </p>
             </div>
 
@@ -180,20 +181,17 @@ export default function WhoWeArePage() {
           </div>
 
           <div className="mt-12 md:mt-16 md:max-w-[44rem]">
-            <p className="kicker mb-4">Our story</p>
+            <p className="kicker kicker-rule mb-6">Our story</p>
             <h3 className="display-md">
-              Shelters kept saying the same thing.
-              <br />
-              <Em>Shoes.</Em>
+              Shelters kept saying the same thing: <Em>shoes.</Em>
             </h3>
             <p className="body-lg mt-4">
-              After 50 calls, a pattern emerged: shoes. Shelter after shelter told us the same thing, they needed
-              shoes more than almost anything else. That was our answer.
+              Shelter after shelter told us they needed shoes more than almost anything else. By the 50th call, we had
+              our answer.
             </p>
             <p className="body-lg mt-4">
-              We founded Shelter Aid TX as a 501(c)(3), and the rest is history. What started as a simple question has
-              grown into over 8,000 pairs collected, every one of them going directly to those in need through our
-              shelter partners across Dallas-Fort Worth.
+              We founded Shelter Aid TX as a 501(c)(3). Since then we have collected more than 8,000 pairs, and every
+              pair has gone directly to our shelter partners across Dallas-Fort Worth.
             </p>
           </div>
         </Section>
@@ -204,7 +202,7 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="Three years from a list of phone numbers to more than 8,000 pairs delivered through shelter partners."
+          lede="From 50 phone calls in 2023 to more than 8,000 pairs delivered through shelter partners in 2026."
         >
           <Timeline items={timeline} />
         </Section>
@@ -215,7 +213,6 @@ export default function WhoWeArePage() {
           kicker="Values"
           title="What we"
           em="stand for."
-          lede="Three commitments that decide what we take on and how we follow through."
         >
           <RowList
             items={coreValues.map((value) => ({
@@ -229,10 +226,10 @@ export default function WhoWeArePage() {
         {/* Closing */}
         <Section
           tone="ink"
-          kicker="Join us"
-          title="Ready to join"
-          em="us?"
-          lede="Whether you want to donate shoes or money, volunteer your time, or partner with us, we would love to have you on board."
+          kicker="Get involved"
+          title="Donate, volunteer,"
+          em="or partner with us."
+          lede="Give shoes or money, or give your time. Schools, shops, and teams can partner with us on a drive."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
               <ButtonLink arrow variant="on-dark" href="/get-involved">
