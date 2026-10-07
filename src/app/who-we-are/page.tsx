@@ -38,7 +38,7 @@ const coreValues = [
     kicker: "Impact",
     title: "Focused on DFW shelters",
     description:
-      "Our work is for people experiencing homelessness across Dallas-Fort Worth. We measure it in pairs delivered to the shelters that serve them.",
+      "Our work is for people experiencing homelessness across Dallas-Fort Worth. We measure it in pairs collected for the shelters that serve them.",
   },
   {
     kicker: "Leadership",
