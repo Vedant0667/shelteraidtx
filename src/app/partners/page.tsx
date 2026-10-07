@@ -73,7 +73,7 @@ export default function PartnersPage() {
             <Breadcrumbs
               items={[
                 { name: "Home", url: "/" },
-                { name: "Our Partners", url: "/partners" },
+                { name: "Partners", url: "/partners" },
               ]}
             />
           }

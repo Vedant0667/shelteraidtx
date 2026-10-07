@@ -2,18 +2,18 @@
 
 > Shelter Aid TX is a student-led 501(c)(3) nonprofit in Dallas-Fort Worth, Texas that collects new and gently used shoes for homeless shelters; every pair goes directly to shelter partners. More than 8,000 pairs collected so far.
 
-Founded in 2023 after calling 50 DFW shelters and hearing the same answer every time (shoes), Shelter Aid TX now works with 23 community partners. Shoes arrive through drop-offs at collection partners and through drives hosted by schools, shops, teams, and neighborhoods; volunteers sort them by size, type, and condition; and 100% of them go straight to shelter partners including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, Genesis Women's Shelter, and Family Place. Shelters request what they need through a dedicated form. Supporters can also donate money online, once or monthly; money pays for collecting, storing, and delivering the shoes. All donations are tax-deductible.
+Founded in 2023 after calling 50 DFW shelters and hearing the same request again and again: shoes, Shelter Aid TX now works with 23 community partners. Shoes arrive through drop-offs at collection partners and through drives hosted by schools, shops, teams, and neighborhoods; volunteers sort them by size, type, and condition; and 100% of them go straight to shelter partners including Family Gateway, Hope Restored Missions, AITF Services, Our Daily Bread, Journey to Dream, Genesis Women's Shelter, and Family Place. Shelters request what they need through a dedicated form. Supporters can also donate money online, once or monthly; money pays for collecting, storing, and delivering the shoes. Donations are tax-deductible to the extent allowed by law.
 
 ## Pages
 
 - [Home](https://www.shelteraidtx.org/): What Shelter Aid TX does, impact to date, how the four-step collection process works, the two ways to donate (shoes or money), and answers to common donation questions.
 - [Who We Are](https://www.shelteraidtx.org/who-we-are): The student-led team, the 50 phone calls the organization started with, and milestones from 2023 to today.
-- [Get Involved](https://www.shelteraidtx.org/get-involved): The four ways to help, donate (shoes or money), host a drive, volunteer, or partner with us, each with its own contact form.
+- [Get Involved](https://www.shelteraidtx.org/get-involved): The four ways to help, donate (shoes or money), host a drive, volunteer, or partner with us, through one contact form that switches with the choice.
 - [Donate](https://www.shelteraidtx.org/donate): Two ways to give in Dallas-Fort Worth: send a shoe donation request for drop-off or pickup, or give money online, once or monthly, with a PDF tax receipt by email.
 - [Request Shoes](https://www.shelteraidtx.org/request-shoes): For shelters: send the sizes, quantities, and gender you need and we deliver directly, with a reply within 2 business days.
-- [Our Partners](https://www.shelteraidtx.org/partners): The DFW shelters that receive the shoes and the schools, shops, and businesses that collect them.
+- [Partners](https://www.shelteraidtx.org/partners): The DFW shelters that receive the shoes and the schools, shops, and businesses that collect them.
 - [Events](https://www.shelteraidtx.org/events): Upcoming shoe drives and community collection events across Dallas-Fort Worth.
-- [Blog](https://www.shelteraidtx.org/blog): Notes from running a student-led nonprofit, what worked at a drive and what shelters needed.
+- [Blog](https://www.shelteraidtx.org/blog): Notes from running a student-led nonprofit; the first post is about starting a 501(c)(3) in high school.
 - [What is hard about starting a nonprofit in high school](https://www.shelteraidtx.org/blog/starting-a-nonprofit-in-high-school): Why the 501(c)(3) paperwork was the easy part and earning trust with shelter partners was not.
 - [Privacy Policy](https://www.shelteraidtx.org/privacy): What this website collects through its forms, why, and the choices visitors have.
 - [Terms of Service](https://www.shelteraidtx.org/terms): How this website may be used, how donations and partnerships work, and liability limits.
@@ -22,5 +22,5 @@ Founded in 2023 after calling 50 DFW shelters and hearing the same answer every 
 
 - Email: shelteraidtx@gmail.com
 - Service area: Dallas-Fort Worth, Texas
-- Mailing address: 5900 Balcones Dr Ste 100, Austin, TX 78731
-- EIN: 93-3584886 (501(c)(3), donations are tax-deductible)
+- Mailing address (not a drop-off location): 5900 Balcones Dr Ste 100, Austin, TX 78731
+- EIN: 93-3584886 (501(c)(3); donations are tax-deductible to the extent allowed by law)

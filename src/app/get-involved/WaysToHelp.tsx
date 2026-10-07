@@ -34,7 +34,7 @@ const driveSupport: CheckItem[] = [
 const howWeWork: CheckItem[] = [
   { kicker: "Reply time", title: "We reply within 2 business days" },
   { kicker: "Coverage", title: "Drop-offs and pickups across DFW" },
-  { kicker: "Taxes", title: "All donations are tax-deductible" },
+  { kicker: "Taxes", title: "Tax-deductible to the extent allowed by law" },
 ]
 
 const HOW_WE_WORK_TITLE = "What to expect"
@@ -143,12 +143,27 @@ function resolveTab(value?: string | null) {
   return waysToHelp.some((way) => way.id === id) ? id : DEFAULT_TAB
 }
 
+/**
+ * Reads `?tab=` and renders the view. Deep links such as
+ * /get-involved?tab=partnership#contact decide which panel opens. Reading the
+ * query on the client keeps the route static; `useSearchParams` re-reads it on
+ * every client navigation.
+ */
 export function WaysToHelp() {
-  // Deep links such as /get-involved?tab=partnership#contact decide which panel
-  // opens. Reading the query here (rather than on the server) keeps the route
-  // static; `useSearchParams` re-reads it on every client navigation.
   const searchParams = useSearchParams()
-  const tabParam = searchParams.get("tab")
+  return <WaysToHelpView tabParam={searchParams.get("tab")} />
+}
+
+/**
+ * The same view with the default tab, for the Suspense fallback. Reading search
+ * params suspends a static page during prerender; without this fallback the
+ * server HTML would contain no tabs, no panels and no #contact anchor at all.
+ */
+export function WaysToHelpStatic() {
+  return <WaysToHelpView tabParam={null} />
+}
+
+function WaysToHelpView({ tabParam }: { tabParam: string | null }) {
 
   // The query picks the panel; a click overrides it until the query changes
   // again. Adjusting during render (instead of an effect) means a footer link

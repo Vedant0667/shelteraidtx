@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     canonical: "/terms",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Terms of Service | Shelter Aid TX",
     description:

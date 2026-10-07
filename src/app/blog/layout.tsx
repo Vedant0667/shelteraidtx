@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   // A plain string here would null out the root layout's title template for
   // every post underneath, so the template is re-declared alongside the default.
   title: {
-    default: "Blog: Notes from a Student-Led DFW Nonprofit",
+    default: "Blog: Notes from a DFW Student Nonprofit",
     template: "%s | Shelter Aid TX",
   },
   description:
@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     canonical: "/blog",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Blog | Shelter Aid TX",
     description:

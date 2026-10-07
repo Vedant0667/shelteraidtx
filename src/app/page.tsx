@@ -16,7 +16,7 @@ import {
   Reveal,
   Section,
 } from "@/components/site"
-import { organizationSchema } from "@/lib/schema"
+import { organizationSchema, websiteSchema } from "@/lib/schema"
 
 // Eased count-up: slow start, fast middle, gentle settle (S-curve, ease-in-out quart).
 function easeInOutQuart(t: number) {
@@ -246,6 +246,7 @@ export default function HomePage() {
       {/* Plain <script>, not next/script: structured data has to be in the
           server-rendered HTML for crawlers that never execute JS. */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <SiteHeader />
@@ -282,7 +283,7 @@ export default function HomePage() {
             <h1 className="display-xl mx-auto max-w-4xl text-balance">
               <span className="rise-in block" style={{ animationDelay: "100ms" }}>
                 Give shoes.
-              </span>
+              </span>{" "}
               <span className="rise-in block" style={{ animationDelay: "220ms" }}>
                 Give{" "}
                 {/* Opacity only. The blur-rise belongs to `.word-in` inside

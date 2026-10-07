@@ -11,6 +11,8 @@ export const metadata: Metadata = {
     "Shelters in Dallas-Fort Worth can request shoes from Shelter Aid TX. Tell us the sizes, quantities, and gender you need and we deliver directly to you.",
   alternates: { canonical: "/request-shoes" },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Request Shoes for Your Shelter | Shelter Aid TX",
     description: "Tell us the sizes, quantities, and gender you need and we deliver directly to your shelter.",
@@ -127,7 +129,7 @@ export default function RequestShoesPage() {
           kicker="Other ways"
           title="Not a shelter, but want"
           em="to help?"
-          lede="Shoes reach us through drop-offs and drives. Volunteers sort and deliver them, and money donations pay for storage and delivery."
+          lede="Shoes reach us through drop-offs and drives. Volunteers sort and deliver them, and money donations pay for collection, storage, and delivery."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/donate">

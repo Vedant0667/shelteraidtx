@@ -10,6 +10,8 @@ import { getStripe } from "@/lib/stripe"
 export const metadata: Metadata = {
   title: "Thank You",
   robots: { index: false, follow: false },
+  // Not indexed, so it shouldn't inherit the root canonical (the homepage).
+  alternates: { canonical: null },
 }
 
 // Stripe Checkout Session IDs: anything else is rejected before calling Stripe.

@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     canonical: "/donate",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Donate Shoes or Money in DFW | Shelter Aid TX",
     description,
@@ -56,7 +58,7 @@ export default function DonatePage() {
         <section className="tone-sunken pb-20 pt-[calc(var(--header-h)+2.5rem)] md:pb-28 md:pt-[calc(var(--header-h)+4rem)]">
           <div id="give" className="wrap">
             <h1 className="display-lg">
-              Donate <Em>shoes or money.</Em>
+              Donate <Em>shoes or money in DFW.</Em>
             </h1>
             <div className="mt-10 md:mt-12">
               {/* h2 card titles: nothing sits between them and the page h1 here. */}

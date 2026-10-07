@@ -26,8 +26,8 @@ const postSchema = {
       url: `${baseUrl}/images/main-logo.png`,
     },
   },
-  datePublished: "2025-10-26",
-  dateModified: "2026-10-06",
+  datePublished: "2025-10-26T00:00:00-05:00",
+  dateModified: "2026-10-07T00:00:00-05:00",
   mainEntityOfPage: `${baseUrl}/blog/starting-a-nonprofit-in-high-school`,
 }
 

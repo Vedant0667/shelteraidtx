@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { ButtonLink, LinkArrow, PageIntro, Section, StatStrip } from "@/components/site"
-import { WaysToHelp } from "./WaysToHelp"
+import { WaysToHelp, WaysToHelpStatic } from "./WaysToHelp"
 
 /**
  * Masthead strip: the four ways to help, in the same order as the tabs below.
@@ -19,7 +19,8 @@ const ways = [
 
 // No server-side `searchParams` read: the route stays static and `WaysToHelp`
 // resolves `?tab=` itself through `useSearchParams` inside the Suspense
-// boundary below.
+// boundary below. The fallback renders the default tab, so every panel and the
+// #contact anchor are in the server HTML for crawlers and hard loads.
 export default function GetInvolvedPage() {
   return (
     <>
@@ -53,7 +54,7 @@ export default function GetInvolvedPage() {
           em="like to help."
           lede="Choose one of the four. The form under it goes straight to the team that handles it."
         >
-          <Suspense fallback={null}>
+          <Suspense fallback={<WaysToHelpStatic />}>
             <WaysToHelp />
           </Suspense>
         </Section>
@@ -69,7 +70,7 @@ export default function GetInvolvedPage() {
               <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
                 Email us
               </ButtonLink>
-              <ButtonLink href="https://instagram.com/shelteraidtx" external variant="secondary">
+              <ButtonLink href="https://www.instagram.com/shelteraidtx" external variant="secondary">
                 Follow on Instagram
               </ButtonLink>
             </div>

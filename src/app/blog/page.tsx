@@ -82,7 +82,7 @@ export default function BlogPage() {
           kicker="Latest"
           title="What we've"
           em="written."
-          lede="One post so far, written after a year of drives and deliveries. We add the next one when a drive or a shelter teaches us something new."
+          lede="One post so far, written from our own drives and deliveries. We add the next one when a drive or a shelter teaches us something new."
         >
           {/* The blog feature row is the one place the image comes first in the
               DOM (contract §5), so it opens the post on a phone. `items-stretch`

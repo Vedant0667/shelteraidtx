@@ -134,7 +134,7 @@ export default function TermsPage() {
               <p>Mailing address: 5900 Balcones Dr Ste 100, Austin, TX 78731.</p>
               <p>
                 You can also reach out via the{" "}
-                <Link href="/get-involved?tab=partnership#contact">
+                <Link href="/get-involved#contact">
                   contact form
                 </Link>
                 .
@@ -151,11 +151,12 @@ export default function TermsPage() {
           lede="Ask us anything about these terms, a donation, or a partnership, and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <ButtonLink arrow href="/get-involved?tab=partnership#contact">
-                Send a message
-              </ButtonLink>
-              <ButtonLink href="mailto:shelteraidtx@gmail.com" variant="secondary" external>
+              {/* Privacy and terms questions go to email, not the partnership form. */}
+              <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
                 Email us
+              </ButtonLink>
+              <ButtonLink href="/get-involved#contact" variant="secondary">
+                Contact form
               </ButtonLink>
             </div>
           }

@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     canonical: "/events",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Upcoming Events | Shelter Aid TX",
     description: "Community shoe drives and volunteer events supporting DFW homeless shelters.",

@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
         <section className="sect tone-surface">
           <div className="wrap-prose">
-            <p className="meta">Last updated October 6, 2026</p>
+            <p className="meta">Last updated October 7, 2026</p>
             <Prose className="mt-8 [&>*:first-child]:mt-0">
               <h2 id="overview">Overview</h2>
               <p>
@@ -178,11 +178,12 @@ export default function PrivacyPage() {
           lede="If anything here is unclear, or you want information you sent us updated or removed, tell us and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <ButtonLink arrow href="/get-involved?tab=partnership#contact">
-                Send a message
-              </ButtonLink>
-              <ButtonLink href="mailto:shelteraidtx@gmail.com" variant="secondary" external>
+              {/* Privacy and terms questions go to email, not the partnership form. */}
+              <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
                 Email us
+              </ButtonLink>
+              <ButtonLink href="/get-involved#contact" variant="secondary">
+                Contact form
               </ButtonLink>
             </div>
           }

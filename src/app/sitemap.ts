@@ -6,21 +6,22 @@ import { MetadataRoute } from 'next'
  * change, rather than `new Date()` — a sitemap that claims every page changed on
  * every crawl teaches crawlers to ignore the field.
  */
-// Every route's copy changed in the 2026-10-06 grotesk redesign.
-const UPDATED = '2026-10-06'
+// Last real content change per route (git log), not the build date.
+const OCT_6 = '2026-10-06'
+const OCT_7 = '2026-10-07'
 
 const routes: { path: string; lastModified: string }[] = [
-  { path: '', lastModified: UPDATED },
-  { path: '/who-we-are', lastModified: UPDATED },
-  { path: '/get-involved', lastModified: UPDATED },
-  { path: '/request-shoes', lastModified: UPDATED },
-  { path: '/donate', lastModified: UPDATED },
-  { path: '/partners', lastModified: UPDATED },
-  { path: '/events', lastModified: UPDATED },
-  { path: '/blog', lastModified: UPDATED },
-  { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: UPDATED },
-  { path: '/privacy', lastModified: UPDATED },
-  { path: '/terms', lastModified: UPDATED },
+  { path: '', lastModified: OCT_7 },
+  { path: '/who-we-are', lastModified: OCT_7 },
+  { path: '/get-involved', lastModified: OCT_7 },
+  { path: '/request-shoes', lastModified: OCT_7 },
+  { path: '/donate', lastModified: OCT_7 },
+  { path: '/partners', lastModified: OCT_7 },
+  { path: '/events', lastModified: OCT_6 },
+  { path: '/blog', lastModified: OCT_7 },
+  { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: OCT_7 },
+  { path: '/privacy', lastModified: OCT_7 },
+  { path: '/terms', lastModified: OCT_7 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

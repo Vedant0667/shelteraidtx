@@ -20,7 +20,7 @@ export default function DonateOptions({ titleAs: Title = "h3" }: { titleAs?: "h2
         <p className="kicker mb-5">Give shoes</p>
         <Card className="flex flex-1 flex-col p-7 md:p-9">
           <Title className="title">Donate shoes</Title>
-          <p className="body mt-2">Tell us what you have and we will set up a drop-off or pickup.</p>
+          <p className="body mt-2">Tell us what you have and we will set up a drop-off, or a pickup for 30 pairs or more.</p>
           <div className="rule mb-7 mt-6" />
           <div>
             <ContactForm

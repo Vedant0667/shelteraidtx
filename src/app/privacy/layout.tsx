@@ -3,15 +3,17 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",
+    "How Shelter Aid TX, a Dallas-Fort Worth nonprofit, collects, uses, and protects the information you send through this website, and the choices you have.",
   alternates: {
     canonical: "/privacy",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "website",
     title: "Privacy Policy | Shelter Aid TX",
     description:
-      "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",
+      "How Shelter Aid TX, a Dallas-Fort Worth nonprofit, collects, uses, and protects the information you send through this website, and the choices you have.",
     url: "https://www.shelteraidtx.org/privacy",
     images: [
       {
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Privacy Policy | Shelter Aid TX",
     description:
-      "Learn how Shelter Aid TX collects, uses, and protects information submitted through this website.",
+      "How Shelter Aid TX, a Dallas-Fort Worth nonprofit, collects, uses, and protects the information you send through this website, and the choices you have.",
     images: ["https://www.shelteraidtx.org/og-image.jpg"],
   },
 }

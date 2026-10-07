@@ -8,9 +8,11 @@ export const metadata: Metadata = {
     canonical: "/blog/starting-a-nonprofit-in-high-school",
   },
   openGraph: {
+    siteName: "Shelter Aid TX",
+    locale: "en_US",
     type: "article",
-    publishedTime: "2025-10-26",
-    modifiedTime: "2026-10-06",
+    publishedTime: "2025-10-26T00:00:00-05:00",
+    modifiedTime: "2026-10-07T00:00:00-05:00",
     title: "Starting a Nonprofit in High School | Shelter Aid TX",
     description:
       "Students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
@@ -18,8 +20,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://www.shelteraidtx.org/images/form-blog.jpg",
-        width: 1200,
-        height: 630,
+        width: 540,
+        height: 360,
         alt: "Starting a Nonprofit in High School",
       },
     ],

@@ -170,7 +170,7 @@ export default function WhoWeArePage() {
               <div className="photo shadow-editorial relative aspect-[2/1]">
                 <Image
                   src="/images/team-photo.jpeg"
-                  alt="Our founders: Vedant Subramanian (left), Harshdeep Bommareddy (center), and Arjun Subramanian (right)"
+                  alt="Founder Vedant Subramanian (left) with co-founders Harshdeep Bommareddy (center) and Arjun Subramanian (right)"
                   fill
                   sizes="(min-width: 768px) 46vw, 100vw"
                   className="object-cover object-center"
@@ -178,7 +178,7 @@ export default function WhoWeArePage() {
                 />
               </div>
               <figcaption className="meta mt-3">
-                Our founders: Vedant Subramanian, Harshdeep Bommareddy, and Arjun Subramanian
+                Founder Vedant Subramanian with co-founders Arjun Subramanian and Harshdeep Bommareddy
               </figcaption>
             </figure>
           </div>
