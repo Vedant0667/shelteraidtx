@@ -11,7 +11,7 @@ const postSchema = {
   "@type": "BlogPosting",
   headline: "What is hard about starting a nonprofit in high school",
   description:
-    "The students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
+    "Students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
   image: `${baseUrl}/images/form-blog.jpg`,
   author: {
     "@type": "Organization",

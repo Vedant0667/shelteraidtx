@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Starting a Nonprofit in High School",
   description:
-    "The students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
+    "Students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
   alternates: {
     canonical: "/blog/starting-a-nonprofit-in-high-school",
   },
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     modifiedTime: "2026-10-06",
     title: "Starting a Nonprofit in High School | Shelter Aid TX",
     description:
-      "The students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
+      "Students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
     url: "https://shelteraidtx.org/blog/starting-a-nonprofit-in-high-school",
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Starting a Nonprofit in High School | Shelter Aid TX",
     description:
-      "The students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
+      "Students behind Shelter Aid TX, a Dallas-Fort Worth nonprofit, on starting a 501(c)(3) in high school: the paperwork was easy, earning shelters' trust was not.",
     images: ["https://shelteraidtx.org/images/form-blog.jpg"],
   },
 }
