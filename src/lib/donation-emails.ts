@@ -23,9 +23,16 @@ function getResend(): Resend {
  */
 function safeName(name: string | null | undefined): string | null {
   if (!name) return null
-  const cleaned = name.replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g, " ").replace(/\s+/g, " ").trim()
-  // Anything a mail app could turn into a link: "@", tags, "://", "www.", or a bare domain like "claim-refund.co".
-  if (!cleaned || cleaned.length > 60 || /[@<>]|:\/\/|www\.|[a-z0-9-]\.[a-z]{2,}/i.test(cleaned)) return null
+  // NFKC first, so look-alikes (fullwidth "．", one-dot leader "․") become plain
+  // characters before the checks below, not after (the PDF normalizes too).
+  const cleaned = name
+    .normalize("NFKC")
+    .replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+  // Anything a mail app could turn into a link or a callback number: "@", tags,
+  // "://", "www.", a bare domain like "claim-refund.co", or a run of 3+ digits.
+  if (!cleaned || cleaned.length > 60 || /[@<>]|:\/\/|www\.|[a-z0-9-]\.[a-z]{2,}|\d{3,}/i.test(cleaned)) return null
   return cleaned
 }
 

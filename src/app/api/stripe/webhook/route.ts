@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
 
   // The signature covers the exact bytes Stripe sent, so read the raw body.
   const payload = await req.text()
-  if (payload.length > MAX_WEBHOOK_BYTES) {
+  if (Buffer.byteLength(payload) > MAX_WEBHOOK_BYTES) {
     return NextResponse.json({ error: "Payload too large." }, { status: 413 })
   }
 

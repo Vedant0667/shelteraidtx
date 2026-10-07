@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  // No "X-Powered-By: Next.js" header.
+  poweredByHeader: false,
   async redirects() {
     return [{ source: "/our-work", destination: "/", permanent: true }]
   },

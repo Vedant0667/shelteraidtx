@@ -68,6 +68,10 @@ export function rateLimit(
   { limit, windowMs }: RateLimitOptions
 ): RateLimitResult {
   const now = Date.now()
+  // Drop expired entries now and then so the map can't grow without bound.
+  if (rateLimitStore.size > 1000) {
+    for (const [k, v] of rateLimitStore) if (v.resetAt <= now) rateLimitStore.delete(k)
+  }
   const entry = rateLimitStore.get(key)
 
   if (!entry || entry.resetAt <= now) {
