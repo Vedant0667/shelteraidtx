@@ -14,14 +14,14 @@ export type { StepTab } from "./StepsTabs"
 type Tone = "bg" | "surface" | "sunken" | "ink"
 const TONE: Record<Tone, string> = { bg: "tone-bg", surface: "tone-surface", sunken: "tone-sunken", ink: "tone-ink" }
 
-/** Soft second phrase inside a display heading: same face, faint ink, inline. */
+/** Soft second phrase inside a display heading: same face and color, lighter weight, inline. */
 export function Em({ children }: { children: ReactNode }) {
   return <span className="display-em">{children}</span>
 }
 
 /**
  * Section: hairline top, ruled mono kicker + heavy sans heading (the `em`
- * phrase inline in faint ink), lede beside/below, optional action on the right.
+ * phrase inline at a lighter weight), lede beside/below, optional action on the right.
  */
 export function Section({
   id,
@@ -76,8 +76,8 @@ export function Section({
 }
 
 /**
- * Page masthead: mono kicker, heavy sans title with the `em` phrase inline in
- * faint ink, lede, actions; optional photo card on the right.
+ * Page masthead: mono kicker, heavy sans title with the `em` phrase inline at a
+ * lighter weight, lede, actions; optional photo card on the right.
  *
  * Every route uses this so the top of the site is identical everywhere:
  * same ground, same `--header-h + 3.5/5.5rem` top

@@ -4,59 +4,48 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 # Search crawlers
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 # AI search and assistant crawlers (answer engines)
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: Claude-User
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 # AI training crawlers
 User-agent: GPTBot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /api/
-Disallow: /donate/thank-you
 
 Sitemap: https://www.shelteraidtx.org/sitemap.xml

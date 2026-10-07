@@ -23,7 +23,14 @@ const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 let stripePromise: Promise<Stripe | null> | null = null
 function getStripe(): Promise<Stripe | null> | null {
   if (!publishableKey) return null
-  if (!stripePromise) stripePromise = loadStripe(publishableKey)
+  if (!stripePromise) {
+    // If Stripe.js fails to load (ad blocker, flaky network), forget the failed
+    // attempt so the next Donate click retries instead of a blank checkout.
+    stripePromise = loadStripe(publishableKey).catch((err) => {
+      stripePromise = null
+      throw err
+    })
+  }
   return stripePromise
 }
 
@@ -82,7 +89,8 @@ export default function DonateOnline() {
     setStatus("loading")
     setError(null)
     // Start downloading Stripe.js now, in parallel with creating the session.
-    void getStripe()
+    // A load failure surfaces below when checkout mounts; don't leave it unhandled here.
+    getStripe()?.catch(() => {})
     try {
       const res = await fetch("/api/donate/checkout", {
         method: "POST",

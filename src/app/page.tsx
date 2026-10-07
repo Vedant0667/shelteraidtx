@@ -116,7 +116,7 @@ const steps = [
   {
     title: "Deliver to shelters",
     description:
-      "We take the shoes directly to our shelter partners across Dallas-Fort Worth, and they go to the people who need them most.",
+      "We take the shoes directly to our shelter partners across Dallas-Fort Worth, and the shelters hand them to the people staying there.",
   },
 ]
 
@@ -435,8 +435,8 @@ export default function HomePage() {
                 Shoes for neighbors across DFW <span className="display-em">since 2023.</span>
               </h2>
               <p className="lede mt-6">
-                Since 2023 we have delivered shoes and other essentials to people experiencing homelessness
-                across Dallas-Fort Worth. Everyone needs shoes. For someone staying at a shelter, a pair that
+                We have delivered shoes and other essentials to people experiencing homelessness across
+                Dallas-Fort Worth. Everyone needs shoes. For someone staying at a shelter, a pair that
                 fits makes it easier to get around, stay healthy, and keep their dignity.
               </p>
               <ul className="rows mt-8">

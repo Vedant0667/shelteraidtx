@@ -97,7 +97,7 @@ const waysToHelp: Way[] = [
     inquiryValue: "volunteer",
     heading: "Sort shoes and",
     headingEm: "help at events.",
-    body: "Volunteers sort donations, help at events, and spread the word. You can give a few hours or take on a bigger role, and we would love your help either way.",
+    body: "Volunteers sort donations, help at events, and spread the word. You can give a few hours or take on a bigger role.",
     subject: "Volunteer Interest",
     placeholder: "Tell us about yourself, your availability, and how you would like to help.",
   },

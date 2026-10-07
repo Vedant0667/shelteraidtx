@@ -62,7 +62,7 @@ export default function GetInvolvedPage() {
           tone="surface"
           kicker="Questions"
           title="Have a question?"
-          em="We're happy to help."
+          em="Ask us."
           lede="Write to shelteraidtx@gmail.com any time, and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

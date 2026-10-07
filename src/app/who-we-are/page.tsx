@@ -16,7 +16,7 @@ const teamMembers = [
     name: "Arjun Subramanian",
     title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
-    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX, keeping the focus on getting shoes to shelters.",
+    bio: "Arjun oversees the board and sets the long-term direction of Shelter Aid TX, so the focus stays on getting shoes to shelters.",
   },
   {
     name: "Vikram Sampath",
@@ -38,7 +38,7 @@ const coreValues = [
     kicker: "Impact",
     title: "Focused on DFW shelters",
     description:
-      "Our work is for people experiencing homelessness across Dallas-Fort Worth. We count it in pairs that reach them through the shelters that serve them.",
+      "Our work is for people experiencing homelessness across Dallas-Fort Worth. We measure it in pairs delivered to the shelters that serve them.",
   },
   {
     kicker: "Leadership",
@@ -67,7 +67,7 @@ const timeline = [
     year: "2024",
     title: "$7,000 award",
     description:
-      "At Greenhill School's What's NEXT Pitch Night, a Shark Tank-like event, we won mentorship and $7,000, the largest award of the night. The money went to storage.",
+      "At Greenhill School's What's NEXT Pitch Night, a Shark Tank-like event, we won mentorship and $7,000, the largest award of the night, for storage.",
   },
   {
     year: "2026",
@@ -188,12 +188,8 @@ export default function WhoWeArePage() {
               Shelters kept saying the same thing: <Em>shoes.</Em>
             </h3>
             <p className="body-lg mt-4">
-              After 50 calls, a pattern was clear. Three out of four shelters we called needed shoes, and shelter after
-              shelter told us they needed them more than almost anything else. That was our answer.
-            </p>
-            <p className="body-lg mt-4">
-              Everyone needs shoes. For someone staying at a shelter, a pair that fits makes it easier to get around,
-              stay healthy, and keep their dignity.
+              After 50 calls, a pattern was clear. Shelter after shelter told us they needed shoes more than almost
+              anything else. That was our answer.
             </p>
             <p className="body-lg mt-4">
               We founded Shelter Aid TX as a 501(c)(3). What started as a simple question to shelters has grown into
@@ -236,7 +232,7 @@ export default function WhoWeArePage() {
           tone="ink"
           kicker="Get involved"
           title="Want to help?"
-          em="We'd love to have you."
+          em="Here's how."
           lede="Donate shoes or money, volunteer your time, or partner with us on a drive with your school, shop, or team."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">

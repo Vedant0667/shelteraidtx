@@ -143,7 +143,7 @@ export default function PartnersPage() {
           kicker="Partnerships"
           title="Want to become"
           em="a partner?"
-          lede="If you run a shelter that needs shoes, or a school, business, or community group that wants to host a drive, we would love to work with you."
+          lede="Shelters that need shoes can partner with us, and so can schools, businesses, and community groups that want to host a drive. Send us a note and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink arrow href="/get-involved?tab=partnership#contact">
