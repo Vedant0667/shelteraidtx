@@ -21,7 +21,7 @@
   /* accent (sky) */
   --accent: #2b9fd9;         /* fills */
   --accent-deep: #1e87c4;    /* fills, hover */
-  --accent-ink: #1a7ab0;     /* accent for small text: passes contrast on ivory */
+  --accent-ink: #176fa1;     /* accent for small text: 4.7:1 on cream, 5.2:1 on ivory (WCAG AA) */
   --accent-contrast: #ffffff;
   /* warm secondary */
   --sand: #d4a574;
