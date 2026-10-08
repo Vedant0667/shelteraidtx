@@ -18,6 +18,7 @@ type RateLimitEntry = {
 
 // In-memory rate limit store. This is best-effort and resets on deploy/restart.
 const rateLimitStore = new Map<string, RateLimitEntry>()
+let lastPrune = 0
 
 export const MAX_JSON_BYTES = 10_000
 
@@ -68,8 +69,10 @@ export function rateLimit(
   { limit, windowMs }: RateLimitOptions
 ): RateLimitResult {
   const now = Date.now()
-  // Drop expired entries now and then so the map can't grow without bound.
-  if (rateLimitStore.size > 1000) {
+  // Drop expired entries at most once a minute so the map can't grow without
+  // bound, and a flood doesn't trigger a full scan on every request.
+  if (rateLimitStore.size > 1000 && now - lastPrune > 60_000) {
+    lastPrune = now
     for (const [k, v] of rateLimitStore) if (v.resetAt <= now) rateLimitStore.delete(k)
   }
   const entry = rateLimitStore.get(key)

@@ -21,7 +21,7 @@ export function Em({ children }: { children: ReactNode }) {
 
 /**
  * Section: hairline top, ruled mono kicker + heavy sans heading (the `em`
- * phrase inline, same weight), lede beside/below, optional action on the right.
+ * phrase inline, same weight), lede, then optional actions under the text.
  */
 export function Section({
   id,
@@ -77,8 +77,8 @@ export function Section({
 }
 
 /**
- * Page masthead: mono kicker, heavy sans title with the `em` phrase inline at a
- * same weight, lede, actions; optional photo card on the right.
+ * Page masthead: mono kicker, heavy sans title with the `em` phrase inline,
+ * lede, actions; optional photo card on the right.
  *
  * Every route uses this so the top of the site is identical everywhere:
  * same ground, same `--header-h + 3.5/5.5rem` top

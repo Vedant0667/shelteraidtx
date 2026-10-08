@@ -30,9 +30,14 @@ function safeName(name: string | null | undefined): string | null {
     .replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-  // Anything a mail app could turn into a link or a callback number: "@", tags,
-  // "://", "www.", a bare domain like "claim-refund.co", or a run of 3+ digits.
-  if (!cleaned || cleaned.length > 60 || /[@<>]|:\/\/|www\.|[a-z0-9-]\.[a-z]{2,}|\d{3,}/i.test(cleaned)) return null
+  // Check the name as typed and with accent marks stripped: the PDF strips marks
+  // when drawing, so "refund.c\u0301om" would otherwise pass here and print
+  // "refund.com" there. Blocks anything a mail app could turn into a link or a
+  // callback number: "@", tags, "://", "www.", a bare domain, 3+ digits in a row
+  // (any script), or a phone-shaped run of digits split by spaces, dots or dashes.
+  const stripped = cleaned.normalize("NFKD").replace(/\p{M}/gu, "")
+  const unsafe = /[@<>]|:\/\/|www\.|[\p{L}\p{Nd}-]\.\p{L}{2,}|\p{Nd}{3,}|\p{Nd}(?:[\s.\-]?\p{Nd}){6,}/iu
+  if (!cleaned || cleaned.length > 60 || unsafe.test(cleaned) || unsafe.test(stripped)) return null
   return cleaned
 }
 

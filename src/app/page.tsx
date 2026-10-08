@@ -618,9 +618,8 @@ export default function HomePage() {
           em="or need shoes?"
           lede="Donate shoes or money, host a drive, or, if you run a shelter, tell us the sizes, quantities, and gender you need."
           action={
-            /* Contract §9: the closing pills are the section `action`, so they
-               sit right of the header on desktop and stack full width below it
-               on mobile. */
+            /* The closing buttons are the section `action`: under the lede,
+               side by side from the small breakpoint, full width on mobile. */
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <ButtonLink href="#donate" arrow>
                 Donate

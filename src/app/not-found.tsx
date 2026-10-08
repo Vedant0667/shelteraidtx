@@ -3,10 +3,11 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { ButtonLink, PageIntro } from "@/components/site"
 
-// Next already marks 404s noindex; this only drops the inherited canonical
+// Override the root layout's "index, follow" and drop the inherited canonical
 // (which would point at the homepage).
 export const metadata: Metadata = {
   title: "Page Not Found",
+  robots: { index: false, follow: true },
   alternates: { canonical: null },
 }
 
