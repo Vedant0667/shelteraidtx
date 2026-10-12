@@ -110,7 +110,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${dmMono.variable}`}>
+    // data-scroll-behavior: lets Next turn off the CSS smooth scroll during page
+    // changes; without it a nav click from the top of a page lands at the bottom.
+    <html lang="en" className={`${jakarta.variable} ${dmMono.variable}`} data-scroll-behavior="smooth">
       <body className="font-sans antialiased">
         {children}
         <Analytics />
