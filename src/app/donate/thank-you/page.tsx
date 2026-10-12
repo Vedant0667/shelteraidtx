@@ -86,7 +86,7 @@ export default async function ThankYouPage({
           : {
               title: "We couldn't confirm",
               em: "your donation.",
-              lede: "Check your email for a receipt before trying again. If none arrives within an hour, email shelteraidtx@gmail.com and we will look it up.",
+              lede: "Check your email for a receipt before trying again. If none arrives within an hour, email contact@shelteraidtx.org and we will look it up.",
             }
 
   return (

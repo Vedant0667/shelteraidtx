@@ -6,7 +6,7 @@ import { longDate, money, renderReceipt } from "@/lib/receipt-email"
 import { renderReceiptPdf } from "@/lib/receipt-pdf"
 
 const FROM = "Shelter Aid TX <contact@shelteraidtx.org>"
-const REPLY_TO = "shelteraidtx@gmail.com"
+const REPLY_TO = "contact@shelteraidtx.org"
 
 export class EmailNotConfiguredError extends Error {}
 

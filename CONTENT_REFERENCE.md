@@ -11,7 +11,7 @@ This document contains all content extracted from the current website for redesi
 - **Tax ID (EIN):** 93-3584886
 - **Location:** Dallas-Fort Worth, TX
 - **Address (on file):** 5900 Balcones Dr Ste 100, Austin, TX 78731
-- **Email:** shelteraidtx@gmail.com
+- **Email:** contact@shelteraidtx.org
 - **Founded:** October 2023
 - **Service Area:** Dallas-Fort Worth Metroplex, Texas
 

@@ -162,8 +162,8 @@ export default function PrivacyPage() {
               <h2 id="contact-us">Contact us</h2>
               <p>
                 If you have questions about this policy or our privacy practices, contact us at{" "}
-                <a href="mailto:shelteraidtx@gmail.com">
-                  shelteraidtx@gmail.com
+                <a href="mailto:contact@shelteraidtx.org">
+                  contact@shelteraidtx.org
                 </a>
                 .
               </p>
@@ -190,7 +190,7 @@ export default function PrivacyPage() {
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               {/* Privacy and terms questions go to email, not the partnership form. */}
-              <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
+              <ButtonLink arrow href="mailto:contact@shelteraidtx.org" external>
                 Email us
               </ButtonLink>
               <ButtonLink href="/get-involved#contact" variant="secondary">

@@ -64,10 +64,10 @@ export default function GetInvolvedPage() {
           kicker="Questions"
           title="Have a question?"
           em="Ask us."
-          lede="Write to shelteraidtx@gmail.com any time, and we will reply within 2 business days."
+          lede="Write to contact@shelteraidtx.org any time, and we will reply within 2 business days."
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
+              <ButtonLink arrow href="mailto:contact@shelteraidtx.org" external>
                 Email us
               </ButtonLink>
               <ButtonLink href="https://www.instagram.com/shelteraidtx" external variant="secondary">

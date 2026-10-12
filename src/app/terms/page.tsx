@@ -126,8 +126,8 @@ export default function TermsPage() {
               <h2 id="contact">Contact</h2>
               <p>
                 Questions about these terms can be sent to{" "}
-                <a href="mailto:shelteraidtx@gmail.com">
-                  shelteraidtx@gmail.com
+                <a href="mailto:contact@shelteraidtx.org">
+                  contact@shelteraidtx.org
                 </a>
                 .
               </p>
@@ -152,7 +152,7 @@ export default function TermsPage() {
           action={
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               {/* Privacy and terms questions go to email, not the partnership form. */}
-              <ButtonLink arrow href="mailto:shelteraidtx@gmail.com" external>
+              <ButtonLink arrow href="mailto:contact@shelteraidtx.org" external>
                 Email us
               </ButtonLink>
               <ButtonLink href="/get-involved#contact" variant="secondary">

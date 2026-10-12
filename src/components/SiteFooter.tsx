@@ -84,8 +84,8 @@ export function SiteFooter() {
             <p className="kicker-muted">Contact</p>
             <ul className="mt-4 space-y-2.5 text-sm text-[var(--muted)]">
               <li>
-                <a href="mailto:shelteraidtx@gmail.com" className="transition-colors hover:text-[var(--ink)]">
-                  shelteraidtx@gmail.com
+                <a href="mailto:contact@shelteraidtx.org" className="transition-colors hover:text-[var(--ink)]">
+                  contact@shelteraidtx.org
                 </a>
               </li>
               <li>Dallas-Fort Worth, TX</li>

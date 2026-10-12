@@ -19,7 +19,7 @@ export const organizationSchema = {
   },
   description:
     "Student-led 501(c)(3) in Dallas-Fort Worth that collects new and gently used shoes and delivers them to homeless shelters across DFW. Supporters can also donate money online, once or monthly.",
-  email: "shelteraidtx@gmail.com",
+  email: "contact@shelteraidtx.org",
   address: {
     "@type": "PostalAddress",
     streetAddress: "5900 Balcones Dr Ste 100",
@@ -40,7 +40,7 @@ export const organizationSchema = {
   founder: { "@type": "Person", name: "Vedant Subramanian" },
   nonprofitStatus: "Nonprofit501c3",
   taxID: "93-3584886",
-  contactPoint: [{ "@type": "ContactPoint", contactType: "general", email: "shelteraidtx@gmail.com" }],
+  contactPoint: [{ "@type": "ContactPoint", contactType: "general", email: "contact@shelteraidtx.org" }],
   sameAs: [
     "https://www.instagram.com/shelteraidtx",
     "https://www.linkedin.com/company/shelter-aid-tx",

@@ -164,7 +164,7 @@ const faqs = [
   {
     question: "Can I cancel a monthly donation?",
     answer:
-      "Yes, any time. Every monthly receipt tells you how, or you can email shelteraidtx@gmail.com.",
+      "Yes, any time. Every monthly receipt tells you how, or you can email contact@shelteraidtx.org.",
   },
   {
     question: "How can I volunteer or partner with you?",

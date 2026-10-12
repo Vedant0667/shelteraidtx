@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
       const res = NextResponse.json(
         {
           error:
-            "Email service is temporarily unavailable. Please email shelteraidtx@gmail.com directly while we finish setup.",
+            "Email service is temporarily unavailable. Please email contact@shelteraidtx.org directly while we finish setup.",
         },
         { status: 503 }
       )
@@ -121,7 +121,7 @@ export async function POST(req: NextRequest) {
       .replace(/[-_]/g, " ")
       .replace(/\b\w/g, (char) => char.toUpperCase())
 
-    const to = process.env.CONTACT_RECIPIENT || "shelteraidtx@gmail.com"
+    const to = process.env.CONTACT_RECIPIENT || "contact@shelteraidtx.org"
 
     const formattedSubject = subject?.trim()
       ? `[Shelter Aid TX] ${subject.trim()}`

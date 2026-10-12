@@ -75,8 +75,8 @@ export default function DonateOnline() {
     return (
       <p className="body">
         Online donations are unavailable right now. Email{" "}
-        <a className="underline" href="mailto:shelteraidtx@gmail.com">
-          shelteraidtx@gmail.com
+        <a className="underline" href="mailto:contact@shelteraidtx.org">
+          contact@shelteraidtx.org
         </a>{" "}
         and we will help you give another way.
       </p>
@@ -102,7 +102,7 @@ export default function DonateOnline() {
         setError(
           res.status === 429
             ? "Too many attempts. Wait a few minutes and try again."
-            : "We couldn't start checkout. Try again, or email shelteraidtx@gmail.com."
+            : "We couldn't start checkout. Try again, or email contact@shelteraidtx.org."
         )
         return
       }
