@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/our-work", destination: "/", permanent: true },
       // The events page was removed; hosting a drive is where its visitors were headed.
-      { source: "/events", destination: "/get-involved?tab=host-drive", permanent: true },
+      { source: "/events", destination: "/get-involved?tab=host-drive#contact", permanent: true },
     ]
   },
   images: {

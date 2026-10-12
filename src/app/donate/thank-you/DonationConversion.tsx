@@ -6,7 +6,8 @@ import { track } from "@/lib/analytics"
 /**
  * Reports a paid donation to Google Analytics once, as the Ad Grants conversion.
  * `purchase` is GA4's event for a completed payment: it carries the value and
- * GA drops repeats with the same transaction_id (a reload of this page).
+ * GA drops repeats with the same transaction_id; sessionStorage also stops a
+ * reload from sending it again.
  * Sends the amount and Stripe's opaque session ID, never the donor's details.
  */
 export function DonationConversion({
@@ -19,6 +20,13 @@ export function DonationConversion({
   monthly: boolean
 }) {
   useEffect(() => {
+    // A reload of this page must not count the donation twice.
+    const sentKey = `ga-purchase:${sessionId}`
+    try {
+      if (sessionStorage.getItem(sentKey)) return
+    } catch {
+      // Storage blocked: GA still drops repeats with the same transaction_id.
+    }
     // The tag loads after hydration; give it a moment before giving up.
     let tries = 0
     const timer = setInterval(() => {
@@ -31,6 +39,11 @@ export function DonationConversion({
           value: amountCents != null ? amountCents / 100 : 0,
           donation_frequency: monthly ? "monthly" : "once",
         })
+        try {
+          sessionStorage.setItem(sentKey, "1")
+        } catch {
+          // See above.
+        }
       } else if (tries >= 20) {
         clearInterval(timer)
       }

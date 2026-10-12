@@ -86,8 +86,9 @@ export default function PrivacyPage() {
                 We use two analytics tools. Vercel Web Analytics counts page views and referral
                 sources without cookies. Google Analytics uses cookies to measure visits and to record
                 when someone completes a donation or sends a form, so we can see which outreach,
-                including Google Ads, brings people to the site. We send Google the form type or the
-                donation amount, never your name, email, message, or card details.
+                including Google Ads, brings people to the site. We send Google the form type, or the
+                donation amount and Stripe&rsquo;s reference number for it, never your name, email,
+                message, or card details.
               </p>
               <p>
                 Google Analytics does not load if your browser sends a Global Privacy Control signal.
