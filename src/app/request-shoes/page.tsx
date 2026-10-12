@@ -84,7 +84,7 @@ export default function RequestShoesPage() {
           kicker="Request shoes"
           title="How do shelters"
           em="request shoes?"
-          lede="Shelters in Dallas-Fort Worth send Shelter Aid TX the sizes, quantities, and gender they need, and we deliver directly, usually within days. The form below goes to the team that sorts, packs, and delivers the shoes."
+          lede="Shelters in Dallas-Fort Worth send Shelter Aid TX the sizes, quantities, and gender they need, and we deliver directly. The form below goes to the team that sorts, packs, and delivers the shoes."
         >
           <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12" id="request">
             <div className="flex flex-col md:col-span-6">

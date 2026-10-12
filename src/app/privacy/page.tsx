@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
         <section className="sect tone-surface">
           <div className="wrap-prose">
-            <p className="meta">Last updated October 7, 2026</p>
+            <p className="meta">Last updated October 12, 2026</p>
             <Prose className="mt-8 [&>*:first-child]:mt-0">
               <h2 id="overview">Overview</h2>
               <p>
@@ -83,9 +83,19 @@ export default function PrivacyPage() {
 
               <h2 id="cookies-and-analytics">Cookies and analytics</h2>
               <p>
-                We may use lightweight analytics and similar technologies to understand high-level
-                site usage. This may include aggregate page views, referral sources, and approximate
-                device or browser types. You can reduce tracking by adjusting your browser settings.
+                We use two analytics tools. Vercel Web Analytics counts page views and referral
+                sources without cookies. Google Analytics uses cookies to measure visits and to record
+                when someone completes a donation or sends a form, so we can see which outreach,
+                including Google Ads, brings people to the site. We send Google the form type or the
+                donation amount, never your name, email, message, or card details.
+              </p>
+              <p>
+                Google Analytics does not load if your browser sends a Global Privacy Control signal.
+                You can also block it with{" "}
+                <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+                  Google&rsquo;s opt-out add-on
+                </a>{" "}
+                or by blocking cookies in your browser.
               </p>
 
               <h2 id="data-retention">Data retention</h2>

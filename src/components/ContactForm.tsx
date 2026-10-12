@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 interface InquiryOption {
   value: string;
@@ -122,6 +123,8 @@ export default function ContactForm({
 
       resetForm();
       setStatus("success");
+      // Ad Grants conversion. Form type only, never what the visitor typed.
+      track("generate_lead", { form_type: inquiryType || uid });
     } catch (err: unknown) {
       const errorMessage =
         err instanceof Error ? err.message : "Unable to send message. Please try again later.";

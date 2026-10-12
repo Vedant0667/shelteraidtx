@@ -212,7 +212,6 @@ export default function WhoWeArePage() {
           kicker="Milestones"
           title="The story"
           em="so far."
-          lede="Three years from a list of phone numbers to more than 8,000 pairs collected for our shelter partners."
         >
           <Timeline items={timeline} />
         </Section>

@@ -6,7 +6,6 @@ const SITE_LINKS = [
   { label: "Who We Are", href: "/who-we-are" },
   { label: "Get Involved", href: "/get-involved" },
   { label: "Partners", href: "/partners" },
-  { label: "Events", href: "/events" },
   { label: "Blog", href: "/blog" },
 ]
 

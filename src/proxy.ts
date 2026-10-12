@@ -17,9 +17,11 @@ function buildCsp(isHttps: boolean) {
     "img-src 'self' data: https:",
     "font-src 'self' data: https://fonts.gstatic.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    // Google Analytics (googletagmanager.com, *.google-analytics.com) loads only
+    // once NEXT_PUBLIC_GA_MEASUREMENT_ID is set; see components/GoogleAnalytics.tsx.
     // React dev mode needs eval for its debugging features; never in production.
-    `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""}${VERCEL_LIVE} https://*.vercel-insights.com https://va.vercel-scripts.com https://js.stripe.com https://*.js.stripe.com`,
-    `connect-src 'self'${VERCEL_LIVE} https://*.vercel-insights.com https://va.vercel-scripts.com https://api.stripe.com https://checkout.stripe.com`,
+    `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""}${VERCEL_LIVE} https://*.vercel-insights.com https://va.vercel-scripts.com https://js.stripe.com https://*.js.stripe.com https://www.googletagmanager.com`,
+    `connect-src 'self'${VERCEL_LIVE} https://*.vercel-insights.com https://va.vercel-scripts.com https://api.stripe.com https://checkout.stripe.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com`,
   ]
   // Only on HTTPS. On plain http://localhost (next dev), Safari upgrades every
   // /_next/* subresource to https://localhost, which fails, so the page renders unstyled.

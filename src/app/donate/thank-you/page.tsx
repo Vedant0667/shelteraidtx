@@ -6,6 +6,7 @@ import { ButtonLink, Em, PageIntro } from "@/components/site"
 import { formatUsd } from "@/lib/donations"
 import { rateLimit } from "@/lib/security"
 import { getStripe } from "@/lib/stripe"
+import { DonationConversion } from "./DonationConversion"
 
 export const metadata: Metadata = {
   title: "Thank You",
@@ -56,7 +57,8 @@ export default async function ThankYouPage({
   searchParams: Promise<{ session_id?: string | string[] }>
 }) {
   const raw = (await searchParams).session_id
-  const outcome = await lookUp(typeof raw === "string" ? raw : undefined)
+  const sessionId = typeof raw === "string" ? raw : undefined
+  const outcome = await lookUp(sessionId)
 
   // Shows the amount only. The donor's email and name stay out of the page,
   // since this URL can end up in browser history or be shared.
@@ -91,6 +93,9 @@ export default async function ThankYouPage({
     <>
       <SiteHeader />
       <main>
+        {outcome.kind === "paid" && sessionId && (
+          <DonationConversion sessionId={sessionId} amountCents={outcome.amount} monthly={outcome.monthly} />
+        )}
         <PageIntro
           kicker="Donate"
           title={

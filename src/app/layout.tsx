@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { DM_Mono, Plus_Jakarta_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@/components/GoogleAnalytics"
 import "./globals.css"
 
 // One sans family for everything (headings and body), plus a mono for small
@@ -116,6 +117,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
         <Analytics />
+        <GoogleAnalytics />
       </body>
     </html>
   )
