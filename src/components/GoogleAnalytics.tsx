@@ -6,8 +6,9 @@ import { gaMeasurementId } from "@/lib/analytics"
  * Skipped entirely when the browser sends Global Privacy Control, as the
  * privacy policy promises. Page views on client-side navigation come from
  * GA4's enhanced measurement (browser history events), on by default.
- * page_location drops `session_id` (the Stripe Checkout ID on the donation
- * thank-you page), so Stripe identifiers stay out of page reports.
+ * Don't override page_location in config: it sticks to every later hit in the
+ * tab and misattributes pages after client-side navigation. The thank-you
+ * page's `session_id` is redacted in GA4 Admin (Data streams > Redact data).
  */
 export function GoogleAnalytics() {
   const id = gaMeasurementId()
@@ -23,9 +24,7 @@ export function GoogleAnalytics() {
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
   window.gtag("js", new Date());
-  var url = new URL(window.location.href);
-  url.searchParams.delete("session_id");
-  window.gtag("config", "${id}", { page_location: url.toString() });
+  window.gtag("config", "${id}");
 }`}
     </Script>
   )
