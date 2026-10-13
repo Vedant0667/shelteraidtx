@@ -154,6 +154,7 @@ export async function sendDonationAlert(key: string, subject: string, body: stri
     {
       from: ALERT_FROM,
       to: [to],
+      replyTo: REPLY_TO,
       subject: `[Shelter Aid TX] ${subject}`,
       text: body,
     },

@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader"
 import { SiteFooter } from "@/components/SiteFooter"
 import { ButtonLink, Em, PageIntro, RowList, Section, Timeline } from "@/components/site"
 import { organizationSchema } from "@/lib/schema"
+import { CopyEmail } from "@/components/CopyEmail"
 
 const teamMembers = [
   {
@@ -133,23 +134,22 @@ export default function WhoWeArePage() {
                       className={`object-cover object-top md:object-center ${i === 0 ? "scale-[1.5] translate-y-[10%] md:translate-y-0 md:scale-[1.8] md:origin-top" : ""} ${i === 2 ? "scale-125 -translate-y-[15%] md:translate-y-0 md:scale-[1.25] md:translate-y-[-10%]" : ""}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    {/* Below lg: a corner chip, so the name block stays clear of faces and the full address never truncates. */}
+                    <div className="absolute right-2 top-2 md:right-4 md:top-4 lg:hidden">
+                      <CopyEmail email={member.email} name={member.name} compact />
+                    </div>
                     <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
                       <p className="text-[#87CEEB] text-[0.7rem] leading-tight md:text-sm font-medium mb-1">{member.title}</p>
                       <h3 className="font-display text-[1.0625rem] leading-[1.15] md:text-2xl font-bold md:mb-3 text-white">
                         {member.name}
                       </h3>
                       <p className="text-white/80 text-sm leading-relaxed hidden md:block">{member.bio}</p>
+                      <div className="mt-4 hidden lg:block">
+                        <CopyEmail email={member.email} name={member.name} />
+                      </div>
                     </div>
                   </div>
                 </div>
-                {/* <wbr> lets the address break at the @ on a phone-width card. */}
-                <a
-                  href={`mailto:${member.email}`}
-                  className="meta mt-2 block break-words text-[0.75rem] transition-colors hover:text-[var(--ink)] md:mt-3 md:text-sm"
-                >
-                  {member.email.split("@")[0]}
-                  <wbr />@{member.email.split("@")[1]}
-                </a>
               </div>
             ))}
           </div>

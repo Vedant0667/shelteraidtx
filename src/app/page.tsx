@@ -120,23 +120,11 @@ const steps = [
   },
 ]
 
-/** Which steps (indexes into `steps`) each How-it-works photo sits beside. */
-const stepPhotos = [
-  {
-    steps: [0],
-    src: "/images/process-img.jpeg",
-    alt: "Bags of shoes collected at a shoe drive",
-  },
-  {
-    steps: [1],
-    src: "/images/sorting-shoes.jpg",
-    alt: "A volunteer sorts donated shoes into bins in our storage unit",
-  },
-  {
-    steps: [2, 3],
-    src: "/images/loading-car.jpg",
-    alt: "Volunteers load bags of shoes for delivery",
-  },
+/** How it works photos, in step order: collect, sort, load for delivery. */
+const processPhotos = [
+  { src: "/images/process-img.jpeg", alt: "Bags of shoes collected at a shoe drive" },
+  { src: "/images/sorting-shoes.jpg", alt: "A volunteer sorts donated shoes into bins in our storage unit" },
+  { src: "/images/loading-car.jpg", alt: "Volunteers load bags of shoes for delivery" },
 ]
 
 const testimonials = [
@@ -402,7 +390,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How it works — step rows and process photos in alternating pairs */}
+        {/* How it works — hairline step rows, then a row of three process photos */}
         <Section
           id="how-it-works"
           tone="bg"
@@ -411,33 +399,32 @@ export default function HomePage() {
           em="to a DFW shelter."
           lede="You give the shoes. We handle collection, sorting, and delivery, and shelters tell us what they need."
         >
-          {/* Zigzag: each photo sits beside the step it shows, sides alternating
-              from md up. On phones every pair stacks text first, then photo.
-              Photos keep their own 4:3 shape, so nobody is cropped. */}
-          <div className="flex flex-col gap-10 md:gap-16">
-            {stepPhotos.map((photo, i) => (
-              <div key={photo.src} className="grid grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-12">
-                <ol className={`rows md:col-span-6 ${i % 2 ? "md:order-2" : ""}`}>
-                  {photo.steps.map((n) => (
-                    <li key={steps[n].title} className="row">
-                      <p className="kicker">Step {n + 1}</p>
-                      <h3 className="title mt-4">{steps[n].title}</h3>
-                      <p className="body mt-2">{steps[n].description}</p>
-                    </li>
-                  ))}
-                </ol>
-                <Reveal className={`md:col-span-6 ${i % 2 ? "md:order-1" : ""}`}>
-                  <figure className="photo shadow-editorial relative aspect-[4/3]">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      fill
-                      sizes="(min-width: 768px) 46vw, 100vw"
-                      className="object-cover"
-                    />
-                  </figure>
-                </Reveal>
-              </div>
+          {/* Steps across the top (2x2 on tablets, one row from lg), then the
+              three process photos in one row of equal 4:3 frames, so every photo
+              shares the same edges and nobody is cropped. On phones: the steps,
+              then the photos, each full width. */}
+          <ol className="rows grid grid-cols-1 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4">
+            {steps.map((step, i) => (
+              <li key={step.title} className="row">
+                <p className="kicker">Step {i + 1}</p>
+                <h3 className="title mt-4">{step.title}</h3>
+                <p className="body mt-2">{step.description}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 md:mt-14 md:gap-8">
+            {processPhotos.map((photo, i) => (
+              <Reveal key={photo.src} delay={i * 80}>
+                <figure className="photo shadow-editorial relative aspect-[4/3]">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(min-width: 640px) 31vw, 100vw"
+                    className="object-cover"
+                  />
+                </figure>
+              </Reveal>
             ))}
           </div>
         </Section>
