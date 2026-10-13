@@ -403,9 +403,14 @@ export default function HomePage() {
               three process photos in one row of equal 4:3 frames, so every photo
               shares the same edges and nobody is cropped. On phones: the steps,
               then the photos, each full width. */}
-          <ol className="rows grid grid-cols-1 md:grid-cols-2 md:gap-x-12 lg:grid-cols-4">
+          {/* From md each first-row cell draws its own top hairline, so the top
+              line breaks at the column gaps exactly like the bottom one. */}
+          <ol className="rows grid grid-cols-1 md:grid-cols-2 md:gap-x-12 md:border-t-0 lg:grid-cols-4">
             {steps.map((step, i) => (
-              <li key={step.title} className="row">
+              <li
+                key={step.title}
+                className="row border-[var(--hairline)] md:[&:nth-child(-n+2)]:border-t lg:[&:nth-child(-n+4)]:border-t"
+              >
                 <p className="kicker">Step {i + 1}</p>
                 <h3 className="title mt-4">{step.title}</h3>
                 <p className="body mt-2">{step.description}</p>
@@ -420,7 +425,7 @@ export default function HomePage() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
-                    sizes="(min-width: 640px) 31vw, 100vw"
+                    sizes="(min-width: 1280px) 384px, (min-width: 640px) 31vw, 100vw"
                     className="object-cover"
                   />
                 </figure>
