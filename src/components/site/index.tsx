@@ -451,13 +451,44 @@ export type PartnerItem = {
   bleed?: boolean
 }
 
-export function LogoWall({ items, columns = 6, showNames = true }: { items: PartnerItem[]; columns?: 4 | 5 | 6; showNames?: boolean }) {
+// Literal class strings so Tailwind sees every span the "more" tile can take.
+const SPAN = {
+  base: ["", "col-span-1", "col-span-2"],
+  sm: ["", "sm:col-span-1", "sm:col-span-2", "sm:col-span-3"],
+  md: ["", "md:col-span-1", "md:col-span-2", "md:col-span-3", "md:col-span-4"],
+  lg: ["", "lg:col-span-1", "lg:col-span-2", "lg:col-span-3", "lg:col-span-4", "lg:col-span-5", "lg:col-span-6"],
+}
+
+/** Cells left in the last row; a full row when the logos end flush. */
+function rest(used: number, cols: number) {
+  return cols - (used % cols)
+}
+
+export function LogoWall({
+  items,
+  columns = 6,
+  showNames = true,
+  more,
+}: {
+  items: PartnerItem[]
+  columns?: 4 | 5 | 6
+  showNames?: boolean
+  /** Caption for a closing "And more" tile, which stretches to fill the last row at every breakpoint. */
+  more?: string
+}) {
   const cols =
     columns === 4
       ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
       : columns === 5
         ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
         : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+  const phoneUsed = items.reduce((n, p) => n + (p.span ? 2 : 1), 0)
+  const moreSpan = [
+    SPAN.base[rest(phoneUsed, 2)],
+    SPAN.sm[rest(items.length, 3)],
+    columns === 6 ? SPAN.md[rest(items.length, 4)] : "",
+    SPAN.lg[rest(items.length, columns)],
+  ].join(" ")
   return (
     <ul className={`grid gap-x-4 gap-y-6 ${cols}`}>
       {items.map((p) => (
@@ -481,6 +512,14 @@ export function LogoWall({ items, columns = 6, showNames = true }: { items: Part
           {showNames && <span className="meta">{p.name}</span>}
         </li>
       ))}
+      {more && (
+        <li className={`flex flex-col gap-2.5 ${moreSpan}`}>
+          <div className="logo-tile">
+            <span className="title-sm">And more</span>
+          </div>
+          <span className="meta">{more}</span>
+        </li>
+      )}
     </ul>
   )
 }

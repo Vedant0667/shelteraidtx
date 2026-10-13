@@ -15,7 +15,7 @@ import {
 /**
  * Collection partners. 15 entries: an even 5 x 3 on desktop, and the last cell
  * takes the full width of the 2-up phone grid so the wall never ends on an
- * orphan tile.
+ * orphan tile. The "And more" tile then closes the wall as a full-width row.
  *
  * `box` only ever takes two values (contract §8): `max-h-10` for wide
  * wordmarks, `max-h-14` for square marks, so the *ink* lands at one optical
@@ -44,7 +44,7 @@ const collectionPartners: PartnerItem[] = [
   },
 ]
 
-/** Shelter partners: 7 entries on the 4-up wall. */
+/** Shelter partners: 7 entries on the 4-up wall; the "And more" tile fills the 8th cell. */
 const shelterPartners: PartnerItem[] = [
   { name: "Family Gateway", logo: "/images/shelters/family-gateway.png", box: "max-h-10" },
   { name: "Hope Restored Missions", logo: "/images/shelters/hope-restored.png", box: "max-h-14" },
@@ -52,7 +52,7 @@ const shelterPartners: PartnerItem[] = [
   { name: "Our Daily Bread", logo: "/images/shelters/our-daily-bread.png", box: "max-h-10" },
   { name: "Journey to Dream", logo: "/images/shelters/journey-to-dream.png", box: "max-h-10" },
   { name: "Genesis Women's Shelter", logo: "/images/shelters/genesis.png", box: "max-h-14" },
-  { name: "Family Place", logo: "/images/shelters/family-place.png", box: "max-h-10", span: true },
+  { name: "Family Place", logo: "/images/shelters/family-place.png", box: "max-h-10" },
 ]
 
 export default function PartnersPage() {
@@ -122,7 +122,7 @@ export default function PartnersPage() {
           lede="These businesses, schools, and community groups host drives and collection events with us."
         >
           <Reveal>
-            <LogoWall items={collectionPartners} columns={5} />
+            <LogoWall items={collectionPartners} columns={5} more="Other schools, teams, and neighborhoods" />
           </Reveal>
         </Section>
 
@@ -134,7 +134,7 @@ export default function PartnersPage() {
           lede="Every pair we collect goes directly to these shelters, which serve people experiencing homelessness across DFW."
         >
           <Reveal>
-            <LogoWall items={shelterPartners} columns={4} />
+            <LogoWall items={shelterPartners} columns={4} more="Other shelters across DFW" />
           </Reveal>
         </Section>
 

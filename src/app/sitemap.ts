@@ -13,15 +13,15 @@ const OCT_13 = '2026-10-13'
 
 const routes: { path: string; lastModified: string }[] = [
   { path: '', lastModified: OCT_13 },
-  { path: '/who-we-are', lastModified: OCT_12 },
-  { path: '/get-involved', lastModified: OCT_7 },
+  { path: '/who-we-are', lastModified: OCT_13 },
+  { path: '/get-involved', lastModified: OCT_12 },
   { path: '/request-shoes', lastModified: OCT_12 },
-  { path: '/donate', lastModified: OCT_7 },
-  { path: '/partners', lastModified: OCT_7 },
+  { path: '/donate', lastModified: OCT_12 },
+  { path: '/partners', lastModified: OCT_13 },
   { path: '/blog', lastModified: OCT_7 },
   { path: '/blog/starting-a-nonprofit-in-high-school', lastModified: OCT_7 },
   { path: '/privacy', lastModified: OCT_12 },
-  { path: '/terms', lastModified: OCT_7 },
+  { path: '/terms', lastModified: OCT_12 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
