@@ -10,24 +10,28 @@ const teamMembers = [
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
     image: "/images/Vedant-headshot.jpg",
+    email: "vedant.subramanian@shelteraidtx.org",
     bio: "Vedant founded Shelter Aid TX after calling 50 shelters and hearing the same request again and again: shoes.",
   },
   {
     name: "Arjun Subramanian",
     title: "Co-Founder & Vice Chair",
     image: "/images/Arjun-headshot.JPG",
+    email: "arjun.subramanian@shelteraidtx.org",
     bio: "Arjun sets the long-term direction of Shelter Aid TX, so the focus stays on getting shoes to shelters.",
   },
   {
     name: "Vikram Sampath",
     title: "President",
     image: "/images/Vikram-headshot.jpg",
+    email: "vikram.sampath@shelteraidtx.org",
     bio: "Vikram helps run day-to-day operations and coordinates volunteers across DFW.",
   },
   {
     name: "Aarav Nesargi",
     title: "VP & Secretary",
     image: "/images/aarav-nesargi-2026.jpeg",
+    email: "aarav.nesargi@shelteraidtx.org",
     bio: "Aarav leads partnerships with schools and community organizations and keeps the team organized.",
   },
 ]
@@ -138,6 +142,14 @@ export default function WhoWeArePage() {
                     </div>
                   </div>
                 </div>
+                {/* <wbr> lets the address break at the @ on a phone-width card. */}
+                <a
+                  href={`mailto:${member.email}`}
+                  className="meta mt-2 block break-words text-[0.75rem] transition-colors hover:text-[var(--ink)] md:mt-3 md:text-sm"
+                >
+                  {member.email.split("@")[0]}
+                  <wbr />@{member.email.split("@")[1]}
+                </a>
               </div>
             ))}
           </div>
