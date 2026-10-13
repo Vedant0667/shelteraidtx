@@ -51,7 +51,7 @@ This document contains all content extracted from the current website for redesi
 ## IMPACT METRICS
 
 - **8k+** Pairs collected
-- **23** Community partners
+- **32** Community partners
 - **100%** Direct to shelters
 - **7** Shelter partners (listed on /partners; not a hero stat)
 - **Founded:** 2023

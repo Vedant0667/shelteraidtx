@@ -9,9 +9,10 @@ import { MetadataRoute } from 'next'
 // Last real content change per route (git log), not the build date.
 const OCT_7 = '2026-10-07'
 const OCT_12 = '2026-10-12'
+const OCT_13 = '2026-10-13'
 
 const routes: { path: string; lastModified: string }[] = [
-  { path: '', lastModified: OCT_7 },
+  { path: '', lastModified: OCT_13 },
   { path: '/who-we-are', lastModified: OCT_12 },
   { path: '/get-involved', lastModified: OCT_7 },
   { path: '/request-shoes', lastModified: OCT_12 },

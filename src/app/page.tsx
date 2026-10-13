@@ -30,7 +30,7 @@ function formatLike(display: string, n: number) {
 }
 
 function HeroCounter({ value, suffix, display }: { value: string; suffix: string; display: string }) {
-  // Seeded with the real number so the server-rendered HTML carries "8k"/"23"/
+  // Seeded with the real number so the server-rendered HTML carries "8k"/"32"/
   // "100" for crawlers and no-JS visitors. Only an in-view, motion-allowed visit
   // rewinds it to zero and counts back up.
   const [displayValue, setDisplayValue] = useState(display)
@@ -210,7 +210,7 @@ const collectionPartners = [
 
 const stats = [
   { value: "8000", suffix: "+", label: "Pairs collected", display: "8k" },
-  { value: "23", suffix: "", label: "Community partners", display: "23" },
+  { value: "32", suffix: "", label: "Community partners", display: "32" },
   { value: "100", suffix: "%", label: "Direct to shelters", display: "100" },
 ]
 
