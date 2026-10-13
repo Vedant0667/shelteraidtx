@@ -445,7 +445,7 @@ export type PartnerItem = {
   href?: string
   /** Tailwind height class for the mark so different logos land at one optical size, e.g. "h-10" for wide wordmarks, "h-14" for square marks. */
   box?: string
-  /** Span two columns on the 2-up phone grid so the last row closes flush. */
+  /** Span two columns on the 2-up phone grid so the last row closes flush. Last logo only: the "more" tile's span math assumes it. */
   span?: boolean
   /** Photo-style asset: bleed edge to edge instead of sitting as a mark. */
   bleed?: boolean
