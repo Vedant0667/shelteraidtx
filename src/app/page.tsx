@@ -120,6 +120,25 @@ const steps = [
   },
 ]
 
+/** Which steps (indexes into `steps`) each How-it-works photo sits beside. */
+const stepPhotos = [
+  {
+    steps: [0],
+    src: "/images/process-img.jpeg",
+    alt: "Bags of shoes collected at a shoe drive",
+  },
+  {
+    steps: [1],
+    src: "/images/sorting-shoes.jpg",
+    alt: "A volunteer sorts donated shoes into bins in our storage unit",
+  },
+  {
+    steps: [2, 3],
+    src: "/images/loading-car.jpg",
+    alt: "Volunteers load bags of shoes for delivery",
+  },
+]
+
 const testimonials = [
   {
     name: "Journey to Dream",
@@ -383,7 +402,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How it works — the one process photo beside hairline step rows */}
+        {/* How it works — step rows and process photos in alternating pairs */}
         <Section
           id="how-it-works"
           tone="bg"
@@ -392,34 +411,34 @@ export default function HomePage() {
           em="to a DFW shelter."
           lede="You give the shoes. We handle collection, sorting, and delivery, and shelters tell us what they need."
         >
-          {/* Two-column block, contract §5/§15: text first in the DOM, 6/6 split,
-              `items-stretch` so both columns share a top and a bottom edge. */}
-          <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-12 md:gap-12">
-            <div className="md:col-span-6">
-              <ol className="rows flex h-full flex-col">
-                {steps.map((step, i) => (
-                  <li key={step.title} className="row flex-1">
-                    <p className="kicker">Step {i + 1}</p>
-                    <h3 className="title mt-4">{step.title}</h3>
-                    <p className="body mt-2">{step.description}</p>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            {/* The photo fills the column, so its top and bottom land exactly on
-                the first and last hairline of the step rows beside it. */}
-            <Reveal className="md:col-span-6">
-              <figure className="photo shadow-editorial relative aspect-[4/3] sm:aspect-[3/2] md:aspect-auto md:h-full">
-                <Image
-                  src="/images/process-img.jpeg"
-                  alt="Blue bags of donated shoes next to sneakers on a hand-lettered sign"
-                  fill
-                  sizes="(min-width: 768px) 46vw, 100vw"
-                  className="object-cover"
-                />
-              </figure>
-            </Reveal>
+          {/* Zigzag: each photo sits beside the step it shows, sides alternating
+              from md up. On phones every pair stacks text first, then photo.
+              Photos keep their own 4:3 shape, so nobody is cropped. */}
+          <div className="flex flex-col gap-10 md:gap-16">
+            {stepPhotos.map((photo, i) => (
+              <div key={photo.src} className="grid grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-12">
+                <ol className={`rows md:col-span-6 ${i % 2 ? "md:order-2" : ""}`}>
+                  {photo.steps.map((n) => (
+                    <li key={steps[n].title} className="row">
+                      <p className="kicker">Step {n + 1}</p>
+                      <h3 className="title mt-4">{steps[n].title}</h3>
+                      <p className="body mt-2">{steps[n].description}</p>
+                    </li>
+                  ))}
+                </ol>
+                <Reveal className={`md:col-span-6 ${i % 2 ? "md:order-1" : ""}`}>
+                  <figure className="photo shadow-editorial relative aspect-[4/3]">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(min-width: 768px) 46vw, 100vw"
+                      className="object-cover"
+                    />
+                  </figure>
+                </Reveal>
+              </div>
+            ))}
           </div>
         </Section>
 
