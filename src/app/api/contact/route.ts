@@ -142,7 +142,9 @@ export async function POST(req: NextRequest) {
     ].join("\n")
 
     const { data, error } = await resend.emails.send({
-      from: "Shelter Aid TX <contact@shelteraidtx.org>",
+      // Not from contact@: mail "from" the inbox's own address makes Gmail send
+      // Reply back to that inbox instead of the visitor in Reply-To.
+      from: "Shelter Aid TX website <forms@shelteraidtx.org>",
       to: [to],
       replyTo: email,
       subject: subjectWithInquiry,

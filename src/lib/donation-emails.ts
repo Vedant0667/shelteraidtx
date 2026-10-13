@@ -7,6 +7,8 @@ import { renderReceiptPdf } from "@/lib/receipt-pdf"
 
 const FROM = "Shelter Aid TX <contact@shelteraidtx.org>"
 const REPLY_TO = "contact@shelteraidtx.org"
+// Internal alerts go to contact@, so they come from a different address (see api/contact).
+const ALERT_FROM = "Shelter Aid TX website <forms@shelteraidtx.org>"
 
 export class EmailNotConfiguredError extends Error {}
 
@@ -150,7 +152,7 @@ export async function sendDonationAlert(key: string, subject: string, body: stri
   const to = process.env.CONTACT_RECIPIENT || REPLY_TO
   const { error } = await resend.emails.send(
     {
-      from: FROM,
+      from: ALERT_FROM,
       to: [to],
       subject: `[Shelter Aid TX] ${subject}`,
       text: body,
