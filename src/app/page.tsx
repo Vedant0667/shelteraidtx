@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ChevronDown, Play } from "lucide-react"
@@ -32,10 +32,18 @@ function HeroStat({ suffix, display }: { suffix: string; display: string }) {
 /** Poster first; the Vimeo player (and its third-party cookies) loads only on play. */
 function TestimonialVideo({ src, poster, title }: { src: string; poster: string; title: string }) {
   const [playing, setPlaying] = useState(false)
+  const frame = useRef<HTMLIFrameElement>(null)
+  // The button unmounts on play, so hand keyboard focus to the player.
+  useEffect(() => {
+    if (playing) frame.current?.focus()
+  }, [playing])
   if (playing) {
+    const url = new URL(src)
+    url.searchParams.set("autoplay", "1")
     return (
       <iframe
-        src={`${src}&autoplay=1`}
+        ref={frame}
+        src={url.toString()}
         title={title}
         className="absolute inset-0 h-full w-full"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -44,10 +52,17 @@ function TestimonialVideo({ src, poster, title }: { src: string; poster: string;
     )
   }
   return (
-    <button type="button" onClick={() => setPlaying(true)} aria-label={`Play ${title}`} className="group absolute inset-0">
+    // Focus ring drawn on the overlay: `.photo` clips an outside outline, and the
+    // absolutely positioned poster paints over an inset one.
+    <button
+      type="button"
+      onClick={() => setPlaying(true)}
+      aria-label={`Play ${title}`}
+      className="group absolute inset-0 focus-visible:outline-none"
+    >
       <Image src={poster} alt="" fill sizes="(min-width: 640px) 416px, 100vw" className="object-cover" />
-      <span className="absolute inset-0 grid place-items-center bg-black/10 transition-colors group-hover:bg-black/20">
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-white/90 text-[var(--ink)] shadow-lg transition-transform group-hover:scale-105">
+      <span className="absolute inset-0 grid place-items-center bg-black/10 transition-colors group-hover:bg-black/20 group-focus-visible:bg-black/20 group-focus-visible:ring-[3px] group-focus-visible:ring-inset group-focus-visible:ring-[var(--accent)]">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-white/90 text-[var(--ink)] shadow-lg transition-transform group-hover:scale-105 group-focus-visible:scale-105">
           <Play className="ml-1 h-7 w-7 fill-current" aria-hidden="true" />
         </span>
       </span>

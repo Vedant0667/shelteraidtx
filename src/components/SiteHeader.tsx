@@ -36,8 +36,13 @@ export function SiteHeader() {
     if (!open) return
     const previous = document.body.style.overflow
     document.body.style.overflow = "hidden"
+    // The sheet is hidden from lg up (e.g. a tablet rotated to landscape); close it so the lock lifts.
+    const desktop = window.matchMedia("(min-width: 1024px)")
+    const onChange = () => desktop.matches && setOpen(false)
+    desktop.addEventListener("change", onChange)
     return () => {
       document.body.style.overflow = previous
+      desktop.removeEventListener("change", onChange)
     }
   }, [open])
 
