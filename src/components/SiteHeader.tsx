@@ -120,7 +120,7 @@ export function SiteHeader() {
           <Image src="/images/main-logo.png" alt="Shelter Aid TX" width={200} height={40} className="h-9 w-auto md:h-10" priority />
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -154,7 +154,7 @@ export function SiteHeader() {
         <button
           ref={toggleRef}
           type="button"
-          className="-mr-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-[var(--ink)] md:hidden"
+          className="-mr-2 grid h-11 w-11 shrink-0 place-items-center rounded-full text-[var(--ink)] lg:hidden"
           aria-expanded={open}
           aria-controls="site-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -170,7 +170,7 @@ export function SiteHeader() {
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
-        className={`fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 flex h-[calc(100dvh-var(--header-h))] flex-col bg-[var(--bg)] transition-opacity duration-200 md:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 flex h-[calc(100dvh-var(--header-h))] flex-col bg-[var(--bg)] transition-opacity duration-200 lg:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         aria-hidden={!open}

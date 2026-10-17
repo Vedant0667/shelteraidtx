@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, ChevronDown, Play } from "lucide-react"
 import { AnimatedText } from "@/components/animated-text"
 import DonateOptions from "@/components/DonateOptions"
 import { SiteHeader } from "@/components/SiteHeader"
@@ -18,76 +18,40 @@ import {
 } from "@/components/site"
 import { organizationSchema, websiteSchema } from "@/lib/schema"
 
-// Eased count-up: slow start, fast middle, gentle settle (S-curve, ease-in-out quart).
-function easeInOutQuart(t: number) {
-  return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2
-}
-
-// While counting, mirror the style of the final display: "8k" counts 0 -> 999 -> 1k -> 7.9k -> 8k.
-function formatLike(display: string, n: number) {
-  if (/k$/i.test(display) && n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`
-  return `${Math.round(n)}`
-}
-
-function HeroCounter({ value, suffix, display }: { value: string; suffix: string; display: string }) {
-  // Seeded with the real number so the server-rendered HTML carries "8k"/"32"/
-  // "100" for crawlers and no-JS visitors. Only an in-view, motion-allowed visit
-  // rewinds it to zero and counts back up.
-  const [displayValue, setDisplayValue] = useState(display)
-  const ref = useRef<HTMLDivElement>(null)
-  const hasAnimated = useRef(false)
-
-  useEffect(() => {
-    // The effect re-runs when the target changes, so the previous run's "already
-    // counted" latch must be cleared or the new value would never animate.
-    hasAnimated.current = false
-
-    const target = Number.parseFloat(value)
-    const duration = 2200
-    let frame = 0
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting || hasAnimated.current) return
-        hasAnimated.current = true
-        observer.disconnect()
-
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          setDisplayValue(display)
-          return
-        }
-
-        setDisplayValue("0")
-        const start = performance.now()
-        const tick = (now: number) => {
-          const t = Math.min((now - start) / duration, 1)
-          if (t < 1) {
-            setDisplayValue(formatLike(display, target * easeInOutQuart(t)))
-            frame = requestAnimationFrame(tick)
-          } else {
-            setDisplayValue(display)
-          }
-        }
-        frame = requestAnimationFrame(tick)
-      },
-      { threshold: 0.3 }
-    )
-
-    if (ref.current) observer.observe(ref.current)
-    return () => {
-      observer.disconnect()
-      cancelAnimationFrame(frame)
-    }
-  }, [value, display])
-
+// Static numerals. A count-up repaints the largest text on the first screen every
+// frame, which pushed mobile LCP to 8.7s (Lighthouse, 2026-10-17).
+function HeroStat({ suffix, display }: { suffix: string; display: string }) {
   return (
-    <div
-      ref={ref}
-      className="font-display text-[2.4rem] font-bold leading-none tracking-[-0.045em] text-[var(--ink)] sm:text-5xl md:text-6xl lg:text-7xl"
-    >
-      {displayValue}
+    <div className="font-display text-[2.4rem] font-bold leading-none tracking-[-0.045em] text-[var(--ink)] sm:text-5xl md:text-6xl lg:text-7xl">
+      {display}
       {suffix && <span>{suffix}</span>}
     </div>
+  )
+}
+
+/** Poster first; the Vimeo player (and its third-party cookies) loads only on play. */
+function TestimonialVideo({ src, poster, title }: { src: string; poster: string; title: string }) {
+  const [playing, setPlaying] = useState(false)
+  if (playing) {
+    return (
+      <iframe
+        src={`${src}&autoplay=1`}
+        title={title}
+        className="absolute inset-0 h-full w-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      />
+    )
+  }
+  return (
+    <button type="button" onClick={() => setPlaying(true)} aria-label={`Play ${title}`} className="group absolute inset-0">
+      <Image src={poster} alt="" fill sizes="(min-width: 640px) 416px, 100vw" className="object-cover" />
+      <span className="absolute inset-0 grid place-items-center bg-black/10 transition-colors group-hover:bg-black/20">
+        <span className="grid h-16 w-16 place-items-center rounded-full bg-white/90 text-[var(--ink)] shadow-lg transition-transform group-hover:scale-105">
+          <Play className="ml-1 h-7 w-7 fill-current" aria-hidden="true" />
+        </span>
+      </span>
+    </button>
   )
 }
 
@@ -133,12 +97,14 @@ const testimonials = [
     person: "Ravain Owens, Director",
     quote: "Thank you Shelter Aid TX. We appreciate your kindness.",
     video: "https://player.vimeo.com/video/961584844?h=1bc1d3e8dd&title=0&byline=0&portrait=0",
+    poster: "/images/testimonials/journey-to-dream.jpg",
   },
   {
     name: "Our Daily Bread",
     person: "Our Daily Bread Team",
     quote: "We are thankful for the donation and for all of your help.",
     video: "https://player.vimeo.com/video/1030946527?h=7062cd25fc&title=0&byline=0&portrait=0",
+    poster: "/images/testimonials/our-daily-bread.jpg",
   },
 ]
 
@@ -209,9 +175,9 @@ const collectionPartners = [
 ]
 
 const stats = [
-  { value: "8000", suffix: "+", label: "Pairs collected", display: "8k" },
-  { value: "32", suffix: "", label: "Community partners", display: "32" },
-  { value: "100", suffix: "%", label: "Direct to shelters", display: "100" },
+  { suffix: "+", label: "Pairs collected", display: "8k" },
+  { suffix: "", label: "Community partners", display: "32" },
+  { suffix: "%", label: "Direct to shelters", display: "100" },
 ]
 
 /* The hero photo is a wash, not a picture: heaviest at the very top so the
@@ -337,7 +303,7 @@ export default function HomePage() {
             >
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <HeroCounter value={stat.value} suffix={stat.suffix} display={stat.display} />
+                  <HeroStat suffix={stat.suffix} display={stat.display} />
                   <div className="kicker mt-2.5 text-[0.56rem] leading-[1.6] tracking-[0.1em] sm:mt-3.5 sm:text-[0.68rem] sm:tracking-[0.2em]">
                     {stat.label}
                   </div>
@@ -495,14 +461,7 @@ export default function HomePage() {
                 <Reveal as="li" key={t.name} delay={i * 80}>
                   <figure>
                     <div className="photo shadow-editorial relative aspect-[9/16] w-full sm:max-w-[26rem]">
-                      <iframe
-                        src={t.video}
-                        title={`${t.name} testimonial video`}
-                        className="absolute inset-0 h-full w-full"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
+                      <TestimonialVideo src={t.video} poster={t.poster} title={`${t.name} testimonial video`} />
                     </div>
                     <figcaption className="mt-8 max-w-[26rem]">
                       <blockquote className="title text-pretty">{t.quote}</blockquote>
