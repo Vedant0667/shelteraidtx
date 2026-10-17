@@ -78,7 +78,7 @@ This document contains all content extracted from the current website for redesi
 ### Board (Who We Are, "Our board")
 
 1. **Vedant Subramanian**: Founder & Board Chair, /images/Vedant-headshot.jpg, vedant.subramanian@shelteraidtx.org
-2. **Srikanth Subramanian**: Vice Chair, /images/srikanth-subramanian.jpg, srikanth.subramanian@shelteraidtx.org
+2. **Srikanth Subramanian**: Vice Chair, /images/srikanth-subramanian.jpg, sri.subramanian@shelteraidtx.org
 3. **Arjun Subramanian**: Co-Founder & Director, /images/Arjun-headshot.JPG, arjun.subramanian@shelteraidtx.org
 4. **TK Subramanian**: Director, /images/tk-subramanian.jpg, tk.subramanian@shelteraidtx.org
 5. **Arti Baskaran**: Director, /images/arti-baskaran.jpg, arti.baskaran@shelteraidtx.org

@@ -37,16 +37,20 @@ export const organizationSchema = {
     { "@type": "City", name: "Fort Worth", containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Plano", containedInPlace: { "@type": "State", name: "Texas" } },
   ],
-  founder: { "@type": "Person", name: "Vedant Subramanian" },
+  // Founder plus the two co-founders named in the Who We Are photo caption.
+  founder: ["Vedant Subramanian", "Arjun Subramanian", "Harshdeep Bommareddy"].map((name) => ({
+    "@type": "Person",
+    name,
+  })),
   // Named leadership, matching the board and team on /who-we-are.
   member: [
-    ["Vedant Subramanian", "Founder and Board Chair"],
+    ["Vedant Subramanian", "Founder & Board Chair"],
     ["Srikanth Subramanian", "Vice Chair"],
-    ["Arjun Subramanian", "Co-Founder and Director"],
+    ["Arjun Subramanian", "Co-Founder & Director"],
     ["TK Subramanian", "Director"],
     ["Arti Baskaran", "Director"],
     ["Vikram Sampath", "President"],
-    ["Aarav Nesargi", "VP and Secretary"],
+    ["Aarav Nesargi", "VP & Secretary"],
   ].map(([name, roleName]) => ({
     "@type": "OrganizationRole",
     roleName,

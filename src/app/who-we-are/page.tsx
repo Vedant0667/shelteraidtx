@@ -29,7 +29,7 @@ const boardLeads: Person[] = [
     name: "Srikanth Subramanian",
     title: "Vice Chair",
     image: "/images/srikanth-subramanian.jpg",
-    email: "srikanth.subramanian@shelteraidtx.org",
+    email: "sri.subramanian@shelteraidtx.org",
   },
 ]
 
