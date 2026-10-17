@@ -47,7 +47,7 @@ export function CopyEmail({
         aria-label={`Copy ${name}'s email address, ${email}`}
         className={
           light
-            ? "inline-flex max-w-full items-center gap-1.5 rounded-full border border-[var(--hairline)] px-2.5 py-1 text-[0.75rem] font-medium text-[var(--ink)] transition-colors hover:border-[var(--hairline-strong)]"
+            ? "inline-flex max-w-full items-center gap-1.5 rounded-full border border-[var(--hairline)] px-2.5 py-1 text-[0.75rem] font-medium text-[var(--ink)] transition-colors hover:border-[var(--hairline-strong)] focus-visible:outline-[var(--accent-ink)]"
             : `inline-flex max-w-full items-center gap-1.5 rounded-full font-medium text-white backdrop-blur-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${compact ? "bg-black/35 px-2.5 py-1 text-[0.7rem] hover:bg-black/50" : "bg-white/15 px-3 py-1 text-sm hover:bg-white/25"}`
         }
       >
