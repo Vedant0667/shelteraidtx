@@ -38,6 +38,20 @@ export const organizationSchema = {
     { "@type": "City", name: "Plano", containedInPlace: { "@type": "State", name: "Texas" } },
   ],
   founder: { "@type": "Person", name: "Vedant Subramanian" },
+  // Named leadership, matching the board and team on /who-we-are.
+  member: [
+    ["Vedant Subramanian", "Founder and Board Chair"],
+    ["Srikanth Subramanian", "Vice Chair"],
+    ["Arjun Subramanian", "Co-Founder and Director"],
+    ["TK Subramanian", "Director"],
+    ["Arti Baskaran", "Director"],
+    ["Vikram Sampath", "President"],
+    ["Aarav Nesargi", "VP and Secretary"],
+  ].map(([name, roleName]) => ({
+    "@type": "OrganizationRole",
+    roleName,
+    member: { "@type": "Person", name },
+  })),
   nonprofitStatus: "Nonprofit501c3",
   taxID: "93-3584886",
   contactPoint: [{ "@type": "ContactPoint", contactType: "general", email: "contact@shelteraidtx.org" }],

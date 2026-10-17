@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Who We Are: Student-Led DFW Shoe Nonprofit",
-  description: "Meet the student-led team behind Shelter Aid TX, a 501(c)(3) nonprofit delivering shoes to Dallas-Fort Worth homeless shelters since October 2023.",
+  description: "Meet the board and student officers of Shelter Aid TX, a student-led 501(c)(3) delivering shoes to Dallas-Fort Worth homeless shelters since 2023.",
   alternates: {
     canonical: "/who-we-are",
   },
