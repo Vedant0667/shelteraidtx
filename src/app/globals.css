@@ -974,10 +974,13 @@
   will-change: filter, transform, opacity;
 }
 
-/* Word blur-rise (hero) */
+/* Word blur-rise (hero). Starts at 1% opacity, not 0: Chrome skips text first
+   painted at opacity 0 when timing LCP, so the hero copy never counted and the
+   count-up's last frame (~3-8s on a phone) became the LCP. At 1% the copy counts
+   at first paint, and the fade looks the same. */
 @keyframes rise-in {
   0% {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(0.5em);
     filter: blur(10px);
   }
