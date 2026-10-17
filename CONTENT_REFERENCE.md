@@ -75,32 +75,18 @@ This document contains all content extracted from the current website for redesi
 
 ## TEAM MEMBERS
 
-### Leadership Team
+### Board (Who We Are, "Our board")
 
-1. **Vedant Subramanian**
-   - Title: President and Co-Founder
-   - Image: /images/Vedant-headshot.png
+1. **Vedant Subramanian**: Founder & Board Chair, /images/Vedant-headshot.jpg, vedant.subramanian@shelteraidtx.org
+2. **Srikanth Subramanian**: Vice Chair, /images/srikanth-subramanian.jpg, srikanth.subramanian@shelteraidtx.org
+3. **Arjun Subramanian**: Co-Founder & Director, /images/Arjun-headshot.JPG, arjun.subramanian@shelteraidtx.org
+4. **TK Subramanian**: Director, /images/tk-subramanian.jpg, tk.subramanian@shelteraidtx.org
+5. **Arti Baskaran**: Director, /images/arti-baskaran.jpg, arti.baskaran@shelteraidtx.org
 
-2. **Arjun Subramanian**
-   - Title: Board Chair and Co-Founder
-   - Image: /images/Arjun-headshot.JPG
+### Student officers (Who We Are, "Our team")
 
-3. **Harshdeep Bommareddy**
-   - Title: VP and Co-Founder
-   - Image: /images/Harshdeep-headshot.png
-
-4. **Vikram Sampath**
-   - Title: Secretary
-   - Image: /images/Vikram-headshot.jpg
-
-5. **Aarav Nesargi**
-   - Title: Partnerships/Recruitment Intern
-   - Image: /images/Aarav-headshot.jpeg
-
-### Board of Directors (Additional)
-- Srikanth Subramanian - Director
-- T.K. Subramanian - Director
-- Arti Baskaran - Director
+1. **Vikram Sampath**: President, /images/Vikram-headshot.jpg, vikram.sampath@shelteraidtx.org
+2. **Aarav Nesargi**: VP & Secretary, /images/aarav-nesargi-2026.jpeg, aarav.nesargi@shelteraidtx.org
 
 ### Team Photo
 - /images/team-photo.jpeg

@@ -6,27 +6,62 @@ import { ButtonLink, Em, PageIntro, RowList, Section, Timeline } from "@/compone
 import { organizationSchema } from "@/lib/schema"
 import { CopyEmail } from "@/components/CopyEmail"
 
-const teamMembers = [
+type Person = {
+  name: string
+  title: string
+  image: string
+  email?: string
+  bio?: string
+  /** Per-photo framing, since each headshot is cropped differently. */
+  imageClass?: string
+}
+
+/** Chair and vice chair get the large cards; the directors sit in a row of three below. */
+const boardLeads: Person[] = [
   {
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
     image: "/images/Vedant-headshot.jpg",
     email: "vedant.subramanian@shelteraidtx.org",
-    bio: "Vedant founded Shelter Aid TX after calling 50 shelters and hearing the same request again and again: shoes.",
+    imageClass: "scale-[1.5] translate-y-[10%] md:translate-y-0 md:scale-[1.8] md:origin-top",
   },
   {
+    name: "Srikanth Subramanian",
+    title: "Vice Chair",
+    image: "/images/srikanth-subramanian.jpg",
+    email: "srikanth.subramanian@shelteraidtx.org",
+  },
+]
+
+const directors: Person[] = [
+  {
     name: "Arjun Subramanian",
-    title: "Co-Founder & Vice Chair",
+    title: "Co-Founder & Director",
     image: "/images/Arjun-headshot.JPG",
     email: "arjun.subramanian@shelteraidtx.org",
-    bio: "Arjun sets the long-term direction of Shelter Aid TX, so the focus stays on getting shoes to shelters.",
   },
+  {
+    name: "TK Subramanian",
+    title: "Director",
+    image: "/images/tk-subramanian.jpg",
+    email: "tk.subramanian@shelteraidtx.org",
+  },
+  {
+    name: "Arti Baskaran",
+    title: "Director",
+    image: "/images/arti-baskaran.jpg",
+    email: "arti.baskaran@shelteraidtx.org",
+  },
+]
+
+const officers: Person[] = [
   {
     name: "Vikram Sampath",
     title: "President",
     image: "/images/Vikram-headshot.jpg",
     email: "vikram.sampath@shelteraidtx.org",
     bio: "Vikram helps run day-to-day operations and coordinates volunteers across DFW.",
+    imageClass: "scale-125 -translate-y-[15%] md:translate-y-0 md:scale-[1.25] md:translate-y-[-10%]",
   },
   {
     name: "Aarav Nesargi",
@@ -36,6 +71,64 @@ const teamMembers = [
     bio: "Aarav leads partnerships with schools and community organizations and keeps the team organized.",
   },
 ]
+
+/** Directors on phones: a row each, since three cards across leave no room for the names. */
+function PersonRow({ person }: { person: Person }) {
+  return (
+    <div className="glass-card flex items-center gap-4 rounded-[14px] p-3">
+      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] bg-[var(--sunken)]">
+        <Image src={person.image} alt={person.name} fill sizes="64px" className="object-cover object-top" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="text-[0.7rem] font-medium leading-tight text-[var(--accent-ink)]">{person.title}</p>
+        <h3 className="font-display text-[1.0625rem] font-bold leading-[1.2] text-[var(--ink)]">{person.name}</h3>
+      </div>
+      {person.email && <CopyEmail email={person.email} name={person.name} light />}
+    </div>
+  )
+}
+
+/** The original glass card. `small` is the directors' row: tighter type, no bio, corner email chip only. */
+function PersonCard({ person, small = false }: { person: Person; small?: boolean }) {
+  return (
+    <div className="glass-card rounded-[14px] overflow-hidden hover-lift">
+      <div className={`relative ${small ? "aspect-[3/4]" : "aspect-square md:aspect-[3/4]"}`}>
+        <Image
+          src={person.image}
+          alt={person.name}
+          fill
+          sizes={small ? "(min-width: 768px) 18rem, 33vw" : "(min-width: 768px) 28rem, 50vw"}
+          className={`object-cover object-top md:object-center ${person.imageClass ?? ""}`}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        {person.email && (
+          // Below lg (always, on the small cards): a corner chip, so the name block stays clear of faces.
+          <div className={`absolute right-2 top-2 md:right-4 md:top-4 ${small ? "" : "lg:hidden"}`}>
+            <CopyEmail email={person.email} name={person.name} compact />
+          </div>
+        )}
+        <div className={`absolute bottom-0 left-0 right-0 text-white ${small ? "p-3 md:p-5" : "p-4 md:p-6"}`}>
+          <p className={`text-[#87CEEB] font-medium mb-1 leading-tight ${small ? "text-[0.65rem] md:text-sm" : "text-[0.7rem] md:text-sm"}`}>
+            {person.title}
+          </p>
+          <h3
+            className={`font-display font-bold text-white ${
+              small ? "text-[0.9rem] leading-[1.15] md:text-xl" : "text-[1.0625rem] leading-[1.15] md:text-2xl md:mb-3"
+            }`}
+          >
+            {person.name}
+          </h3>
+          {!small && person.bio && <p className="text-white/80 text-sm leading-relaxed hidden md:block">{person.bio}</p>}
+          {!small && person.email && (
+            <div className="mt-4 hidden lg:block">
+              <CopyEmail email={person.email} name={person.name} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 /** Same three roles as every other row list on the site: kicker, title, detail. */
 const coreValues = [
@@ -109,54 +202,52 @@ export default function WhoWeArePage() {
           }
         />
 
-        {/* Team: standard Section masthead; the glass cards below are the
-            original ones, left-aligned to the same gutter as the heading. */}
+        {/* Board: chair and vice chair in the original large cards, the three
+            directors in a row of smaller ones, all left-aligned to the gutter. */}
         <Section
           tone="surface"
+          kicker="Our board"
+          title="The board of"
+          em="Shelter Aid TX."
+          lede="Five directors oversee Shelter Aid TX."
+        >
+          <div className="max-w-4xl">
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {boardLeads.map((person) => (
+                <PersonCard key={person.name} person={person} />
+              ))}
+            </div>
+            <div className="mt-3 flex flex-col gap-3 sm:hidden">
+              {directors.map((person) => (
+                <PersonRow key={person.name} person={person} />
+              ))}
+            </div>
+            <div className="mt-6 hidden grid-cols-3 gap-4 sm:grid md:gap-6">
+              {directors.map((person) => (
+                <PersonCard key={person.name} person={person} small />
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        {/* Team: the student officers, in the same large cards. */}
+        <Section
+          tone="bg"
           kicker="Our team"
           title="Meet the people behind"
           em="Shelter Aid TX."
-          lede="Students lead Shelter Aid TX, with help from mentors. The four below lead the board, operations, and partnerships."
+          lede="Students lead Shelter Aid TX, with help from mentors. Vikram and Aarav run operations and partnerships."
         >
-        {/* Left-aligned at the `.wrap` gutter (no `mx-auto`); the cards
-            themselves are the originals, untouched. */}
-        <div className="max-w-4xl">
-          <div className="grid grid-cols-2 gap-3 md:gap-6">
-            {teamMembers.map((member, i) => (
-              <div key={i} className="group">
-                <div className="glass-card rounded-[14px] overflow-hidden hover-lift">
-                  <div className="aspect-square md:aspect-[3/4] relative">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(min-width: 768px) 28rem, 50vw"
-                      className={`object-cover object-top md:object-center ${i === 0 ? "scale-[1.5] translate-y-[10%] md:translate-y-0 md:scale-[1.8] md:origin-top" : ""} ${i === 2 ? "scale-125 -translate-y-[15%] md:translate-y-0 md:scale-[1.25] md:translate-y-[-10%]" : ""}`}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    {/* Below lg: a corner chip, so the name block stays clear of faces and the full address never truncates. */}
-                    <div className="absolute right-2 top-2 md:right-4 md:top-4 lg:hidden">
-                      <CopyEmail email={member.email} name={member.name} compact />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
-                      <p className="text-[#87CEEB] text-[0.7rem] leading-tight md:text-sm font-medium mb-1">{member.title}</p>
-                      <h3 className="font-display text-[1.0625rem] leading-[1.15] md:text-2xl font-bold md:mb-3 text-white">
-                        {member.name}
-                      </h3>
-                      <p className="text-white/80 text-sm leading-relaxed hidden md:block">{member.bio}</p>
-                      <div className="mt-4 hidden lg:block">
-                        <CopyEmail email={member.email} name={member.name} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-4xl">
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
+              {officers.map((person) => (
+                <PersonCard key={person.name} person={person} />
+              ))}
+            </div>
+            <p className="meta mt-6 md:mt-8">
+              They are only part of the team. Another 12+ members work alongside them.
+            </p>
           </div>
-          <p className="meta mt-6 md:mt-8">
-            These four are only part of the team. Another 12+ members work alongside them.
-          </p>
-        </div>
         </Section>
 
         {/* Our story. Text + photo pair, so the section header sits INSIDE the
