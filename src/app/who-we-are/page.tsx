@@ -29,6 +29,8 @@ const boardLeads: Person[] = [
     email: "vedant.subramanian@shelteraidtx.org",
     // A tight crop: from the top, the square phone card puts his face behind the name.
     position: "object-[50%_85%] md:object-center",
+    // From md the full photo shows and his face sits smaller and lower than Srikanth's; zoom to match.
+    imageClass: "md:scale-[1.18] md:origin-[50%_93%]",
   },
   {
     name: "Srikanth Subramanian",
