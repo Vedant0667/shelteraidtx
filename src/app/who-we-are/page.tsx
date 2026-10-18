@@ -9,15 +9,10 @@ import { CopyEmail } from "@/components/CopyEmail"
 type Person = {
   name: string
   title: string
+  /** A 3:4 crop from public/images/team, framed to one rule: eyes 36% down, face about 62% of the width. */
   image: string
   email?: string
   bio?: string
-  /** Per-photo framing, since each headshot is cropped differently. */
-  imageClass?: string
-  /** Object position on the cards; the default is top on phones (square crop) and center from md. */
-  position?: string
-  /** Framing for the square phone thumbnail, when the top of the photo is not the face. */
-  thumbClass?: string
 }
 
 /** Chair and vice chair get the large cards; the directors sit in a row of three below. */
@@ -25,17 +20,13 @@ const boardLeads: Person[] = [
   {
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
-    image: "/images/vedant-subramanian.jpg",
+    image: "/images/team/vedant-subramanian.jpg",
     email: "vedant.subramanian@shelteraidtx.org",
-    // A tight crop: from the top, the square phone card puts his face behind the name.
-    position: "object-[50%_85%] md:object-center",
-    // From md the full photo shows and his face sits smaller and lower than Srikanth's; zoom to match.
-    imageClass: "md:scale-[1.18] md:origin-[50%_93%]",
   },
   {
     name: "Srikanth Subramanian",
     title: "Vice Chair",
-    image: "/images/srikanth-subramanian.jpg",
+    image: "/images/team/srikanth-subramanian.jpg",
     email: "sri.subramanian@shelteraidtx.org",
   },
 ]
@@ -44,21 +35,19 @@ const directors: Person[] = [
   {
     name: "Arjun Subramanian",
     title: "Co-Founder & Director",
-    image: "/images/Arjun-headshot.JPG",
+    image: "/images/team/arjun-subramanian.jpg",
     email: "arjun.subramanian@shelteraidtx.org",
   },
   {
     name: "TK Subramanian",
     title: "Director",
-    image: "/images/tk-subramanian.jpg",
+    image: "/images/team/tk-subramanian.jpg",
     email: "tk.subramanian@shelteraidtx.org",
-    // A tall photo: the top square is shutters and forehead, so center the thumbnail on his face.
-    thumbClass: "object-[50%_38%]",
   },
   {
     name: "Arti Baskaran",
     title: "Director",
-    image: "/images/arti-baskaran.jpg",
+    image: "/images/team/arti-baskaran.jpg",
     email: "arti.baskaran@shelteraidtx.org",
   },
 ]
@@ -67,47 +56,30 @@ const officers: Person[] = [
   {
     name: "Vikram Sampath",
     title: "President",
-    image: "/images/Vikram-headshot.jpg",
+    image: "/images/team/vikram-sampath.jpg",
     email: "vikram.sampath@shelteraidtx.org",
     bio: "Vikram helps run day-to-day operations and coordinates volunteers across DFW.",
-    imageClass: "scale-125 -translate-y-[15%] md:translate-y-0 md:scale-[1.25] md:translate-y-[-10%]",
   },
   {
     name: "Aarav Nesargi",
     title: "VP & Secretary",
-    image: "/images/aarav-nesargi-2026.jpeg",
+    image: "/images/team/aarav-nesargi.jpg",
     email: "aarav.nesargi@shelteraidtx.org",
     bio: "Aarav leads partnerships with schools and community organizations and keeps the team organized.",
   },
 ]
 
-/** Directors on phones: a row each, since three cards across leave no room for the names. */
-function PersonRow({ person }: { person: Person }) {
-  return (
-    <div className="glass-card flex items-center gap-4 rounded-[14px] p-3">
-      <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] bg-[var(--sunken)]">
-        <Image src={person.image} alt={person.name} fill sizes="64px" className={`object-cover ${person.thumbClass ?? "object-top"}`} />
-      </div>
-      <div className="min-w-0 flex-1">
-        <p className="text-[0.7rem] font-medium leading-tight text-[var(--accent-ink)]">{person.title}</p>
-        <h3 className="font-display text-[1.0625rem] font-bold leading-[1.2] text-[var(--ink)]">{person.name}</h3>
-      </div>
-      {person.email && <CopyEmail email={person.email} name={person.name} light />}
-    </div>
-  )
-}
-
-/** The original glass card. `small` is the directors' row: tighter type, no bio, corner email chip only. */
+/** The original glass card. `small` is the directors' row from sm up: tighter type, no bio, corner email chip only. */
 function PersonCard({ person, small = false }: { person: Person; small?: boolean }) {
   return (
     <div className="glass-card rounded-[14px] overflow-hidden hover-lift">
-      <div className={`relative ${small ? "aspect-[3/4]" : "aspect-square md:aspect-[3/4]"}`}>
+      <div className="relative aspect-[3/4]">
         <Image
           src={person.image}
           alt={person.name}
           fill
           sizes={small ? "(min-width: 768px) 18rem, 33vw" : "(min-width: 768px) 28rem, 50vw"}
-          className={`object-cover ${person.position ?? "object-top md:object-center"} ${person.imageClass ?? ""}`}
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         {person.email && (
@@ -226,9 +198,9 @@ export default function WhoWeArePage() {
                 <PersonCard key={person.name} person={person} />
               ))}
             </div>
-            <div className="mt-3 flex flex-col gap-3 sm:hidden">
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:hidden">
               {directors.map((person) => (
-                <PersonRow key={person.name} person={person} />
+                <PersonCard key={person.name} person={person} />
               ))}
             </div>
             <div className="mt-6 hidden grid-cols-3 gap-4 sm:grid md:gap-6">

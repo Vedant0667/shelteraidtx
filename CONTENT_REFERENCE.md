@@ -77,16 +77,18 @@ This document contains all content extracted from the current website for redesi
 
 ### Board (Who We Are, "Our board")
 
-1. **Vedant Subramanian**: Founder & Board Chair, /images/vedant-subramanian.jpg, vedant.subramanian@shelteraidtx.org
-2. **Srikanth Subramanian**: Vice Chair, /images/srikanth-subramanian.jpg, sri.subramanian@shelteraidtx.org
-3. **Arjun Subramanian**: Co-Founder & Director, /images/Arjun-headshot.JPG, arjun.subramanian@shelteraidtx.org
-4. **TK Subramanian**: Director, /images/tk-subramanian.jpg, tk.subramanian@shelteraidtx.org
-5. **Arti Baskaran**: Director, /images/arti-baskaran.jpg, arti.baskaran@shelteraidtx.org
+Card photos are 3:4 crops in /images/team, cut from the originals in /images to one rule: eyes 36% down, face (macOS Vision face box) about 62% of the width for the board and 42% for the officers, whose photos are lower resolution. TK's photo is too tight for 62%, so his is the full width (70%).
+
+1. **Vedant Subramanian**: Founder & Board Chair, /images/team/vedant-subramanian.jpg, vedant.subramanian@shelteraidtx.org
+2. **Srikanth Subramanian**: Vice Chair, /images/team/srikanth-subramanian.jpg, sri.subramanian@shelteraidtx.org
+3. **Arjun Subramanian**: Co-Founder & Director, /images/team/arjun-subramanian.jpg, arjun.subramanian@shelteraidtx.org
+4. **TK Subramanian**: Director, /images/team/tk-subramanian.jpg, tk.subramanian@shelteraidtx.org
+5. **Arti Baskaran**: Director, /images/team/arti-baskaran.jpg, arti.baskaran@shelteraidtx.org
 
 ### Student officers (Who We Are, "Our team")
 
-1. **Vikram Sampath**: President, /images/Vikram-headshot.jpg, vikram.sampath@shelteraidtx.org
-2. **Aarav Nesargi**: VP & Secretary, /images/aarav-nesargi-2026.jpeg, aarav.nesargi@shelteraidtx.org
+1. **Vikram Sampath**: President, /images/team/vikram-sampath.jpg, vikram.sampath@shelteraidtx.org
+2. **Aarav Nesargi**: VP & Secretary, /images/team/aarav-nesargi.jpg, aarav.nesargi@shelteraidtx.org
 
 ### Team Photo
 - /images/team-photo.jpeg
