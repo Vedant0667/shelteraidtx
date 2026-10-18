@@ -11,10 +11,11 @@ const OCT_7 = '2026-10-07'
 const OCT_12 = '2026-10-12'
 const OCT_13 = '2026-10-13'
 const OCT_17 = '2026-10-17'
+const OCT_18 = '2026-10-18'
 
 const routes: { path: string; lastModified: string }[] = [
   { path: '', lastModified: OCT_17 },
-  { path: '/who-we-are', lastModified: OCT_17 },
+  { path: '/who-we-are', lastModified: OCT_18 },
   { path: '/get-involved', lastModified: OCT_12 },
   { path: '/request-shoes', lastModified: OCT_12 },
   { path: '/donate', lastModified: OCT_12 },

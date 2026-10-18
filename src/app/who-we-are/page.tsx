@@ -14,6 +14,10 @@ type Person = {
   bio?: string
   /** Per-photo framing, since each headshot is cropped differently. */
   imageClass?: string
+  /** Object position on the cards; the default is top on phones (square crop) and center from md. */
+  position?: string
+  /** Framing for the square phone thumbnail, when the top of the photo is not the face. */
+  thumbClass?: string
 }
 
 /** Chair and vice chair get the large cards; the directors sit in a row of three below. */
@@ -21,9 +25,10 @@ const boardLeads: Person[] = [
   {
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
-    image: "/images/Vedant-headshot.jpg",
+    image: "/images/vedant-subramanian.jpg",
     email: "vedant.subramanian@shelteraidtx.org",
-    imageClass: "scale-[1.5] translate-y-[10%] md:translate-y-0 md:scale-[1.8] md:origin-top",
+    // A tight crop: from the top, the square phone card puts his face behind the name.
+    position: "object-[50%_85%] md:object-center",
   },
   {
     name: "Srikanth Subramanian",
@@ -45,6 +50,8 @@ const directors: Person[] = [
     title: "Director",
     image: "/images/tk-subramanian.jpg",
     email: "tk.subramanian@shelteraidtx.org",
+    // A tall photo: the top square is shutters and forehead, so center the thumbnail on his face.
+    thumbClass: "object-[50%_38%]",
   },
   {
     name: "Arti Baskaran",
@@ -77,7 +84,7 @@ function PersonRow({ person }: { person: Person }) {
   return (
     <div className="glass-card flex items-center gap-4 rounded-[14px] p-3">
       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[10px] bg-[var(--sunken)]">
-        <Image src={person.image} alt={person.name} fill sizes="64px" className="object-cover object-top" />
+        <Image src={person.image} alt={person.name} fill sizes="64px" className={`object-cover ${person.thumbClass ?? "object-top"}`} />
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-[0.7rem] font-medium leading-tight text-[var(--accent-ink)]">{person.title}</p>
@@ -98,7 +105,7 @@ function PersonCard({ person, small = false }: { person: Person; small?: boolean
           alt={person.name}
           fill
           sizes={small ? "(min-width: 768px) 18rem, 33vw" : "(min-width: 768px) 28rem, 50vw"}
-          className={`object-cover object-top md:object-center ${person.imageClass ?? ""}`}
+          className={`object-cover ${person.position ?? "object-top md:object-center"} ${person.imageClass ?? ""}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         {person.email && (
