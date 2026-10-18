@@ -9,7 +9,7 @@ import { CopyEmail } from "@/components/CopyEmail"
 type Person = {
   name: string
   title: string
-  /** A 3:4 crop from public/images/team, framed to one rule: eyes 36% down, face about 62% of the width. */
+  /** A 3:4 crop from public/images/people, framed to one rule: head (hair to chin) 62% of the height, hair 2.5% below the top. */
   image: string
   email?: string
   bio?: string
@@ -20,13 +20,13 @@ const boardLeads: Person[] = [
   {
     name: "Vedant Subramanian",
     title: "Founder & Board Chair",
-    image: "/images/team/vedant-subramanian.jpg",
+    image: "/images/people/vedant-subramanian.jpg",
     email: "vedant.subramanian@shelteraidtx.org",
   },
   {
     name: "Srikanth Subramanian",
     title: "Vice Chair",
-    image: "/images/team/srikanth-subramanian.jpg",
+    image: "/images/people/srikanth-subramanian.jpg",
     email: "sri.subramanian@shelteraidtx.org",
   },
 ]
@@ -35,19 +35,19 @@ const directors: Person[] = [
   {
     name: "Arjun Subramanian",
     title: "Co-Founder & Director",
-    image: "/images/team/arjun-subramanian.jpg",
+    image: "/images/people/arjun-subramanian.jpg",
     email: "arjun.subramanian@shelteraidtx.org",
   },
   {
     name: "TK Subramanian",
     title: "Director",
-    image: "/images/team/tk-subramanian.jpg",
+    image: "/images/people/tk-subramanian.jpg",
     email: "tk.subramanian@shelteraidtx.org",
   },
   {
     name: "Arti Baskaran",
     title: "Director",
-    image: "/images/team/arti-baskaran.jpg",
+    image: "/images/people/arti-baskaran.jpg",
     email: "arti.baskaran@shelteraidtx.org",
   },
 ]
@@ -56,18 +56,24 @@ const officers: Person[] = [
   {
     name: "Vikram Sampath",
     title: "President",
-    image: "/images/team/vikram-sampath.jpg",
+    image: "/images/people/vikram-sampath.jpg",
     email: "vikram.sampath@shelteraidtx.org",
     bio: "Vikram helps run day-to-day operations and coordinates volunteers across DFW.",
   },
   {
     name: "Aarav Nesargi",
     title: "VP & Secretary",
-    image: "/images/team/aarav-nesargi.jpg",
+    image: "/images/people/aarav-nesargi.jpg",
     email: "aarav.nesargi@shelteraidtx.org",
     bio: "Aarav leads partnerships with schools and community organizations and keeps the team organized.",
   },
 ]
+
+/** Splits at the first space; a one-word name stays whole on the first line. */
+function splitName(name: string): [string, string] {
+  const i = name.indexOf(" ")
+  return i < 0 ? [name, ""] : [name.slice(0, i), name.slice(i + 1)]
+}
 
 /** The original glass card. `small` is the directors' row from sm up: tighter type, no bio, corner email chip only. */
 function PersonCard({ person, small = false }: { person: Person; small?: boolean }) {
@@ -97,7 +103,10 @@ function PersonCard({ person, small = false }: { person: Person; small?: boolean
               small ? "text-[0.9rem] leading-[1.15] md:text-xl" : "text-[1.0625rem] leading-[1.15] md:text-2xl md:mb-3"
             }`}
           >
-            {person.name}
+            {/* First and last name on their own lines wherever any name in the row would wrap,
+                so every card in a row breaks the same way. */}
+            <span className={small ? "block lg:inline" : "block sm:inline"}>{splitName(person.name)[0]}</span>{" "}
+            <span className={small ? "block lg:inline" : "block sm:inline"}>{splitName(person.name)[1]}</span>
           </h3>
           {!small && person.bio && <p className="text-white/80 text-sm leading-relaxed hidden md:block">{person.bio}</p>}
           {!small && person.email && (
